@@ -1,66 +1,95 @@
 :root {
-    --gold: #d4a017;
-    --dark-bg: #1a1a1a;
+    --gold: #d4af37;
+    --dark-blue: #1a2a3a;
 }
 
 body {
-    font-family: 'Roboto', sans-serif;
+    overflow-x: hidden;
     background-color: #f8f9fa;
-    scroll-behavior: smooth;
 }
 
-/* Estilos de Portada */
-#portada {
-    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
-                url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&q=80'); /* Imagen de fondo arquitectónica */
-    background-size: cover;
-    background-position: center;
-    position: relative;
+/* Sidebar Styling */
+#sidebar-wrapper {
+    min-height: 100vh;
+    width: 280px;
+    margin-left: -280px;
+    transition: margin .25s ease-out;
+    background-color: var(--dark-blue) !important;
 }
 
-h1 {
-    font-family: 'Playfair Display', serif;
+#wrapper.toggled #sidebar-wrapper {
+    margin-left: 0;
 }
 
-.text-gold {
-    color: var(--gold) !important;
+#sidebar-wrapper .sidebar-heading {
+    font-size: 1.25rem;
+    font-weight: bold;
+    border-bottom: 1px solid #444;
 }
 
-.btn-gold {
-    background-color: var(--gold);
-    color: white;
+.list-group-item {
     border: none;
-    transition: 0.3s;
+    padding: 1rem 1.5rem;
+    font-size: 0.95rem;
 }
 
-.btn-gold:hover {
-    background-color: #b8860b;
-    color: white;
-    transform: scale(1.05);
+.list-group-item.active {
+    background-color: var(--gold) !important;
+    border-color: var(--gold) !important;
 }
 
-.border-gold {
-    border: 1px solid var(--gold) !important;
-}
-
-/* Animaciones de sección */
+/* Content Sections */
 .content-section {
-    animation: slideUp 0.6s ease-out;
+    display: none;
+    animation: fadeIn 0.4s ease-in-out;
 }
 
-@keyframes slideUp {
-    from { opacity: 0; transform: translateY(30px); }
+.content-section.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
-.card {
+/* Book Elements */
+.book-cover {
+    background: white;
+    border: 15px solid var(--dark-blue);
+    margin-top: 50px;
+    padding: 80px 20px !important;
+}
+
+.dropcap {
+    font-size: 1.2rem;
+    line-height: 1.8;
+}
+
+.dropcap::first-letter {
+    font-size: 4rem;
+    float: left;
+    margin-right: 10px;
+    color: var(--gold);
+    font-weight: bold;
+    line-height: 1;
+}
+
+.index-list li {
     cursor: pointer;
-    transition: 0.3s;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
 }
 
-.card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2) !important;
+.index-list li:hover {
+    color: var(--gold);
 }
 
-.z-index-1 { z-index: 1; }
+.dots {
+    flex-grow: 1;
+    border-bottom: 1px dotted #ccc;
+    margin: 0 10px;
+    position: relative;
+    top: -5px;
+}
