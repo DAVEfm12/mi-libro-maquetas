@@ -3,76 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Maquetas para Principiantes - Interactivo</title>
+    <title>Maquetas para Principiantes | Edición Interactiva</title>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <div class="taller-background">
-        
-        <div class="flip-book" id="book">
-            
-            <div class="page page-cover" data-density="hard">
-                <div class="page-content">
-                    <h2 class="coleccion">Colección Dorada</h2>
-                    <h1>MAQUETAS PARA PRINCIPIANTES</h1>
-                    <div class="author">Ignacio López Torres</div>
-                    <img src="img/portada_maqueta.jpg" alt="Portada" class="img-portada">
-                    <p>TEORÍA • ELABORACIÓN • ACABADOS</p>
-                </div>
-            </div>
+    <div id="progress-container"><div id="progress-bar"></div></div>
 
-            <div class="page">
-                <div class="page-content">
-                    <h2 class="page-header">Índice de Contenidos</h2>
-                    <ul class="indice-lista">
-                        <li onclick="irAPagina(2)"><span>I.</span> Introducción a las maquetas</li>
-                        <li onclick="irAPagina(4)"><span>IV.</span> Materiales y Pegamentos</li>
-                        <li onclick="irAPagina(6)"><span>VII.</span> Escalas Arquitectónicas</li>
-                        <li onclick="irAPagina(8)"><span>VIII.</span> Elaboración Paso a Paso</li>
-                    </ul>
-                    
-                </div>
-            </div>
-
-            <div class="page">
-                <div class="page-content">
-                    <h2 class="page-header">Capítulo IV: Materiales</h2>
-                    <p>Para lograr una maqueta profesional, la elección del pegamento es vital:</p>
-                    <div class="interactivo-box" onclick="toggleDetalle('pegamento')">
-                        <strong>UHU / Pegamento Universal:</strong>
-                        <p id="detalle-pegamento" class="hidden">Ideal para cartón batería y madera balsa. Secado rápido y no mancha si se aplica con cuidado.</p>
+    <div id="canvas">
+        <div class="magazine-shell">
+            <div id="book">
+                
+                <div class="page exit-hard" data-density="hard">
+                    <div class="page-content cover-bg">
+                        <div class="cover-overlay">
+                            <span class="collection">COLECCIÓN DORADA</span>
+                            <h1>MAQUETAS <br><span>PARA PRINCIPIANTES</span></h1>
+                            <p class="author">Ignacio López Torres</p>
+                            <div class="version">VOLUMEN I</div>
+                        </div>
                     </div>
-                    <img src="img/materiales.jpg" alt="Herramientas" class="img-content">
                 </div>
-            </div>
 
-            <div class="page">
-                <div class="page-content">
-                    <h2 class="page-header">Herramienta: Calculadora de Escalas</h2>
-                    <p>Convierte medidas reales a medidas de maqueta:</p>
-                    <div class="calculadora-escala">
-                        <input type="number" id="medidaReal" placeholder="Medida real (metros)">
-                        <select id="escalaSel">
-                            <option value="50">Escala 1:50</option>
-                            <option value="100">Escala 1:100</option>
-                            <option value="200">Escala 1:200</option>
-                        </select>
-                        <button onclick="calcular()">Calcular</button>
-                        <div id="resultadoEscala">Resultado: 0 cm</div>
+                <div class="page">
+                    <div class="page-content">
+                        <h2 class="section-title">Índice Interactivo</h2>
+                        <ul class="interactive-menu">
+                            <li onclick="goTo(3)"><span>01</span> Conceptos Básicos</li>
+                            <li onclick="goTo(15)"><span>04</span> Materiales y Pegamentos</li>
+                            <li onclick="goTo(45)"><span>07</span> El Uso de las Escalas</li>
+                            <li onclick="goTo(80)"><span>08</span> Elaboración Paso a Paso</li>
+                        </ul>
                     </div>
-                    
                 </div>
-            </div>
 
-            <div class="page page-cover" data-density="hard">
-                <div class="page-content">
-                    <h2>Fin del Volumen I</h2>
-                    <p>Ignacio López Torres - 2024</p>
+                <div class="page">
+                    <div class="page-content">
+                        <span class="page-number">45</span>
+                        <h2>Capítulo VII: La Escala</h2>
+                        <p>Uno de los mayores retos para el principiante es entender la proporción.</p>
+                        
+                        <div class="tool-box">
+                            <h3>Calculadora de Escala (1:50)</h3>
+                            <input type="number" id="realSize" placeholder="Cm reales...">
+                            <button onclick="calcularEscala()">Calcular para maqueta</button>
+                            <p id="result">Resultado: 0 cm</p>
+                        </div>
+                    </div>
                 </div>
-            </div>
 
+            </div>
         </div>
+    </div>
+
+    <div class="controls">
+        <button id="prevBtn">Anterior</button>
+        <button id="nextBtn">Siguiente</button>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/page-flip/dist/js/page-flip.browser.js"></script>
