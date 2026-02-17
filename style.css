@@ -1,52 +1,89 @@
-body {
-    background-color: #f4f4f4;
-    font-family: 'Segoe UI', sans-serif;
+:root {
+    --primary-gold: #d4a017;
+    --dark-grey: #212529;
 }
 
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f8f9fa;
+    overflow-x: hidden;
+}
+
+/* Sidebar Styling */
 #sidebar-wrapper {
-    min-height: 100vh;
-    width: 250px;
+    min-width: 280px;
+    max-width: 280px;
     transition: all 0.3s;
+    height: 100vh;
+    position: sticky;
+    top: 0;
 }
 
 .sidebar-heading {
-    padding: 1.5rem 1rem;
-    font-size: 1.2rem;
-    background-color: #1a1a1a;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
 }
 
-#page-content-wrapper {
-    width: 100%;
+#sidebar-wrapper .list-group-item {
+    border: none;
+    padding: 1.2rem 1.5rem;
+    transition: 0.3s;
 }
 
+#sidebar-wrapper .list-group-item:hover {
+    background-color: #343a40 !important;
+    color: var(--primary-gold) !important;
+}
+
+/* Hero Section */
+.hero-bg {
+    height: 90vh;
+    background-image: url('https://images.unsplash.com/photo-1503387762-592dea58ef23?q=80&w=2000');
+    background-size: cover;
+    background-position: center;
+}
+
+.bg-overlay {
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 15px;
+    backdrop-filter: blur(5px);
+}
+
+.main-title {
+    font-family: 'Playfair Display', serif;
+    letter-spacing: 10px;
+}
+
+/* Content Sections */
 .content-section {
     display: none;
-    background: white;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    padding-top: 2rem;
 }
 
 .content-section.active {
     display: block;
-    animation: fadeIn 0.5s;
 }
 
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+.feature-card {
+    border-radius: 15px;
+    transition: transform 0.3s;
+    border: 1px solid #ddd;
 }
 
-.list-group-item {
-    border: none;
-    padding: 12px 20px;
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
 }
 
-.list-group-item:hover {
-    background-color: #333 !important;
-    color: #ffc107 !important;
+/* Animación Sidebar */
+#wrapper.toggled #sidebar-wrapper {
+    margin-left: -280px;
 }
 
-.tracking-widest {
-    letter-spacing: 0.2em;
+@media (max-width: 768px) {
+    #sidebar-wrapper {
+        margin-left: -280px;
+    }
+    #wrapper.toggled #sidebar-wrapper {
+        margin-left: 0;
+    }
 }
