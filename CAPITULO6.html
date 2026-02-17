@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capítulo V - Herramientas de Maquetería</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <style>
+        :root { 
+            --steel: #7f8c8d;
+            --caution: #f1c40f;
+            --workshop-bg: #2c3e50;
+            --blade-red: #e74c3c;
+        }
+        
+        body { background-color: #f4f7f6; font-family: 'Segoe UI', sans-serif; }
+
+        /* Banner de Taller */
+        .workshop-header {
+            background: var(--workshop-bg);
+            color: white;
+            padding: 50px 0;
+            border-bottom: 5px solid var(--steel);
+            text-align: center;
+        }
+
+        /* Paneles de Herramientas */
+        .tool-category {
+            border-left: 5px solid var(--steel);
+            background: white;
+            padding: 25px;
+            margin-bottom: 40px;
+            border-radius: 0 15px 15px 0;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .tool-card {
+            border: 1px solid #eee;
+            border-radius: 10px;
+            padding: 15px;
+            height: 100%;
+            transition: 0.3s;
+            background: #fff;
+        }
+        .tool-card:hover { border-color: var(--caution); box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+
+        /* Contenedores de Imágenes */
+        .img-space {
+            background: #fdfdfd;
+            border: 1px dashed #ccc;
+            min-height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 10px;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        .img-space img { max-width: 100%; height: auto; }
+
+        .warning-box {
+            background: #fff3cd;
+            border: 1px solid #ffeeba;
+            padding: 15px;
+            border-radius: 8px;
+            color: #856404;
+            font-size: 0.9rem;
+        }
+
+        .tool-title {
+            color: var(--workshop-bg);
+            font-weight: 700;
+            border-bottom: 2px solid var(--caution);
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+
+        .badge-pro { background: var(--workshop-bg); color: var(--caution); font-size: 0.7rem; }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold text-warning" href="CAPITULO4.html">← CAPÍTULO IV</a>
+            <span class="text-white">CAPÍTULO V: EQUIPAMIENTO TÉCNICO</span>
+        </div>
+    </nav>
+
+    <header class="workshop-header">
+        <div class="container">
+            <h1 class="display-4 fw-bold animate__animated animate__fadeInDown">HERRAMIENTAS DE TALLER</h1>
+            <p class="lead">Instrumentos de precisión para la excelencia arquitectónica</p>
+        </div>
+    </header>
+
+    <div class="container my-5">
+        
+        <section class="tool-category">
+            <h2 class="tool-title"><i class="bi bi-ruler me-2"></i>5.1 PARA MEDIR Y MARCAR</h2>
+            <p>La calidad de la herramienta de medición define la precisión del ensamblé. Evite reglas con crestas o numeración borrosa.</p>
+            
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="tool-card">
+                        <h6>5.1.1 Regla de Aluminio</h6>
+                        <p class="small">Doble función: trazar y servir de guía para el corte. Vital para secciones rectas.</p>
+                        <div class="img-space"><img src="l83.png" alt="Imagen 5.1 Regla"></div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="tool-card">
+                        <h6>5.1.2 Plástico Flexible</h6>
+                        <p class="small">Ideal para medir curvas y circunferencias. Ahorra tiempo en trazos no lineales.</p>
+                        <div class="img-space"><img src="l83_2.png" alt="Imagen 5.2 Regla flexible"></div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="tool-card">
+                        <h6>5.1.3 Transportador</h6>
+                        <p class="small">Recomendado: "Rosa de los vientos" (360°). Agiliza la medición de ángulos complejos.</p>
+                        <div class="img-space"><img src="l84.png" alt="Imagen 5.3 Transportador"></div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="tool-card">
+                        <h6>5.1.4 Escuadras</h6>
+                        <p class="small">Indispensables para alinear y asegurar ángulos rectos (90°).</p>
+                        <div class="img-space"><img src="l84_2.png" alt="Imagen 5.4 Escuadras"></div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="tool-card">
+                        <h6>5.1.5 Compás de Dos Puntas</h6>
+                        <p class="small">Para trazar arcos y círculos estéticos. Se complementa con el exacto de compás.</p>
+                        <div class="img-space"><img src="l84_3.png" alt="Imagen 5.5 Compás"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="tool-category" style="border-left-color: var(--blade-red);">
+            <h2 class="tool-title"><i class="bi bi-scissors me-2"></i>5.2 PARA CORTAR Y SEPARAR</h2>
+            <div class="warning-box mb-4">
+                <i class="bi bi-exclamation-triangle-fill me-2"></i>
+                <strong>SEGURIDAD:</strong> Estas herramientas deben estar siempre afiladas. Un filo desafilado causa crestas y accidentes por fuerza excesiva.
+            </div>
+
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="tool-card">
+                        <span class="badge badge-pro p-1 mb-2">BÁSICO</span>
+                        <h6>5.2.1 Exacto (Cúter)</h6>
+                        <p class="small">Mango rígido, navaja seccionada y seguro. El alma de la maquetería.</p>
+                        <div class="img-space"><img src="l85.png" alt="Imagen 5.6 Cúter"></div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="tool-card">
+                        <h6>5.2.2 Cúter Circular</h6>
+                        <p class="small">Sustituye al curvígrafo. Tecnología aplicada para círculos perfectos.</p>
+                        <div class="img-space"><img src="l86.png" alt="Imagen 5.7 Cúter circular"></div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="tool-card">
+                        <h6>5.2.3 Exacto 45° y Kit de Corte</h6>
+                        <p class="small">Para cortes biselados (esquinas) y enmarcado profesional.</p>
+                        <div class="img-grid d-flex gap-2">
+                            <div class="img-space flex-fill"><img src="l86_2.png" alt="Imagen 5.8"></div>
+                            <div class="img-space flex-fill"><img src="l86_3.png" alt="Imagen 5.9"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="tool-card">
+                        <h6>5.2.4 Buril</h6>
+                        <p class="small">Punta metálica de bola. Sirve para repujar, marcar y asentar dobleces sin romper el papel.</p>
+                        <div class="img-space"><img src="l87.png" alt="Imagen 5.10 Buril"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row g-4 mt-2">
+                <div class="col-md-4">
+                    <div class="tool-card bg-light">
+                        <h6>5.2.8 Serruchos (Costilla y Madera)</h6>
+                        <p class="small">Para cortes de base. La "costilla" mantiene la hoja recta para cortes precisos.</p>
+                        <div class="img-space"><img src="l89.png" alt="Imagen 5.14/5.15 Serrucho"></div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="tool-card bg-light">
+                        <h6>5.2.9 Segueta con Arco</h6>
+                        <p class="small">Corte más fino y cómodo en madera, aunque el filo se agota rápido.</p>
+                        <div class="img-space"><img src="l90.png" alt="Imagen 5.16 Segueta"></div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="tool-card bg-light">
+                        <h6>5.2.10 Juego de Prensas</h6>
+                        <p class="small">Vital para fijar el material. Un material móvil produce un corte torcido.</p>
+                        <div class="img-space"><img src="l90_2.png" alt="Imagen 5.17 Prensas"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="tool-category" style="border-left-color: #27ae60;">
+            <h2 class="tool-title"><i class="bi bi-brush me-2"></i>5.3 PARA LIMAR Y PULIR</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="tool-card">
+                        <h6>5.3.1 Limas Finas</h6>
+                        <p class="small">Utilizamos las de uñas por ser prácticas para el papel. Dan el acabado final.</p>
+                        <div class="img-space"><img src="l91.png" alt="Imagen 5.18 Limas finas"></div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="tool-card">
+                        <h6>5.3.2 Limas Gruesas / Lijas</h6>
+                        <p class="small">Retiran excedentes del perímetro después del corte inicial.</p>
+                        <div class="img-space"><img src="l91_2.png" alt="Imagen 5.19 Lijas"></div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="tool-card">
+                        <h6>5.3.3 Lija de Agua / Normal</h6>
+                        <p class="small">Diferentes granos según la dureza del material (madera vs papel).</p>
+                        <div class="img-space"><img src="l91_3.png" alt="Imagen 5.20 Lija agua"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="tool-category" style="border-left-color: #34495e;">
+            <h2 class="tool-title"><i class="bi bi-tools me-2"></i>5.4 HERRAMIENTAS DE USO GENERAL</h2>
+            <div class="row g-3">
+                <div class="col-md-3">
+                    <div class="p-2 border text-center rounded">
+                        <p class="small fw-bold">Martillo</p>
+                        <div class="img-space" style="min-height: 100px;"><img src="l92.png"></div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="p-2 border text-center rounded">
+                        <p class="small fw-bold">Rodillo Caucho</p>
+                        <div class="img-space" style="min-height: 100px;"><img src="l92_2.png"></div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="p-2 border text-center rounded">
+                        <p class="small fw-bold">Desarmadores</p>
+                        <div class="img-space" style="min-height: 100px;"><img src="l93.png"></div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="p-2 border text-center rounded">
+                        <p class="small fw-bold">Llave Inglesa</p>
+                        <div class="img-space" style="min-height: 100px;"><img src="l93_2.png"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-4 p-4 bg-light rounded shadow-inner">
+                <h6 class="fw-bold text-center">EQUIPO ADICIONAL</h6>
+                <div class="row text-center mt-3">
+                    <div class="col-3 small"><img src="l93_3.png" class="img-fluid mb-1"><br>Taladro</div>
+                    <div class="col-3 small"><img src="l93_4.png" class="img-fluid mb-1"><br>Tijeras</div>
+                    <div class="col-3 small"><img src="l93_5.png" class="img-fluid mb-1"><br>Tenazas</div>
+                    <div class="col-3 small"><img src="l93_6.png" class="img-fluid mb-1"><br>Otros</div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="d-flex justify-content-between mt-5 pt-4 border-top">
+            <a href="CAPITULO4.html" class="btn btn-outline-dark px-4 py-2 fw-bold">← CAPÍTULO IV</a>
+            <div class="text-muted small text-center">Manual de Herramientas<br>Páginas 83 - 93</div>
+            <a href="CAPITULO6.html" class="btn btn-dark px-4 py-2 fw-bold">CAPÍTULO VI →</a>
+        </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
