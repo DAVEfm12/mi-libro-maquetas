@@ -3,129 +3,119 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Maquetas para Principiantes - Libro Interactivo</title>
+    <title>Maquetas para Principiantes - Proyecto HTML</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <div class="d-flex" id="wrapper">
-        <div class="bg-dark border-right" id="sidebar-wrapper">
-            <div class="sidebar-heading text-white py-4 px-3">
-                <i class="fas fa-drafting-compass me-2"></i> COLECCIÓN DORADA
-            </div>
-            <div class="list-group list-group-flush" id="main-nav">
-                <a href="#" class="list-group-item list-group-item-action bg-dark text-white active" data-target="portada">Portada</a>
-                <a href="#" class="list-group-item list-group-item-action bg-dark text-white" data-target="indice">Índice General</a>
-                
-                <div class="nav-item">
-                    <a class="list-group-item list-group-item-action bg-dark text-white dropdown-toggle" data-bs-toggle="collapse" href="#cap1Collapse">Capítulo I: Intro</a>
-                    <div class="collapse ps-3" id="cap1Collapse">
-                        <a href="#" class="list-group-item bg-dark text-secondary small" data-target="cap1-1">1.1 ¿Qué es una maqueta?</a>
-                        <a href="#" class="list-group-item bg-dark text-secondary small" data-target="cap1-3">1.3 Elementos</a>
-                    </div>
+<div class="d-flex" id="wrapper">
+    <div class="bg-dark border-end" id="sidebar-wrapper">
+        <div class="sidebar-heading text-warning fw-bold border-bottom">COLECCIÓN DORADA</div>
+        <div class="list-group list-group-flush overflow-auto" style="max-height: 90vh;">
+            <a href="#" class="list-group-item list-group-item-action bg-dark text-white" onclick="navegar('portada')">Portada</a>
+            
+            <div class="nav-item">
+                <a class="list-group-item list-group-item-action bg-dark text-white dropdown-toggle" data-bs-toggle="collapse" href="#menuCap1">Capítulo I: Intro</a>
+                <div class="collapse" id="menuCap1">
+                    <a href="#" class="list-group-item list-group-item-action bg-secondary text-white small" onclick="navegar('cap1-1')">1.1 ¿Qué es una maqueta?</a>
+                    <a href="#" class="list-group-item list-group-item-action bg-secondary text-white small" onclick="navegar('cap1-3')">1.3 Elementos</a>
                 </div>
-
-                <div class="nav-item">
-                    <a class="list-group-item list-group-item-action bg-dark text-white dropdown-toggle" data-bs-toggle="collapse" href="#cap2Collapse">Capítulo II: Tipos</a>
-                    <div class="collapse ps-3" id="cap2Collapse">
-                        <a href="#" class="list-group-item bg-dark text-secondary small" data-target="cap2-1">2.1 De Edificación</a>
-                        <a href="#" class="list-group-item bg-dark text-secondary small" data-target="cap2-10">2.10 Virtuales</a>
-                    </div>
-                </div>
-
-                <a href="#" class="list-group-item list-group-item-action bg-dark text-white" data-target="cap4">Capítulo IV: Materiales</a>
-                <a href="#" class="list-group-item list-group-item-action bg-dark text-white" data-target="cap10">Capítulo X: Paisajismo</a>
             </div>
-        </div>
 
-        <div id="page-content-wrapper">
-            <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom sticky-top">
-                <div class="container-fluid">
-                    <button class="btn btn-primary" id="menu-toggle"><i class="fas fa-bars"></i></button>
-                    <span class="navbar-text ms-3 fw-bold" id="current-chapter-title">Portada</span>
-                </div>
-            </nav>
-
-            <div class="container-fluid p-4" id="content-area">
-                
-                <section id="portada" class="content-section active">
-                    <div class="book-cover text-center p-5 shadow">
-                        <h5 class="text-uppercase tracking-widest text-warning">Colección Dorada</h5>
-                        <h1 class="display-1 fw-bold mt-3">MAQUETAS PARA PRINCIPIANTES</h1>
-                        <p class="lead">Teoría • Elaboración • Acabados • Vegetación</p>
-                        <hr class="w-25 mx-auto border-warning border-3">
-                        <h3 class="mt-4">Ignacio López Torres</h3>
-                        <p class="text-muted mt-5">VOLUMEN I</p>
-                    </div>
-                </section>
-
-                <section id="indice" class="content-section">
-                    <h2 class="border-bottom pb-2 mb-4">Índice de Contenidos</h2>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <ul class="list-unstyled index-list">
-                                <li class="fw-bold" onclick="navigateTo('cap1')">CAPÍTULO I: INTRODUCCIÓN A LAS MAQUETAS <span class="dots"></span> 31</li>
-                                <li class="ps-3" onclick="navigateTo('cap1-1')">1.1 ¿Qué es una maqueta? <span class="dots"></span> 33</li>
-                                <li class="ps-3" onclick="navigateTo('cap1-3')">1.3 Elementos conceptuales <span class="dots"></span> 34</li>
-                                <li class="fw-bold mt-3" onclick="navigateTo('cap2')">CAPÍTULO II: TIPOS DE MAQUETAS <span class="dots"></span> 43</li>
-                                <li class="ps-3" onclick="navigateTo('cap2-1')">2.1 De Edificación <span class="dots"></span> 45</li>
-                            </ul>
-                        </div>
-                        <div class="col-md-6">
-                            </div>
-                    </div>
-                </section>
-
-                <section id="cap1-1" class="content-section">
-                    <div class="chapter-header">
-                        <span class="badge bg-warning text-dark">Capítulo I</span>
-                        <h2 class="mt-2">1.1 ¿Qué es una maqueta?</h2>
-                    </div>
-                    <p class="dropcap mt-4">La maqueta es la representación física, a escala reducida o aumentada, de un objeto, edificio o conjunto urbano. Es una herramienta tridimensional que permite visualizar volúmenes y espacios de forma tangible.</p>
-                    
-                    <div class="alert alert-info border-start border-4">
-                        <h5 class="alert-heading">1.2 Objetivo</h5>
-                        <p>Facilitar la comprensión espacial y técnica de un proyecto antes de su ejecución real.</p>
-                    </div>
-                </section>
-
-                <section id="cap4" class="content-section">
-                    <h2>Capítulo IV: Materiales</h2>
-                    <div class="row mt-4">
-                        <div class="col-md-4">
-                            <div class="card shadow-sm mb-4">
-                                <div class="card-body">
-                                    <h5 class="card-title text-primary">Papelería</h5>
-                                    <p class="card-text">Ilustración, Cascarón y Batería son los pilares de la construcción estructural.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="card shadow-sm mb-4">
-                                <div class="card-body">
-                                    <h5 class="card-title text-primary">Moldeables</h5>
-                                    <p class="card-text">Plastilina y arcilla para formas orgánicas y terrenos.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="card shadow-sm mb-4">
-                                <div class="card-body">
-                                    <h5 class="card-title text-primary">Adhesivos</h5>
-                                    <p class="card-text">Cola blanca y esmaltes transparentes para fijación limpia.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-            </div>
+            <a href="#" class="list-group-item list-group-item-action bg-dark text-white" onclick="navegar('cap2')">Capítulo II: Tipos</a>
+            <a href="#" class="list-group-item list-group-item-action bg-dark text-white" onclick="navegar('cap3')">Capítulo III: Planos</a>
+            <a href="#" class="list-group-item list-group-item-action bg-dark text-white" onclick="navegar('cap4')">Capítulo IV: Materiales</a>
+            <a href="#" class="list-group-item list-group-item-action bg-dark text-white" onclick="navegar('cap5')">Capítulo V: Herramientas</a>
+            <a href="#" class="list-group-item list-group-item-action bg-dark text-white" onclick="navegar('cap7')">Capítulo VII: Escalas</a>
+            <a href="#" class="list-group-item list-group-item-action bg-dark text-white" onclick="navegar('cap8')">Capítulo VIII: Elaboración</a>
+            <a href="#" class="list-group-item list-group-item-action bg-dark text-white" onclick="navegar('cap9')">Capítulo IX: Acabados</a>
+            <a href="#" class="list-group-item list-group-item-action bg-dark text-white" onclick="navegar('cap10')">Capítulo X: Vegetación</a>
         </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="script.js"></script>
+    <div id="page-content-wrapper">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom shadow-sm">
+            <div class="container-fluid">
+                <button class="btn btn-warning" id="sidebarToggle"><i class="fas fa-bars"></i> Índice</button>
+            </div>
+        </nav>
+
+        <div class="container-fluid p-4">
+            <section id="portada" class="content-section active">
+                <div class="text-center py-5">
+                    <h5 class="text-muted text-uppercase tracking-widest">Colección Dorada</h5>
+                    <h1 class="display-2 fw-bold">MAQUETAS PARA PRINCIPIANTES</h1>
+                    <h3 class="text-warning">VOLUMEN I</h3>
+                    <p class="lead mt-4"><strong>Autor: Ignacio López Torres</strong></p>
+                    <div class="my-5 border-top border-bottom py-3">
+                        <p>TEORÍA • ELABORACIÓN • ACABADOS • VEGETACIÓN</p>
+                    </div>
+                    <button class="btn btn-dark btn-lg" onclick="navegar('cap1-1')">Comenzar Proyecto</button>
+                </div>
+            </section>
+
+            <section id="cap1-1" class="content-section">
+                <h2 class="text-warning">Capítulo I: Introducción</h2>
+                <hr>
+                <h3>1.1 ¿Qué es una maqueta?</h3>
+                <p>Es la representación a escala, en tres dimensiones, de una obra o construcción. Según el autor, es el paso físico entre el plano y la realidad.</p>
+                
+                <div class="card bg-light my-4">
+                    <div class="card-body">
+                        <h5>1.3 Elementos de una maqueta</h5>
+                        <ul>
+                            <li><strong>Conceptuales:</strong> El punto, la línea y el plano.</li>
+                            <li><strong>Visuales:</strong> Forma, color y textura.</li>
+                            <li><strong>Prácticos:</strong> Representación y significado.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section id="cap7" class="content-section">
+                <h2 class="text-warning">Capítulo VII: Escalas y Acotaciones</h2>
+                <hr>
+                <p>La escala es la relación de proporción entre el dibujo y el objeto real.</p>
+                
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="p-3 border bg-white shadow-sm rounded">
+                            <h6>Natural (1:1)</h6>
+                            <p class="small text-muted">El tamaño del dibujo es igual al real.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="p-3 border bg-white shadow-sm rounded">
+                            <h6>Ampliación (2:1)</h6>
+                            <p class="small text-muted">Para piezas de detalle muy pequeñas.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="p-3 border bg-white shadow-sm rounded">
+                            <h6>Reducción (1:50, 1:100)</h6>
+                            <p class="small text-muted">Las más usadas en arquitectura.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="cap9" class="content-section">
+                <h2 class="text-warning">Capítulo IX: Acabados</h2>
+                <hr>
+                <h3>Técnica de Plastilina</h3>
+                <p>El libro detalla el uso de plastilina para acabados externos como el "Cacahuateado" o "Apiconado".</p>
+                
+                <div class="alert alert-info">
+                    <strong>Mantenimiento:</strong> Limpiar con esmalte en aerosol transparente para proteger contra el polvo.
+                </div>
+            </section>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
