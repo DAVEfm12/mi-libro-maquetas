@@ -1,80 +1,26 @@
-:root {
-    --warning-gold: #ffc107;
-    --dark-bg: #1a1a1a;
+// Función para mostrar secciones con scroll automático
+function showSection(id) {
+    const sections = document.querySelectorAll('.content-section');
+    sections.forEach(s => s.classList.remove('active', 'animate__fadeIn'));
+    
+    const active = document.getElementById(id);
+    active.classList.add('active', 'animate__fadeIn');
+    
+    // Cerrar el dropdown de capítulos si se elige una sección fuera de él
+    if (!id.startsWith('cap')) {
+        const drop = document.getElementById('capitulosCollapse');
+        const bsCollapse = new bootstrap.Collapse(drop, {toggle: false});
+        bsCollapse.hide();
+    }
+    
+    window.scrollTo({top: 0, behavior: 'smooth'});
 }
 
-body {
-    font-family: 'Roboto', sans-serif;
-    background-color: #f4f7f6;
-}
-
-/* Barra de Progreso Superior */
-.progress-container {
-    width: 100%;
-    height: 5px;
-    background: #ccc;
-    position: fixed;
-    top: 0;
-    z-index: 2000;
-}
-
-.progress-bar {
-    height: 5px;
-    background: var(--warning-gold);
-    width: 0%;
-}
-
-/* Sidebar */
-#sidebar-wrapper {
-    min-width: 280px;
-    max-width: 280px;
-    height: 100vh;
-    position: sticky;
-    top: 0;
-    transition: all 0.3s ease;
-}
-
-#sidebar-wrapper .list-group-item {
-    border: none;
-    padding: 15px 25px;
-    font-size: 0.9rem;
-}
-
-#sidebar-wrapper .list-group-item:hover {
-    background-color: #2c3034 !important;
-    color: var(--warning-gold) !important;
-    padding-left: 35px;
-}
-
-/* Hero Section */
-.hero-bg {
-    height: 100vh;
-    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
-                url('https://images.unsplash.com/photo-1503387762-592dea58ef23?auto=format&fit=crop&q=80&w=2000');
-    background-size: cover;
-    background-position: center;
-}
-
-.main-title {
-    font-family: 'Playfair Display', serif;
-    letter-spacing: 12px;
-    text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
-}
-
-/* Content Sections */
-.content-section {
-    display: none;
-    min-height: 100vh;
-}
-
-.content-section.active {
-    display: block;
-}
-
-.card {
-    transition: transform 0.3s;
-}
-
-.card:hover {
-    transform: translateY(-10px);
+// Lógica de la Calculadora de Escalas (Basada en el Cap VII del PDF)
+function calculateScale() {
+    const realVal = document.getElementById('realValue').value;
+    // Según el PDF, en escala 1:100, 1.00m = 1.00cm [cite: 7]
+    // En escala 1:40, se usa la fórmula: (Metros * 100) / 40 [cite: 12]
+    const result = (realVal * 100) / 40; 
+    document.getElementById('scaleResult').innerHTML = `A escala 1:40 mide: ${result.toFixed(2)} cm`;
 }
