@@ -1,66 +1,27 @@
-:root {
-    --gold: #d4a017;
-    --dark-bg: #1a1a1a;
+function navegar(seccionId) {
+    // 1. Ocultar todas las secciones
+    const secciones = document.querySelectorAll('.content-section');
+    secciones.forEach(sec => {
+        sec.classList.add('d-none');
+    });
+
+    // 2. Mostrar la sección solicitada
+    const destino = document.getElementById(seccionId);
+    
+    if (seccionId === 'portada') {
+        document.getElementById('portada').classList.remove('d-none');
+        document.getElementById('mainNav').classList.add('d-none');
+        window.scrollTo(0, 0);
+    } else {
+        // Si no es la portada, mostramos el menú y la sección
+        document.getElementById('portada').classList.add('d-none');
+        document.getElementById('mainNav').classList.remove('d-none');
+        destino.classList.remove('d-none');
+        window.scrollTo(0, 0);
+    }
 }
 
-body {
-    font-family: 'Roboto', sans-serif;
-    background-color: #f8f9fa;
-    scroll-behavior: smooth;
-}
-
-/* Estilos de Portada */
-#portada {
-    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
-                url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&q=80'); /* Imagen de fondo arquitectónica */
-    background-size: cover;
-    background-position: center;
-    position: relative;
-}
-
-h1 {
-    font-family: 'Playfair Display', serif;
-}
-
-.text-gold {
-    color: var(--gold) !important;
-}
-
-.btn-gold {
-    background-color: var(--gold);
-    color: white;
-    border: none;
-    transition: 0.3s;
-}
-
-.btn-gold:hover {
-    background-color: #b8860b;
-    color: white;
-    transform: scale(1.05);
-}
-
-.border-gold {
-    border: 1px solid var(--gold) !important;
-}
-
-/* Animaciones de sección */
-.content-section {
-    animation: slideUp 0.6s ease-out;
-}
-
-@keyframes slideUp {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-.card {
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2) !important;
-}
-
-.z-index-1 { z-index: 1; }
+// Inicializar el proyecto mostrando solo la portada al cargar
+document.addEventListener('DOMContentLoaded', () => {
+    console.log("Libro Interactivo Cargado");
+});
