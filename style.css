@@ -1,51 +1,56 @@
+/* Variables de color */
 :root {
-    --gold: #c5a059;
-    --charcoal: #2d3436;
-    --cream: #f4f1ea;
-    --paper-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    --gold: #d4a017;
+    --dark: #1a1a1a;
 }
 
 body {
-    background: #1a1a1a;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    background-color: #f8f9fa;
+    overflow-x: hidden;
+}
+
+/* Portada */
+#portada {
+    background: url('https://images.unsplash.com/photo-1503387762-592dea58ef23?auto=format&fit=crop&q=80') center/cover;
+    position: relative;
+    z-index: 1000;
+    transition: transform 0.8s ease-in-out;
+}
+
+.overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+}
+
+/* Sidebar */
+.sidebar {
     height: 100vh;
-    overflow: hidden;
+    box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
+    z-index: 100;
 }
 
-#progress-container {
-    position: fixed;
-    top: 0; width: 100%; height: 5px; background: #333;
-}
-#progress-bar { width: 0%; height: 100%; background: var(--gold); transition: 0.3s; }
-
-.page {
-    background: var(--cream);
-    box-shadow: inset 3px 0 10px rgba(0,0,0,0.05);
+.nav-link {
+    color: #adb5bd;
+    font-size: 0.9rem;
+    transition: 0.2s;
 }
 
-.page-content {
-    padding: 50px;
-    font-family: 'Crimson Text', serif;
-    font-size: 1.1rem;
-    line-height: 1.6;
-    color: var(--charcoal);
+.nav-link:hover, .nav-link.active {
+    color: var(--gold) !important;
+    background: rgba(212, 160, 23, 0.1);
 }
 
-h1, h2, .collection {
-    font-family: 'Montserrat', sans-serif;
-    color: var(--gold);
+/* Contenido */
+.content-section {
+    animation: fadeIn 0.4s ease-out;
 }
 
-.tool-box {
-    background: white;
-    padding: 20px;
-    border: 1px solid var(--gold);
-    border-radius: 8px;
-    margin-top: 20px;
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
-/* Efecto de degradado en el lomo del libro */
-.page:nth-child(even) { border-radius: 0 10px 10px 0; }
-.page:nth-child(odd) { border-radius: 10px 0 0 10px; border-right: 1px solid rgba(0,0,0,0.1); }
+.vh-100-hide {
+    transform: translateY(-100%);
+}
