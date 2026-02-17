@@ -1,26 +1,79 @@
-// Función para mostrar secciones con scroll automático
-function showSection(id) {
-    const sections = document.querySelectorAll('.content-section');
-    sections.forEach(s => s.classList.remove('active', 'animate__fadeIn'));
-    
-    const active = document.getElementById(id);
-    active.classList.add('active', 'animate__fadeIn');
-    
-    // Cerrar el dropdown de capítulos si se elige una sección fuera de él
-    if (!id.startsWith('cap')) {
-        const drop = document.getElementById('capitulosCollapse');
-        const bsCollapse = new bootstrap.Collapse(drop, {toggle: false});
-        bsCollapse.hide();
-    }
-    
-    window.scrollTo({top: 0, behavior: 'smooth'});
+/* Estilos Base */
+:root {
+    --gold: #d4af37;
+    --dark: #121212;
 }
 
-// Lógica de la Calculadora de Escalas (Basada en el Cap VII del PDF)
-function calculateScale() {
-    const realVal = document.getElementById('realValue').value;
-    // Según el PDF, en escala 1:100, 1.00m = 1.00cm [cite: 7]
-    // En escala 1:40, se usa la fórmula: (Metros * 100) / 40 [cite: 12]
-    const result = (realVal * 100) / 40; 
-    document.getElementById('scaleResult').innerHTML = `A escala 1:40 mide: ${result.toFixed(2)} cm`;
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f8f9fa;
+}
+
+#wrapper {
+    overflow-x: hidden;
+    display: flex;
+}
+
+/* Sidebar */
+#sidebar-wrapper {
+    min-width: 280px;
+    max-width: 280px;
+    min-height: 100vh;
+    transition: margin .25s ease-out;
+    border-right: 4px solid var(--gold);
+}
+
+.text-gold { color: var(--gold); }
+
+#sidebar-wrapper .list-group-item {
+    border: none;
+    padding: 1.2rem;
+}
+
+#sidebar-wrapper .list-group-item:hover {
+    background-color: #333 !important;
+    color: var(--gold) !important;
+}
+
+#sidebar-wrapper .list-group-item.active {
+    background-color: var(--gold) !important;
+    color: black !important;
+    font-weight: bold;
+}
+
+/* Contenido */
+.content-section {
+    display: none;
+    animation: fadeIn 0.4s ease-in-out;
+}
+
+.content-section.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; } to { opacity: 1; }
+}
+
+/* Portada (Hero) */
+.hero-bg {
+    height: 90vh;
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1503387762-592dea58ef23?q=80&w=1920') center/cover;
+}
+
+.bg-overlay {
+    border: 2px solid var(--gold);
+    padding: 40px;
+    backdrop-filter: blur(5px);
+}
+
+/* Responsive */
+#wrapper.toggled #sidebar-wrapper {
+    margin-left: -280px;
+}
+
+@media (min-width: 768px) {
+    #wrapper.toggled #sidebar-wrapper {
+        margin-left: 0;
+    }
 }
