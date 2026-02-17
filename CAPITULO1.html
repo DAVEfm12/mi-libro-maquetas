@@ -3,148 +3,212 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Capítulo I - El Arte de las Maquetas</title>
+    <title>Libro Interactivo - Capítulo I</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <link rel="stylesheet" href="style.css">
+    <style>
+        :root { --gold: #d4af37; --dark: #121212; --soft-gray: #f8f9fa; }
+        
+        /* Efectos Dinámicos de Tarjetas */
+        .interactive-section {
+            border-left: 5px solid transparent;
+            transition: all 0.3s ease;
+            padding: 20px;
+            margin-bottom: 30px;
+            background: white;
+            border-radius: 8px;
+        }
+        .interactive-section:hover {
+            border-left-color: var(--gold);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            transform: translateX(10px);
+        }
+
+        /* Contenedor de Imagen con Zoom */
+        .img-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            background: #000;
+        }
+        .img-container img {
+            transition: transform 0.5s ease, opacity 0.3s ease;
+            width: 100%;
+            height: auto;
+        }
+        .img-container:hover img {
+            transform: scale(1.05);
+            opacity: 0.8;
+        }
+
+        /* Estilo para los Elementos 1.3 */
+        .element-card {
+            background: var(--soft-gray);
+            border: none;
+            transition: 0.4s;
+        }
+        .element-card:hover {
+            background: #fffdf5;
+            border: 1px solid var(--gold);
+        }
+        .num-circle {
+            width: 40px; height: 40px;
+            background: var(--gold);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body class="bg-light">
 
-    <div class="progress-container">
-        <div class="progress-bar" id="myBar"></div>
-    </div>
-
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-lg">
+    <nav class="navbar navbar-dark bg-dark sticky-top shadow">
         <div class="container">
             <a class="navbar-brand text-gold fw-bold" href="index.html">← VOLVER AL ÍNDICE</a>
-            <span class="navbar-text d-none d-md-block">Manual de Maquetería - Vol. I</span>
+            <span class="text-white-50 d-none d-md-block">CAPÍTULO I: INTRODUCCIÓN A LAS MAQUETAS</span>
         </div>
     </nav>
 
-    <div class="container my-5 bg-white p-4 p-md-5 shadow-lg rounded-4 main-content">
-        
+    <div class="container my-5">
         <header class="text-center mb-5 animate__animated animate__fadeIn">
-            <h1 class="text-gold display-2 fw-bold">CAPÍTULO I</h1>
-            <h2 class="display-6 text-secondary">INTRODUCCIÓN A LAS MAQUETAS</h2>
-            <div class="gold-line mx-auto"></div>
+            <h1 class="display-3 fw-bold text-gold">CAPÍTULO I</h1>
+            <h2 class="text-muted">Introducción y Herramientas Conceptuales</h2>
+            <hr class="gold-line mx-auto">
         </header>
 
-        <section class="reveal">
-            <h3 class="section-title">1.1 ¿QUÉ ES UNA MAQUETA?</h3>
-            <div class="row align-items-center">
-                <div class="col-lg-7">
-                    <p>Es la representación tridimensional, a escala, de una obra compleja. Su utilización desvela problemas constructivos que solo con los planos no se habrían visto. En los planos, la visión espacial no es intuitiva, en las maquetas sí.</p>
-                </div>
-                <div class="col-lg-5 text-center">
-                    <img src="MAQUETA.png" class="img-fluid rounded-3 shadow-sm hover-effect" alt="Maqueta 1.1">
-                    <p class="caption">Imagen 1.1 Maquetas de casas habitación.</p>
-                </div>
+        <div class="row g-4">
+            <div class="col-lg-6">
+                <section class="interactive-section animate__animated animate__fadeInLeft">
+                    <h3 class="text-gold">1.1 ¿Qué es una maqueta?</h3>
+                    <p>Es la representación tridimensional, a escala, de una obra compleja. Mientras que los planos son 2D, la maqueta desvela problemas constructivos invisibles en papel.</p>
+                    <div class="img-container shadow-sm">
+                        <img src="MAQUETA.png" alt="Ejemplo de Maqueta de Casa">
+                    </div>
+                    <p class="small text-center mt-2 text-muted fst-italic">Imagen 1.1: Maqueta de casa habitación.</p>
+                </section>
             </div>
-        </section>
-
-        <section class="reveal mt-5">
-            <h3 class="section-title">1.2 OBJETIVO DE LAS MAQUETAS</h3>
-            <p>Implementar una base conceptual y procedimental. Son excelentes medios didácticos que brindan una representación muy aproximada a la realidad objetiva.</p>
-            <div class="text-center py-3">
-                <img src="MAQUETA2.png" class="img-fluid rounded-3 shadow-sm hover-effect" style="max-height: 300px;">
-                <p class="caption">Imagen 1.2 Maqueta topográfica.</p>
+            <div class="col-lg-6">
+                <section class="interactive-section animate__animated animate__fadeInRight">
+                    <h3 class="text-gold">1.2 Objetivo de las Maquetas</h3>
+                    <p>Implementar una base conceptual y didáctica. Representan la realidad objetiva mediante modelos simuladores tridimensionales.</p>
+                    <div class="img-container shadow-sm">
+                        <img src="MAQUETA2.png" alt="Maqueta Topográfica">
+                    </div>
+                    <p class="small text-center mt-2 text-muted fst-italic">Imagen 1.2: Maqueta topográfica profesional.</p>
+                </section>
             </div>
-        </section>
+        </div>
 
-        <section class="reveal mt-5" id="elementos-seccion">
-            <div class="p-4 bg-dark text-white rounded-3 mb-4 shadow">
-                <h3 class="text-gold">1.3 ELEMENTOS QUE COMPONEN UNA MAQUETA</h3>
-                <p class="mb-0">Un proceso de creación visual que armoniza el entorno humano e impulsa la creatividad.</p>
+        <section class="my-5 p-4 bg-white shadow rounded-4 animate__animated animate__fadeInUp">
+            <div class="text-center mb-4">
+                <h3 class="text-gold fw-bold">1.3 ELEMENTOS QUE COMPONEN UNA MAQUETA</h3>
+                <p class="mx-auto" style="max-width: 800px;">
+                    El diseño armoniza el entorno humano e impulsa la creatividad. Aquí los cuatro pilares fundamentales:
+                </p>
             </div>
 
             <div class="row g-4">
-                <div class="col-md-6">
-                    <div class="card h-100 element-card shadow-sm border-0">
-                        <div class="card-body">
-                            <h5 class="fw-bold text-gold">1.3.1 CONCEPTUALES</h5>
-                            <p class="small text-muted">Ideas y conceptos no visibles. El punto, la línea y el plano en la mente.</p>
-                            <img src="Concepto.png" class="img-fluid rounded border mb-2" alt="1.3.1">
+                <div class="col-md-6 col-xl-3">
+                    <div class="card h-100 element-card p-3">
+                        <div class="d-flex justify-content-between align-items-start mb-3">
+                            <h5 class="fw-bold">1.3.1 Conceptuales</h5>
+                            <div class="num-circle">1</div>
                         </div>
+                        <p class="small">Ideas y conceptos no visibles (punto, línea, plano) que dependen de los planos y la necesidad del diseñador.</p>
+                        <img src="Concepto.png" class="rounded shadow-sm mt-auto" alt="Idea">
                     </div>
                 </div>
-                <div class="col-md-6">
-                    <div class="card h-100 element-card shadow-sm border-0">
-                        <div class="card-body">
-                            <h5 class="fw-bold text-gold">1.3.2 VISUALES</h5>
-                            <p class="small text-muted">Lo que realmente vemos: forma, medida, color y textura.</p>
-                            <img src="MAQDETALLE.png" class="img-fluid rounded border mb-2" alt="1.3.2">
+
+                <div class="col-md-6 col-xl-3">
+                    <div class="card h-100 element-card p-3">
+                        <div class="d-flex justify-content-between align-items-start mb-3">
+                            <h5 class="fw-bold">1.3.2 Visuales</h5>
+                            <div class="num-circle">2</div>
                         </div>
+                        <p class="small">Lo que realmente vemos: forma, medida, diseño, color y textura. Ayudan a la comprensión directa.</p>
+                        <img src="MAQDETALLE.png" class="rounded shadow-sm mt-auto" alt="Detalle">
                     </div>
                 </div>
-                <div class="col-md-6">
-                    <div class="card h-100 element-card shadow-sm border-0">
-                        <div class="card-body">
-                            <h5 class="fw-bold text-gold">1.3.3 DE RELACIÓN</h5>
-                            <p class="small text-muted">Ubicación e interrelación: dirección, posición, espacio y gravedad.</p>
-                            <img src="MAQ5.png" class="img-fluid rounded border mb-2" alt="1.3.3">
+
+                <div class="col-md-6 col-xl-3">
+                    <div class="card h-100 element-card p-3">
+                        <div class="d-flex justify-content-between align-items-start mb-3">
+                            <h5 class="fw-bold">1.3.3 Relación</h5>
+                            <div class="num-circle">3</div>
                         </div>
+                        <p class="small">Ubicación e interrelación: dirección, posición, espacio y gravedad dentro del diseño arquitectónico.</p>
+                        <img src="MAQ5.png" class="rounded shadow-sm mt-auto" alt="Espacios">
                     </div>
                 </div>
-                <div class="col-md-6">
-                    <div class="card h-100 element-card shadow-sm border-0">
-                        <div class="card-body">
-                            <h5 class="fw-bold text-gold">1.3.4 PRÁCTICOS</h5>
-                            <p class="small text-muted">Contenido, función y alcance. El talento proyectado del artista.</p>
-                            <img src="MAQ6.png" class="img-fluid rounded border mb-2" alt="1.3.4">
+
+                <div class="col-md-6 col-xl-3">
+                    <div class="card h-100 element-card p-3">
+                        <div class="d-flex justify-content-between align-items-start mb-3">
+                            <h5 class="fw-bold">1.3.4 Prácticos</h5>
+                            <div class="num-circle">4</div>
                         </div>
+                        <p class="small">Contenido y alcance: el significado de la función y la creatividad proyectada por el maquetista.</p>
+                        <img src="MAQ6.png" class="rounded shadow-sm mt-auto" alt="Función">
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="reveal mt-5 bg-gold-soft p-4 rounded-4">
-            <h4 class="text-center fw-bold mb-4">MUESTRARIO DE TRABAJO DE CAMPO</h4>
-            <div class="gallery-grid">
-                <img src="MAQ3.png" class="gallery-item" onclick="openImg(this)">
-                <img src="MAQ4.png" class="gallery-item" onclick="openImg(this)">
-                <img src="MAQA.png" class="gallery-item" onclick="openImg(this)">
-                <img src="MAQB.png" class="gallery-item" onclick="openImg(this)">
-                <img src="MAQDESA.png" class="gallery-item" onclick="openImg(this)">
-                <img src="MAQDESB.png" class="gallery-item" onclick="openImg(this)">
-                <img src="MAQTOPO.png" class="gallery-item" onclick="openImg(this)">
-                <img src="MAQTOPO2.png" class="gallery-item" onclick="openImg(this)">
+        <section class="mb-5 animate__animated animate__fadeIn">
+            <h4 class="text-gold text-center mb-4 fw-bold">VISUALIZACIÓN TÉCNICA Y DESARROLLOS</h4>
+            <div class="row g-2">
+                <div class="col-md-4"><img src="MAQDESA.png" class="img-fluid rounded shadow hover-zoom" alt="Desglose"></div>
+                <div class="col-md-4"><img src="MAQDESB.png" class="img-fluid rounded shadow hover-zoom" alt="Desglose"></div>
+                <div class="col-md-4"><img src="MAQDESC.png" class="img-fluid rounded shadow hover-zoom" alt="Desglose"></div>
+            </div>
+            <div class="row g-2 mt-2">
+                <div class="col-md-6"><img src="MAQTOPO.png" class="img-fluid rounded shadow hover-zoom" alt="Topografía"></div>
+                <div class="col-md-6"><img src="MAQTOPO2.png" class="img-fluid rounded shadow hover-zoom" alt="Topografía"></div>
             </div>
         </section>
 
-        <section class="reveal mt-5">
+        <section class="bg-dark text-white p-5 rounded-4 shadow mb-5">
             <div class="row">
-                <div class="col-md-4">
-                    <div class="p-3 border-start border-gold border-4 bg-light mb-3">
-                        <h5 class="fw-bold">1.4 AL 1.6</h5>
-                        <p class="small">Finalidad, Ventajas y Desventajas de la construcción física.</p>
-                    </div>
+                <div class="col-md-6">
+                    <h3 class="text-gold">1.4 al 1.6: Análisis de Valor</h3>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><span class="text-gold">✔</span> <strong>Ventajas:</strong> Visión espacial intuitiva y detección de errores.</li>
+                        <li class="mb-2"><span class="text-gold">✘</span> <strong>Desventajas:</strong> Tiempo de ejecución y fragilidad.</li>
+                    </ul>
                 </div>
-                <div class="col-md-4">
-                    <div class="p-3 border-start border-gold border-4 bg-light mb-3">
-                        <h5 class="fw-bold">1.7 Y 1.8</h5>
-                        <p class="small">Cuidados contra humedad y sol. Usos profesionales y académicos.</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="p-3 border-start border-gold border-4 bg-light mb-3">
-                        <h5 class="fw-bold">1.9 HERRAMIENTA</h5>
-                        <p class="small">Diseño y Comunicación. El puente entre el plano y el cliente.</p>
+                <div class="col-md-6">
+                    <h3 class="text-gold">1.7 al 1.9: La Maqueta Profesional</h3>
+                    <p class="small text-white-50 fst-italic">"Como herramienta de diseño permite jugar con volúmenes; como herramienta de comunicación es el puente perfecto con el cliente."</p>
+                    <div class="d-flex gap-2">
+                        <img src="MAQA.png" style="height: 60px;" class="rounded shadow-sm">
+                        <img src="MAQB.png" style="height: 60px;" class="rounded shadow-sm">
                     </div>
                 </div>
             </div>
         </section>
 
-        <footer class="mt-5 pt-4 border-top d-flex justify-content-between">
-            <a href="index.html" class="btn btn-outline-dark px-4 shadow-sm">Índice General</a>
-            <a href="CAPITULO2.html" class="btn btn-gold px-5 fw-bold shadow">CAPÍTULO II →</a>
+        <footer class="d-flex justify-content-between align-items-center mt-5 pt-4 border-top">
+            <a href="index.html" class="btn btn-outline-dark px-4 py-2 fw-bold">← VOLVER AL INICIO</a>
+            <div class="text-muted small">Página 31 - 40</div>
+            <a href="CAPITULO2.html" class="btn btn-gold px-4 py-2 fw-bold">SIGUIENTE CAPÍTULO →</a>
         </footer>
     </div>
 
-    <div id="myModal" class="img-modal" onclick="this.style.display='none'">
-        <span class="close">&times;</span>
-        <img class="modal-content" id="img01">
-    </div>
+    <script>
+        // Animación suave al entrar en el viewport
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate__animated', 'animate__fadeInUp');
+                }
+            });
+        }, { threshold: 0.1 });
 
-    <script src="script.js"></script>
+        document.querySelectorAll('.interactive-section, .card').forEach(el => observer.observe(el));
+    </script>
 </body>
 </html>
