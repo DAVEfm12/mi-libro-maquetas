@@ -1,32 +1,25 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const observerOptions = {
-        threshold: 0.1
-    };
+// Barra de Progreso y Revelación al Scroll
+window.onscroll = function() {
+    // Progreso
+    let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+    let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    let scrolled = (winScroll / height) * 100;
+    document.getElementById("myBar").style.width = scrolled + "%";
 
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('animate-fade-in');
-                observer.unobserve(entry.target);
-            }
-        });
-    }, observerOptions);
-
-    document.querySelectorAll('section').forEach(section => {
-        section.style.opacity = "0";
-        section.style.transition = "opacity 0.8s ease-out, transform 0.8s ease-out";
-        section.style.transform = "translateY(20px)";
-        observer.observe(section);
-    });
-});
-
-// Clase CSS inyectada por el script
-window.addEventListener('scroll', () => {
-    document.querySelectorAll('section').forEach(section => {
-        const rect = section.getBoundingClientRect();
-        if (rect.top < window.innerHeight - 100) {
-            section.style.opacity = "1";
-            section.style.transform = "translateY(0)";
+    // Revelar Secciones
+    let reveals = document.querySelectorAll(".reveal");
+    for (let i = 0; i < reveals.length; i++) {
+        let windowHeight = window.innerHeight;
+        let elementTop = reveals[i].getBoundingClientRect().top;
+        let elementVisible = 150;
+        if (elementTop < windowHeight - elementVisible) {
+            reveals[i].classList.add("active");
         }
-    });
-});
+    }
+};
+
+// Función para abrir modal de imagen
+function openImg(element) {
+    document.getElementById("img01").src = element.src;
+    document.getElementById("myModal").style.display = "block";
+}
