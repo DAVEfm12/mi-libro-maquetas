@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capítulo III - Interpretación de Planos</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <style>
+        :root { 
+            --blueprint-blue: #1a3a5a;
+            --gold: #d4af37; 
+            --paper-white: #fcfcfc;
+            --ink-black: #2c3e50;
+        }
+        
+        body { background-color: #e9ecef; font-family: 'Segoe UI', sans-serif; color: var(--ink-black); }
+
+        /* Estilo de "Plano Desplegado" */
+        .blueprint-card {
+            background: var(--paper-white);
+            border: 1px solid #ddd;
+            border-bottom: 4px solid var(--gold);
+            padding: 40px;
+            margin-bottom: 50px;
+            box-shadow: 10px 10px 0px rgba(0,0,0,0.05);
+            position: relative;
+        }
+
+        .blueprint-card::before {
+            content: "";
+            position: absolute;
+            top: 10px; right: 10px;
+            width: 40px; height: 40px;
+            border-top: 2px solid var(--gold);
+            border-right: 2px solid var(--gold);
+        }
+
+        /* Contenedores de Imágenes con Placeholder */
+        .img-placeholder {
+            background: #f0f0f0;
+            border: 2px dashed var(--gold);
+            min-height: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 20px 0;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .img-placeholder img { max-width: 100%; height: auto; }
+
+        .technical-label {
+            background: var(--blueprint-blue);
+            color: white;
+            padding: 5px 15px;
+            display: inline-block;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+        }
+
+        .step-box {
+            background: #f8f9fa;
+            border-left: 4px solid var(--blueprint-blue);
+            padding: 15px;
+            margin: 10px 0;
+        }
+
+        h3 { font-weight: 800; color: var(--blueprint-blue); border-bottom: 1px solid #eee; padding-bottom: 10px; }
+        .highlight { color: var(--gold); font-weight: bold; }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand text-gold fw-bold" href="CAPITULO2.html">← CAPÍTULO II</a>
+            <span class="text-white-50">CAPÍTULO III: LA LECTURA ARQUITECTÓNICA</span>
+        </div>
+    </nav>
+
+    <div class="container my-5">
+        <header class="text-center mb-5 animate__animated animate__fadeIn">
+            <span class="technical-label">Módulo Técnico</span>
+            <h1 class="display-4 fw-bold">CAPÍTULO III</h1>
+            <h2 class="text-muted">Interpretación de Planos</h2>
+            <p class="lead">Del Dibujo Técnico a la Base de la Maqueta</p>
+        </header>
+
+        <section class="blueprint-card animate__animated animate__fadeInUp">
+            <div class="row">
+                <div class="col-lg-7">
+                    <h3>3.1 PLANTAS ARQUITECTÓNICAS</h3>
+                    <p>Entendemos como planta arquitectónica a los dibujos que nos muestran la distribución de los espacios (habitaciones, naves, bodegas). Es vital para conocer la <span class="highlight">estructuración</span> de la obra.</p>
+                    
+                    <div class="step-box">
+                        <strong>¿Cómo interpretarla?</strong> Entendiendo dimensiones, acotaciones, escalas y referencias que definen el diseño.
+                    </div>
+                    
+                    <p class="mt-3"><strong>Utilidad para la maqueta:</strong> Nos sirve para el <span class="highlight">trazo</span> (en la base) y la <span class="highlight">nivelación</span> (en terrenos con pendiente).</p>
+                </div>
+                <div class="col-lg-5">
+                    <div class="img-placeholder">
+                        <img src="l59.png" alt="Imagen 3.1 Planta Arquitectónica">
+                    </div>
+                    <p class="small text-center text-muted fst-italic">Imágenes 3.1: Planta arquitectónica de referencia.</p>
+                </div>
+            </div>
+        </section>
+
+        
+
+        <section class="blueprint-card">
+            <h3>3.2 FACHADAS (Vistas de la Obra)</h3>
+            <p>Si la planta es la distribución, las fachadas responden a la pregunta: <span class="highlight">¿Cómo se verá mi proyecto?</span> Son los segundos planos a usar en el proceso.</p>
+
+            <div class="row g-4 mt-2">
+                <div class="col-md-6">
+                    <div class="p-3 border rounded">
+                        <h5 class="fw-bold text-gold">3.2.1 Principal</h5>
+                        <p class="small">La primera impresión. Nos guía para saber la apariencia frontal y dimensiones de ejecución.</p>
+                        <div class="img-placeholder" style="min-height: 150px;">
+                            <img src="l60.png" alt="Imagen 3.2 Fachada Principal">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="p-3 border rounded">
+                        <h5 class="fw-bold text-gold">3.2.2 Posterior</h5>
+                        <p class="small">Lado opuesto a la principal. Importante para la estética del jardín o accesorios ocultos.</p>
+                        <div class="img-placeholder" style="min-height: 150px;">
+                            <img src="l61.png" alt="Imagen 3.3 Fachada Posterior">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="p-3 border rounded">
+                        <h5 class="fw-bold text-gold">3.2.3 Lateral Derecha</h5>
+                        <p class="small">Vista longitudinal que permite comprender el diseño del lado opuesto de la vista principal.</p>
+                        <div class="img-placeholder" style="min-height: 150px;">
+                            <img src="l61_2.png" alt="Imagen 3.4 Fachada Lateral Derecha">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="p-3 border rounded">
+                        <h5 class="fw-bold text-gold">3.2.4 Vista Superior (Azotea)</h5>
+                        <p class="small">Nos muestra el diseño de la losa o techo, cerrando el conjunto de vistas exteriores.</p>
+                        <div class="img-placeholder" style="min-height: 150px;">
+                            <img src="l62.png" alt="Imagen 3.5 Planta de Techo">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        
+
+        <section class="blueprint-card">
+            <div class="row">
+                <div class="col-md-6">
+                    <h3>3.3 SECCIONES</h3>
+                    <p>Proporción del conjunto analizada por partes. Permite detallar lo que es muy complejo para verse todo junto.</p>
+                    <div class="img-placeholder">
+                        <img src="l63.png" alt="Imagen 3.6 Cortes">
+                    </div>
+                    <p class="small text-center fst-italic">Corte Transversal (Ancho) y Longitudinal (Largo).</p>
+                </div>
+                <div class="col-md-6">
+                    <h3>3.4 ALZADOS</h3>
+                    <p>Conjunto de fachadas y cortes. En maquetas, generalmente interpretamos los 3 alzados principales (Frontal, Posterior, Lateral).</p>
+                    <div class="img-placeholder">
+                        <img src="l64.png" alt="Imagen 3.7 Fachadas y Cortes">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="blueprint-card bg-light">
+            <h3 class="text-center mb-4">3.5 PLANO DE CONJUNTO</h3>
+            <p>Es el plano que reúne todos los dibujos anteriores en una escala menor. Es nuestra <span class="highlight">hoja de ruta</span> para armar la maqueta.</p>
+            
+            <div class="row">
+                <div class="col-md-8">
+                    <h5 class="fw-bold">Orden de Interpretación para el Maquetista:</h5>
+                    <ol class="list-group list-group-numbered">
+                        <li class="list-group-item"><strong>Planta Arquitectónica:</strong> La base del trazo.</li>
+                        <li class="list-group-item"><strong>Fachada Principal:</strong> La referencia de muros frontales.</li>
+                        <li class="list-group-item"><strong>Fachada Posterior:</strong> Definición de límites traseros.</li>
+                        <li class="list-group-item"><strong>Isométrico y Cortes:</strong> Para entender alturas y volúmenes internos.</li>
+                        <li class="list-group-item"><strong>Sección o Detalle:</strong> Ajustes finos de piezas pequeñas.</li>
+                        <li class="list-group-item"><strong>Vista Superior:</strong> Colocación de techos y azoteas.</li>
+                    </ol>
+                </div>
+                <div class="col-md-4">
+                    <div class="img-placeholder" style="border-color: var(--blueprint-blue);">
+                        <img src="l65.png" alt="Imagen Plano de Conjunto">
+                    </div>
+                    <p class="small text-center fw-bold">PLANO DE CONJUNTO GENERAL</p>
+                </div>
+            </div>
+            
+            <div class="alert alert-info mt-4">
+                <i class="bi bi-info-circle-fill me-2"></i>
+                <strong>Nota:</strong> Para maquetas escolares básicas, estos planos son suficientes. Para proyectos definitivos, se añaden planos estructurales, eléctricos e hidráulicos.
+            </div>
+        </section>
+
+        <footer class="d-flex justify-content-between mt-5 pt-4 border-top">
+            <a href="CAPITULO2.html" class="btn btn-outline-secondary px-4">← Volver</a>
+            <p class="text-muted small">Páginas 59 - 66</p>
+            <a href="CAPITULO4.html" class="btn btn-primary px-4" style="background-color: var(--blueprint-blue);">Capítulo IV: Herramientas →</a>
+        </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
