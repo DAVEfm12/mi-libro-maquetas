@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capítulo II - Tipos de Maquetas</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <style>
+        :root { --gold: #d4af37; --dark: #121212; --light-gold: #f4e8c1; }
+        body { background-color: #f8f9fa; font-family: 'Segoe UI', sans-serif; }
+        
+        /* Header Estilo Libro Premium */
+        .chapter-header {
+            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('MAQUETA.png');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 80px 0;
+            border-bottom: 6px solid var(--gold);
+        }
+
+        /* Tarjetas de Clasificación */
+        .type-card {
+            background: white;
+            border: none;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            height: 100%;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        .type-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        .type-card .card-badge {
+            background: var(--gold);
+            color: black;
+            padding: 5px 15px;
+            font-weight: bold;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+        }
+
+        /* Contenedor de Imágenes */
+        .img-box {
+            position: relative;
+            height: 200px;
+            overflow: hidden;
+            background: #eee;
+        }
+        .img-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.5s;
+        }
+        .type-card:hover .img-box img { transform: scale(1.1); }
+
+        /* Estilo para Maquetas Virtuales/3D */
+        .tech-section {
+            background: var(--dark);
+            color: white;
+            padding: 60px 0;
+            border-radius: 30px;
+            margin: 40px 0;
+        }
+
+        .source-tag { font-size: 0.7rem; color: #888; text-align: right; display: block; margin-top: 5px; }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand text-gold fw-bold" href="CAPITULO1.html">← CAPÍTULO I</a>
+            <span class="text-white-50">CAPÍTULO II: CLASIFICACIÓN TÉCNICA</span>
+        </div>
+    </nav>
+
+    <header class="chapter-header text-center">
+        <div class="container animate__animated animate__fadeIn">
+            <h1 class="display-2 fw-bold text-gold">CAPÍTULO II</h1>
+            <h2 class="h1">TIPOS DE MAQUETAS</h2>
+            <p class="lead mt-3">Desde la concepción urbana hasta el detalle milimétrico y la realidad virtual.</p>
+        </div>
+    </header>
+
+    <div class="container my-5">
+
+        <section class="mb-5">
+            <h2 class="text-dark border-bottom pb-2 mb-4">2.1 MAQUETAS DE EDIFICACIÓN</h2>
+            <p>Este grupo es la base de la representación arquitectónica, subdividiéndose según su escala y propósito específico.</p>
+            
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="type-card shadow-sm">
+                        <div class="img-box">
+                            <img src="MAQTOPO2.png" alt="Urbanismo"> </div>
+                        <div class="p-3">
+                            <span class="card-badge">2.1.1 Urbanismo</span>
+                            <h5 class="mt-2 fw-bold">Ciudades y Unidades</h5>
+                            <p class="small text-muted">Escalas: 1:500 a 1:1500. Representan grandes zonas de urbanización preservando la facilidad de traslado.</p>
+                            <span class="source-tag">Fuente: Imágenes 2.2</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="type-card shadow-sm">
+                        <div class="img-box">
+                            <img src="MAQUETA.png" alt="Edificios">
+                        </div>
+                        <div class="p-3">
+                            <span class="card-badge">2.1.2 De Edificios</span>
+                            <h5 class="mt-2 fw-bold">Escala y Transparencia</h5>
+                            <p class="small text-muted">Escalas 1:200 a 1:500. Permiten visualizar fachadas y la unión con espacios interiores mediante materiales transparentes.</p>
+                            <span class="source-tag">Fuente: Imágenes 2.3</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="type-card shadow-sm">
+                        <div class="img-box">
+                            <img src="MAQDESB.png" alt="Estructuras"> </div>
+                        <div class="p-3">
+                            <span class="card-badge">2.1.3 Estructurales</span>
+                            <h5 class="mt-2 fw-bold">Esqueleto Constructivo</h5>
+                            <p class="small text-muted">Vigas, columnas y zapatas. Ideales para mostrar soluciones técnicas y cortes por fachada.</p>
+                            <span class="source-tag">Fuente: Imagen 2.4</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="row g-4 mb-5">
+            <div class="col-md-6">
+                <div class="interactive-section bg-white p-4 rounded shadow-sm border-start border-gold border-4">
+                    <h4 class="text-gold fw-bold">2.1.4 Espacios Interiores</h4>
+                    <p class="small">Reflejan problemas funcionales y luminotécnicos. Incluye mobiliario, texturas y colores para visualizar el efecto final del diseño interno.</p>
+                    <img src="MAQ5.png" class="img-fluid rounded shadow-sm mt-2" alt="Interiores">
+                    <span class="source-tag">Imágenes 2.5 - Fuente: SIA y CR</span>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="interactive-section bg-white p-4 rounded shadow-sm border-start border-dark border-4">
+                    <h4 class="fw-bold">2.1.5 Especiales (Prototipos)</h4>
+                    <p class="small">Campo del diseño de objetos y muebles. Escalas desde 1:10 hasta 1:1. Son prototipos fundamentales en las fases iniciales del diseño industrial.</p>
+                    <div class="d-flex gap-2">
+                        <img src="MAQA.png" class="img-fluid rounded w-50" alt="Especial 1">
+                        <img src="MAQB.png" class="img-fluid rounded w-50" alt="Especial 2">
+                    </div>
+                    <span class="source-tag">Imágenes 2.6 - Fuente: El Autor</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="row g-4 mb-5">
+            <h3 class="fw-bold text-center mb-4">GRADOS DE DETALLE Y PROPÓSITO</h3>
+            
+            <div class="col-md-3">
+                <div class="type-card p-3 text-center">
+                    <div class="icon-box h1 text-gold"><i class="bi bi-aspect-ratio"></i></div>
+                    <h6>2.2 Volumétricas</h6>
+                    <p class="x-small text-muted">Grandes tamaños para determinar masas espaciales.</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="type-card p-3 text-center">
+                    <div class="icon-box h1 text-gold"><i class="bi bi-star-fill"></i></div>
+                    <h6>2.3 Detalladas</h6>
+                    <p class="x-small text-muted">"Tiro de gracia" en concursos. Máxima calidad y realismo.</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="type-card p-3 text-center">
+                    <div class="icon-box h1 text-gold"><i class="bi bi-gear-fill"></i></div>
+                    <h6>2.5 Técnicas</h6>
+                    <p class="x-small text-muted">Ingenio y sinergia. Representan procesos complejos (ej. plantas de residuos).</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="type-card p-3 text-center">
+                    <div class="icon-box h1 text-gold"><i class="bi bi-cart-fill"></i></div>
+                    <h6>2.6 Comerciales</h6>
+                    <p class="x-small text-muted">Uso estético con piezas fabricadas para centros comerciales.</p>
+                </div>
+            </div>
+        </div>
+
+        <section class="tech-section px-4">
+            <div class="row align-items-center">
+                <div class="col-lg-6 animate__animated animate__fadeInLeft">
+                    <h2 class="text-gold">Maquetas Virtuales y 3D</h2>
+                    <p>La evolución digital permite el <strong>Laboratorio Virtual</strong>. El alumno identifica soluciones constructivas manipulando sólidos tridimensionales acoplados.</p>
+                    <ul class="list-group list-group-flush bg-transparent">
+                        <li class="list-group-item bg-transparent text-white-50 small border-secondary">✔ Modelado de objetos preciso.</li>
+                        <li class="list-group-item bg-transparent text-white-50 small border-secondary">✔ Escenas coherentes e iluminación real.</li>
+                        <li class="list-group-item bg-transparent text-white-50 small border-secondary">✔ Simulación de nudos estructurales.</li>
+                    </ul>
+                </div>
+                <div class="col-lg-6">
+                    <img src="MAQDETALLE.png" class="img-fluid rounded shadow-lg border border-secondary" alt="3D Render">
+                    <p class="small text-center mt-2 text-white-50">Imagen 2.16: Render y Maquetas 3D.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="my-5">
+            <h3 class="fw-bold mb-4">MAQUETAS DE PROCESO Y LOGÍSTICA</h3>
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="p-4 bg-white rounded shadow-sm">
+                        <h5>2.12 Maqueta de Estudio / 2.13 Trabajo</h5>
+                        <p class="small">Materiales simples (plastilina, cartón) para analizar relaciones espaciales antes de los detalles definitivos.</p>
+                        <div class="row g-2">
+                            <div class="col-6"><img src="MAQDESA.png" class="img-fluid rounded" alt="Antes"></div>
+                            <div class="col-6"><img src="MAQDESC.png" class="img-fluid rounded" alt="Después"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="p-4 bg-white rounded shadow-sm">
+                        <h5>2.14 Ejecución (Proyecto Definitivo)</h5>
+                        <p class="small">Muestra el proyecto tal y como será construido, incluyendo escalas humanas y vegetación para concursos laborales.</p>
+                        <img src="MAQUETA.png" class="img-fluid rounded mt-2" alt="Ejecución">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row g-4 mt-2">
+                <div class="col-md-6">
+                    <div class="p-4 bg-light rounded border">
+                        <h6 class="fw-bold"><i class="bi bi-layers me-2"></i>2.15 Maqueta Seccionada</h6>
+                        <p class="x-small">Compuesta por secciones para facilitar el traslado de volúmenes grandes (zonas urbanas).</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="p-4 bg-light rounded border">
+                        <h6 class="fw-bold"><i class="bi bi-puzzle me-2"></i>2.16 Maqueta Desmontable</h6>
+                        <p class="x-small">Ideal para casas habitación; permite ver el interior piso por piso de forma cómoda.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <footer class="text-center">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <a href="CAPITULO1.html" class="btn btn-outline-light">← Capítulo I</a>
+                <span class="text-gold">PÁGINAS 45 - 55</span>
+                <a href="CAPITULO3.html" class="btn btn-gold">Capítulo III →</a>
+            </div>
+            <p class="small text-white-50">MAQUETAS PARA PRINCIPIANTES - Ignacio López Torres</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
