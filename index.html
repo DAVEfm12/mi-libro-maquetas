@@ -8,61 +8,70 @@
 </head>
 <body>
 
-    <nav class="menu-indices">
-        <button onclick="irAPagina(0)">Portada</button>
-        <button onclick="irAPagina(2)">Cap. IV: Materiales</button>
-        <button onclick="irAPagina(4)">Cap. VIII: Elaboración</button>
-        <button onclick="irAPagina(6)">Escalas</button>
-    </nav>
-
-    <div class="container">
-        <div id="libro-html">
-            <div class="page" data-density="hard">
-                <div class="page-content portada">
-                    <h1>MAQUETAS PARA PRINCIPIANTES</h1>
-                    <p>Colección Dorada</p>
-                    <div class="autor">Ignacio López Torres</div>
-                </div>
-            </div>
-
-            <div class="page">
-                <div class="page-content">
-                    <h2>Introducción</h2>
-                    <p>Bienvenido al mundo de la volumetría. En este libro aprenderás desde lo más básico...</p>
-                    <img src="https://via.placeholder.com/300x200" alt="Ejemplo maqueta">
-                </div>
-            </div>
-
-            <div class="page">
-                <div class="page-content">
-                    <h2>Capítulo IV: Materiales</h2>
-                    <p>Toca un material para saber más:</p>
-                    <div class="material-card" onclick="alert('El cúter debe usarse siempre con regla metálica.')">
-                        <strong>Cúter:</strong> Herramienta de corte principal.
-                    </div>
-                    <div class="material-card" onclick="alert('El pegamento blanco es ideal para cartón madera.')">
-                        <strong>Pegamento:</strong> Unión estructural.
-                    </div>
-                </div>
-            </div>
-
-            <div class="page">
-                <div class="page-content">
-                    <h2>Capítulo VIII: Elaboración</h2>
-                    <p>Proceso de armado de muros y fachadas...</p>
-                    <div class="check-list">
-                        <label><input type="checkbox"> Dibujo de planos</label><br>
-                        <label><input type="checkbox"> Corte de piezas</label><br>
-                        <label><input type="checkbox"> Pegado inicial</label>
-                    </div>
-                </div>
-            </div>
+    <div class="taller-background">
+        
+        <div class="flip-book" id="book">
             
-            <div class="page" data-density="hard">
+            <div class="page page-cover" data-density="hard">
                 <div class="page-content">
-                    <h3>Fin del Volumen I</h3>
+                    <h2 class="coleccion">Colección Dorada</h2>
+                    <h1>MAQUETAS PARA PRINCIPIANTES</h1>
+                    <div class="author">Ignacio López Torres</div>
+                    <img src="img/portada_maqueta.jpg" alt="Portada" class="img-portada">
+                    <p>TEORÍA • ELABORACIÓN • ACABADOS</p>
                 </div>
             </div>
+
+            <div class="page">
+                <div class="page-content">
+                    <h2 class="page-header">Índice de Contenidos</h2>
+                    <ul class="indice-lista">
+                        <li onclick="irAPagina(2)"><span>I.</span> Introducción a las maquetas</li>
+                        <li onclick="irAPagina(4)"><span>IV.</span> Materiales y Pegamentos</li>
+                        <li onclick="irAPagina(6)"><span>VII.</span> Escalas Arquitectónicas</li>
+                        <li onclick="irAPagina(8)"><span>VIII.</span> Elaboración Paso a Paso</li>
+                    </ul>
+                    
+                </div>
+            </div>
+
+            <div class="page">
+                <div class="page-content">
+                    <h2 class="page-header">Capítulo IV: Materiales</h2>
+                    <p>Para lograr una maqueta profesional, la elección del pegamento es vital:</p>
+                    <div class="interactivo-box" onclick="toggleDetalle('pegamento')">
+                        <strong>UHU / Pegamento Universal:</strong>
+                        <p id="detalle-pegamento" class="hidden">Ideal para cartón batería y madera balsa. Secado rápido y no mancha si se aplica con cuidado.</p>
+                    </div>
+                    <img src="img/materiales.jpg" alt="Herramientas" class="img-content">
+                </div>
+            </div>
+
+            <div class="page">
+                <div class="page-content">
+                    <h2 class="page-header">Herramienta: Calculadora de Escalas</h2>
+                    <p>Convierte medidas reales a medidas de maqueta:</p>
+                    <div class="calculadora-escala">
+                        <input type="number" id="medidaReal" placeholder="Medida real (metros)">
+                        <select id="escalaSel">
+                            <option value="50">Escala 1:50</option>
+                            <option value="100">Escala 1:100</option>
+                            <option value="200">Escala 1:200</option>
+                        </select>
+                        <button onclick="calcular()">Calcular</button>
+                        <div id="resultadoEscala">Resultado: 0 cm</div>
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="page page-cover" data-density="hard">
+                <div class="page-content">
+                    <h2>Fin del Volumen I</h2>
+                    <p>Ignacio López Torres - 2024</p>
+                </div>
+            </div>
+
         </div>
     </div>
 
