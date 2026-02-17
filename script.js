@@ -23,3 +23,29 @@ document.addEventListener('DOMContentLoaded', () => {
         }, index * 100);
     });
 });
+
+// Manejo de eventos para la navegación interactiva
+document.addEventListener('DOMContentLoaded', () => {
+    console.log("Sistema de Libro Interactivo Iniciado");
+
+    // Smooth scroll para el botón de índice
+    const scrollBtn = document.querySelector('a[href="#indice-interactivo"]');
+    if (scrollBtn) {
+        scrollBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            document.querySelector('#indice-interactivo').scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    }
+
+    // Efecto de carga progresiva en los ítems del índice
+    const caps = document.querySelectorAll('.item-cap');
+    caps.forEach((cap, index) => {
+        cap.style.opacity = "0";
+        setTimeout(() => {
+            cap.style.transition = "all 0.5s ease";
+            cap.style.opacity = "1";
+        }, 150 * index);
+    });
+});
