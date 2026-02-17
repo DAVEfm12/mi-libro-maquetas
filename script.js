@@ -1,28 +1,33 @@
-const pageFlip = new St.PageFlip(document.getElementById("book"), {
-    width: 550,
-    height: 733,
-    size: "stretch",
-    showCover: true,
-    usePortrait: false // Mostrar dos páginas en escritorio
-});
-
-pageFlip.loadFromHTML(document.querySelectorAll(".page"));
-
-// Actualizar barra de progreso
-pageFlip.on('flip', (e) => {
-    const total = pageFlip.getPageCount();
-    const current = e.data + 1;
-    document.getElementById('progress-bar').style.width = (current / total) * 100 + "%";
-});
-
-// Calculadora de Escala (Capítulo VII)
-function calcularEscala() {
-    const real = document.getElementById('realSize').value;
-    const res = real / 50; // Ejemplo escala 1:50
-    document.getElementById('result').innerText = `En la maqueta medirá: ${res.toFixed(2)} cm`;
+// Función para ocultar la portada y mostrar el contenido
+function entrarAlLibro() {
+    const portada = document.getElementById('portada');
+    const contenido = document.getElementById('libro-content');
+    
+    portada.classList.add('vh-100-hide');
+    setTimeout(() => {
+        portada.classList.add('d-none');
+        contenido.classList.remove('d-none');
+    }, 800);
 }
 
-// Controles
-document.getElementById('prevBtn').onclick = () => pageFlip.flipPrev();
-document.getElementById('nextBtn').onclick = () => pageFlip.flipNext();
-window.goTo = (n) => pageFlip.turnToPage(n);
+// Navegación entre capítulos
+document.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        // Obtener el ID de la sección a mostrar
+        const sectionId = this.getAttribute('data-section');
+        
+        // Ocultar todas las secciones
+        document.querySelectorAll('.content-section').forEach(section => {
+            section.classList.add('d-none');
+        });
+        
+        // Mostrar la sección seleccionada
+        document.getElementById('section-' + sectionId).classList.remove('d-none');
+        
+        // Actualizar estado activo en el menú
+        document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+        this.classList.add('active');
+    });
+});
