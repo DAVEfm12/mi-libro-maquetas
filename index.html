@@ -3,26 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <title>Maquetas para Principiantes - Interactivo</title>
-    <link rel="stylesheet" href="css/estilo.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <nav id="sidebar">
-        <h2>Índice</h2>
-        <ul>
-            <li><a href="#" onclick="cargarCapitulo('inicio')">Portada</a></li>
-            <li><a href="#" onclick="cargarCapitulo('cap1')">Cap. 1: Introducción</a></li>
-            <li><a href="#" onclick="cargarCapitulo('cap4')">Cap. 4: Materiales</a></li>
-            <li><a href="#" onclick="cargarCapitulo('taller')">El Taller</a></li>
-        </ul>
-    </nav>
 
-    <main id="lector">
-        <div id="contenido-pagina">
-            <h1>Maquetas para Principiantes</h1>
-            <p>Selecciona un capítulo para comenzar la lectura interactiva.</p>
-        </div>
-    </main>
+    <div id="book-container">
+        <div id="my-book">
+            <div class="page page-cover">
+                <h1>Maquetas para Principiantes</h1>
+                <p>Ignacio López Torres</p>
+            </div>
 
-    <script src="script.js"></script>
+            <div class="page">
+                <h2>Capítulo IV: Materiales</h2>
+                <p>Haz clic en el material para ver el detalle:</p>
+                <div class="interactivo" onclick="reproducirConsejo()">
+                    <img src="assets/cutter.png" alt="Cúter">
+                    <span>Tip de seguridad</span>
+                </div>
+            </div>
+            
+            </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/page-flip/dist/js/page-flip.browser.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>
