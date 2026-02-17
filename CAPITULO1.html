@@ -3,158 +3,146 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Capítulo I - Introducción a las Maquetas</title>
+    <title>Capítulo I - El Arte de las Maquetas</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
 <body class="bg-light">
 
-    <nav class="navbar navbar-dark bg-dark sticky-top">
+    <div class="progress-container">
+        <div class="progress-bar" id="myBar"></div>
+    </div>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-lg">
         <div class="container">
-            <a class="navbar-brand text-gold" href="index.html">← VOLVER AL ÍNDICE PRINCIPAL</a>
+            <a class="navbar-brand text-gold fw-bold" href="index.html">← VOLVER AL ÍNDICE</a>
+            <span class="navbar-text d-none d-md-block">Manual de Maquetería - Vol. I</span>
         </div>
     </nav>
 
-    <div class="container my-5 bg-white p-5 shadow rounded">
-        <header class="text-center mb-5">
-            <h1 class="text-gold display-3">CAPÍTULO I</h1>
-            <h2 class="display-5">INTRODUCCIÓN A LAS MAQUETAS</h2>
-            <hr class="gold-line mx-auto">
+    <div class="container my-5 bg-white p-4 p-md-5 shadow-lg rounded-4 main-content">
+        
+        <header class="text-center mb-5 animate__animated animate__fadeIn">
+            <h1 class="text-gold display-2 fw-bold">CAPÍTULO I</h1>
+            <h2 class="display-6 text-secondary">INTRODUCCIÓN A LAS MAQUETAS</h2>
+            <div class="gold-line mx-auto"></div>
         </header>
 
-        <div class="chapter-content">
-            
-            <section class="mb-5 animate-on-scroll">
-                <h3 class="text-gold">1.1 ¿QUÉ ES UNA MAQUETA?</h3>
-                <p>Es la representación tridimensional, a escala, de una obra compleja. En general, para la construcción de edificios, plantas industriales, barcos, aviones o piezas específicas, se utilizan planos. Los planos son representaciones a escala, en dos dimensiones, de la obra que se pretende construir o se ha construido. En algunos casos, la información que suministran los planos es insuficiente, por lo cual se recurre a las maquetas. Su utilización, desvela problemas constructivos que solo con los planos, no se habrían visto. En los planos, la visión espacial no es intuitiva, en las maquetas sí.</p>
-                
-                
-
-                <figure class="text-center mt-4">
-                    <img src="MAQUETA.png" alt="Maqueta de casa" class="img-fluid rounded shadow hover-zoom">
-                    <figcaption class="mt-2 text-muted fst-italic">Imagen 1.1 Maquetas de casas habitación. Fuente: El Autor.</figcaption>
-                </figure>
-            </section>
-
-            <section class="mb-5 animate-on-scroll">
-                <h3 class="text-gold">1.2 OBJETIVO DE LAS MAQUETAS</h3>
-                <p>El objetivo es implementar en los alumnos una base conceptual y procedimental que no puede ser suficiente sin el complemento de un desarrollo teórico-práctico en el taller. Las maquetas constituyen excelentes medios didácticos para la enseñanza de diferentes disciplinas técnicas, brindando una representación aproximada a la realidad objetiva.</p>
-                
-                <figure class="text-center mt-4">
-                    <img src="MAQUETA2.png" alt="Maqueta topográfica" class="img-fluid rounded shadow hover-zoom">
-                    <figcaption class="mt-2 text-muted fst-italic">Imagen 1.2 Maqueta topográfica. Fuente: si_arquitectura@yahoo.com.mx</figcaption>
-                </figure>
-            </section>
-
-            <section class="mb-5">
-                <div class="p-4 border-gold bg-dark text-white rounded shadow mb-4">
-                    <h3 class="text-gold">1.3 ELEMENTOS QUE COMPONEN UNA MAQUETA</h3>
-                    <p>Es un proceso de creación visual apegada a la realidad. También trata de armonizar en su relación, el entorno humano, desde la concepción de objetos, hasta el urbanismo, a diferencia de la pintura y la escultura, que son la realización de visiones personales y de los sueños de un artista, el diseño cubre las exigencias e impulsa la creatividad y el talento.</p>
+        <section class="reveal">
+            <h3 class="section-title">1.1 ¿QUÉ ES UNA MAQUETA?</h3>
+            <div class="row align-items-center">
+                <div class="col-lg-7">
+                    <p>Es la representación tridimensional, a escala, de una obra compleja. Su utilización desvela problemas constructivos que solo con los planos no se habrían visto. En los planos, la visión espacial no es intuitiva, en las maquetas sí.</p>
                 </div>
+                <div class="col-lg-5 text-center">
+                    <img src="MAQUETA.png" class="img-fluid rounded-3 shadow-sm hover-effect" alt="Maqueta 1.1">
+                    <p class="caption">Imagen 1.1 Maquetas de casas habitación.</p>
+                </div>
+            </div>
+        </section>
 
-                <div class="row g-4">
-                    <div class="col-md-6">
-                        <div class="card h-100 shadow-sm border-0 interactive-card">
-                            <div class="card-body">
-                                <h5 class="fw-bold"><span class="text-gold">1.3.1</span> CONCEPTUALES (IDEAS)</h5>
-                                <p class="small">Son los elementos que no son visibles, como ideas y conceptos de algo que se pretende construir. Dependerán de los planos y de la necesidad del diseñador.</p>
-                                <img src="Concepto.png" class="img-fluid rounded mt-2" alt="Concepto">
-                                <p class="image-caption">Imagen 1.3 Concepto o idea.</p>
-                            </div>
-                        </div>
-                    </div>
+        <section class="reveal mt-5">
+            <h3 class="section-title">1.2 OBJETIVO DE LAS MAQUETAS</h3>
+            <p>Implementar una base conceptual y procedimental. Son excelentes medios didácticos que brindan una representación muy aproximada a la realidad objetiva.</p>
+            <div class="text-center py-3">
+                <img src="MAQUETA2.png" class="img-fluid rounded-3 shadow-sm hover-effect" style="max-height: 300px;">
+                <p class="caption">Imagen 1.2 Maqueta topográfica.</p>
+            </div>
+        </section>
 
-                    <div class="col-md-6">
-                        <div class="card h-100 shadow-sm border-0 interactive-card">
-                            <div class="card-body">
-                                <h5 class="fw-bold"><span class="text-gold">1.3.2</span> VISUALES</h5>
-                                <p class="small">Son visibles y forman la parte más prominente de un diseño. Incluyen la forma, medida, diseño, color y textura.</p>
-                                <img src="MAQDETALLE.png" class="img-fluid rounded mt-2" alt="Visuales">
-                                <p class="image-caption">Imagen 1.4 Maqueta de detalles.</p>
-                            </div>
-                        </div>
-                    </div>
+        <section class="reveal mt-5" id="elementos-seccion">
+            <div class="p-4 bg-dark text-white rounded-3 mb-4 shadow">
+                <h3 class="text-gold">1.3 ELEMENTOS QUE COMPONEN UNA MAQUETA</h3>
+                <p class="mb-0">Un proceso de creación visual que armoniza el entorno humano e impulsa la creatividad.</p>
+            </div>
 
-                    <div class="col-md-6">
-                        <div class="card h-100 shadow-sm border-0 interactive-card">
-                            <div class="card-body">
-                                <h5 class="fw-bold"><span class="text-gold">1.3.3</span> DE RELACIÓN</h5>
-                                <p class="small">Gobierna la ubicación e interrelación de formas: dirección, posición, espacio y gravedad.</p>
-                                <img src="MAQ5.png" class="img-fluid rounded mt-2" alt="Relación">
-                                <p class="image-caption">Imagen 1.5 Maqueta de espacios interiores.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6">
-                        <div class="card h-100 shadow-sm border-0 interactive-card">
-                            <div class="card-body">
-                                <h5 class="fw-bold"><span class="text-gold">1.3.4</span> PRÁCTICOS</h5>
-                                <p class="small">Representan el significado de la función y el uso de la maqueta. Reflejan el talento y creatividad del maquetista.</p>
-                                <img src="MAQ6.png" class="img-fluid rounded mt-2" alt="Prácticos">
-                                <p class="image-caption">Imagen 1.6 Maqueta de detalles técnicos.</p>
-                            </div>
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="card h-100 element-card shadow-sm border-0">
+                        <div class="card-body">
+                            <h5 class="fw-bold text-gold">1.3.1 CONCEPTUALES</h5>
+                            <p class="small text-muted">Ideas y conceptos no visibles. El punto, la línea y el plano en la mente.</p>
+                            <img src="Concepto.png" class="img-fluid rounded border mb-2" alt="1.3.1">
                         </div>
                     </div>
                 </div>
-            </section>
-
-            <section class="mb-5 bg-light p-4 rounded shadow-inner">
-                <h4 class="text-center mb-4 text-gold fw-bold">GALERÍA DE ESTUDIO DE VOLUMEN</h4>
-                <div class="row row-cols-2 row-cols-md-4 g-2">
-                    <div class="col"><img src="MAQ3.png" class="img-fluid rounded img-thumbnail gallery-img" alt="Maq 3"></div>
-                    <div class="col"><img src="MAQ4.png" class="img-fluid rounded img-thumbnail gallery-img" alt="Maq 4"></div>
-                    <div class="col"><img src="MAQA.png" class="img-fluid rounded img-thumbnail gallery-img" alt="Maq A"></div>
-                    <div class="col"><img src="MAQB.png" class="img-fluid rounded img-thumbnail gallery-img" alt="Maq B"></div>
-                </div>
-                <div class="row row-cols-1 row-cols-md-3 g-2 mt-2">
-                    <div class="col"><img src="MAQDESA.png" class="img-fluid rounded img-thumbnail gallery-img" alt="Desa A"></div>
-                    <div class="col"><img src="MAQDESB.png" class="img-fluid rounded img-thumbnail gallery-img" alt="Desa B"></div>
-                    <div class="col"><img src="MAQDESC.png" class="img-fluid rounded img-thumbnail gallery-img" alt="Desa C"></div>
-                </div>
-                <div class="row row-cols-2 g-2 mt-2">
-                    <div class="col"><img src="MAQTOPO.png" class="img-fluid rounded img-thumbnail gallery-img" alt="Topo 1"></div>
-                    <div class="col"><img src="MAQTOPO2.png" class="img-fluid rounded img-thumbnail gallery-img" alt="Topo 2"></div>
-                </div>
-            </section>
-
-            <section class="mb-5">
-                <h3 class="text-gold">1.4 FINALIDAD, 1.5 VENTAJAS Y 1.6 DESVENTAJAS</h3>
-                <div class="alert alert-secondary border-gold">
-                    <p><strong>Ventajas:</strong> La visión espacial intuitiva, facilidad de comunicación con el cliente y detección de errores de diseño antes de la obra real.</p>
-                    <p><strong>Desventajas:</strong> Tiempo de elaboración, fragilidad y el costo de ciertos materiales de alta fidelidad.</p>
-                </div>
-            </section>
-
-            <section class="mb-5">
-                <h3 class="text-gold">1.7 CUIDADOS Y 1.8 USO</h3>
-                <p>Las maquetas deben protegerse del polvo, la humedad y la luz solar directa. Su uso abarca desde el ámbito académico hasta el profesional-comercial para ventas inmobiliarias.</p>
-            </section>
-
-            <section class="mb-5">
-                <h3 class="text-gold">1.9 LA MAQUETA COMO HERRAMIENTA</h3>
-                <div class="row">
-                    <div class="col-md-6 p-3">
-                        <div class="bg-light p-3 border-start border-gold border-4">
-                            <h5>1.9.1 Herramienta de Diseño</h5>
-                            <p>Permite al arquitecto experimentar con volúmenes y luz en tiempo real.</p>
-                        </div>
-                    </div>
-                    <div class="col-md-6 p-3">
-                        <div class="bg-light p-3 border-start border-gold border-4">
-                            <h5>1.9.2 Herramienta de Comunicación</h5>
-                            <p>Facilita la comprensión del proyecto para personas que no saben leer planos técnicos.</p>
+                <div class="col-md-6">
+                    <div class="card h-100 element-card shadow-sm border-0">
+                        <div class="card-body">
+                            <h5 class="fw-bold text-gold">1.3.2 VISUALES</h5>
+                            <p class="small text-muted">Lo que realmente vemos: forma, medida, color y textura.</p>
+                            <img src="MAQDETALLE.png" class="img-fluid rounded border mb-2" alt="1.3.2">
                         </div>
                     </div>
                 </div>
-            </section>
-        </div>
+                <div class="col-md-6">
+                    <div class="card h-100 element-card shadow-sm border-0">
+                        <div class="card-body">
+                            <h5 class="fw-bold text-gold">1.3.3 DE RELACIÓN</h5>
+                            <p class="small text-muted">Ubicación e interrelación: dirección, posición, espacio y gravedad.</p>
+                            <img src="MAQ5.png" class="img-fluid rounded border mb-2" alt="1.3.3">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card h-100 element-card shadow-sm border-0">
+                        <div class="card-body">
+                            <h5 class="fw-bold text-gold">1.3.4 PRÁCTICOS</h5>
+                            <p class="small text-muted">Contenido, función y alcance. El talento proyectado del artista.</p>
+                            <img src="MAQ6.png" class="img-fluid rounded border mb-2" alt="1.3.4">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="reveal mt-5 bg-gold-soft p-4 rounded-4">
+            <h4 class="text-center fw-bold mb-4">MUESTRARIO DE TRABAJO DE CAMPO</h4>
+            <div class="gallery-grid">
+                <img src="MAQ3.png" class="gallery-item" onclick="openImg(this)">
+                <img src="MAQ4.png" class="gallery-item" onclick="openImg(this)">
+                <img src="MAQA.png" class="gallery-item" onclick="openImg(this)">
+                <img src="MAQB.png" class="gallery-item" onclick="openImg(this)">
+                <img src="MAQDESA.png" class="gallery-item" onclick="openImg(this)">
+                <img src="MAQDESB.png" class="gallery-item" onclick="openImg(this)">
+                <img src="MAQTOPO.png" class="gallery-item" onclick="openImg(this)">
+                <img src="MAQTOPO2.png" class="gallery-item" onclick="openImg(this)">
+            </div>
+        </section>
+
+        <section class="reveal mt-5">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="p-3 border-start border-gold border-4 bg-light mb-3">
+                        <h5 class="fw-bold">1.4 AL 1.6</h5>
+                        <p class="small">Finalidad, Ventajas y Desventajas de la construcción física.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="p-3 border-start border-gold border-4 bg-light mb-3">
+                        <h5 class="fw-bold">1.7 Y 1.8</h5>
+                        <p class="small">Cuidados contra humedad y sol. Usos profesionales y académicos.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="p-3 border-start border-gold border-4 bg-light mb-3">
+                        <h5 class="fw-bold">1.9 HERRAMIENTA</h5>
+                        <p class="small">Diseño y Comunicación. El puente entre el plano y el cliente.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
         <footer class="mt-5 pt-4 border-top d-flex justify-content-between">
-            <a href="index.html" class="btn btn-outline-dark">Ir al Índice</a>
-            <a href="CAPITULO2.html" class="btn btn-gold px-4">Siguiente Capítulo: II →</a>
+            <a href="index.html" class="btn btn-outline-dark px-4 shadow-sm">Índice General</a>
+            <a href="CAPITULO2.html" class="btn btn-gold px-5 fw-bold shadow">CAPÍTULO II →</a>
         </footer>
+    </div>
+
+    <div id="myModal" class="img-modal" onclick="this.style.display='none'">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="img01">
     </div>
 
     <script src="script.js"></script>
