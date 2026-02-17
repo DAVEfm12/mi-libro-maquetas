@@ -1,154 +1,115 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Maquetas para Principiantes - Ignacio López Torres</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-
 <div class="d-flex" id="wrapper">
-    <div class="bg-dark text-white" id="sidebar-wrapper">
-        <div class="sidebar-heading text-center py-4">
+    <div class="bg-dark text-white shadow-lg" id="sidebar-wrapper">
+        <div class="sidebar-heading text-center py-4 border-bottom border-secondary">
             <i class="fas fa-drafting-compass fa-2x text-warning mb-2"></i>
-            <h5 class="m-0 text-warning">COLECCIÓN DORADA</h5>
-            <small class="text-muted">Libro Interactivo</small>
+            <h5 class="m-0">COLECCIÓN DORADA</h5>
         </div>
         
-        <div class="px-3 mb-3">
-            <div class="input-group input-group-sm">
-                <span class="input-group-text bg-warning border-0"><i class="fas fa-search"></i></span>
-                <input type="text" id="bookSearch" class="form-control" placeholder="Buscar tema...">
-            </div>
-        </div>
-
-        <div class="list-group list-group-flush" id="sidebarMenu">
-            <a href="#" class="list-group-item list-group-item-action bg-dark text-white active" data-section="portada">
-                <i class="fas fa-home me-2"></i> Portada
-            </a>
+        <div class="list-group list-group-flush accordion" id="sidebarMenu">
+            <a href="#" class="list-group-item list-group-item-action bg-dark text-white active" onclick="showSection('portada')">Portada</a>
+            <a href="#" class="list-group-item list-group-item-action bg-dark text-white" onclick="showSection('dedicatoria')">Dedicatoria</a>
+            <a href="#" class="list-group-item list-group-item-action bg-dark text-white" onclick="showSection('agradecimientos')">Agradecimientos</a>
+            <a href="#" class="list-group-item list-group-item-action bg-dark text-white" onclick="showSection('prologo')">Prólogo</a>
+            <a href="#" class="list-group-item list-group-item-action bg-dark text-white" onclick="showSection('objetivo')">Objetivo e Introducción</a>
             
-            <button class="list-group-item list-group-item-action bg-dark text-white dropdown-toggle" data-bs-toggle="collapse" data-bs-target="#prefacioSub">
-                <i class="fas fa-star me-2"></i> Prefacio
-            </button>
-            <div id="prefacioSub" class="collapse ps-3 bg-secondary">
-                <a href="#" class="list-group-item list-group-item-action bg-secondary text-white small" data-section="dedicatoria">Dedicatoria</a>
-                <a href="#" class="list-group-item list-group-item-action bg-secondary text-white small" data-section="prologo">Prólogo</a>
-                <a href="#" class="list-group-item list-group-item-action bg-secondary text-white small" data-section="introduccion">Introducción</a>
+            <div class="nav-chapter mt-2">
+                <button class="list-group-item list-group-item-action bg-dark text-white dropdown-toggle" data-bs-toggle="collapse" data-bs-target="#capitulosCollapse">
+                    <i class="fas fa-book me-2"></i> Capítulos I - X
+                </button>
+                <div id="capitulosCollapse" class="collapse ps-3 bg-secondary-dark">
+                    <a href="#" class="list-group-item list-group-item-action small text-white-50" onclick="showSection('cap1')">I. Intro a Maquetas</a>
+                    <a href="#" class="list-group-item list-group-item-action small text-white-50" onclick="showSection('cap2')">II. Tipos de Maquetas</a>
+                    <a href="#" class="list-group-item list-group-item-action small text-white-50" onclick="showSection('cap3')">III. Planos Arq.</a>
+                    <a href="#" class="list-group-item list-group-item-action small text-white-50" onclick="showSection('cap4')">IV. Materiales</a>
+                    <a href="#" class="list-group-item list-group-item-action small text-white-50" onclick="showSection('cap5')">V. Herramientas</a>
+                    <a href="#" class="list-group-item list-group-item-action small text-white-50" onclick="showSection('cap6')">VI. Técnicas de Corte</a>
+                    <a href="#" class="list-group-item list-group-item-action small text-white-50" onclick="showSection('cap7')">VII. Escalas</a>
+                    <a href="#" class="list-group-item list-group-item-action small text-white-50" onclick="showSection('cap8')">VIII. Elaboración</a>
+                    <a href="#" class="list-group-item list-group-item-action small text-white-50" onclick="showSection('cap9')">IX. Acabados</a>
+                    <a href="#" class="list-group-item list-group-item-action small text-white-50" onclick="showSection('cap10')">X. Vegetación</a>
+                </div>
             </div>
-
-            <button class="list-group-item list-group-item-action bg-dark text-white dropdown-toggle" data-bs-toggle="collapse" data-bs-target="#cap1Sub">
-                <i class="fas fa-info-circle me-2"></i> Capítulo I
-            </button>
-            <div id="cap1Sub" class="collapse ps-3 bg-secondary">
-                <a href="#" class="list-group-item list-group-item-action bg-secondary text-white small" data-section="c1-1">1.1 ¿Qué es una maqueta?</a>
-                <a href="#" class="list-group-item list-group-item-action bg-secondary text-white small" data-section="c1-3">1.3 Elementos</a>
-            </div>
-
-            <a href="#" class="list-group-item list-group-item-action bg-dark text-white" data-section="cap7">
-                <i class="fas fa-ruler-combined me-2"></i> Capítulo VII: Escalas
-            </a>
-            <a href="#" class="list-group-item list-group-item-action bg-dark text-white" data-section="cap9">
-                <i class="fas fa-paint-brush me-2"></i> Capítulo IX: Acabados
-            </a>
+            <a href="#" class="list-group-item list-group-item-action bg-dark text-white mt-3" onclick="showSection('biografia')">Sobre el Autor</a>
         </div>
     </div>
 
     <div id="page-content-wrapper">
-        <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm py-3 px-4 sticky-top">
-            <button class="btn btn-warning" id="sidebarToggle"><i class="fas fa-bars"></i> Menú</button>
-            <div class="ms-auto">
-                <span id="pageIndicator" class="badge bg-dark">Portada</span>
-            </div>
-        </nav>
-
-        <div class="container-fluid p-4">
+        <div class="container-fluid p-0">
             
-            <section id="portada" class="content-section active animate__animated animate__fadeIn">
-                <div class="hero-bg text-center text-white d-flex align-items-center justify-content-center rounded shadow-lg">
-                    <div class="p-5 bg-overlay">
-                        <h1 class="display-1 fw-bold main-title">MAQUETAS</h1>
-                        <h3 class="text-warning">PARA PRINCIPIANTES</h3>
-                        <p class="h5 mt-3">AUTOR: IGNACIO LÓPEZ TORRES</p>
-                        <button class="btn btn-warning btn-lg mt-4 px-5 fw-bold" onclick="navegar('dedicatoria')">LEER AHORA</button>
-                    </div>
+            <section id="dedicatoria" class="content-section container py-5">
+                <h2 class="text-warning border-bottom pb-2">Dedicatoria</h2>
+                <p class="lead mt-4">A Dios, a mis padres, Crescenciano y Gaudencia, a mis hermanos; Yesenia, Rafael y Soledad... </p>
+                <p class="fst-italic text-muted">A todos mis amigos, amigas y alumnos que me apoyaron[cite: 56].</p>
+            </section>
+
+            <section id="agradecimientos" class="content-section container py-5">
+                <h2 class="text-warning border-bottom pb-2">Agradecimientos</h2>
+                <div class="card p-4 shadow-sm">
+                    <p>Este espacio lo aprovecharé para expresar mis más sinceros agradecimientos a quienes hicieron posible la realización de este sueño... después de 5 años y 11 meses de trabajo[cite: 58].</p>
+                    <ul>
+                        <li><strong>A Dios:</strong> Por permitirnos escribir este libro[cite: 59].</li>
+                        <li><strong>A mis Padres:</strong> Por soportar mis equivocaciones y por su apoyo económico[cite: 60].</li>
+                        <li><strong>A mis Hermanos:</strong> Yesenia, Rafael y Soledad por los ánimos y las fotografías[cite: 61, 62, 63].</li>
+                        <li><strong>A mis Sobrinos:</strong> Por tomar gran parte de las fotografías que se muestran en esta obra[cite: 64].</li>
+                    </ul>
                 </div>
             </section>
 
-            <section id="dedicatoria" class="content-section">
-                <div class="paper-style shadow-sm p-5 border-start border-warning border-5">
-                    <h2 class="text-warning">Dedicatoria</h2>
-                    <p class="lead fst-italic mt-4">
-                        "A mis padres y maestros, por darme las herramientas para construir mis sueños..."
-                    </p>
-                </div>
-                <div class="nav-buttons mt-4">
-                    <button class="btn btn-outline-dark" onclick="navegar('portada')">Anterior</button>
-                    <button class="btn btn-dark" onclick="navegar('prologo')">Siguiente</button>
+            <section id="prologo" class="content-section container py-5">
+                <h2 class="text-warning border-bottom pb-2">Prólogo</h2>
+                <div class="row align-items-center">
+                    <div class="col-md-8">
+                        <p>A pesar de los adelantos tecnológicos para la elaboración de proyectos virtuales, no deja de ser necesario el conocimiento de técnicas para elaborar maquetas físicas[cite: 2].</p>
+                        <p class="small text-secondary">— Arq. Raúl Hernández Castrejón[cite: 2].</p>
+                                            </div>
                 </div>
             </section>
 
-            <section id="cap7" class="content-section">
-                <div class="row">
-                    <div class="col-lg-8">
-                        <h1 class="display-4 text-warning">Capítulo VII: Escalas</h1>
-                        <p>La escala es fundamental para la congruencia de cualquier modelo físico.</p>
-                        
-                        
-
-                        <div class="card bg-light border-0 p-4 mt-4">
-                            <h5><i class="fas fa-calculator me-2 text-warning"></i> Calculadora de Escala para Maquetas</h5>
-                            <div class="row g-3 mt-2">
-                                <div class="col-md-4">
-                                    <label class="form-label small">Medida Real (metros)</label>
-                                    <input type="number" id="realMeters" class="form-control" placeholder="Ej: 5">
-                                </div>
-                                <div class="col-md-4">
-                                    <label class="form-label small">Escala (1:X)</label>
-                                    <input type="number" id="scaleValue" class="form-control" placeholder="Ej: 50">
-                                </div>
-                                <div class="col-md-4 d-flex align-items-end">
-                                    <button class="btn btn-warning w-100 fw-bold" onclick="calculateScale()">CALCULAR</button>
-                                </div>
-                            </div>
-                            <div id="scaleResult" class="mt-3 h5 text-success"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="nav-buttons mt-5">
-                    <button class="btn btn-outline-dark" onclick="navegar('c1-3')">Anterior</button>
-                    <button class="btn btn-dark" onclick="navegar('cap9')">Siguiente</button>
-                </div>
+            <section id="objetivo" class="content-section container py-5">
+                <h3 class="text-warning">Objetivo del Libro</h3>
+                <p>Dar a conocer técnicas, materiales y herramientas para la elaboración de maquetas arquitectónicas a un costo muy bajo, utilizando incluso materiales considerados como basura[cite: 2].</p>
+                <h3 class="text-warning mt-4">Introducción</h3>
+                <p>El libro se estructura en 10 capítulos que abarcan desde la teoría esencial hasta la organización del taller[cite: 2].</p>
             </section>
 
-            <section id="cap9" class="content-section">
-                <h1 class="display-4 text-warning">Capítulo IX: Acabados Externos</h1>
-                <div class="row mt-4">
-                    <div class="col-md-6 mb-3">
-                        <div class="card h-100 shadow-sm border-0">
-                            <div class="card-body">
-                                <h4 class="card-title text-warning">Técnica de Plastilina</h4>
-                                <p>El libro enseña técnicas de <strong>Cacahuateado</strong> y <strong>Ondulado</strong> para simular muros reales.</p>
-                                <ul class="small text-muted">
-                                    <li>Preparación: Amasado para suavidad.</li>
-                                    <li>Cuidado: No exponer al calor directo.</li>
-                                    <li>Protección: Esmalte en aerosol.</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
+            <section id="cap1" class="content-section container py-5">
+                <h1 class="display-4 text-warning">Capítulo I: Introducción a las Maquetas</h1>
+                <h3>1.9.2 Como Herramienta de Comunicación</h3>
+                <p>La maqueta aporta un medio capaz de sintetizar, en un único elemento, la mayor parte de los componentes de un proyecto[cite: 3].</p>
+                                <p class="bg-light p-3">"La maqueta permite 'caminar' con los dedos por donde el usuario caminará con los pies"[cite: 3].</p>
+            </section>
+
+            <section id="cap8" class="content-section container py-5">
+                <h1 class="display-4 text-warning">Capítulo VIII: Elaboración de Maquetas</h1>
+                <p>Este capítulo presenta la metodología para 4 maquetas de diferentes grados de dificultad[cite: 2].</p>
+                <div class="alert alert-info">
+                    <strong>Técnica de Fotocopiado:</strong> Se traslada la planta arquitectónica a una base de madera o cartón resistente de 12.00 x 25.00 cm[cite: 7].
+                </div>
+                <h3>Proceso de Ensamble:</h3>
+                <ol>
+                    <li>Ubicar escuadras de plastilina en el perímetro de la base[cite: 11].</li>
+                    <li>Ensamblar piezas formando ángulos de 90º[cite: 5].</li>
+                    <li>No aplicar pegamento hasta estar seguro de todos los elementos[cite: 5].</li>
+                </ol>
+                            </section>
+
+            <section id="cap10" class="content-section container py-5">
+                <h1 class="display-4 text-warning">Capítulo X: Vegetación</h1>
+                <p>Aprenderemos a elaborar pastos usando aserrín de madera teñido con pintura en polvo[cite: 21].</p>
+                <h3>Mantenimiento:</h3>
+                <ul>
+                    <li>Sacudir el plástico protector frecuentemente[cite: 22].</li>
+                    <li>Exponer la maqueta al aire periódicamente[cite: 22].</li>
+                </ul>
+                            </section>
+
+            <section id="biografia" class="content-section container py-5">
+                <div class="card p-5 border-warning border-4 shadow">
+                    <h2 class="text-warning">Sobre el Autor: Ignacio López Torres</h2>
+                    <p>Ingeniero Civil egresado del Tecnológico Nacional de México, Campus Zacatepec. Ha realizado más de 1000 obras propias expuestas en Puebla y Morelos, destacándose por su talento natural desde los 5 años de edad.</p>
                 </div>
             </section>
 
         </div>
     </div>
 </div>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-<script src="script.js"></script>
-</body>
-</html>
