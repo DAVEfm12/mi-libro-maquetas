@@ -2,31 +2,71 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Maquetas para Principiantes - Interactivo</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <div id="book-container">
-        <div id="my-book">
-            <div class="page page-cover">
-                <h1>Maquetas para Principiantes</h1>
-                <p>Ignacio López Torres</p>
+    <nav class="menu-indices">
+        <button onclick="irAPagina(0)">Portada</button>
+        <button onclick="irAPagina(2)">Cap. IV: Materiales</button>
+        <button onclick="irAPagina(4)">Cap. VIII: Elaboración</button>
+        <button onclick="irAPagina(6)">Escalas</button>
+    </nav>
+
+    <div class="container">
+        <div id="libro-html">
+            <div class="page" data-density="hard">
+                <div class="page-content portada">
+                    <h1>MAQUETAS PARA PRINCIPIANTES</h1>
+                    <p>Colección Dorada</p>
+                    <div class="autor">Ignacio López Torres</div>
+                </div>
             </div>
 
             <div class="page">
-                <h2>Capítulo IV: Materiales</h2>
-                <p>Haz clic en el material para ver el detalle:</p>
-                <div class="interactivo" onclick="reproducirConsejo()">
-                    <img src="assets/cutter.png" alt="Cúter">
-                    <span>Tip de seguridad</span>
+                <div class="page-content">
+                    <h2>Introducción</h2>
+                    <p>Bienvenido al mundo de la volumetría. En este libro aprenderás desde lo más básico...</p>
+                    <img src="https://via.placeholder.com/300x200" alt="Ejemplo maqueta">
+                </div>
+            </div>
+
+            <div class="page">
+                <div class="page-content">
+                    <h2>Capítulo IV: Materiales</h2>
+                    <p>Toca un material para saber más:</p>
+                    <div class="material-card" onclick="alert('El cúter debe usarse siempre con regla metálica.')">
+                        <strong>Cúter:</strong> Herramienta de corte principal.
+                    </div>
+                    <div class="material-card" onclick="alert('El pegamento blanco es ideal para cartón madera.')">
+                        <strong>Pegamento:</strong> Unión estructural.
+                    </div>
+                </div>
+            </div>
+
+            <div class="page">
+                <div class="page-content">
+                    <h2>Capítulo VIII: Elaboración</h2>
+                    <p>Proceso de armado de muros y fachadas...</p>
+                    <div class="check-list">
+                        <label><input type="checkbox"> Dibujo de planos</label><br>
+                        <label><input type="checkbox"> Corte de piezas</label><br>
+                        <label><input type="checkbox"> Pegado inicial</label>
+                    </div>
                 </div>
             </div>
             
+            <div class="page" data-density="hard">
+                <div class="page-content">
+                    <h3>Fin del Volumen I</h3>
+                </div>
             </div>
+        </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/page-flip/dist/js/page-flip.browser.js"></script>
-    <script src="js/main.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
