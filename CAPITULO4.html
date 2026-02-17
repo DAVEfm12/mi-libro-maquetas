@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capítulo IV - Materiales de Construcción</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <style>
+        :root { 
+            --wood: #a67c52;
+            --paper: #f4f1ea;
+            --metal: #7f8c8d;
+            --plastic: #3498db;
+            --dark-panel: #2c3e50;
+        }
+        
+        body { background-color: #f8f9fa; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+
+        /* Estilo de Muestrario */
+        .material-header {
+            background: var(--dark-panel);
+            color: white;
+            padding: 60px 0;
+            border-bottom: 8px solid var(--wood);
+            margin-bottom: 40px;
+        }
+
+        .material-card {
+            background: white;
+            border-radius: 12px;
+            border: none;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            margin-bottom: 30px;
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+        
+        .material-card:hover { transform: translateY(-5px); }
+
+        .card-tag {
+            text-transform: uppercase;
+            font-size: 0.7rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+            padding: 4px 12px;
+            border-radius: 20px;
+            margin-bottom: 10px;
+            display: inline-block;
+        }
+
+        /* Contenedores de Imágenes */
+        .img-box {
+            background: #eee;
+            border: 1px solid #ddd;
+            min-height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .img-box img { width: 100%; height: auto; object-fit: cover; }
+        
+        .source-caption {
+            font-size: 0.7rem;
+            color: #888;
+            padding: 8px;
+            background: #fff;
+            border-top: 1px solid #eee;
+        }
+
+        .property-list { font-size: 0.9rem; list-style: none; padding-left: 0; }
+        .property-list li::before { content: "•"; color: var(--wood); font-weight: bold; display: inline-block; width: 1em; }
+
+        .sticky-toc { position: sticky; top: 100px; }
+    </style>
+</head>
+<body>
+
+    <header class="material-header text-center">
+        <div class="container animate__animated animate__fadeIn">
+            <h1 class="display-3 fw-bold">CAPÍTULO IV</h1>
+            <h2 class="h1">Catálogo de Materiales</h2>
+            <p class="lead">La materia prima del maquetista profesional</p>
+        </div>
+    </header>
+
+    <div class="container pb-5">
+        <div class="row">
+            <div class="col-lg-3 d-none d-lg-block">
+                <div class="sticky-toc list-group shadow-sm">
+                    <a href="#papeles" class="list-group-item list-group-item-action">4.1 - 4.3 Papeles y Cartones</a>
+                    <a href="#moldeables" class="list-group-item list-group-item-action">4.5 Materiales Moldeables</a>
+                    <a href="#madera" class="list-group-item list-group-item-action">4.6 Madera</a>
+                    <a href="#transparentes" class="list-group-item list-group-item-action">4.7 - 4.9 Vidrio y Acetatos</a>
+                    <a href="#metales" class="list-group-item list-group-item-action">4.11 Metales</a>
+                    <a href="#acabados" class="list-group-item list-group-item-action">4.14 - 4.18 Acabados</a>
+                </div>
+            </div>
+
+            <div class="col-lg-9">
+                
+                <section id="papeles" class="mb-5">
+                    <h3 class="border-bottom pb-2 mb-4 text-dark fw-bold">4.1 - 4.3 La Base: Papeles y Cartones</h3>
+                    
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="material-card p-4">
+                                <span class="card-tag bg-warning text-dark">Estructural</span>
+                                <h5>Tipos de Papel</h5>
+                                <p class="small"><strong>Ilustración:</strong> Suave y rígido, el ideal para maquetar.<br>
+                                <strong>Batería:</strong> Similar al ilustración, varía en textura.<br>
+                                <strong>Cascarón:</strong> Económico pero quebradizo.</p>
+                                <div class="img-box mt-3">
+                                    <img src="l69.png" alt="Imagen 4.1 Cartulina">
+                                </div>
+                                <div class="source-caption">Imagen 4.1: Cartulinas comunes</div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="material-card p-4">
+                                <span class="card-tag bg-secondary text-white">Sólido</span>
+                                <h5>Cartón y Cartulina</h5>
+                                <p class="small">Desde cartón corrugado para embalaje hasta cartulinas de colores para moldes y detalles.</p>
+                                <div class="img-box mt-3">
+                                    <img src="l70.png" alt="Imagen 4.2 Planchas de cartón">
+                                </div>
+                                <div class="source-caption">Imagen 4.2: Perfiles B, C, E y F</div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="material-card bg-light p-4 mb-5 border-start border-primary border-5">
+                    <div class="row align-items-center">
+                        <div class="col-md-8">
+                            <h4>4.4 Espuma Rígida</h4>
+                            <p>Ideal para recortar volúmenes en maquetas de urbanismo o prototipos de diseño. Destaca por su ligereza y facilidad de corte para maquetas de concepto.</p>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="img-box">
+                                <img src="l70_2.png" alt="Imagen 4.3 Espuma rígida">
+                            </div>
+                            <div class="source-caption">Imagen 4.3: Muestra de poliuretano</div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="moldeables" class="mb-5">
+                    <h3 class="border-bottom pb-2 mb-4 text-dark fw-bold">4.5 Materiales Moldeables</h3>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="material-card p-3">
+                                <h6 class="fw-bold">4.5.1 Plastilina</h6>
+                                <p class="small">Sustancia maleable e impermeable. Permite piezas detalladas. Recomendamos la comercial por su equilibrio calidad/precio.</p>
+                                <div class="img-box">
+                                    <img src="l71.png" alt="Imagen 4.4 Plastilina">
+                                </div>
+                                <div class="source-caption">Imagen 4.4: Variedad de colores</div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="material-card p-3">
+                                <h6 class="fw-bold">4.5.2 Arcilla (Barro)</h6>
+                                <p class="small">Roca pulverulenta de silicato de aluminio. Disponible en rojo, blanco y negro (la tierra que pisamos).</p>
+                                <div class="img-box">
+                                    <img src="l71_2.png" alt="Imagen 4.5 Arcilla">
+                                </div>
+                                <div class="source-caption">Imagen 4.5: Arcilla natural</div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="madera" class="material-card p-4 mb-5 shadow-lg">
+                    <div class="row">
+                        <div class="col-md-7">
+                            <span class="card-tag" style="background: var(--wood); color: white;">Orgánico</span>
+                            <h4>4.6 Madera</h4>
+                            <p>Elemento rígido obtenido de árboles. Esencial para bases y estructuras de carpintería.</p>
+                            <ul class="property-list">
+                                <li><strong>Madera maciza:</strong> Preferible en tonos claros para pintar.</li>
+                                <li><strong>Tableros aglomerados:</strong> Base de virutas y cola.</li>
+                                <li><strong>Tableros de resina:</strong> Mezcla sintética para mayor resistencia.</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-5">
+                            <div class="img-box" style="min-height: 250px;">
+                                <img src="l72.png" alt="Imagen 4.6 Muestras de madera">
+                            </div>
+                            <div class="source-caption">Imagen 4.6: Colores de madera de haya</div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="transparentes" class="mb-5">
+                    <h3 class="border-bottom pb-2 mb-4 text-dark fw-bold">4.7 - 4.10 Vidrios y Polímeros</h3>
+                    <div class="row g-3">
+                        <div class="col-md-4">
+                            <div class="material-card p-2 text-center">
+                                <p class="small fw-bold m-0">4.8 Acetato</p>
+                                <div class="img-box my-2" style="min-height: 120px;">
+                                    <img src="l73.png" alt="Imagen 4.8">
+                                </div>
+                                <p class="small text-muted">Para ventanas y herrería.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="material-card p-2 text-center">
+                                <p class="small fw-bold m-0">4.9 Metacrilato</p>
+                                <div class="img-box my-2" style="min-height: 120px;">
+                                    <img src="l73_2.png" alt="Imagen 4.9">
+                                </div>
+                                <p class="small text-muted">Más resistente que el cristal.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="material-card p-2 text-center">
+                                <p class="small fw-bold m-0">4.10 Pastas</p>
+                                <div class="img-box my-2" style="min-height: 120px;">
+                                    <img src="l74.png" alt="Imagen 4.10">
+                                </div>
+                                <p class="small text-muted">Para texturas de engargolado.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="metales" class="material-card p-4 mb-5 border-top border-secondary border-5">
+                    <h4>4.11 Metales y Alambres</h4>
+                    <p>Empleados para reproducir estructuras metálicas, fachadas o efectos especiales.</p>
+                    <div class="row mt-3">
+                        <div class="col-md-4 text-center">
+                            <div class="img-box mb-2" style="border-radius: 50%; width: 150px; height: 150px; margin: 0 auto;">
+                                <img src="l75.png" alt="Cobre">
+                            </div>
+                            <p class="fw-bold mb-0">Cobre</p>
+                            <p class="small">Alta flexibilidad y belleza.</p>
+                        </div>
+                        <div class="col-md-4 text-center">
+                            <div class="img-box mb-2" style="border-radius: 50%; width: 150px; height: 150px; margin: 0 auto;">
+                                <img src="l75_2.png" alt="Aluminio">
+                            </div>
+                            <p class="fw-bold mb-0">Aluminio</p>
+                            <p class="small">Ligero pero quebradizo.</p>
+                        </div>
+                        <div class="col-md-4 text-center">
+                            <div class="img-box mb-2" style="border-radius: 50%; width: 150px; height: 150px; margin: 0 auto;">
+                                <img src="l77.png" alt="Malla">
+                            </div>
+                            <p class="fw-bold mb-0">Malla Purificador</p>
+                            <p class="small">Textura industrial metálica.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="acabados" class="mb-5">
+                    <h3 class="border-bottom pb-2 mb-4 text-dark fw-bold">4.14 - 4.18 Acabados y Adhesivos</h3>
+                    <div class="row">
+                        <div class="col-md-7">
+                            <div class="material-card p-4 bg-dark text-white">
+                                <h5>Pegamentos y Protección</h5>
+                                <ul class="small">
+                                    <li><strong>Superglue-3:</strong> Resistencia instantánea.</li>
+                                    <li><strong>Cola Blanca:</strong> Ideal para endurecer plastilina.</li>
+                                    <li><strong>Esmalte Aerosol:</strong> Para dar brillo y protección final.</li>
+                                </ul>
+                                <div class="img-box mt-3 bg-white">
+                                    <img src="l79.png" alt="Imagen 4.19 Esmalte">
+                                </div>
+                                <div class="source-caption text-dark">Imagen 4.19: Aerosol transparente</div>
+                            </div>
+                        </div>
+                        <div class="col-md-5">
+                            <div class="material-card p-4">
+                                <h5>Escala y Realismo</h5>
+                                <p class="small">Objetos encontrados en la naturaleza (ramas, piedras) o industria (autos a escala) dan vida a la maqueta.</p>
+                                <div class="img-box">
+                                    <img src="l78.png" alt="Imagen 4.18 Naturaleza">
+                                </div>
+                                <div class="source-caption">Imagen 4.18: Elementos de escala</div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <footer class="d-flex justify-content-between mt-5 pt-4 border-top">
+                    <a href="CAPITULO3.html" class="btn btn-outline-dark px-4 py-2 fw-bold">← CAPÍTULO III</a>
+                    <div class="text-muted small text-center">Catálogo de Materiales<br>Páginas 69 - 79</div>
+                    <a href="CAPITULO5.html" class="btn btn-dark px-4 py-2 fw-bold" style="background: var(--wood); border: none;">CAPÍTULO V →</a>
+                </footer>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
