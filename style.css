@@ -1,0 +1,59 @@
+body {
+    background-color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+}
+
+/* Índice superior */
+.menu-indices {
+    margin: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.menu-indices button {
+    cursor: pointer;
+    background: #f1c40f;
+    border: none;
+    padding: 8px 15px;
+    margin: 0 5px;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+/* Contenedor del Libro */
+.container {
+    padding: 20px;
+}
+
+.page {
+    background-color: #fdfdfd;
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.1);
+}
+
+.page-content {
+    padding: 30px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #ddd;
+}
+
+.portada {
+    background: #d4af37;
+    color: white;
+    text-align: center;
+    justify-content: center;
+}
+
+.material-card {
+    background: #eee;
+    padding: 10px;
+    margin: 10px 0;
+    border-left: 5px solid #d4af37;
+    cursor: pointer;
+}
