@@ -3,66 +3,84 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Maquetas para Principiantes | Edición Interactiva</title>
-    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <title>Maquetas para Principiantes - Interactivo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 </head>
-<body>
+<body class="bg-slate-50 text-slate-900 font-sans">
 
-    <div id="progress-container"><div id="progress-bar"></div></div>
+    <nav class="bg-blue-900 text-white p-4 sticky top-0 z-50 shadow-lg">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-xl font-bold">Colección Dorada</h1>
+            <ul class="flex gap-6">
+                <li><a href="#teoria" class="hover:text-yellow-400">Teoría</a></li>
+                <li><a href="#taller" class="hover:text-yellow-400">El Taller</a></li>
+                <li><a href="#maqueta1" class="hover:text-yellow-400">Maqueta #1</a></li>
+            </ul>
+        </div>
+    </nav>
 
-    <div id="canvas">
-        <div class="magazine-shell">
-            <div id="book">
-                
-                <div class="page exit-hard" data-density="hard">
-                    <div class="page-content cover-bg">
-                        <div class="cover-overlay">
-                            <span class="collection">COLECCIÓN DORADA</span>
-                            <h1>MAQUETAS <br><span>PARA PRINCIPIANTES</span></h1>
-                            <p class="author">Ignacio López Torres</p>
-                            <div class="version">VOLUMEN I</div>
-                        </div>
-                    </div>
-                </div>
+    <header class="h-screen flex flex-col items-center justify-center bg-gradient-to-b from-blue-800 to-blue-600 text-white text-center px-4">
+        <h2 class="text-5xl md:text-7xl font-extrabold mb-4">MAQUETAS PARA PRINCIPIANTES</h2>
+        <p class="text-xl md:text-2xl max-w-2xl italic">"Cuando conoces tu don y lo pones en práctica, das lo mejor de ti mismo."</p>
+        <button class="mt-8 bg-yellow-500 hover:bg-yellow-400 text-blue-900 font-bold py-3 px-8 rounded-full transition-transform hover:scale-105">
+            Comenzar Experiencia
+        </button>
+    </header>
 
-                <div class="page">
-                    <div class="page-content">
-                        <h2 class="section-title">Índice Interactivo</h2>
-                        <ul class="interactive-menu">
-                            <li onclick="goTo(3)"><span>01</span> Conceptos Básicos</li>
-                            <li onclick="goTo(15)"><span>04</span> Materiales y Pegamentos</li>
-                            <li onclick="goTo(45)"><span>07</span> El Uso de las Escalas</li>
-                            <li onclick="goTo(80)"><span>08</span> Elaboración Paso a Paso</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="page">
-                    <div class="page-content">
-                        <span class="page-number">45</span>
-                        <h2>Capítulo VII: La Escala</h2>
-                        <p>Uno de los mayores retos para el principiante es entender la proporción.</p>
-                        
-                        <div class="tool-box">
-                            <h3>Calculadora de Escala (1:50)</h3>
-                            <input type="number" id="realSize" placeholder="Cm reales...">
-                            <button onclick="calcularEscala()">Calcular para maqueta</button>
-                            <p id="result">Resultado: 0 cm</p>
-                        </div>
-                    </div>
-                </div>
-
+    <section id="maqueta1" class="py-20 container mx-auto px-4">
+        <h3 class="text-3xl font-bold mb-8 text-center">Explora la Maqueta #1 en 3D</h3>
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+            <div id="canvas-container" class="h-96 bg-gray-200 rounded-xl shadow-inner border-2 border-dashed border-gray-400 flex items-center justify-center">
+                <p class="text-gray-500">Cargando modelo interactivo...</p>
+            </div>
+            <div>
+                <h4 class="text-2xl font-semibold mb-4 text-blue-800">Guía de Ensamblado (Método por Partes)</h4>
+                <ul class="space-y-4">
+                    <li class="flex items-start gap-3 bg-white p-4 rounded shadow-sm">
+                        <input type="checkbox" class="mt-1 h-5 w-5 text-blue-600">
+                        <span><strong>Paso 1:</strong> Ubicar escuadras de plastilina en la base de madera[cite: 12].</span>
+                    </li>
+                    <li class="flex items-start gap-3 bg-white p-4 rounded shadow-sm">
+                        <input type="checkbox" class="mt-1 h-5 w-5 text-blue-600">
+                        <span><strong>Paso 2:</strong> Fijar la fachada principal a 90°.</span>
+                    </li>
+                </ul>
             </div>
         </div>
-    </div>
+    </section>
 
-    <div class="controls">
-        <button id="prevBtn">Anterior</button>
-        <button id="nextBtn">Siguiente</button>
-    </div>
+    <script>
+        const container = document.getElementById('canvas-container');
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, container.clientWidth / container.clientHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+        
+        renderer.setSize(container.clientWidth, container.clientHeight);
+        container.innerHTML = '';
+        container.appendChild(renderer.domElement);
 
-    <script src="https://cdn.jsdelivr.net/npm/page-flip/dist/js/page-flip.browser.js"></script>
-    <script src="script.js"></script>
+        // Crear un cubo que representa la base de la maqueta
+        const geometry = new THREE.BoxGeometry(3, 0.1, 2);
+        const material = new THREE.MeshPhongMaterial({ color: 0x8B4513 }); // Color madera
+        const base = new THREE.Mesh(geometry, material);
+        scene.add(base);
+
+        const light = new THREE.DirectionalLight(0xffffff, 1);
+        light.position.set(5, 5, 5).normalize();
+        scene.add(light);
+        scene.add(new THREE.AmbientLight(0x404040));
+
+        camera.position.z = 5;
+        camera.position.y = 2;
+        camera.lookAt(0,0,0);
+
+        function animate() {
+            requestAnimationFrame(animate);
+            base.rotation.y += 0.01;
+            renderer.render(scene, camera);
+        }
+        animate();
+    </script>
 </body>
 </html>
