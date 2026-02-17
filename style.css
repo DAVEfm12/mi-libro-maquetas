@@ -1,79 +1,66 @@
-/* Estilos Base */
 :root {
     --gold: #d4af37;
-    --dark: #121212;
+    --dark: #1a1a1a;
+    --light-gray: #f8f9fa;
 }
 
 body {
     font-family: 'Roboto', sans-serif;
-    background-color: #f8f9fa;
+    background-color: var(--light-gray);
+    scroll-behavior: smooth;
 }
 
-#wrapper {
-    overflow-x: hidden;
-    display: flex;
+/* Hero Section */
+.hero-section {
+    height: 100vh;
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+                url('https://images.unsplash.com/photo-1503387762-592dea58ef23?q=80&w=1920');
+    background-size: cover;
+    background-position: center;
 }
 
-/* Sidebar */
-#sidebar-wrapper {
-    min-width: 280px;
-    max-width: 280px;
-    min-height: 100vh;
-    transition: margin .25s ease-out;
-    border-right: 4px solid var(--gold);
-}
+.gold-text { color: var(--gold); letter-spacing: 4px; }
 
-.text-gold { color: var(--gold); }
-
-#sidebar-wrapper .list-group-item {
-    border: none;
-    padding: 1.2rem;
-}
-
-#sidebar-wrapper .list-group-item:hover {
-    background-color: #333 !important;
-    color: var(--gold) !important;
-}
-
-#sidebar-wrapper .list-group-item.active {
-    background-color: var(--gold) !important;
-    color: black !important;
+.btn-gold {
+    background-color: var(--gold);
+    color: black;
     font-weight: bold;
+    border: none;
+    padding: 15px 40px;
+    transition: 0.3s;
 }
 
-/* Contenido */
-.content-section {
-    display: none;
-    animation: fadeIn 0.4s ease-in-out;
+.btn-gold:hover {
+    background-color: #b8860b;
+    transform: scale(1.05);
 }
 
-.content-section.active {
-    display: block;
+/* Estilos del Índice */
+.section-title {
+    font-family: 'Playfair Display', serif;
+    font-weight: bold;
+    border-bottom: 3px solid var(--gold);
+    display: inline-block;
+    padding-bottom: 10px;
 }
 
-@keyframes fadeIn {
-    from { opacity: 0; } to { opacity: 1; }
+.index-item {
+    border: none !important;
+    padding: 20px !important;
+    font-size: 1.1rem;
+    transition: 0.3s;
+    background: white;
+    margin-bottom: 5px;
 }
 
-/* Portada (Hero) */
-.hero-bg {
-    height: 90vh;
-    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1503387762-592dea58ef23?q=80&w=1920') center/cover;
+.index-item:hover {
+    background-color: var(--dark) !important;
+    color: var(--gold) !important;
+    padding-left: 30px !important;
 }
 
-.bg-overlay {
-    border: 2px solid var(--gold);
-    padding: 40px;
-    backdrop-filter: blur(5px);
-}
-
-/* Responsive */
-#wrapper.toggled #sidebar-wrapper {
-    margin-left: -280px;
-}
-
-@media (min-width: 768px) {
-    #wrapper.toggled #sidebar-wrapper {
-        margin-left: 0;
-    }
+.chapter-num {
+    font-weight: bold;
+    color: var(--gold);
+    margin-right: 15px;
 }
