@@ -1,66 +1,70 @@
 :root {
     --gold: #d4af37;
     --dark: #1a1a1a;
-    --light-gray: #f8f9fa;
 }
 
-body {
-    font-family: 'Roboto', sans-serif;
-    background-color: var(--light-gray);
-    scroll-behavior: smooth;
-}
+body { font-family: 'Roboto', sans-serif; scroll-behavior: smooth; }
 
-/* Hero Section */
+/* Estilo Portada */
 .hero-section {
     height: 100vh;
-    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+    background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), 
                 url('https://images.unsplash.com/photo-1503387762-592dea58ef23?q=80&w=1920');
     background-size: cover;
     background-position: center;
 }
 
-.gold-text { color: var(--gold); letter-spacing: 4px; }
+.text-gold { color: var(--gold) !important; }
+
+.gold-line {
+    width: 80px;
+    height: 4px;
+    background-color: var(--gold);
+    border: none;
+    margin: 20px auto;
+    opacity: 1;
+}
 
 .btn-gold {
     background-color: var(--gold);
     color: black;
     font-weight: bold;
-    border: none;
-    padding: 15px 40px;
-    transition: 0.3s;
+    border-radius: 0;
+    padding: 15px 35px;
 }
 
-.btn-gold:hover {
-    background-color: #b8860b;
-    transform: scale(1.05);
-}
+/* Índice */
+.section-title { font-family: 'Playfair Display', serif; font-weight: bold; }
 
-/* Estilos del Índice */
-.section-title {
-    font-family: 'Playfair Display', serif;
-    font-weight: bold;
-    border-bottom: 3px solid var(--gold);
-    display: inline-block;
-    padding-bottom: 10px;
-}
-
-.index-item {
+.item-cap {
     border: none !important;
     padding: 20px !important;
     font-size: 1.1rem;
     transition: 0.3s;
-    background: white;
-    margin-bottom: 5px;
+    margin-bottom: 2px;
 }
 
-.index-item:hover {
+.item-cap:hover {
     background-color: var(--dark) !important;
     color: var(--gold) !important;
     padding-left: 30px !important;
 }
 
-.chapter-num {
-    font-weight: bold;
-    color: var(--gold);
-    margin-right: 15px;
+.cap-num { font-weight: bold; color: var(--gold); margin-right: 15px; }
+
+/* Contenido Capítulos */
+.quote-box {
+    background: #fff9e6;
+    border-left: 5px solid var(--gold);
+    padding: 20px;
+    margin: 30px 0;
+    font-style: italic;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    margin: 20px 0;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
