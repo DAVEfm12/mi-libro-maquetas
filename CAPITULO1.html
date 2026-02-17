@@ -3,212 +3,253 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Libro Interactivo - Capítulo I</title>
+    <title>Capítulo I - Introducción a las Maquetas</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <style>
-        :root { --gold: #d4af37; --dark: #121212; --soft-gray: #f8f9fa; }
-        
-        /* Efectos Dinámicos de Tarjetas */
-        .interactive-section {
-            border-left: 5px solid transparent;
-            transition: all 0.3s ease;
-            padding: 20px;
-            margin-bottom: 30px;
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #d4af37; /* Dorado Colección Dorada */
+            --bg-light: #f8f9fa;
+            --text-main: #34495e;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            color: var(--text-main);
+            background-color: var(--bg-light);
+            line-height: 1.8;
+        }
+
+        /* Header Estilo Libro */
+        .chapter-header {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1503387762-592dea58ef23?q=80&w=1000');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+            border-bottom: 8px solid var(--accent-color);
+            margin-bottom: 50px;
+        }
+
+        /* Navegación Flotante */
+        .sticky-nav {
+            position: sticky;
+            top: 20px;
             background: white;
-            border-radius: 8px;
-        }
-        .interactive-section:hover {
-            border-left-color: var(--gold);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-            transform: translateX(10px);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-left: 4px solid var(--accent-color);
         }
 
-        /* Contenedor de Imagen con Zoom */
+        .nav-link {
+            color: var(--primary-color);
+            font-size: 0.9rem;
+            padding: 5px 0;
+            transition: 0.3s;
+        }
+
+        .nav-link:hover { color: var(--accent-color); padding-left: 5px; }
+
+        /* Contenedores de Imagen */
         .img-container {
-            position: relative;
-            overflow: hidden;
-            border-radius: 12px;
-            background: #000;
-        }
-        .img-container img {
-            transition: transform 0.5s ease, opacity 0.3s ease;
-            width: 100%;
-            height: auto;
-        }
-        .img-container:hover img {
-            transform: scale(1.05);
-            opacity: 0.8;
+            background: white;
+            border: 1px solid #ddd;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 30px 0;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
         }
 
-        /* Estilo para los Elementos 1.3 */
-        .element-card {
-            background: var(--soft-gray);
-            border: none;
-            transition: 0.4s;
+        .img-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 4px;
+            margin-bottom: 10px;
         }
-        .element-card:hover {
-            background: #fffdf5;
-            border: 1px solid var(--gold);
+
+        .img-caption {
+            font-size: 0.85rem;
+            color: #666;
+            font-style: italic;
+            border-top: 1px solid #eee;
+            padding-top: 10px;
         }
-        .num-circle {
-            width: 40px; height: 40px;
-            background: var(--gold);
+
+        /* Citas y Destacados */
+        blockquote {
+            font-style: italic;
+            border-left: 5px solid var(--accent-color);
+            padding: 20px 30px;
+            background: #fff;
+            margin: 30px 0;
+        }
+
+        .section-card {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.03);
+            margin-bottom: 40px;
+        }
+
+        h2 { color: var(--primary-color); font-weight: bold; margin-bottom: 25px; }
+        h3 { color: var(--accent-color); font-size: 1.4rem; margin-top: 30px; }
+
+        .badge-step {
+            background: var(--primary-color);
             color: white;
             border-radius: 50%;
-            display: flex;
+            width: 30px;
+            height: 30px;
+            display: inline-flex;
             align-items: center;
             justify-content: center;
-            font-weight: bold;
+            margin-right: 10px;
         }
     </style>
 </head>
-<body class="bg-light">
+<body>
 
-    <nav class="navbar navbar-dark bg-dark sticky-top shadow">
+    <header class="chapter-header">
         <div class="container">
-            <a class="navbar-brand text-gold fw-bold" href="index.html">← VOLVER AL ÍNDICE</a>
-            <span class="text-white-50 d-none d-md-block">CAPÍTULO I: INTRODUCCIÓN A LAS MAQUETAS</span>
+            <h5 class="text-uppercase tracking-widest" style="letter-spacing: 4px;">Capítulo I</h5>
+            <h1 class="display-3 fw-bold">INTRODUCCIÓN A LAS MAQUETAS</h1>
+            <p class="lead">Fundamentos, objetivos y herramientas de comunicación espacial.</p>
         </div>
-    </nav>
+    </header>
 
-    <div class="container my-5">
-        <header class="text-center mb-5 animate__animated animate__fadeIn">
-            <h1 class="display-3 fw-bold text-gold">CAPÍTULO I</h1>
-            <h2 class="text-muted">Introducción y Herramientas Conceptuales</h2>
-            <hr class="gold-line mx-auto">
-        </header>
+    <div class="container">
+        <div class="row">
+            <aside class="col-lg-3 d-none d-lg-block">
+                <div class="sticky-nav">
+                    <h5>Contenido</h5>
+                    <nav class="nav flex-column">
+                        <a class="nav-link" href="#1.1">1.1 ¿Qué es una maqueta?</a>
+                        <a class="nav-link" href="#1.2">1.2 Objetivo</a>
+                        <a class="nav-link" href="#1.3">1.3 Elementos</a>
+                        <a class="nav-link" href="#1.4">1.4 Finalidad</a>
+                        <a class="nav-link" href="#1.5">1.5 Ventajas/Desventajas</a>
+                        <a class="nav-link" href="#1.7">1.7 Cuidados</a>
+                        <a class="nav-link" href="#1.9">1.9 Herramienta de Diseño</a>
+                    </nav>
+                </div>
+            </aside>
 
-        <div class="row g-4">
-            <div class="col-lg-6">
-                <section class="interactive-section animate__animated animate__fadeInLeft">
-                    <h3 class="text-gold">1.1 ¿Qué es una maqueta?</h3>
-                    <p>Es la representación tridimensional, a escala, de una obra compleja. Mientras que los planos son 2D, la maqueta desvela problemas constructivos invisibles en papel.</p>
-                    <div class="img-container shadow-sm">
-                        <img src="MAQUETA.png" alt="Ejemplo de Maqueta de Casa">
+            <div class="col-lg-9">
+                
+                <section id="1.1" class="section-card">
+                    <h2>1.1 ¿Qué es una maqueta?</h2>
+                    <p>Es la representación tridimensional, a escala, de una obra compleja. Mientras que los planos son representaciones en dos dimensiones, la maqueta desvela problemas constructivos que en el papel podrían pasar desapercibidos.</p>
+                    
+                    
+                    <div class="img-container">
+                        <img src="/home/ceeci/Imágenes/LIBRO/l46.png" alt="Imagen 1.1">
+                        <div class="img-caption">Imagen 1.1: Maquetas de casas habitación. Fuente: El Autor.</div>
                     </div>
-                    <p class="small text-center mt-2 text-muted fst-italic">Imagen 1.1: Maqueta de casa habitación.</p>
                 </section>
-            </div>
-            <div class="col-lg-6">
-                <section class="interactive-section animate__animated animate__fadeInRight">
-                    <h3 class="text-gold">1.2 Objetivo de las Maquetas</h3>
-                    <p>Implementar una base conceptual y didáctica. Representan la realidad objetiva mediante modelos simuladores tridimensionales.</p>
-                    <div class="img-container shadow-sm">
-                        <img src="MAQUETA2.png" alt="Maqueta Topográfica">
+
+                <section id="1.2" class="section-card">
+                    <h2>1.2 Objetivo de las Maquetas</h2>
+                    <p>Implementar una base conceptual y procedimental a través de la práctica en el taller. Las maquetas no solo sirven para el autor, sino que deben ser comprensibles para una audiencia extendida.</p>
+                    
+                    <blockquote>
+                        "Las maquetas constituyen excelentes medios didácticos... nos brindan una representación muy aproximada a la realidad objetiva." <br>
+                        <small>— Pérez, López y González (1998)</small>
+                    </blockquote>
+
+                    
+                    <div class="img-container">
+                        <img src="/home/ceeci/Imágenes/LIBRO/l47.png" alt="Imagen 1.2">
+                        <div class="img-caption">Imagen 1.2: Maqueta topográfica.</div>
                     </div>
-                    <p class="small text-center mt-2 text-muted fst-italic">Imagen 1.2: Maqueta topográfica profesional.</p>
                 </section>
+
+                <section id="1.3" class="section-card">
+                    <h2>1.3 Elementos que Componen una Maqueta</h2>
+                    
+                    <h3>1.3.1 Conceptuales (Ideas)</h3>
+                    <p>Elementos no visibles: las ideas y conceptos de la necesidad del diseñador.</p>
+                    <div class="img-container">
+                        <img src="/home/ceeci/Imágenes/LIBRO/l34.png" alt="Concepto">
+                        <div class="img-caption">Imagen 1.3: Concepto o idea.</div>
+                    </div>
+
+                    <h3>1.3.2 Visuales</h3>
+                    <p>Forma, medida, color y textura. Ayudan al ser humano a comprender mejor lo que observa directamente.</p>
+                    
+                    <div class="img-container">
+                        <img src="/home/ceeci/Imágenes/LIBRO/l35.png" alt="Visuales">
+                        <div class="img-caption">Imagen 1.4: Maqueta de detalles.</div>
+                    </div>
+
+                    <h3>1.3.3 De Relación</h3>
+                    <p>Gobiernan la ubicación e interrelación de formas: dirección, posición, espacio y gravedad.</p>
+                    <div class="img-container">
+                        <img src="/home/ceeci/Imágenes/LIBRO/l36.png" alt="Espacios">
+                        <div class="img-caption">Imagen 1.5: Maqueta de espacios interiores.</div>
+                    </div>
+                </section>
+
+                <section id="1.5" class="section-card">
+                    <h2>1.5 Ventajas y Desventajas</h2>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h4 class="text-success"><i class="bi bi-plus-circle"></i> Ventajas</h4>
+                            <ul class="list-unstyled">
+                                <li><i class="bi bi-check2"></i> Sustituye al dibujo en etapas iniciales.</li>
+                                <li><i class="bi bi-check2"></i> Instrumento de diseño volumétrico.</li>
+                                <li><i class="bi bi-check2"></i> Representación íntegra de la arquitectura.</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <h4 class="text-danger"><i class="bi bi-dash-circle"></i> Desventajas</h4>
+                            <ul class="list-unstyled text-muted">
+                                <li>• Elaboración laboriosa.</li>
+                                <li>• Materiales a veces costosos o difíciles de hallar.</li>
+                                <li>• Sensibilidad a la humedad y polvo.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="1.7" class="section-card">
+                    <h2>1.7 Cuidados de las Maquetas</h2>
+                    <div class="row g-3">
+                        <div class="col-6 col-md-4"><div class="p-2 border rounded bg-light text-center">🚫 Polvo</div></div>
+                        <div class="col-6 col-md-4"><div class="p-2 border rounded bg-light text-center">🚫 Humedad</div></div>
+                        <div class="col-6 col-md-4"><div class="p-2 border rounded bg-light text-center">🚫 Sol Directo</div></div>
+                        <div class="col-12 mt-3">
+                            <p class="small">Es vital colocarlas en espacios adecuados y tener máxima seguridad en su traslado.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="1.9" class="section-card">
+                    <h2>1.9 La Maqueta como Herramienta</h2>
+                    <p>Aparece durante la fase de desarrollo del diseño como un proceso creativo donde las manos del diseñador van "encajando" las piezas.</p>
+                    
+                    <h3>Como herramienta de comunicación</h3>
+                    <p>Permite entender en una sola operación la totalidad de la obra, incluso para ojos inexpertos que no saben leer planos técnicos.</p>
+                    
+                    
+                    <div class="img-container">
+                        <img src="/home/ceeci/Imágenes/LIBRO/l41.png" alt="Herramienta">
+                        <div class="img-caption">Imagen 1.11: Maqueta de detalles.</div>
+                    </div>
+                </section>
+
+                <footer class="d-flex justify-content-between my-5">
+                    <button class="btn btn-outline-secondary disabled">Capítulo Anterior</button>
+                    <a href="capitulo2.html" class="btn btn-primary">Siguiente: Tipos de Maquetas →</a>
+                </footer>
             </div>
         </div>
-
-        <section class="my-5 p-4 bg-white shadow rounded-4 animate__animated animate__fadeInUp">
-            <div class="text-center mb-4">
-                <h3 class="text-gold fw-bold">1.3 ELEMENTOS QUE COMPONEN UNA MAQUETA</h3>
-                <p class="mx-auto" style="max-width: 800px;">
-                    El diseño armoniza el entorno humano e impulsa la creatividad. Aquí los cuatro pilares fundamentales:
-                </p>
-            </div>
-
-            <div class="row g-4">
-                <div class="col-md-6 col-xl-3">
-                    <div class="card h-100 element-card p-3">
-                        <div class="d-flex justify-content-between align-items-start mb-3">
-                            <h5 class="fw-bold">1.3.1 Conceptuales</h5>
-                            <div class="num-circle">1</div>
-                        </div>
-                        <p class="small">Ideas y conceptos no visibles (punto, línea, plano) que dependen de los planos y la necesidad del diseñador.</p>
-                        <img src="Concepto.png" class="rounded shadow-sm mt-auto" alt="Idea">
-                    </div>
-                </div>
-
-                <div class="col-md-6 col-xl-3">
-                    <div class="card h-100 element-card p-3">
-                        <div class="d-flex justify-content-between align-items-start mb-3">
-                            <h5 class="fw-bold">1.3.2 Visuales</h5>
-                            <div class="num-circle">2</div>
-                        </div>
-                        <p class="small">Lo que realmente vemos: forma, medida, diseño, color y textura. Ayudan a la comprensión directa.</p>
-                        <img src="MAQDETALLE.png" class="rounded shadow-sm mt-auto" alt="Detalle">
-                    </div>
-                </div>
-
-                <div class="col-md-6 col-xl-3">
-                    <div class="card h-100 element-card p-3">
-                        <div class="d-flex justify-content-between align-items-start mb-3">
-                            <h5 class="fw-bold">1.3.3 Relación</h5>
-                            <div class="num-circle">3</div>
-                        </div>
-                        <p class="small">Ubicación e interrelación: dirección, posición, espacio y gravedad dentro del diseño arquitectónico.</p>
-                        <img src="MAQ5.png" class="rounded shadow-sm mt-auto" alt="Espacios">
-                    </div>
-                </div>
-
-                <div class="col-md-6 col-xl-3">
-                    <div class="card h-100 element-card p-3">
-                        <div class="d-flex justify-content-between align-items-start mb-3">
-                            <h5 class="fw-bold">1.3.4 Prácticos</h5>
-                            <div class="num-circle">4</div>
-                        </div>
-                        <p class="small">Contenido y alcance: el significado de la función y la creatividad proyectada por el maquetista.</p>
-                        <img src="MAQ6.png" class="rounded shadow-sm mt-auto" alt="Función">
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="mb-5 animate__animated animate__fadeIn">
-            <h4 class="text-gold text-center mb-4 fw-bold">VISUALIZACIÓN TÉCNICA Y DESARROLLOS</h4>
-            <div class="row g-2">
-                <div class="col-md-4"><img src="MAQDESA.png" class="img-fluid rounded shadow hover-zoom" alt="Desglose"></div>
-                <div class="col-md-4"><img src="MAQDESB.png" class="img-fluid rounded shadow hover-zoom" alt="Desglose"></div>
-                <div class="col-md-4"><img src="MAQDESC.png" class="img-fluid rounded shadow hover-zoom" alt="Desglose"></div>
-            </div>
-            <div class="row g-2 mt-2">
-                <div class="col-md-6"><img src="MAQTOPO.png" class="img-fluid rounded shadow hover-zoom" alt="Topografía"></div>
-                <div class="col-md-6"><img src="MAQTOPO2.png" class="img-fluid rounded shadow hover-zoom" alt="Topografía"></div>
-            </div>
-        </section>
-
-        <section class="bg-dark text-white p-5 rounded-4 shadow mb-5">
-            <div class="row">
-                <div class="col-md-6">
-                    <h3 class="text-gold">1.4 al 1.6: Análisis de Valor</h3>
-                    <ul class="list-unstyled">
-                        <li class="mb-2"><span class="text-gold">✔</span> <strong>Ventajas:</strong> Visión espacial intuitiva y detección de errores.</li>
-                        <li class="mb-2"><span class="text-gold">✘</span> <strong>Desventajas:</strong> Tiempo de ejecución y fragilidad.</li>
-                    </ul>
-                </div>
-                <div class="col-md-6">
-                    <h3 class="text-gold">1.7 al 1.9: La Maqueta Profesional</h3>
-                    <p class="small text-white-50 fst-italic">"Como herramienta de diseño permite jugar con volúmenes; como herramienta de comunicación es el puente perfecto con el cliente."</p>
-                    <div class="d-flex gap-2">
-                        <img src="MAQA.png" style="height: 60px;" class="rounded shadow-sm">
-                        <img src="MAQB.png" style="height: 60px;" class="rounded shadow-sm">
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <footer class="d-flex justify-content-between align-items-center mt-5 pt-4 border-top">
-            <a href="index.html" class="btn btn-outline-dark px-4 py-2 fw-bold">← VOLVER AL INICIO</a>
-            <div class="text-muted small">Página 31 - 40</div>
-            <a href="CAPITULO2.html" class="btn btn-gold px-4 py-2 fw-bold">SIGUIENTE CAPÍTULO →</a>
-        </footer>
     </div>
 
-    <script>
-        // Animación suave al entrar en el viewport
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('animate__animated', 'animate__fadeInUp');
-                }
-            });
-        }, { threshold: 0.1 });
-
-        document.querySelectorAll('.interactive-section, .card').forEach(el => observer.observe(el));
-    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
