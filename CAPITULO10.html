@@ -3,52 +3,154 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Capítulo 10: La Escala Humana</title>
+    <title>Capítulo 10: Escala Humana - Colección Dorada</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
     <style>
-        :root { --arch-blue: #2980b9; --arch-dark: #2c3e50; }
-        body { font-family: 'Open Sans', sans-serif; background-color: #f4f7f6; }
-        .scale-box { border: 2px dashed var(--arch-blue); padding: 20px; border-radius: 15px; background: white; transition: 0.3s; }
-        .scale-box:hover { border-style: solid; box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
-        .human-figure { font-size: 2.5rem; color: var(--arch-dark); }
+        :root { 
+            --arch-dark: #2c3e50; 
+            --arch-accent: #f1c40f; 
+            --arch-blue: #3498db;
+            --arch-light: #f8f9fa;
+        }
+        
+        body { font-family: 'Segoe UI', sans-serif; background-color: #f4f7f6; color: #333; }
+        
+        /* Sidebar Consistente */
+        .sidebar { background: #1a252f; color: white; min-height: 100vh; position: sticky; top: 0; z-index: 1000; }
+        .sidebar-header { color: var(--arch-accent); padding: 25px 15px; text-transform: uppercase; font-weight: 700; border-bottom: 1px solid rgba(255,255,255,0.1); font-size: 0.9rem; }
+        .nav-link { color: #95a5a6; padding: 12px 20px; transition: 0.3s; border-left: 4px solid transparent; }
+        .nav-link:hover { color: var(--arch-accent); background: rgba(255,255,255,0.05); }
+        .nav-link.active { color: var(--arch-accent); background: rgba(241, 196, 15, 0.1); border-left: 4px solid var(--arch-accent); font-weight: 600; }
+
+        /* Hero Escala Humana */
+        .bg-human { 
+            background: linear-gradient(rgba(44, 62, 80, 0.9), rgba(44, 62, 80, 0.9)), url('https://images.unsplash.com/photo-1503387762-592dea58ef23?auto=format&fit=crop&q=80&w=1000'); 
+            background-size: cover; color: white; padding: 60px 0; border-radius: 0 0 30px 30px;
+        }
+
+        .scale-card { border: none; border-radius: 15px; background: white; transition: 0.3s; border-top: 4px solid var(--arch-blue); }
+        .scale-card:hover { transform: translateY(-5px); box-shadow: 0 12px 24px rgba(0,0,0,0.1); }
+        
+        .measure-line { border-left: 2px solid var(--arch-blue); padding-left: 15px; position: relative; }
+        .measure-line::before { content: ''; position: absolute; left: -7px; top: 0; width: 12px; height: 2px; background: var(--arch-blue); }
+        .measure-line::after { content: ''; position: absolute; left: -7px; bottom: 0; width: 12px; height: 2px; background: var(--arch-blue); }
+
+        .btn-finish { background: linear-gradient(45deg, #f1c40f, #f39c12); border: none; color: white; transition: 0.3s; }
+        .btn-finish:hover { transform: scale(1.05); box-shadow: 0 5px 15px rgba(241, 196, 15, 0.4); color: white; }
     </style>
 </head>
 <body>
 
-<div class="container py-5">
-    <div class="text-center mb-5">
-        <h1 class="display-4 fw-bold" style="color: var(--arch-dark);">CAPÍTULO X: ESCALA HUMANA</h1>
-        <p class="lead text-muted">Dando sentido a la proporción y el espacio.</p>
-    </div>
-
-    <div class="row g-4 align-items-center">
-        <div class="col-md-6">
-            <div class="scale-box text-center">
-                <div class="human-figure mb-3">🚶‍♂️</div>
-                <h4>¿Por qué es vital? (10.1)</h4>
-                <p>Sin una figura humana, el espectador no puede comprender el tamaño real de la edificación. La escala nos da la referencia de altura de puertas, techos y ventanas.</p>
+<div class="container-fluid">
+    <div class="row">
+        <nav class="col-md-3 col-lg-2 d-md-block sidebar shadow">
+            <div class="sidebar-header text-center">
+                <i class="bi bi-person-bounding-box me-2"></i> Colección Dorada
             </div>
-        </div>
-        <div class="col-md-6">
-            <div class="card bg-dark text-white p-4">
-                <h5>Proporciones Comunes (10.3)</h5>
-                <ul class="list-unstyled">
-                    <li><i class="text-info">Escala 1:50</i> - Gran detalle de la figura.</li>
-                    <li><i class="text-info">Escala 1:100</i> - Estilización simplificada.</li>
-                    <li><i class="text-info">Escala 1:200</i> - Figuras abstractas o puntos de referencia.</li>
-                </ul>
+            <ul class="nav flex-column mt-3">
+                <li class="nav-item"><a class="nav-link" href="CAPITULO8.html"><i class="bi bi-hammer me-2"></i> Cap. VIII: Taller</a></li>
+                <li class="nav-item"><a class="nav-link" href="CAPITULO9.html"><i class="bi bi-tree-fill me-2"></i> Cap. IX: Vegetación</a></li>
+                <li class="nav-item"><a class="nav-link active" href="CAPITULO10.html"><i class="bi bi-person-walking me-2"></i> Cap. X: Escala Humana</a></li>
+            </ul>
+        </nav>
+
+        <main class="col-md-9 ms-sm-auto col-lg-10 p-0">
+            <header class="bg-human text-center shadow">
+                <div class="container px-4">
+                    <span class="badge bg-info text-dark mb-2 px-3 fw-bold">FINALIZACIÓN</span>
+                    <h1 class="display-4 fw-bold text-uppercase">Capítulo X: La Escala Humana</h1>
+                    <p class="lead opacity-90">El Modulor y la referencia espacial del usuario.</p>
+                </div>
+            </header>
+
+            <div class="container my-5 px-4">
+                <div class="row g-4 align-items-stretch">
+                    <div class="col-lg-7">
+                        <div class="card border-0 shadow-sm rounded-4 p-4 h-100">
+                            <h3 class="fw-bold mb-4 text-primary"><i class="bi bi-rulers me-2"></i>10.1 El Factor Proporción</h3>
+                            <p>En arquitectura, la **escala humana** es el parámetro que relaciona las dimensiones de un edificio con las del cuerpo. Sin ella, una maqueta es un objeto abstracto; con ella, se convierte en un **hábitat**.</p>
+                            
+                            
+
+                            <div class="p-3 bg-light border-start border-4 border-warning mt-3">
+                                <small class="text-muted d-block">DATO TÉCNICO:</small>
+                                <strong>La altura promedio de referencia es de 1.75m.</strong> 
+                                <p class="small mb-0 mt-1">En escala 1:100, una persona mide exactamente 1.75 cm. Esta precisión es la que valida si tu puerta de 2cm es funcional o un error de diseño.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-5">
+                        <div class="card scale-card shadow-sm h-100">
+                            <div class="card-body">
+                                <h5 class="fw-bold mb-4">Tabla de Conversión Rápida</h5>
+                                <div class="table-responsive">
+                                    <table class="table table-sm">
+                                        <thead class="table-light">
+                                            <tr>
+                                                <th>Escala</th>
+                                                <th>Altura Maqueta</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr><td>1:20</td><td>8.75 cm</td></tr>
+                                            <tr><td>1:50</td><td>3.50 cm</td></tr>
+                                            <tr><td>1:100</td><td>1.75 cm</td></tr>
+                                            <tr><td>1:200</td><td>0.87 cm</td></tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="measure-line mt-4">
+                                    <p class="small text-muted mb-0">"La figura humana no solo indica tamaño, también sugiere la función de un espacio: alguien sentado implica descanso, alguien caminando implica transición."</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12">
+                        <div class="card border-0 shadow-sm rounded-4 overflow-hidden mt-4">
+                            <div class="row g-0">
+                                <div class="col-md-4 bg-dark text-white d-flex flex-column justify-content-center p-4">
+                                    <h4 class="fw-bold"><i class="bi bi-scissors me-2 text-warning"></i>Técnicas DIY</h4>
+                                    <p class="small opacity-75">Fabricación artesanal de monigotes arquitectónicos.</p>
+                                </div>
+                                <div class="col-md-8 p-4">
+                                    <div class="row text-center">
+                                        <div class="col-4">
+                                            <i class="bi bi-layers fs-1 text-primary"></i>
+                                            <h6 class="mt-2 fw-bold">Cartón</h6>
+                                            <p class="small text-muted">Recorte plano (minimalista)</p>
+                                        </div>
+                                        <div class="col-4">
+                                            <i class="bi bi-usb-drive-fill fs-1 text-primary" style="transform: rotate(90deg);"></i>
+                                            <h6 class="mt-2 fw-bold">Alambre</h6>
+                                            <p class="small text-muted">Estructura lineal (estilizada)</p>
+                                        </div>
+                                        <div class="col-4">
+                                            <i class="bi bi-droplet-half fs-1 text-primary"></i>
+                                            <h6 class="mt-2 fw-bold">Resina</h6>
+                                            <p class="small text-muted">Detalle máximo (realista)</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-5 text-center p-5 bg-white rounded-5 shadow-lg">
+                    <i class="bi bi-mortarboard-fill display-1 text-warning mb-4"></i>
+                    <h2 class="fw-bold">¡CURSO COMPLETADO!</h2>
+                    <p class="text-muted mx-auto" style="max-width: 600px;">Has recorrido desde la teoría de planos hasta el detalle de la escala humana. Ahora tienes las herramientas técnicas para materializar cualquier visión arquitectónica con precisión y maestría.</p>
+                    
+                    <div class="d-flex justify-content-center gap-3 mt-4">
+                        <a href="CAPITULO9.html" class="btn btn-outline-dark px-4 rounded-pill"><i class="bi bi-arrow-left me-2"></i> Repasar Cap. IX</a>
+                        <a href="INDEX.html" class="btn btn-finish px-5 py-2 rounded-pill fw-bold shadow">FINALIZAR Y SALIR</a>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
-
-    <div class="mt-5 p-4 border-start border-4 border-info bg-white shadow-sm">
-        <h5>10.5 Creación de figuras</h5>
-        <p>Se pueden elaborar con alambre fino, plástico o simplemente cartón pluma recortado de forma minimalista para no distraer de la arquitectura.</p>
-    </div>
-
-    <div class="d-flex justify-content-between mt-5">
-        <a href="CAPITULO9.html" class="btn btn-outline-secondary">Anterior</a>
-        <a href="INDEX.html" class="btn btn-primary px-5 fw-bold">FINALIZAR CURSO</a>
+        </main>
     </div>
 </div>
 
