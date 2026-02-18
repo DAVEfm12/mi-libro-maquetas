@@ -3,216 +3,95 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Capítulo II - Tipos de Maquetas</title>
+    <title>Capítulo 2: Tipos de Maquetas</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --primary-color: #1a252f;
-            --accent-color: #d4af37; /* Dorado */
-            --bg-light: #f4f7f6;
-            --text-main: #2c3e50;
-        }
-
-        body {
-            font-family: 'Georgia', serif;
-            color: var(--text-main);
-            background-color: var(--bg-light);
-            line-height: 1.6;
-        }
-
-        .chapter-header {
-            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1581094794329-c8112a89af12?q=80&w=1000');
-            background-size: cover;
-            background-position: center;
-            color: white;
-            padding: 80px 0;
-            text-align: center;
-            border-bottom: 8px solid var(--accent-color);
-        }
-
-        /* Sidebar de navegación interna */
-        .sidebar-menu {
-            position: sticky;
-            top: 20px;
-            height: 85vh;
-            overflow-y: auto;
-            background: white;
-            padding: 20px;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            font-family: 'Segoe UI', sans-serif;
-        }
-
-        .sidebar-menu h5 { color: var(--accent-color); font-weight: bold; border-bottom: 1px solid #eee; padding-bottom: 10px; }
-        .nav-link { color: #555; font-size: 0.85rem; padding: 4px 0; border-bottom: 1px solid #f9f9f9; }
-        .nav-link:hover { color: var(--accent-color); background: #fffcf5; }
-
-        /* Tarjetas de Contenido */
-        .type-card {
-            background: white;
-            padding: 35px;
-            border-radius: 15px;
-            margin-bottom: 30px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.02);
-            border-top: 4px solid transparent;
-            transition: 0.3s;
-        }
-
-        .type-card:hover { border-top: 4px solid var(--accent-color); transform: translateY(-5px); }
-        .type-card h2 { color: var(--primary-color); font-size: 1.8rem; margin-bottom: 20px; }
-
-        /* Contenedores de Imagen */
-        .img-gallery {
-            background: #fdfdfd;
-            border: 1px dashed #ccc;
-            padding: 15px;
-            border-radius: 10px;
-            margin-top: 20px;
-        }
-
-        .img-placeholder {
-            background: #eee;
-            border-radius: 5px;
-            min-height: 200px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 10px;
-            overflow: hidden;
-        }
-
-        .img-placeholder img { width: 100%; height: auto; }
-        .img-label { font-size: 0.8rem; color: #777; font-style: italic; }
-
-        .badge-scale { background: var(--accent-color); color: var(--primary-color); font-weight: bold; }
+        body { font-family: 'Open Sans', sans-serif; background-color: #f1f3f5; }
+        .sidebar { background: #1a252f; color: white; min-height: 100vh; }
+        .nav-link { color: #95a5a6; }
+        .nav-link.active { color: #f1c40f; border-left: 4px solid #f1c40f; }
+        .category-header { background: #2c3e50; color: white; padding: 10px; border-radius: 5px; margin-top: 20px; }
+        .type-card { transition: transform 0.3s; cursor: pointer; border: none; border-bottom: 3px solid #f1c40f; }
+        .type-card:hover { transform: translateY(-10px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
     </style>
 </head>
 <body>
 
-    <header class="chapter-header">
-        <div class="container">
-            <h5 style="letter-spacing: 5px;">CAPÍTULO II</h5>
-            <h1 class="display-4 fw-bold">TIPOS DE MAQUETAS</h1>
-            <p class="lead">Clasificación técnica por función, nivel de detalle y entorno virtual.</p>
-        </div>
-    </header>
+<div class="container-fluid">
+    <div class="row">
+        <nav class="col-md-2 d-none d-md-block sidebar py-4">
+            <h5 class="text-center mb-4">MÓDULOS</h5>
+            <ul class="nav flex-column">
+                <li class="nav-item"><a class="nav-link" href="CAPITULO1.html">I. Introducción</a></li>
+                <li class="nav-item"><a class="nav-link active" href="CAPITULO2.html">II. Tipos de Maquetas</a></li>
+                <li class="nav-item"><a class="nav-link" href="CAPITULO3.html">III. Planos</a></li>
+                <li class="nav-item"><a class="nav-link" href="CAPITULO4.html">IV. Materiales</a></li>
+            </ul>
+        </nav>
 
-    <div class="container-fluid px-4 mt-5">
-        <div class="row">
-            <aside class="col-lg-3">
-                <div class="sidebar-menu">
-                    <h5>Índice del Capítulo</h5>
-                    <nav class="nav flex-column">
-                        <a class="nav-link" href="#2.1">2.1 De Edificación</a>
-                        <a class="nav-link" href="#2.1.1">2.1.1 De Urbanismo</a>
-                        <a class="nav-link" href="#2.1.2">2.1.2 De Edificios</a>
-                        <a class="nav-link" href="#2.1.3">2.1.3 De Estructuras</a>
-                        <a class="nav-link" href="#2.1.4">2.1.4 Espacios Interiores</a>
-                        <a class="nav-link" href="#2.2">2.2 Volumétricas</a>
-                        <a class="nav-link" href="#2.3">2.3 Detalladas</a>
-                        <a class="nav-link" href="#2.5">2.5 Técnicas</a>
-                        <a class="nav-link" href="#2.7">2.7 Conceptuales</a>
-                        <a class="nav-link" href="#2.10">2.10 Virtuales</a>
-                        <a class="nav-link" href="#2.12">2.12 De Estudio</a>
-                        <a class="nav-link" href="#2.14">2.14 De Ejecución</a>
-                        <a class="nav-link" href="#2.16">2.16 Desmontables</a>
-                    </nav>
-                    <a href="index.html" class="btn btn-dark btn-sm w-100 mt-4">Volver al Inicio</a>
+        <main class="col-md-10 px-4 py-3">
+            <h1 class="display-5 mb-4">CAPÍTULO II: TIPOS DE MAQUETAS</h1>
+            <p class="lead text-muted">Antes de iniciar, es vital determinar el tipo de maqueta según las necesidades del cliente o del proyecto[cite: 121].</p>
+
+            <h3 class="category-header">2.1 Maquetas de Edificación</h3>
+            <div class="row g-4 mt-1">
+                <div class="col-md-4">
+                    <div class="card type-card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Urbanismo (2.1.1)</h5>
+                            <p class="card-text small text-muted">Representan conjuntos de edificios, calles y espacios públicos en escalas reducidas[cite: 88].</p>
+                        </div>
+                    </div>
                 </div>
-            </aside>
-
-            <div class="col-lg-9">
-
-                <section id="2.1" class="type-card">
-                    <h2>2.1 De Edificación</h2>
-                    <p>Muestra el edificio existente al que se le van a agregar los nuevos proyectos. Representa las características más importantes de la circulación en el espacio.</p>
-                    <div class="img-gallery">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="img-placeholder"><img src="/home/ceeci/Imágenes/LIBRO/l45.png" alt="Edificación A"></div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="img-placeholder"><img src="/home/ceeci/Imágenes/LIBRO/l45_b.png" alt="Edificación B"></div>
-                            </div>
+                <div class="col-md-4">
+                    <div class="card type-card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Estructurales (2.1.3)</h5>
+                            <p class="card-text small text-muted">Muestran vigas, columnas y cimentaciones para explicar soluciones constructivas[cite: 7].</p>
                         </div>
-                        <p class="img-label text-center">Imágenes 2.1 Maquetas de edificación. Fuente: SIA y CR.</p>
                     </div>
-                </section>
-
-                <section id="2.1.1" class="type-card">
-                    <h2>2.1.1 De Urbanismo</h2>
-                    <p>Representan zonas de urbanización (ciudades o unidades habitacionales). <span class="badge badge-scale">Escalas: 1:500 a 1:1500</span></p>
-                    <p class="small text-muted">Debido a su magnitud, se evitan escalas más pequeñas para facilitar el traslado y mantenimiento.</p>
-                    <div class="img-gallery">
-                        <div class="img-placeholder"><img src="/home/ceeci/Imágenes/LIBRO/l45_urbanismo.png"></div>
-                        <p class="img-label">Imágenes 2.2 Maqueta Escolar y Urbanismo.</p>
-                    </div>
-                </section>
-
-                <section id="2.1.3" class="type-card">
-                    <h2>2.1.3 De Estructuras</h2>
-                    <p>Sirven para explicar elementos constructivos: vigas, columnas, zapatas y mampostería. Son ideales para presentar soluciones técnicas.</p>
-                    <div class="img-gallery">
-                        <div class="img-placeholder"><img src="/home/ceeci/Imágenes/LIBRO/l46_estructural.png"></div>
-                        <p class="img-label">Imagen 2.4 Maqueta estructural, Cortes por Fachada.</p>
-                    </div>
-                </section>
-
-                <section id="2.7" class="type-card">
-                    <h2>2.7 Conceptual</h2>
-                    <p>Muestra el efecto plástico y espacial mediante contrastes de forma y textura. Su característica principal es la <strong>espontaneidad</strong> y la facilidad para modificar la composición rápidamente.</p>
-                    <div class="img-gallery">
-                        <div class="img-placeholder"><img src="/home/ceeci/Imágenes/LIBRO/l50.png"></div>
-                        <p class="img-label text-center">Imágenes 2.12 Maquetas de concepto.</p>
-                    </div>
-                </section>
-
-                <section id="2.10" class="type-card" style="border-left: 5px solid #3498db;">
-                    <h2>2.10 Virtuales (CAD)</h2>
-                    <p>Elaboradas mediante Diseño Asistido por Ordenador. Permiten identificar soluciones constructivas mediante sólidos tridimensionales acoplados.</p>
-                    <div class="alert alert-info small">
-                        <strong>Laboratorio Virtual:</strong> El alumno reflexiona, resuelve manualmente y luego compara resultados con el modelo informático.
-                    </div>
-                    <div class="img-gallery">
-                        <div class="img-placeholder"><img src="/home/ceeci/Imágenes/LIBRO/l51_virtual.png"></div>
-                        <p class="img-label">Imágenes 2.15 Maquetas virtuales.</p>
-                    </div>
-                </section>
-
-                <section id="2.14" class="type-card">
-                    <h2>2.14 Maqueta de Ejecución</h2>
-                    <p>Proyectos definitivos para concursos o trabajos escolares. Incluyen mobiliario, autos y personas para dar una idea real de la escala y el contexto urbanístico.</p>
-                    <div class="img-gallery">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="img-placeholder"><img src="/home/ceeci/Imágenes/LIBRO/l54.png"></div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="img-placeholder"><img src="/home/ceeci/Imágenes/LIBRO/l54_b.png"></div>
-                            </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card type-card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Espacios Interiores (2.1.4)</h5>
+                            <p class="card-text small text-muted">Enfocadas en la distribución interna, mobiliario y acabados de recámaras o áreas comunes[cite: 88].</p>
                         </div>
-                        <p class="img-label text-center">Imágenes 2.19 Maqueta de ejecución.</p>
                     </div>
-                </section>
-
-                <section id="2.16" class="type-card">
-                    <h2>2.16 Maqueta Desmontable</h2>
-                    <p>A diferencia de la seccionada, se utiliza en modelos pequeños o casas habitación para permitir la visualización de niveles interiores de forma cómoda.</p>
-                    <div class="img-gallery">
-                        <div class="img-placeholder"><img src="/home/ceeci/Imágenes/LIBRO/l55.png"></div>
-                        <p class="img-label">Imágenes 2.21 Maquetas desmontables.</p>
-                    </div>
-                </section>
-
-                <div class="d-flex justify-content-between my-5">
-                    <a href="CAPITULO1.html" class="btn btn-outline-secondary btn-lg">← Capítulo I</a>
-                    <a href="CAPITULO3.html" class="btn btn-primary btn-lg">Capítulo III: Planos →</a>
                 </div>
             </div>
-        </div>
-    </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+            <h3 class="category-header mt-5">2.2 Clasificación por Detalle</h3>
+            <div class="row g-4 mt-1">
+                <div class="col-md-6">
+                    <div class="card type-card">
+                        <div class="card-body">
+                            <h5>Conceptuales (2.7)</h5>
+                            <p>Realizadas con materiales rápidos (plastilina, cartón reciclado). Su fin es capturar la idea inicial de forma espontánea[cite: 8].</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card type-card">
+                        <div class="card-body">
+                            <h5>Virtuales y 3D (2.10)</h5>
+                            <p>Modelos mediante software CAD que permiten manipulación digital y análisis de nudos estructurales[cite: 8, 11].</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="alert alert-info mt-5 border-start border-info border-4">
+                <strong>¿Sabías que?</strong> Las maquetas <strong>dinámicas</strong> incluyen movimiento real a través de artes animadas o simulaciones digitales[cite: 8].
+            </div>
+            
+            <div class="text-center mt-4">
+                <a href="CAPITULO3.html" class="btn btn-dark btn-lg">Siguiente: Interpretación de Planos</a>
+            </div>
+        </main>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
