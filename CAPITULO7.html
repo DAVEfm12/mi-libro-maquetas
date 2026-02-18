@@ -3,68 +3,147 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Capítulo 7: Presupuesto de Obra</title>
+    <title>Capítulo 7: Presupuesto - Colección Dorada</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
     <style>
-        body { background-color: #eef2f3; font-family: 'Open Sans', sans-serif; }
-        .budget-header { background: #27ae60; color: white; padding: 40px 0; border-radius: 0 0 50px 50px; }
-        .calc-card { border: none; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
-        .list-group-item { border: none; padding-left: 0; background: transparent; }
-        .price-tag { color: #27ae60; font-weight: bold; font-size: 1.2rem; }
+        :root { 
+            --arch-dark: #1a252f; 
+            --arch-gold: #f1c40f; 
+            --arch-green: #27ae60;
+            --arch-bg: #f4f7f6;
+        }
+
+        body { font-family: 'Open Sans', sans-serif; background-color: var(--arch-bg); color: #333; }
+        
+        /* Sidebar Unificado */
+        .sidebar { background: var(--arch-dark); color: white; min-height: 100vh; position: sticky; top: 0; z-index: 1000; }
+        .sidebar-header { color: var(--arch-gold); padding: 25px 15px; text-transform: uppercase; font-weight: 700; border-bottom: 1px solid rgba(255,255,255,0.1); font-size: 0.9rem; }
+        .nav-link { color: #95a5a6; padding: 12px 20px; transition: 0.3s; border-left: 4px solid transparent; }
+        .nav-link:hover { color: var(--arch-gold); background: rgba(255,255,255,0.05); }
+        .nav-link.active { color: var(--arch-gold); background: rgba(241, 196, 15, 0.1); border-left: 4px solid var(--arch-gold); font-weight: 600; }
+
+        /* Contenido Presupuesto */
+        .main-content { padding: 40px; }
+        .budget-header { background: var(--arch-green); color: white; padding: 40px; border-radius: 20px; margin-bottom: 30px; box-shadow: 0 10px 20px rgba(39, 174, 96, 0.2); }
+        .calc-card { border: none; border-radius: 15px; background: white; transition: 0.3s; }
+        .calc-card:hover { box-shadow: 0 12px 25px rgba(0,0,0,0.08); }
+        
+        .price-tag { color: var(--arch-green); font-weight: bold; font-size: 1.4rem; font-family: 'Montserrat', sans-serif; }
+        
+        /* Contenedores de Imágenes */
+        .img-placeholder {
+            background: #e9ecef; border: 2px dashed #adb5bd; border-radius: 10px;
+            margin: 15px 0; min-height: 150px; display: flex;
+            align-items: center; justify-content: center; flex-direction: column;
+            color: #6c757d; font-size: 0.8rem; text-align: center; padding: 15px;
+        }
+
+        .list-group-item { border: none; padding: 8px 0; background: transparent; display: flex; align-items: center; }
+        .list-group-item i { color: var(--arch-green); margin-right: 10px; }
     </style>
 </head>
 <body>
 
-<header class="budget-header text-center mb-5">
-    <div class="container">
-        <h1 class="fw-bold text-uppercase">Capítulo VII: El Presupuesto</h1>
-        <p class="lead">Administración y costos de elaboración.</p>
-    </div>
-</header>
-
-<div class="container">
-    <div class="row g-4">
-        <div class="col-md-7">
-            <div class="card calc-card p-4 h-100">
-                <h4 class="mb-4 text-success border-bottom pb-2">7.1 Análisis de Costos</h4>
-                <p>El costo de una maqueta no solo es el material; es el tiempo, la especialización y el desgaste de herramientas.</p>
-                <ul class="list-group">
-                    <li class="list-group-item"><strong>Gastos Directos:</strong> Pegamentos, cartones, bases, maderas y pintura.</li>
-                    <li class="list-group-item"><strong>Gastos Indirectos:</strong> Energía eléctrica, transporte, papelería y renta del espacio.</li>
-                    <li class="list-group-item"><strong>Mano de Obra:</strong> El valor de tus horas de diseño y montaje.</li>
-                </ul>
+<div class="container-fluid">
+    <div class="row">
+        <nav class="col-md-3 col-lg-2 d-md-block sidebar shadow">
+            <div class="sidebar-header text-center">
+                <i class="bi bi-cash-stack me-2"></i> Colección Dorada
             </div>
-        </div>
+            <ul class="nav flex-column mt-3">
+                <li class="nav-item"><a class="nav-link" href="CAPITULO1.html"><i class="bi bi-bookmark-fill me-2"></i> Cap. I: Introducción</a></li>
+                <li class="nav-item"><a class="nav-link" href="CAPITULO2.html"><i class="bi bi-building me-2"></i> Cap. II: Tipos</a></li>
+                <li class="nav-item"><a class="nav-link" href="CAPITULO3.html"><i class="bi bi-map-fill me-2"></i> Cap. III: Planos</a></li>
+                <li class="nav-item"><a class="nav-link" href="CAPITULO4.html"><i class="bi bi-box-seam-fill me-2"></i> Cap. IV: Materiales</a></li>
+                <li class="nav-item"><a class="nav-link" href="CAPITULO5.html"><i class="bi bi-tools me-2"></i> Cap. V: Herramientas</a></li>
+                <li class="nav-item"><a class="nav-link" href="CAPITULO6.html"><i class="bi bi-bounding-box me-2"></i> Cap. VI: Geometría</a></li>
+                <li class="nav-item"><a class="nav-link active" href="CAPITULO7.html"><i class="bi bi-cash-stack me-2"></i> Cap. VII: Presupuesto</a></li>
+                <li class="nav-item"><a class="nav-link" href="CAPITULO8.html"><i class="bi bi-hammer me-2"></i> Cap. VIII: Taller</a></li>
+                <li class="nav-item"><a class="nav-link" href="CAPITULO9.html"><i class="bi bi-tree-fill me-2"></i> Cap. IX: Vegetación</a></li>
+                <li class="nav-item"><a class="nav-link" href="CAPITULO10.html"><i class="bi bi-person-walking me-2"></i> Cap. X: Escala Humana</a></li>
+            </ul>
+        </nav>
 
-        <div class="col-md-5">
-            <div class="card calc-card bg-white p-4 h-100 border-start border-5 border-success">
-                <h4 class="mb-3">Fórmula sugerida</h4>
-                <div class="p-3 bg-light rounded text-center my-3">
-                    <span class="price-tag">(Materiales × 2) + Horas de Trabajo</span>
+        <main class="col-md-9 ms-sm-auto col-lg-10 main-content">
+            <div class="budget-header text-center">
+                <h1 class="fw-bold text-uppercase display-6">Capítulo VII: El Presupuesto</h1>
+                <p class="lead opacity-75">La diferencia entre un hobby y un servicio profesional radica en la administración.</p>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-md-7">
+                    <div class="card calc-card p-4 h-100 shadow-sm">
+                        <h4 class="mb-4 fw-bold border-bottom pb-2 text-dark">7.1 Análisis de Costos</h4>
+                        <p class="text-muted">Ignacio López Torres define que una cotización profesional debe contemplar tres dimensiones:</p>
+                        
+                        <ul class="list-group mb-4">
+                            <li class="list-group-item"><i class="bi bi-check-circle-fill"></i> <strong>Gastos Directos:</strong> Insumos que se quedan en la obra (cartón, pegamento, maderas).</li>
+                            <li class="list-group-item"><i class="bi bi-check-circle-fill"></i> <strong>Gastos Indirectos:</strong> Depreciación de herramientas, luz, renta y transporte.</li>
+                            <li class="list-group-item"><i class="bi bi-check-circle-fill"></i> <strong>Mano de Obra Especializada:</strong> El valor de tu tiempo por hora/hombre.</li>
+                        </ul>
+
+                        <div class="img-placeholder">
+                            
+                            <span>Ejemplo de tabla de desglose de materiales</span>
+                        </div>
+                    </div>
                 </div>
-                <p class="small text-muted">Nota: Este factor puede variar según la complejidad de los detalles arquitectónicos (ventanas, texturas, iluminación).</p>
-            </div>
-        </div>
 
-        <div class="col-12 mt-4">
-            <div class="card calc-card p-4">
-                <h5>7.4 Control de Insumos</h5>
-                <p class="small">Llevar un inventario evita que el proyecto se detenga por falta de pegamento o cuchillas.</p>
-                <div class="row text-center mt-3">
-                    <div class="col-4 col-md-2"><div class="p-2 border rounded">Cúters</div></div>
-                    <div class="col-4 col-md-2"><div class="p-2 border rounded">Lijas</div></div>
-                    <div class="col-4 col-md-2"><div class="p-2 border rounded">Adhesivos</div></div>
-                    <div class="col-4 col-md-2"><div class="p-2 border rounded">Pinturas</div></div>
-                    <div class="col-4 col-md-2"><div class="p-2 border rounded">Bases</div></div>
-                    <div class="col-4 col-md-2"><div class="p-2 border rounded">Vegetación</div></div>
+                <div class="col-md-5">
+                    <div class="card calc-card p-4 h-100 border-top border-5 border-success shadow-sm">
+                        <h4 class="fw-bold mb-3 text-center">Fórmula Sugerida</h4>
+                        <div class="p-4 bg-light rounded-4 text-center my-3 border">
+                            <span class="price-tag">(Insumos × 2) + Horas Trabajo</span>
+                        </div>
+                        <p class="small text-muted text-center">Factor de ajuste según complejidad arquitectónica:</p>
+                        <div class="d-flex justify-content-around text-center mt-2">
+                            <div><span class="badge bg-secondary">Baja</span><br><small>Volumétrica</small></div>
+                            <div><span class="badge bg-success">Media</span><br><small>Fachadas</small></div>
+                            <div><span class="badge bg-danger">Alta</span><br><small>Interiores</small></div>
+                        </div>
+                        <hr>
+                        <div class="img-placeholder" style="min-height: 100px;">
+                            [Image showing currency, a calculator, and architectural tools together]
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 mt-2">
+                    <div class="card calc-card p-4 shadow-sm">
+                        <div class="row align-items-center">
+                            <div class="col-md-8">
+                                <h5 class="fw-bold"><i class="bi bi-clipboard-check me-2 text-success"></i> 7.4 Control y Almacenaje de Insumos</h5>
+                                <p class="small">Llevar un inventario riguroso evita retrasos críticos. Divide tus materiales por categorías para una reposición eficiente.</p>
+                            </div>
+                            <div class="col-md-4 text-end">
+                                <button class="btn btn-outline-success btn-sm">Descargar Plantilla Excel</button>
+                            </div>
+                        </div>
+                        
+                        <div class="row text-center mt-3 g-2">
+                            <div class="col-4 col-md-2"><div class="p-3 bg-white border rounded shadow-sm small fw-bold">Cuchillas</div></div>
+                            <div class="col-4 col-md-2"><div class="p-3 bg-white border rounded shadow-sm small fw-bold text-success">Adhesivos</div></div>
+                            <div class="col-4 col-md-2"><div class="p-3 bg-white border rounded shadow-sm small fw-bold">Lijas</div></div>
+                            <div class="col-4 col-md-2"><div class="p-3 bg-white border rounded shadow-sm small fw-bold text-success">Pinturas</div></div>
+                            <div class="col-4 col-md-2"><div class="p-3 bg-white border rounded shadow-sm small fw-bold">Bases</div></div>
+                            <div class="col-4 col-md-2"><div class="p-3 bg-white border rounded shadow-sm small fw-bold text-success">Vegetación</div></div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
 
-    <div class="text-center mt-5 mb-5">
-        <p class="text-muted">¿Listo para empezar la construcción física?</p>
-        <a href="CAPITULO8.html" class="btn btn-success btn-lg px-5 shadow">IR AL TALLER (CAP. VIII)</a>
+            <div class="d-flex justify-content-between mt-5 pt-4 border-top">
+                <a href="CAPITULO6.html" class="btn btn-outline-dark px-4 shadow-sm"><i class="bi bi-arrow-left me-2"></i> Anterior</a>
+                <div class="text-center">
+                    <p class="mb-0 small text-muted">Progreso: Volumen I</p>
+                    <div class="progress mt-1" style="width: 150px; height: 6px;">
+                        <div class="progress-bar bg-success" style="width: 70%"></div>
+                    </div>
+                </div>
+                <a href="CAPITULO8.html" class="btn btn-success px-5 fw-bold shadow">IR AL TALLER (CAP. VIII) <i class="bi bi-hammer ms-2"></i></a>
+            </div>
+        </main>
     </div>
 </div>
 
