@@ -3,79 +3,148 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Capítulo 5: Herramientas del Maquetista</title>
+    <title>Capítulo 5: Herramientas - Colección Dorada</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
     <style>
-        body { background-color: #2c3e50; color: #ecf0f1; font-family: 'Open Sans', sans-serif; }
-        .tool-box { background: #34495e; padding: 40px; border-radius: 20px; border: 1px solid #455a64; }
-        .tool-item { background: rgba(255,255,255,0.05); padding: 20px; border-radius: 10px; margin-bottom: 15px; border-left: 5px solid #f1c40f; }
-        .tool-title { color: #f1c40f; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; }
-        .btn-next { background-color: #f1c40f; color: #2c3e50; font-weight: bold; border: none; }
-        .btn-next:hover { background-color: #d4ac0d; }
+        :root { 
+            --arch-gold: #f1c40f; 
+            --arch-dark: #1a252f; 
+            --arch-bg: #2c3e50;
+            --arch-card: #34495e;
+        }
+        
+        body { font-family: 'Open Sans', sans-serif; background-color: var(--arch-bg); color: #ecf0f1; }
+        
+        /* Sidebar Estilo Unificado */
+        .sidebar { background: var(--arch-dark); color: white; min-height: 100vh; position: sticky; top: 0; z-index: 1000; }
+        .sidebar-header { color: var(--arch-gold); padding: 25px 15px; text-transform: uppercase; font-weight: 700; border-bottom: 1px solid rgba(255,255,255,0.1); font-size: 0.9rem; }
+        .nav-link { color: #95a5a6; padding: 12px 20px; transition: 0.3s; border-left: 4px solid transparent; }
+        .nav-link:hover { color: var(--arch-gold); background: rgba(255,255,255,0.05); }
+        .nav-link.active { color: var(--arch-gold); background: rgba(241, 196, 15, 0.1); border-left: 4px solid var(--arch-gold); font-weight: 600; }
+
+        /* Contenido y Herramientas */
+        .main-content { padding: 40px; }
+        .tool-box { background: var(--arch-card); padding: 40px; border-radius: 20px; border: 1px solid #455a64; }
+        .tool-item { background: rgba(255,255,255,0.05); padding: 20px; border-radius: 10px; margin-bottom: 15px; border-left: 5px solid var(--arch-gold); transition: 0.3s; }
+        .tool-item:hover { background: rgba(255,255,255,0.1); }
+        .tool-title { color: var(--arch-gold); font-weight: bold; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; display: block; }
+        
+        /* Contenedores de Imágenes */
+        .img-placeholder {
+            background: rgba(0,0,0,0.2); border: 1px dashed rgba(255,255,255,0.3); border-radius: 8px;
+            margin: 15px 0; min-height: 120px; display: flex;
+            align-items: center; justify-content: center; flex-direction: column;
+            color: #bdc3c7; font-size: 0.75rem; text-align: center; padding: 10px;
+        }
+
+        .btn-next { background-color: var(--arch-gold); color: var(--arch-dark); font-weight: bold; border: none; padding: 10px 30px; }
+        .btn-next:hover { background-color: #d4ac0d; color: var(--arch-dark); }
     </style>
 </head>
 <body>
 
-<div class="container py-5">
-    <div class="text-center mb-5">
-        <h1 class="display-5 fw-bold text-white">CAPÍTULO V: HERRAMIENTAS</h1>
-        [cite_start]<p class="text-warning">"Entre mejor esté la herramienta, mejor será el trabajo" [cite: 6]</p>
-    </div>
+<div class="container-fluid">
+    <div class="row">
+        <nav class="col-md-3 col-lg-2 d-md-block sidebar shadow">
+            <div class="sidebar-header text-center">
+                <i class="bi bi-tools me-2"></i> Colección Dorada
+            </div>
+            <ul class="nav flex-column mt-3">
+                <li class="nav-item"><a class="nav-link" href="CAPITULO1.html"><i class="bi bi-bookmark-fill me-2"></i> Cap. I: Introducción</a></li>
+                <li class="nav-item"><a class="nav-link" href="CAPITULO2.html"><i class="bi bi-building me-2"></i> Cap. II: Tipos</a></li>
+                <li class="nav-item"><a class="nav-link" href="CAPITULO3.html"><i class="bi bi-map-fill me-2"></i> Cap. III: Planos</a></li>
+                <li class="nav-item"><a class="nav-link" href="CAPITULO4.html"><i class="bi bi-box-seam-fill me-2"></i> Cap. IV: Materiales</a></li>
+                <li class="nav-item"><a class="nav-link active" href="CAPITULO5.html"><i class="bi bi-tools me-2"></i> Cap. V: Herramientas</a></li>
+                <li class="nav-item"><a class="nav-link" href="CAPITULO6.html"><i class="bi bi-bounding-box me-2"></i> Cap. VI: Geometría</a></li>
+                <li class="nav-item"><a class="nav-link" href="CAPITULO7.html"><i class="bi bi-cash-stack me-2"></i> Cap. VII: Presupuesto</a></li>
+                <li class="nav-item"><a class="nav-link" href="CAPITULO8.html"><i class="bi bi-hammer me-2"></i> Cap. VIII: Taller</a></li>
+                <li class="nav-item"><a class="nav-link" href="CAPITULO9.html"><i class="bi bi-tree-fill me-2"></i> Cap. IX: Vegetación</a></li>
+                <li class="nav-item"><a class="nav-link" href="CAPITULO10.html"><i class="bi bi-person-walking me-2"></i> Cap. X: Escala Humana</a></li>
+            </ul>
+        </nav>
 
-    <div class="tool-box shadow-lg">
-        <div class="row">
-            <div class="col-md-6">
-                <h4 class="mb-4 border-bottom pb-2 text-white-50">5.1 Medición y Marcado</h4>
-                <div class="tool-item">
-                    <div class="tool-title">Instrumentos de Calidad</div>
-                    <p class="small mb-0">La numeración debe ser clara. [cite_start]Las reglas no deben estar torcidas ni tener crestas para asegurar precisión en cada corte[cite: 6].</p>
-                </div>
+        <main class="col-md-9 ms-sm-auto col-lg-10 main-content">
+            <div class="text-center mb-5">
+                <h1 class="display-5 fw-bold text-white">CAPÍTULO V: HERRAMIENTAS</h1>
+                <p class="text-warning lead">"Entre mejor esté la herramienta, mejor será el trabajo" — Ignacio López Torres</p>
             </div>
 
-            <div class="col-md-6">
-                <h4 class="mb-4 border-bottom pb-2 text-white-50">5.3 Herramientas de Desbaste</h4>
-                <div class="tool-item">
-                    <div class="tool-title">Lijas para Madera (5.3.4)</div>
-                    [cite_start]<p class="small mb-0">Se usa lija gruesa para acabados rápidos en materiales ásperos y lija fina para el acabado final detallado[cite: 7].</p>
-                </div>
-            </div>
-
-            <div class="col-md-12 mt-4">
-                <h4 class="mb-4 border-bottom pb-2 text-white-50">5.4 Herramientas de Uso General</h4>
+            <div class="tool-box shadow-lg">
                 <div class="row">
-                    <div class="col-md-4">
-                        <div class="tool-item text-center">
-                            <div class="tool-title">Martillo (5.4.1)</div>
-                            [cite_start]<p class="small">Para clavar o calzar partes de la estructura[cite: 7].</p>
+                    <div class="col-md-6">
+                        <h4 class="mb-4 border-bottom pb-2 text-white-50"><i class="bi bi-ruler me-2"></i>5.1 Medición y Marcado</h4>
+                        <div class="tool-item">
+                            <span class="tool-title">Instrumentos de Precisión</span>
+                            <p class="small mb-2">La numeración debe ser clara. Las reglas no deben tener deformaciones para asegurar la exactitud de los cortes.</p>
+                            <div class="img-placeholder">
+                                
+                                <span>Escalímetros y reglas metálicas</span>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-md-4">
-                        <div class="tool-item text-center">
-                            <div class="tool-title">Rodillo de Caucho</div>
-                            [cite_start]<p class="small">Utilizado por su resistencia y elasticidad para aplicar presión uniforme[cite: 7].</p>
+
+                    <div class="col-md-6">
+                        <h4 class="mb-4 border-bottom pb-2 text-white-50"><i class="bi bi-brush me-2"></i>5.3 Herramientas de Desbaste</h4>
+                        <div class="tool-item">
+                            <span class="tool-title">Lijas para Madera (5.3.4)</span>
+                            <p class="small mb-2">Usa lija gruesa para nivelar superficies ásperas y lija fina (grano 220+) para el acabado de seda final.</p>
+                            <div class="img-placeholder">
+                                
+                                <span>Variedad de granos de lija</span>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-md-4">
-                        <div class="tool-item text-center">
-                            <div class="tool-title">Limatón</div>
-                            [cite_start]<p class="small">Para dar forma y limar bordes después del corte inicial[cite: 14].</p>
+
+                    <div class="col-md-12 mt-4">
+                        <h4 class="mb-4 border-bottom pb-2 text-white-50"><i class="bi bi-gear-wide-connected me-2"></i>5.4 Herramientas Especializadas</h4>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="tool-item text-center">
+                                    <span class="tool-title">Martillo de Joyero (5.4.1)</span>
+                                    <p class="small">Para clavar micro-alfileres o calzar piezas delicadas.</p>
+                                    <div class="img-placeholder">
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="tool-item text-center">
+                                    <span class="tool-title">Rodillo de Caucho</span>
+                                    <p class="small">Para eliminar burbujas de aire al pegar láminas de papel o texturas.</p>
+                                    <div class="img-placeholder">
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="tool-item text-center">
+                                    <span class="tool-title">Limatón (5.3.3)</span>
+                                    <p class="small">Indispensable para ajustar ángulos y bordes tras el corte.</p>
+                                    <div class="img-placeholder">
+                                        
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
 
-        <div class="alert alert-warning mt-4 text-dark d-flex align-items-center">
-            <i class="fas fa-exclamation-triangle fa-2x me-3"></i>
-            <div>
-                [cite_start]<strong>Seguridad Primero:</strong> Se recomienda usar goggles o lentes transparentes al limar para proteger la vista de los residuos[cite: 14].
+                <div class="alert alert-warning mt-4 text-dark border-0 shadow-sm d-flex align-items-center">
+                    <i class="fas fa-exclamation-triangle fa-2x me-3"></i>
+                    <div>
+                        <strong>Seguridad Industrial:</strong> Se recomienda usar goggles o lentes transparentes al limar o lijar para proteger la vista de las partículas suspendidas en el aire.
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
 
-    <div class="d-flex justify-content-between mt-5">
-        <a href="CAPITULO4.html" class="btn btn-outline-light px-4">Anterior</a>
-        <a href="CAPITULO8.html" class="btn btn-next px-5 shadow-sm">SIGUIENTE: TALLER Y ELABORACIÓN</a>
+            <div class="d-flex justify-content-between mt-5">
+                <a href="CAPITULO4.html" class="btn btn-outline-light px-4"><i class="bi bi-arrow-left me-2"></i> Anterior</a>
+                <div class="text-center text-white-50 small">Página 5 de 10</div>
+                <a href="CAPITULO8.html" class="btn btn-next px-5 shadow-sm">Siguiente: TALLER Y ELABORACIÓN <i class="bi bi-arrow-right ms-2"></i></a>
+            </div>
+        </main>
     </div>
 </div>
 
