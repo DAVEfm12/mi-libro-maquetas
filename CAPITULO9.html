@@ -3,15 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Capítulo 8: Elaboración de la Maqueta - Taller Práctico</title>
+    <title>Capítulo 8: Elaboración - Colección Dorada</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
     <style>
-        :root { --arch-primary: #2c3e50; --arch-accent: #f1c40f; }
+        :root { 
+            --arch-primary: #2c3e50; 
+            --arch-accent: #f1c40f; 
+            --arch-dark: #1a252f;
+        }
+        
         body { font-family: 'Open Sans', sans-serif; background-color: #f8f9fa; color: #333; }
         
-        /* Estilo de Línea de Tiempo para Elaboración */
-        .timeline { border-left: 3px solid var(--arch-accent); position: relative; padding-left: 30px; margin: 20px 0; }
+        /* Sidebar Unificado */
+        .sidebar { background: var(--arch-dark); color: white; min-height: 100vh; position: sticky; top: 0; z-index: 1000; }
+        .sidebar-header { color: var(--arch-accent); padding: 25px 15px; text-transform: uppercase; font-weight: 700; border-bottom: 1px solid rgba(255,255,255,0.1); font-size: 0.9rem; }
+        .nav-link { color: #95a5a6; padding: 12px 20px; transition: 0.3s; border-left: 4px solid transparent; }
+        .nav-link:hover { color: var(--arch-accent); background: rgba(255,255,255,0.05); }
+        .nav-link.active { color: var(--arch-accent); background: rgba(241, 196, 15, 0.1); border-left: 4px solid var(--arch-accent); font-weight: 600; }
+
+        /* Estilo de Línea de Tiempo */
+        .timeline { border-left: 3px solid var(--arch-accent); position: relative; padding-left: 30px; }
         .timeline-item { position: relative; margin-bottom: 40px; }
         .timeline-item::before { 
             content: ""; position: absolute; left: -38px; top: 5px; 
@@ -19,98 +31,142 @@
             border: 3px solid var(--arch-accent); border-radius: 50%; 
         }
         
-        .step-card { border: none; border-radius: 10px; transition: 0.3s; background: white; }
-        .step-card:hover { transform: translateX(10px); box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
-        .bg-workshop { background: linear-gradient(rgba(44, 62, 80, 0.9), rgba(44, 62, 80, 0.9)), url('https://images.unsplash.com/photo-1503387762-592dea58ef23?auto=format&fit=crop&q=80&w=1000'); background-size: cover; color: white; padding: 60px 0; }
-        .instruction-tag { font-size: 0.8rem; font-weight: bold; text-transform: uppercase; color: var(--arch-accent); }
+        .step-card { border: none; border-radius: 12px; transition: 0.3s; background: white; border-bottom: 3px solid transparent; }
+        .step-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.08); border-bottom: 3px solid var(--arch-accent); }
+        
+        .bg-workshop { 
+            background: linear-gradient(rgba(44, 62, 80, 0.85), rgba(44, 62, 80, 0.85)), url('https://images.unsplash.com/photo-1503387762-592dea58ef23?auto=format&fit=crop&q=80&w=1000'); 
+            background-size: cover; color: white; padding: 50px 0; border-radius: 0 0 30px 30px;
+        }
+
+        .img-container {
+            margin: 15px 0;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
     </style>
 </head>
 <body>
 
-<header class="bg-workshop text-center">
-    <div class="container">
-        <span class="badge bg-warning text-dark mb-2">MÓDULO PRÁCTICO</span>
-        <h1 class="display-4 fw-bold">CAPÍTULO VIII: ELABORACIÓN</h1>
-        <p class="lead">Del plano a la realidad física: Paso a paso en el taller.</p>
-    </div>
-</header>
-
-<div class="container my-5">
+<div class="container-fluid">
     <div class="row">
-        <div class="col-lg-8">
-            <h3 class="mb-4"><i class="bi bi-tools me-2"></i>Pasos de Construcción</h3>
-            <div class="timeline">
-                
-                <div class="timeline-item">
-                    <div class="card step-card shadow-sm">
-                        <div class="card-body">
-                            <span class="instruction-tag">Fase 1: Preparación (8.1)</span>
-                            <h5 class="card-title mt-1">Limpieza y Marcado</h5>
-                            <p class="card-text text-muted">Antes de iniciar, se debe limpiar la superficie de trabajo. El primer paso es trazar los planos sobre el material base (papel ilustración o cartón) usando escuadras para asegurar ángulos de 90°.</p>
-                        </div>
-                    </div>
-                </div>
+        <nav class="col-md-3 col-lg-2 d-md-block sidebar shadow">
+            <div class="sidebar-header text-center">
+                <i class="bi bi-hammer me-2"></i> Colección Dorada
+            </div>
+            <ul class="nav flex-column mt-3">
+                <li class="nav-item"><a class="nav-link" href="CAPITULO1.html"><i class="bi bi-bookmark-fill me-2"></i> Cap. I: Introducción</a></li>
+                <li class="nav-item"><a class="nav-link" href="CAPITULO2.html"><i class="bi bi-building me-2"></i> Cap. II: Tipos</a></li>
+                <li class="nav-item"><a class="nav-link" href="CAPITULO3.html"><i class="bi bi-map-fill me-2"></i> Cap. III: Planos</a></li>
+                <li class="nav-item"><a class="nav-link" href="CAPITULO4.html"><i class="bi bi-box-seam-fill me-2"></i> Cap. IV: Materiales</a></li>
+                <li class="nav-item"><a class="nav-link" href="CAPITULO5.html"><i class="bi bi-tools me-2"></i> Cap. V: Herramientas</a></li>
+                <li class="nav-item"><a class="nav-link" href="CAPITULO6.html"><i class="bi bi-bounding-box me-2"></i> Cap. VI: Geometría</a></li>
+                <li class="nav-item"><a class="nav-link" href="CAPITULO7.html"><i class="bi bi-cash-stack me-2"></i> Cap. VII: Presupuesto</a></li>
+                <li class="nav-item"><a class="nav-link active" href="CAPITULO8.html"><i class="bi bi-hammer me-2"></i> Cap. VIII: Taller</a></li>
+                <li class="nav-item"><a class="nav-link" href="CAPITULO9.html"><i class="bi bi-tree-fill me-2"></i> Cap. IX: Vegetación</a></li>
+                <li class="nav-item"><a class="nav-link" href="CAPITULO10.html"><i class="bi bi-person-walking me-2"></i> Cap. X: Escala Humana</a></li>
+            </ul>
+        </nav>
 
-                <div class="timeline-item">
-                    <div class="card step-card shadow-sm">
-                        <div class="card-body">
-                            <span class="instruction-tag">Fase 2: Corte (8.3)</span>
-                            <h5 class="card-title mt-1">Técnica de Corte de Precisión</h5>
-                            <p class="card-text text-muted">Utilice el cúter con una inclinación de 45°. No intente cortar todo el grosor de una sola vez; pase la cuchilla suavemente varias veces.</p>
-                            <div class="alert alert-light border-start border-warning py-2 small">
-                                <strong>Nota del Autor:</strong> Mantenga siempre los dedos alejados de la trayectoria de la regla.
+        <main class="col-md-9 ms-sm-auto col-lg-10 p-0">
+            <header class="bg-workshop text-center shadow">
+                <div class="container">
+                    <span class="badge bg-warning text-dark mb-2 px-3">MÓDULO PRÁCTICO</span>
+                    <h1 class="display-5 fw-bold text-uppercase">Capítulo VIII: Elaboración</h1>
+                    <p class="lead opacity-90">La transformación de los planos en volúmenes arquitectónicos.</p>
+                </div>
+            </header>
+
+            <div class="container my-5 px-4">
+                <div class="row">
+                    <div class="col-lg-8">
+                        <h3 class="mb-4 fw-bold"><i class="bi bi-list-columns-reverse me-2 text-primary"></i>Secuencia Técnica de Trabajo</h3>
+                        
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <div class="card step-card shadow-sm">
+                                    <div class="card-body">
+                                        <div class="d-flex justify-content-between align-items-start">
+                                            <h5 class="fw-bold">8.1 Preparación y Trazado</h5>
+                                            <span class="badge rounded-pill bg-light text-dark border">Paso 01</span>
+                                        </div>
+                                        <p class="small text-muted">Limpia tu área de trabajo con alcohol para evitar manchas en el papel ilustración. Traza los muros usando un lápiz 2H de punta fina para no manchar el material.</p>
+                                        <div class="img-container">
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="timeline-item">
+                                <div class="card step-card shadow-sm">
+                                    <div class="card-body">
+                                        <div class="d-flex justify-content-between align-items-start">
+                                            <h5 class="fw-bold">8.3 El Arte del Corte Preciso</h5>
+                                            <span class="badge rounded-pill bg-light text-dark border">Paso 02</span>
+                                        </div>
+                                        <p class="small text-muted">Inclina el cúter a 45°. Realiza tres pasadas: la primera marca la ruta, la segunda corta la fibra y la tercera desprende la pieza.</p>
+                                        <div class="img-container">
+                                            
+                                        </div>
+                                        <div class="p-2 bg-warning bg-opacity-10 border-start border-warning rounded-end mt-2">
+                                            <small><i class="bi bi-shield-exclamation text-warning me-1"></i> <strong>Seguridad:</strong> "Mantén siempre los dedos detrás de la regla metálica", advierte López Torres.</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="timeline-item">
+                                <div class="card step-card shadow-sm">
+                                    <div class="card-body">
+                                        <div class="d-flex justify-content-between align-items-start">
+                                            <h5 class="fw-bold">8.5 Ensamblaje y Escuadrado</h5>
+                                            <span class="badge rounded-pill bg-light text-dark border">Paso 03</span>
+                                        </div>
+                                        <p class="small text-muted">Usa pegamento universal en capa delgada. Emplea bloques de madera o escuadras de soporte para asegurar que los muros queden perfectamente verticales.</p>
+                                        <div class="img-container">
+                                            
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="timeline-item">
-                    <div class="card step-card shadow-sm">
-                        <div class="card-body">
-                            <span class="instruction-tag">Fase 3: Ensamblaje (8.5)</span>
-                            <h5 class="card-title mt-1">Unión de Elementos</h5>
-                            <p class="card-text text-muted">Aplique pegamento en los bordes. Para muros de 90°, utilice "escuadras de apoyo" temporales para mantener la verticalidad mientras seca el adhesivo.</p>
+                    <div class="col-lg-4">
+                        <div class="card border-primary mb-4 shadow-sm">
+                            <div class="card-header bg-primary text-white fw-bold py-3">
+                                <i class="bi bi-stars me-2"></i>8.7 ACABADOS FINALES
+                            </div>
+                            <div class="card-body bg-white text-center">
+                                <ul class="list-group list-group-flush small text-start">
+                                    <li class="list-group-item"><i class="bi bi-dot text-primary fs-4"></i> <strong>Lijado:</strong> Elimina las rebabas de cartón en las esquinas.</li>
+                                    <li class="list-group-item"><i class="bi bi-dot text-primary fs-4"></i> <strong>Sellado:</strong> Protege los bordes expuestos del papel.</li>
+                                    <li class="list-group-item"><i class="bi bi-dot text-primary fs-4"></i> <strong>Texturizado:</strong> Aplicación de pintura mate o aerosoles.</li>
+                                </ul>
+                                <div class="img-container mt-3">
+                                    
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card bg-dark text-white p-4 shadow-sm text-center border-0 overflow-hidden" style="border-radius: 15px;">
+                            <h6 class="fw-bold mb-3">PRÓXIMO NIVEL</h6>
+                            <i class="bi bi-tree-fill display-3 text-success mb-3"></i>
+                            <p class="small">¿Tu maqueta se ve vacía? El <strong>Capítulo IX</strong> te enseñará a crear vegetación realista con materiales reciclados.</p>
+                            <a href="CAPITULO9.html" class="btn btn-warning btn-sm fw-bold">Ver Vegetación</a>
                         </div>
                     </div>
                 </div>
 
-            </div>
-        </div>
-
-        <div class="col-lg-4">
-            <div class="card border-primary mb-4 shadow">
-                <div class="card-header bg-primary text-white fw-bold">8.7 ACABADOS FINALES</div>
-                <div class="card-body bg-light">
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item d-flex align-items-center">
-                            <i class="bi bi-check-circle-fill text-success me-2"></i>
-                            Lijado de bordes ásperos.
-                        </li>
-                        <li class="list-group-item d-flex align-items-center">
-                            <i class="bi bi-check-circle-fill text-success me-2"></i>
-                            Aplicación de texturas (pastos, gravas).
-                        </li>
-                        <li class="list-group-item d-flex align-items-center">
-                            <i class="bi bi-check-circle-fill text-success me-2"></i>
-                            Pintura y sellado de superficies.
-                        </li>
-                    </ul>
+                <div class="d-flex justify-content-between mt-5 pt-4 border-top">
+                    <a href="CAPITULO7.html" class="btn btn-outline-dark px-4 shadow-sm"><i class="bi bi-arrow-left me-2"></i> Anterior</a>
+                    <div class="text-center text-muted small">Módulo VIII: Construcción Física</div>
+                    <a href="CAPITULO9.html" class="btn btn-warning px-5 fw-bold shadow">SIGUIENTE: CAP. IX <i class="bi bi-arrow-right ms-2"></i></a>
                 </div>
             </div>
-
-            <div class="p-4 rounded shadow-sm text-center" style="background-color: #e9ecef;">
-                <h6><strong>¿Necesitas Vegetación?</strong></h6>
-                <p class="small">En el siguiente capítulo aprenderemos a crear árboles y arbustos realistas.</p>
-                <i class="bi bi-tree-fill display-1 text-success"></i>
-            </div>
-        </div>
-    </div>
-
-    <div class="row mt-5">
-        <div class="col-12 d-flex justify-content-between">
-            <a href="CAPITULO5.html" class="btn btn-dark px-4"><i class="bi bi-arrow-left"></i> Anterior</a>
-            <a href="CAPITULO9.html" class="btn btn-warning px-5 fw-bold">IR A VEGETACIÓN (CAP. IX) <i class="bi bi-arrow-right"></i></a>
-        </div>
+        </main>
     </div>
 </div>
 
