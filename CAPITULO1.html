@@ -6,147 +6,137 @@
     <title>Capítulo 1: Introducción a las Maquetas - Guía Interactiva</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
     <style>
         body { font-family: 'Open Sans', sans-serif; background-color: #f8f9fa; }
         h1, h2 { font-family: 'Montserrat', sans-serif; font-weight: 700; color: #2c3e50; }
-        .sidebar { background: #2c3e50; color: white; min-height: 100vh; padding-top: 20px; }
-        .nav-link { color: #bdc3c7; transition: 0.3s; }
-        .nav-link:hover, .nav-link.active { color: #f1c40f; font-weight: bold; }
-        .card-header { background-color: #f1c40f; font-weight: bold; }
+        
+        /* Sidebar Estilizada */
+        .sidebar { background: #1a1c1e; color: white; min-height: 100vh; padding: 0; position: sticky; top: 0; }
+        .sidebar-header { background: #f1c40f; color: #1a1c1e; padding: 20px; font-weight: 800; text-transform: uppercase; }
+        .nav-link { color: #adb5bd; transition: 0.3s; border-radius: 5px; margin: 2px 15px; }
+        .nav-link:hover { background: rgba(241, 196, 15, 0.1); color: #f1c40f; }
+        .nav-link.active { background: #f1c40f; color: #1a1c1e !important; font-weight: bold; }
+
+        /* Contenedores de Imágenes */
+        .img-container { 
+            background: #e9ecef; 
+            border: 2px dashed #dee2e6; 
+            border-radius: 10px; 
+            margin: 20px 0; 
+            padding: 10px;
+            text-align: center;
+            min-height: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+        .img-placeholder-text { color: #6c757d; font-style: italic; font-size: 0.9rem; }
+        .img-caption { font-size: 0.8rem; color: #6c757d; margin-top: 8px; font-weight: bold; }
+
         .interactive-section { border-left: 5px solid #f1c40f; padding-left: 20px; margin: 20px 0; }
+        .main-content { padding: 40px; }
     </style>
 </head>
 <body>
 
 <div class="container-fluid">
     <div class="row">
-        <nav class="col-md-3 col-lg-2 d-md-block sidebar collapse">
-            <div class="position-sticky">
-                <h5 class="text-center py-3">Colección Dorada</h5>
-                <ul class="nav flex-column bg-dark p-3 shadow-lg" style="min-height: 100vh; border-right: 2px solid #f1c40f;">
-    <li class="nav-item mb-3 text-center">
-        <h5 class="text-warning fw-bold uppercase" style="font-size: 0.9rem; letter-spacing: 1px;">CONTENIDO VOL. 1</h5>
-        <hr class="text-secondary">
-    </li>
-    
-    <li class="nav-item">
-        <a class="nav-link py-2" href="CAPITULO1.html">
-            <i class="bi bi-bookmark-fill me-2"></i> Cap. I: Introducción
-        </a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link py-2" href="CAPITULO2.html">
-            <i class="bi bi-grid-fill me-2"></i> Cap. II: Tipos de Maqueta
-        </a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link py-2" href="CAPITULO3.html">
-            <i class="bi bi-map-fill me-2"></i> Cap. III: Interpretación de Planos
-        </a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link py-2" href="CAPITULO4.html">
-            <i class="bi bi-box-seam-fill me-2"></i> Cap. IV: Materiales
-        </a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link py-2" href="CAPITULO5.html">
-            <i class="bi bi-tools me-2"></i> Cap. V: Herramientas
-        </a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link py-2" href="CAPITULO6.html">
-            <i class="bi bi-geometric-capsule me-2"></i> Cap. VI: Figuras Geométricas
-        </a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link py-2" href="CAPITULO7.html">
-            <i class="bi bi-cash-stack me-2"></i> Cap. VII: Presupuesto
-        </a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link py-2" href="CAPITULO8.html">
-            <i class="bi bi-hammer me-2"></i> Cap. VIII: Elaboración (Taller)
-        </a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link py-2" href="CAPITULO9.html">
-            <i class="bi bi-tree-fill me-2"></i> Cap. IX: Vegetación
-        </a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link py-2" href="CAPITULO10.html">
-            <i class="bi bi-person-walking me-2"></i> Cap. X: Escala Humana
-        </a>
-    </li>
-    
-    <li class="nav-item mt-4">
-        <a class="nav-link text-warning fw-bold small" href="index.html">
-            <i class="bi bi-house-door-fill me-2"></i> VOLVER AL INICIO
-        </a>
-    </li>
-</ul>
-            </div>
+        <nav class="col-md-3 col-lg-2 d-md-block sidebar collapse shadow">
+            <div class="sidebar-header text-center">Colección Dorada</div>
+            <ul class="nav flex-column mt-3">
+                <li class="nav-item mb-2 text-center text-muted small px-3">CONTENIDO VOL. 1</li>
+                <li class="nav-item"><a class="nav-link active" href="CAPITULO1.html"><i class="bi bi-bookmark-fill me-2"></i> Cap. I: Introducción</a></li>
+                <li class="nav-item"><a class="nav-link" href="CAPITULO2.html"><i class="bi bi-grid-fill me-2"></i> Cap. II: Tipos</a></li>
+                <li class="nav-item"><a class="nav-link" href="CAPITULO3.html"><i class="bi bi-map-fill me-2"></i> Cap. III: Planos</a></li>
+                <li class="nav-item"><a class="nav-link" href="CAPITULO4.html"><i class="bi bi-box-seam-fill me-2"></i> Cap. IV: Materiales</a></li>
+                <li class="nav-item"><a class="nav-link" href="CAPITULO5.html"><i class="bi bi-tools me-2"></i> Cap. V: Herramientas</a></li>
+                <li class="nav-item"><a class="nav-link" href="CAPITULO6.html"><i class="bi bi-geometric-capsule me-2"></i> Cap. VI: Geometría</a></li>
+                <li class="nav-item"><a class="nav-link" href="CAPITULO7.html"><i class="bi bi-cash-stack me-2"></i> Cap. VII: Presupuesto</a></li>
+                <li class="nav-item"><a class="nav-link" href="CAPITULO8.html"><i class="bi bi-hammer me-2"></i> Cap. VIII: Taller</a></li>
+                <li class="nav-item"><a class="nav-link" href="CAPITULO9.html"><i class="bi bi-tree-fill me-2"></i> Cap. IX: Vegetación</a></li>
+                <li class="nav-item"><a class="nav-link" href="CAPITULO10.html"><i class="bi bi-person-walking me-2"></i> Cap. X: Escala Humana</a></li>
+                <li class="nav-item mt-4"><a class="nav-link text-warning" href="index.html"><i class="bi bi-house-door-fill me-2"></i> INICIO</a></li>
+            </ul>
         </nav>
 
-        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <main class="col-md-9 ms-sm-auto col-lg-10 main-content">
+            <div class="d-flex justify-content-between align-items-center pb-2 mb-4 border-bottom">
                 <h1 class="h2">CAPÍTULO I: INTRODUCCIÓN A LAS MAQUETAS</h1>
             </div>
 
-            <div class="card mb-4 shadow-sm">
-                <div class="card-header">1.1 Definición y Concepto</div>
-                <div class="card-body">
-                    <p class="card-text">Una maqueta es la representación física a escala de una idea o proyecto[cite: 5, 11].</p>
-                    <div class="interactive-section">
-                        <h6><strong>Objetivos Principales:</strong></h6>
-                        <ul>
-                            <li>Visualizar espacios de manera total o conjunta desde una vista aérea[cite: 5].</li>
-                            <li>Servir como herramienta de diseño y comunicación.</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="card mb-4 shadow-sm border-0">
+                        <div class="card-header border-0">1.1 Definición y Concepto</div>
+                        <div class="card-body bg-white">
+                            <p class="card-text">Una maqueta es la representación física a escala de una idea o proyecto arquitectónico. Es el paso tangible entre el plano y la realidad.</p>
+                            
+                            <div class="img-container">
+                                
+                                <div class="img-placeholder-text">Insertar aquí imagen de maqueta profesional finalizada</div>
+                                <div class="img-caption">Figura 1.1: Ejemplo de representación volumétrica a escala.</div>
+                            </div>
 
-            <div class="accordion" id="elementosMaqueta">
-                <div class="accordion-item">
-                    <h2 class="accordion-header">
-                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
-                            1.3 Elementos que la componen
-                        </button>
-                    </h2>
-                    <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#elementosMaqueta">
-                        <div class="accordion-body">
-                            <div class="row text-center">
-                                <div class="col-md-3"><div class="p-3 border bg-light"><strong>Conceptuales</strong><br>(Ideas)</div></div>
-                                <div class="col-md-3"><div class="p-3 border bg-light"><strong>Visuales</strong><br>(Formas)</div></div>
-                                <div class="col-md-3"><div class="p-3 border bg-light"><strong>De Relación</strong><br>(Espacio)</div></div>
-                                <div class="col-md-3"><div class="p-3 border bg-light"><strong>Prácticos</strong><br>(Uso)</div></div>
+                            <div class="interactive-section">
+                                <h6><strong>Objetivos del Maquetista:</strong></h6>
+                                <ul>
+                                    <li>Visualizar espacios de manera total desde una vista aérea.</li>
+                                    <li>Detectar errores de diseño antes de la construcción real.</li>
+                                    <li>Comunicar ideas de forma tridimensional a clientes o profesores.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion mb-4 shadow-sm" id="elementosMaqueta">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
+                                    1.3 Elementos que la componen
+                                </button>
+                            </h2>
+                            <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#elementosMaqueta">
+                                <div class="accordion-body">
+                                    <p>Para construir una maqueta profesional, debemos considerar cuatro grupos de elementos:</p>
+                                    
+                                    <div class="img-container" style="min-height: 180px;">
+                                        
+                                        <div class="img-placeholder-text">Esquema visual de Puntos, Líneas y Planos</div>
+                                        <div class="img-caption">Figura 1.2: Desglose de elementos conceptuales y visuales.</div>
+                                    </div>
+
+                                    <div class="row text-center g-2 mt-2">
+                                        <div class="col-6 col-md-3"><div class="p-3 border rounded bg-light"><strong>Conceptuales</strong><br><small>El origen de la idea</small></div></div>
+                                        <div class="col-6 col-md-3"><div class="p-3 border rounded bg-light"><strong>Visuales</strong><br><small>Forma y Color</small></div></div>
+                                        <div class="col-6 col-md-3"><div class="p-3 border rounded bg-light"><strong>De Relación</strong><br><small>Posición y Espacio</small></div></div>
+                                        <div class="col-6 col-md-3"><div class="p-3 border rounded bg-light"><strong>Prácticos</strong><br><small>Función y Uso</small></div></div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="row mt-4">
-                <div class="col-md-6">
-                    <div class="alert alert-success">
-                        <h5>Ventajas</h5>
-                        <p>Permite ver detalles reales antes de la construcción.</p>
+                <div class="col-lg-4">
+                    <div class="alert alert-info shadow-sm">
+                        <h5 class="fw-bold"><i class="bi bi-info-circle-fill"></i> Nota Técnica</h5>
+                        <p class="small mb-0">Recuerda que la escala es la relación proporcional entre la maqueta y la obra real. Sin escala, no hay arquitectura.</p>
+                    </div>
+
+                    <div class="img-container" style="min-height: 350px; background: white;">
+                        
+                        <div class="img-placeholder-text">Imagen vertical: El maquetista trabajando</div>
+                        <div class="img-caption">Figura 1.3: La precisión en el detalle define la calidad.</div>
                     </div>
                 </div>
-                <div class="col-md-6">
-                    <div class="alert alert-danger">
-                        <h5>Desventajas</h5>
-                        <p>El costo de ciertos materiales y la dificultad para conseguirlos.</p>
-                    </div>
-                </div>
             </div>
 
-            <nav aria-label="Page navigation" class="mt-5">
+            <nav class="mt-5">
                 <ul class="pagination justify-content-center">
-                    <li class="page-item disabled"><a class="page-link" href="#">Anterior</a></li>
-                    <li class="page-item"><a class="page-link" href="CAPITULO2.html">Siguiente: Tipos de Maquetas</a></li>
+                    <li class="page-item disabled"><a class="page-link shadow-sm" href="#">Anterior</a></li>
+                    <li class="page-item"><a class="page-link shadow-sm fw-bold bg-dark text-white" href="CAPITULO2.html">Siguiente: Tipos de Maquetas <i class="bi bi-arrow-right"></i></a></li>
                 </ul>
             </nav>
         </main>
@@ -154,9 +144,5 @@
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-<script>
-    console.log("Capítulo 1 cargado correctamente.");
-    // Aquí puedes añadir lógica JS para cuestionarios interactivos
-</script>
 </body>
 </html>
