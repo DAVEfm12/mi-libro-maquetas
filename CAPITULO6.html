@@ -3,83 +3,157 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Capítulo 6: Geometría y Escala</title>
+    <title>Capítulo 6: Geometría y Escala - Colección Dorada</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
     <style>
-        :root { --arch-dark: #2c3e50; --arch-gold: #f1c40f; }
-        body { font-family: 'Open Sans', sans-serif; background-color: #f8f9fa; }
-        .geo-card { border: 2px solid #dee2e6; border-radius: 10px; transition: 0.3s; }
-        .geo-card:hover { border-color: var(--arch-gold); background: #fff; }
-        .scale-info { background: var(--arch-dark); color: white; border-radius: 15px; padding: 30px; }
-        .shape-icon { font-size: 3rem; color: var(--arch-dark); }
+        :root { 
+            --arch-dark: #1a252f; 
+            --arch-gold: #f1c40f; 
+            --arch-bg: #f8f9fa;
+        }
+
+        body { font-family: 'Open Sans', sans-serif; background-color: var(--arch-bg); color: #333; }
+        
+        /* Sidebar Unificado */
+        .sidebar { background: var(--arch-dark); color: white; min-height: 100vh; position: sticky; top: 0; }
+        .sidebar-header { color: var(--arch-gold); padding: 25px 15px; text-transform: uppercase; font-weight: 700; border-bottom: 1px solid rgba(255,255,255,0.1); font-size: 0.9rem; }
+        .nav-link { color: #95a5a6; padding: 12px 20px; transition: 0.3s; border-left: 4px solid transparent; }
+        .nav-link:hover { color: var(--arch-gold); background: rgba(255,255,255,0.05); }
+        .nav-link.active { color: var(--arch-gold); background: rgba(241, 196, 15, 0.1); border-left: 4px solid var(--arch-gold); font-weight: 600; }
+
+        /* Contenido Principal */
+        .main-content { padding: 40px; }
+        .geo-card { border: none; border-radius: 15px; background: white; transition: 0.4s; height: 100%; border-bottom: 4px solid var(--arch-gold); }
+        .geo-card:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
+        
+        .shape-icon { font-size: 2.5rem; color: var(--arch-dark); margin-bottom: 15px; }
+        
+        .scale-info { background: var(--arch-dark); color: white; border-radius: 20px; padding: 40px; }
+        
+        /* Contenedores de Imágenes */
+        .img-placeholder {
+            background: #eef2f7; border: 2px dashed #cbd5e0; border-radius: 8px;
+            margin: 15px 0; min-height: 180px; display: flex;
+            align-items: center; justify-content: center; flex-direction: column;
+            color: #718096; font-size: 0.8rem; text-align: center; padding: 15px;
+        }
+
+        .badge-step { background: var(--arch-gold); color: var(--arch-dark); font-weight: bold; padding: 4px 12px; border-radius: 10px; font-size: 0.75rem; }
     </style>
 </head>
 <body>
 
-<div class="container py-5">
-    <div class="row mb-5">
-        <div class="col-12 text-center">
-            <h1 class="display-5 fw-bold text-uppercase" style="color: var(--arch-dark);">Capítulo VI: Figuras Geométricas</h1>
-            <p class="lead">La base de todo volumen arquitectónico.</p>
-        </div>
-    </div>
-
-    
-
-    <div class="row g-4">
-        <div class="col-md-4">
-            <div class="geo-card p-4 h-100 text-center shadow-sm">
-                <i class="bi bi-box shape-icon"></i>
-                <h5 class="mt-3">6.1 El Cubo y Prismas</h5>
-                <p class="small text-muted">Son las formas más comunes en edificación. Aprender a cerrar un cubo perfectamente es la primera prueba de un maquetista.</p>
+<div class="container-fluid">
+    <div class="row">
+        <nav class="col-md-3 col-lg-2 d-md-block sidebar shadow">
+            <div class="sidebar-header text-center">
+                <i class="bi bi-bounding-box me-2"></i> Colección Dorada
             </div>
-        </div>
+            <ul class="nav flex-column mt-3">
+                <li class="nav-item"><a class="nav-link" href="CAPITULO1.html"><i class="bi bi-bookmark-fill me-2"></i> Cap. I: Introducción</a></li>
+                <li class="nav-item"><a class="nav-link" href="CAPITULO2.html"><i class="bi bi-building me-2"></i> Cap. II: Tipos</a></li>
+                <li class="nav-item"><a class="nav-link" href="CAPITULO3.html"><i class="bi bi-map-fill me-2"></i> Cap. III: Planos</a></li>
+                <li class="nav-item"><a class="nav-link" href="CAPITULO4.html"><i class="bi bi-box-seam-fill me-2"></i> Cap. IV: Materiales</a></li>
+                <li class="nav-item"><a class="nav-link" href="CAPITULO5.html"><i class="bi bi-tools me-2"></i> Cap. V: Herramientas</a></li>
+                <li class="nav-item"><a class="nav-link active" href="CAPITULO6.html"><i class="bi bi-bounding-box me-2"></i> Cap. VI: Geometría</a></li>
+                <li class="nav-item"><a class="nav-link" href="CAPITULO7.html"><i class="bi bi-cash-stack me-2"></i> Cap. VII: Presupuesto</a></li>
+                <li class="nav-item"><a class="nav-link" href="CAPITULO8.html"><i class="bi bi-hammer me-2"></i> Cap. VIII: Taller</a></li>
+                <li class="nav-item"><a class="nav-link" href="CAPITULO9.html"><i class="bi bi-tree-fill me-2"></i> Cap. IX: Vegetación</a></li>
+                <li class="nav-item"><a class="nav-link" href="CAPITULO10.html"><i class="bi bi-person-walking me-2"></i> Cap. X: Escala Humana</a></li>
+            </ul>
+        </nav>
 
-        <div class="col-md-4">
-            <div class="geo-card p-4 h-100 text-center shadow-sm">
-                <i class="bi bi-nut shape-icon"></i>
-                <h5 class="mt-3">6.3 Formas Curvas</h5>
-                <p class="small text-muted">Utilizadas en silos, columnas o diseños vanguardistas. Requieren técnicas de pre-doblado del cartón.</p>
-            </div>
-        </div>
+        <main class="col-md-9 ms-sm-auto col-lg-10 main-content">
+            <header class="text-center mb-5">
+                <span class="badge-step text-uppercase mb-2">Fundamentos Volumétricos</span>
+                <h1 class="display-5 fw-bold text-uppercase" style="color: var(--arch-dark);">Capítulo VI: Figuras Geométricas</h1>
+                <p class="lead text-muted">Todo gran edificio nace de la descomposición de formas básicas.</p>
+            </header>
 
-        <div class="col-md-4">
-            <div class="geo-card p-4 h-100 text-center shadow-sm">
-                <i class="bi bi-triangle shape-icon"></i>
-                <h5 class="mt-3">6.5 Pirámides y Conos</h5>
-                <p class="small text-muted">Fundamentales para techumbres inclinadas y estructuras de soporte especiales.</p>
-            </div>
-        </div>
-    </div>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="geo-card p-4 shadow-sm">
+                        <div class="text-center">
+                            <i class="bi bi-box shape-icon"></i>
+                            <h5 class="fw-bold">6.1 Cubo y Prismas</h5>
+                        </div>
+                        <p class="small text-muted">Son los ladrillos de la arquitectura moderna. Un cubo perfecto requiere cortes precisos a 90° y un pegado sin excedentes.</p>
+                        <div class="img-placeholder">
+                            <i class="bi bi-diagram-3 fs-2 mb-2"></i>
+                            <span>Desarrollo plano de un cubo (plantilla)</span>
+                        </div>
+                    </div>
+                </div>
 
-    <div class="row mt-5">
-        <div class="col-12">
-            <div class="scale-info shadow">
-                <h3><i class="bi bi-rulers me-2"></i> 6.8 La Importancia de la Escala</h3>
-                <p>La escala es la relación matemática entre la maqueta y la realidad. Una maqueta sin escala es simplemente un juguete.</p>
-                <div class="table-responsive">
-                    <table class="table table-dark table-hover mt-3">
-                        <thead>
-                            <tr>
-                                <th>Escala</th>
-                                <th>Uso Recomendado</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr><td>1:20 / 1:25</td><td>Detalles constructivos e interiores.</td></tr>
-                            <tr><td>1:50 / 1:100</td><td>Viviendas y edificios (Escala estándar).</td></tr>
-                            <tr><td>1:500 / 1:1000</td><td>Planos urbanos y topografía.</td></tr>
-                        </tbody>
-                    </table>
+                <div class="col-md-4">
+                    <div class="geo-card p-4 shadow-sm text-center">
+                        <i class="bi bi-circle-upside-down shape-icon"></i>
+                        <h5 class="fw-bold">6.3 Cilindros y Curvas</h5>
+                        <p class="small text-muted">Para lograr curvas perfectas en cartón, es necesario "peinar" o pre-doblar el material con el filo de una regla.</p>
+                        <div class="img-placeholder">
+                            <i class="bi bi-arrow-repeat fs-2 mb-2"></i>
+                            <span>Técnica de calandrado manual de cartulina</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="geo-card p-4 shadow-sm text-center">
+                        <i class="bi bi-triangle shape-icon"></i>
+                        <h5 class="fw-bold">6.5 Pirámides y Conos</h5>
+                        <p class="small text-muted">Utilizadas en techumbres complejas. La clave reside en el cálculo exacto de la generatriz y las pestañas de unión.</p>
+                        <div class="img-placeholder">
+                            <i class="bi bi-triangle-half fs-2 mb-2"></i>
+                            <span>Plantilla para pirámide de base cuadrangular</span>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
 
-    <div class="d-flex justify-content-between mt-5">
-        <a href="CAPITULO5.html" class="btn btn-outline-dark">← Volver al Cap. V</a>
-        <a href="CAPITULO7.html" class="btn btn-warning px-5 fw-bold">Capítulo VII: Presupuesto →</a>
+            <div class="row mt-5">
+                <div class="col-12">
+                    <div class="scale-info shadow-lg">
+                        <div class="row align-items-center">
+                            <div class="col-md-8">
+                                <h3><i class="bi bi-rulers me-2 text-warning"></i> 6.8 La Importancia de la Escala</h3>
+                                <p class="opacity-75">La escala permite que el cliente perciba la magnitud real de la obra. Ignacio López Torres advierte: "Una maqueta sin escala pierde su propósito arquitectónico".</p>
+                            </div>
+                            <div class="col-md-4 text-end">
+                                <span class="badge bg-warning text-dark px-3 py-2">Uso del Escalímetro</span>
+                            </div>
+                        </div>
+                        
+                        <div class="table-responsive mt-4">
+                            <table class="table table-dark table-hover border-secondary">
+                                <thead class="text-warning">
+                                    <tr>
+                                        <th>Escala Técnica</th>
+                                        <th>Aplicación en el Taller</th>
+                                        <th>Nivel de Detalle</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>1:20 / 1:25</td><td>Interiores y mobiliario.</td><td>Máximo (texturas reales).</td></tr>
+                                    <tr><td>1:50</td><td>Viviendas unifamiliares.</td><td>Alto (ventanería y puertas).</td></tr>
+                                    <tr><td>1:100 / 1:125</td><td>Edificios y conjuntos.</td><td>Medio (volumetría general).</td></tr>
+                                    <tr><td>1:500</td><td>Maquetas de sitio / Urbanismo.</td><td>Bajo (masas y vacíos).</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="mt-3 p-3 bg-secondary bg-opacity-25 rounded">
+                            <small><i class="bi bi-info-circle me-1"></i> <strong>Pro-Tip:</strong> Siempre coloca una "Escala Humana" (figura de persona) para dar referencia inmediata de tamaño.</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="d-flex justify-content-between mt-5 pt-4 border-top">
+                <a href="CAPITULO5.html" class="btn btn-outline-dark px-4"><i class="bi bi-arrow-left me-2"></i> Anterior</a>
+                <div class="text-center text-muted small">Módulo VI: Geometría</div>
+                <a href="CAPITULO7.html" class="btn btn-warning px-5 fw-bold shadow-sm">Siguiente: Cap. VII Presupuesto <i class="bi bi-arrow-right ms-2"></i></a>
+            </div>
+        </main>
     </div>
 </div>
 
