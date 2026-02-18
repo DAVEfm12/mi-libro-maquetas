@@ -3,216 +3,86 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Capítulo VI - Técnicas de Corte Manual</title>
+    <title>Capítulo 6: Geometría y Escala</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <style>
-        :root {
-            --safety-orange: #f39c12;
-            --cutter-blue: #2980b9;
-            --pro-grey: #34495e;
-            --light-bg: #f8f9fa;
-        }
-
-        body {
-            font-family: 'Segoe UI', sans-serif;
-            background-color: #f0f2f5;
-            color: #2c3e50;
-            line-height: 1.6;
-        }
-
-        .hero-section {
-            background: linear-gradient(rgba(52, 73, 94, 0.9), rgba(52, 73, 94, 0.9)), url('https://images.unsplash.com/photo-1581094794329-c8112a4e5190?q=80&w=1000');
-            background-size: cover;
-            color: white;
-            padding: 80px 0;
-            text-align: center;
-            border-bottom: 8px solid var(--safety-orange);
-        }
-
-        /* Tarjetas de Técnica */
-        .technique-card {
-            background: white;
-            border-radius: 15px;
-            padding: 30px;
-            margin-bottom: 30px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-            border-left: 5px solid var(--pro-grey);
-        }
-
-        .step-box {
-            background: var(--light-bg);
-            border-radius: 8px;
-            padding: 20px;
-            margin: 15px 0;
-            border: 1px solid #e0e0e0;
-        }
-
-        .safety-alert {
-            background-color: #fff3cd;
-            border-right: 5px solid var(--safety-orange);
-            padding: 15px;
-            border-radius: 5px;
-            font-weight: 500;
-        }
-
-        /* Ergonomía - Posición de Manos */
-        .hand-position {
-            background: #e3f2fd;
-            border: 2px dashed var(--cutter-blue);
-            padding: 20px;
-            border-radius: 10px;
-            margin: 20px 0;
-        }
-
-        .badge-step {
-            background: var(--pro-grey);
-            color: white;
-            width: 30px;
-            height: 30px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-            margin-right: 10px;
-            font-weight: bold;
-        }
-
-        h2 { color: var(--pro-grey); font-weight: 700; margin-bottom: 25px; }
-        h3 { color: var(--cutter-blue); font-size: 1.3rem; margin-top: 20px; }
-        
-        .nav-techniques {
-            position: sticky;
-            top: 20px;
-        }
+        :root { --arch-dark: #2c3e50; --arch-gold: #f1c40f; }
+        body { font-family: 'Open Sans', sans-serif; background-color: #f8f9fa; }
+        .geo-card { border: 2px solid #dee2e6; border-radius: 10px; transition: 0.3s; }
+        .geo-card:hover { border-color: var(--arch-gold); background: #fff; }
+        .scale-info { background: var(--arch-dark); color: white; border-radius: 15px; padding: 30px; }
+        .shape-icon { font-size: 3rem; color: var(--arch-dark); }
     </style>
 </head>
 <body>
 
-    <header class="hero-section">
-        <div class="container">
-            <h5 class="text-uppercase" style="letter-spacing: 5px;">Capítulo VI</h5>
-            <h1 class="display-3 fw-bold">TÉCNICAS DE CORTE MANUAL</h1>
-            <p class="lead">La maestría del maquetista reside en la precisión de su trazo y la limpieza de su corte.</p>
+<div class="container py-5">
+    <div class="row mb-5">
+        <div class="col-12 text-center">
+            <h1 class="display-5 fw-bold text-uppercase" style="color: var(--arch-dark);">Capítulo VI: Figuras Geométricas</h1>
+            <p class="lead">La base de todo volumen arquitectónico.</p>
         </div>
-    </header>
+    </div>
 
-    <div class="container mt-5">
-        <div class="row">
-            
-            <aside class="col-lg-3 d-none d-lg-block">
-                <div class="nav-techniques list-group shadow-sm">
-                    <a href="#6.1" class="list-group-item list-group-item-action active">Estado de Herramienta</a>
-                    <a href="#6.1.1" class="list-group-item list-group-item-action">Técnicas de Medición</a>
-                    <a href="#6.2" class="list-group-item list-group-item-action">Uso del Cúter (Exacto)</a>
-                    <a href="#6.4" class="list-group-item list-group-item-action">Corte de Círculos</a>
-                    <a href="#6.5" class="list-group-item list-group-item-action">Serrucho y Segueta</a>
-                </div>
-            </aside>
+    
 
-            <div class="col-lg-9">
+    <div class="row g-4">
+        <div class="col-md-4">
+            <div class="geo-card p-4 h-100 text-center shadow-sm">
+                <i class="bi bi-box shape-icon"></i>
+                <h5 class="mt-3">6.1 El Cubo y Prismas</h5>
+                <p class="small text-muted">Son las formas más comunes en edificación. Aprender a cerrar un cubo perfectamente es la primera prueba de un maquetista.</p>
+            </div>
+        </div>
 
-                <section id="6.1" class="technique-card">
-                    <h2>6.1 Calidad y Cuidado</h2>
-                    <p>No se requiere herramienta costosa, pero sí **imaginación y mantenimiento**. El estado de tu herramienta define la calidad de tu maqueta.</p>
-                    
-                    <div id="6.1.1" class="step-box">
-                        <h3><i class="bi bi-pencil-ruler"></i> Al Medir y Marcar</h3>
-                        <ul class="list-unstyled">
-                            <li><i class="bi bi-check2-circle text-success"></i> No dejar líneas sobrepuestas (doble marca).</li>
-                            <li><i class="bi bi-check2-circle text-success"></i> Respetar las medidas exactas; un error de mm impide que la maqueta "cierre".</li>
-                            <li><i class="bi bi-check2-circle text-success"></i> Usar reglas con numeración clara.</li>
-                        </ul>
-                    </div>
-                </section>
+        <div class="col-md-4">
+            <div class="geo-card p-4 h-100 text-center shadow-sm">
+                <i class="bi bi-nut shape-icon"></i>
+                <h5 class="mt-3">6.3 Formas Curvas</h5>
+                <p class="small text-muted">Utilizadas en silos, columnas o diseños vanguardistas. Requieren técnicas de pre-doblado del cartón.</p>
+            </div>
+        </div>
 
-                <section id="6.2" class="technique-card">
-                    <h2>6.2 El Cúter: El Rey de la Maqueta</h2>
-                    <div class="safety-alert mb-4">
-                        <i class="bi bi-exclamation-octagon-fill"></i> **PELIGRO:** El cúter es la herramienta más peligrosa. Nunca cortes con líneas separadas (doble trazo) y usa siempre el seguro.
-                    </div>
-
-                    <h3>Técnica de Corte en 3 Pasos:</h3>
-                    <div class="row">
-                        <div class="col-md-4">
-                            <div class="text-center p-3 border rounded">
-                                <span class="badge-step">1</span>
-                                <h6>Incisión Suave</h6>
-                                <p class="small">Marca el camino sin aplicar fuerza.</p>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="text-center p-3 border rounded">
-                                <span class="badge-step">2</span>
-                                <h6>Corte Medio</h6>
-                                <p class="small">Profundiza el surco guía.</p>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="text-center p-3 border rounded">
-                                <span class="badge-step">3</span>
-                                <h6>Corte de Separación</h6>
-                                <p class="small">Fuerza final para liberar la pieza.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="hand-position mt-4">
-                        <h4><i class="bi bi-hand-index-thumb"></i> Ergonomía Correcta</h4>
-                        <p><strong>Mano que corta (Cúter):</strong> Dedo índice en la parte superior del mango, pulgar en el lateral y los demás dedos abrazando la base.</p>
-                        <p><strong>Mano que apoya (Regla):</strong> Dedos abiertos en ángulo obtuso. **¡Atención!** Mantén los dedos alejados del filo de la regla para evitar accidentes.</p>
-                    </div>
-                </section>
-
-                <section id="6.1.3" class="technique-card">
-                    <h2>6.1.3 El Arte de Limar y Fijar</h2>
-                    <p>Limar elimina impurezas del corte. Fijar asegura la estabilidad frente a corrientes de aire.</p>
-                    
-                    <div class="bg-light p-3 border-start border-info border-4">
-                        <strong>¿Cómo limar?</strong> Toma la lima inclinada formando un **ángulo agudo** con la pieza. Desliza hacia adelante y hacia atrás, soplando el polvo constantemente.
-                    </div>
-
-                    <h3 class="mt-4">Métodos de Ensamble</h3>
-                    <ul>
-                        <li><strong>Por Partes:</strong> Se arma habitación por habitación.</li>
-                        <li><strong>Por Conjunto:</strong> Se mide y arma todo el perímetro general primero.</li>
-                    </ul>
-                </section>
-
-                <section id="6.5" class="technique-card">
-                    <h2>6.5 Serrucho y Segueta</h2>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <h3>Serrucho de Costilla</h3>
-                            <p class="small">Ideal para cortes pequeños y precisos en madera. Usa una **prensa** para fijar el material.</p>
-                            <div class="text-center bg-light p-2 rounded">
-                                <img src="/home/ceeci/Imágenes/LIBRO/l105.png" class="img-fluid" alt="Serrucho">
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <h3>Segueta de Arco</h3>
-                            <p class="small">Ideal para metales y cortes curvos en madera fina. Corta siempre a un ángulo de 45°.</p>
-                            <div class="text-center bg-light p-2 rounded">
-                                <img src="/home/ceeci/Imágenes/LIBRO/l106.png" class="img-fluid" alt="Segueta">
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <section class="alert alert-info">
-                    <h4><i class="bi bi-chat-dots-fill"></i> 6.8 Resolución de Problemas</h4>
-                    <p>Si surge un problema al cortar: **Comparte y discute**. Habla con carpinteros, albañiles o compañeros. El conocimiento crece cuando se comparte.</p>
-                </section>
-
-                <div class="d-flex justify-content-between my-5">
-                    <a href="CAPITULO5.html" class="btn btn-outline-secondary btn-lg">← Capítulo V</a>
-                    <a href="CAPITULO7.html" class="btn btn-primary btn-lg">Capítulo VII: Escalas →</a>
-                </div>
-
+        <div class="col-md-4">
+            <div class="geo-card p-4 h-100 text-center shadow-sm">
+                <i class="bi bi-triangle shape-icon"></i>
+                <h5 class="mt-3">6.5 Pirámides y Conos</h5>
+                <p class="small text-muted">Fundamentales para techumbres inclinadas y estructuras de soporte especiales.</p>
             </div>
         </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <div class="row mt-5">
+        <div class="col-12">
+            <div class="scale-info shadow">
+                <h3><i class="bi bi-rulers me-2"></i> 6.8 La Importancia de la Escala</h3>
+                <p>La escala es la relación matemática entre la maqueta y la realidad. Una maqueta sin escala es simplemente un juguete.</p>
+                <div class="table-responsive">
+                    <table class="table table-dark table-hover mt-3">
+                        <thead>
+                            <tr>
+                                <th>Escala</th>
+                                <th>Uso Recomendado</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>1:20 / 1:25</td><td>Detalles constructivos e interiores.</td></tr>
+                            <tr><td>1:50 / 1:100</td><td>Viviendas y edificios (Escala estándar).</td></tr>
+                            <tr><td>1:500 / 1:1000</td><td>Planos urbanos y topografía.</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="d-flex justify-content-between mt-5">
+        <a href="CAPITULO5.html" class="btn btn-outline-dark">← Volver al Cap. V</a>
+        <a href="CAPITULO7.html" class="btn btn-warning px-5 fw-bold">Capítulo VII: Presupuesto →</a>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
