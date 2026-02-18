@@ -39,11 +39,20 @@
             background-size: cover; color: white; padding: 50px 0; border-radius: 0 0 30px 30px;
         }
 
-        .img-instruction {
-            background: #f1f3f5; border: 1px dashed #dee2e6; border-radius: 8px;
-            margin: 15px 0; min-height: 120px; display: flex;
-            align-items: center; justify-content: center; text-align: center;
-            color: #6c757d; font-size: 0.8rem; padding: 10px;
+        .img-container {
+            margin: 15px 0;
+            border-radius: 8px;
+            overflow: hidden;
+            background: #e9ecef;
+            min-height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+            border: 1px dashed #ced4da;
+            color: #6c757d;
+            font-size: 0.85rem;
         }
     </style>
 </head>
@@ -71,56 +80,56 @@
 
         <main class="col-md-9 ms-sm-auto col-lg-10 p-0">
             <header class="bg-workshop text-center shadow">
-                <div class="container">
-                    <span class="badge bg-warning text-dark mb-2 px-3">MÓDULO PRÁCTICO</span>
+                <div class="container px-4">
+                    <span class="badge bg-warning text-dark mb-2 px-3 fw-bold">MÓDULO PRÁCTICO</span>
                     <h1 class="display-5 fw-bold text-uppercase">Capítulo VIII: Elaboración</h1>
-                    <p class="lead opacity-90">La transformación de los planos en volúmenes arquitectónicos.</p>
+                    <p class="lead opacity-90">La transformación de los planos en volúmenes arquitectónicos reales.</p>
                 </div>
             </header>
 
             <div class="container my-5 px-4">
-                <div class="row">
+                <div class="row g-4">
                     <div class="col-lg-8">
-                        <h3 class="mb-4 fw-bold"><i class="bi bi-list-columns-reverse me-2 text-primary"></i>Secuencia Técnica de Trabajo</h3>
+                        <h3 class="mb-4 fw-bold text-dark"><i class="bi bi-list-columns-reverse me-2 text-primary"></i>Secuencia Técnica de Trabajo</h3>
                         
                         <div class="timeline">
                             <div class="timeline-item">
-                                <div class="card step-card shadow-sm">
+                                <div class="card step-card shadow-sm border-0">
                                     <div class="card-body">
                                         <div class="d-flex justify-content-between align-items-start">
                                             <h5 class="fw-bold">8.1 Preparación y Trazado</h5>
-                                            <span class="badge rounded-pill bg-light text-dark border">Paso 01</span>
+                                            <span class="badge rounded-pill bg-light text-dark border">Fase 01</span>
                                         </div>
-                                        <p class="small text-muted">Limpia tu área de trabajo con alcohol para evitar manchas en el papel ilustración. Traza los muros usando un lápiz 2H de punta fina para no manchar el material.</p>
+                                        <p class="small text-muted">Limpia tu área de trabajo con alcohol para evitar manchas. Traza los muros sobre el material base usando un lápiz 2H y escuadras de precisión.</p>
                                         
                                     </div>
                                 </div>
                             </div>
 
                             <div class="timeline-item">
-                                <div class="card step-card shadow-sm">
+                                <div class="card step-card shadow-sm border-0">
                                     <div class="card-body">
                                         <div class="d-flex justify-content-between align-items-start">
-                                            <h5 class="fw-bold">8.3 El Arte del Corte Preciso</h5>
-                                            <span class="badge rounded-pill bg-light text-dark border">Paso 02</span>
+                                            <h5 class="fw-bold">8.3 El Arte del Corte de Precisión</h5>
+                                            <span class="badge rounded-pill bg-light text-dark border">Fase 02</span>
                                         </div>
-                                        <p class="small text-muted">Inclina el cúter a 45°. Realiza tres pasadas: la primera marca la ruta, la segunda corta la fibra y la tercera desprende la pieza.</p>
+                                        <p class="small text-muted">Inclina el cúter a 45°. No intentes cortar todo el grosor de una vez; realiza tres pasadas suaves para un acabado limpio.</p>
                                         
-                                        <div class="p-2 bg-warning bg-opacity-10 border-start border-warning rounded-end mt-2">
-                                            <small><i class="bi bi-shield-exclamation text-warning me-1"></i> <strong>Seguridad:</strong> "Mantén siempre los dedos detrás de la regla metálica", advierte López Torres.</small>
+                                        <div class="p-3 bg-warning bg-opacity-10 border-start border-warning rounded-end mt-3">
+                                            <small><i class="bi bi-shield-exclamation text-warning me-2"></i> <strong>Nota de Seguridad:</strong> Mantén siempre los dedos detrás de la regla metálica para evitar accidentes.</small>
                                         </div>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="timeline-item">
-                                <div class="card step-card shadow-sm">
+                                <div class="card step-card shadow-sm border-0">
                                     <div class="card-body">
                                         <div class="d-flex justify-content-between align-items-start">
                                             <h5 class="fw-bold">8.5 Ensamblaje y Escuadrado</h5>
-                                            <span class="badge rounded-pill bg-light text-dark border">Paso 03</span>
+                                            <span class="badge rounded-pill bg-light text-dark border">Fase 03</span>
                                         </div>
-                                        <p class="small text-muted">Usa pegamento universal en capa delgada. Emplea bloques de madera o escuadras de soporte para asegurar que los muros queden perfectamente verticales.</p>
+                                        <p class="small text-muted">Aplica pegamento en capas delgadas. Utiliza bloques de madera o escuadras de apoyo para garantizar que los muros sequen a exactamente 90°.</p>
                                         
                                     </div>
                                 </div>
@@ -129,32 +138,43 @@
                     </div>
 
                     <div class="col-lg-4">
-                        <div class="card border-primary mb-4 shadow-sm">
+                        <div class="card border-0 mb-4 shadow-sm overflow-hidden" style="border-radius: 15px;">
                             <div class="card-header bg-primary text-white fw-bold py-3">
                                 <i class="bi bi-stars me-2"></i>8.7 ACABADOS FINALES
                             </div>
                             <div class="card-body bg-white">
                                 <ul class="list-group list-group-flush small">
-                                    <li class="list-group-item"><i class="bi bi-dot text-primary fs-4"></i> <strong>Lijado:</strong> Elimina las rebabas de cartón en las esquinas.</li>
-                                    <li class="list-group-item"><i class="bi bi-dot text-primary fs-4"></i> <strong>Sellado:</strong> Protege los bordes expuestos del papel.</li>
-                                    <li class="list-group-item"><i class="bi bi-dot text-primary fs-4"></i> <strong>Texturizado:</strong> Aplicación de pintura mate o aerosoles.</li>
+                                    <li class="list-group-item d-flex align-items-start">
+                                        <i class="bi bi-check2-square text-success me-2 mt-1"></i>
+                                        <span><strong>Lijado:</strong> Suaviza los bordes de cartón para eliminar rebabas.</span>
+                                    </li>
+                                    <li class="list-group-item d-flex align-items-start">
+                                        <i class="bi bi-check2-square text-success me-2 mt-1"></i>
+                                        <span><strong>Texturizado:</strong> Aplicación de pastos, gravas y pavimentos.</span>
+                                    </li>
+                                    <li class="list-group-item d-flex align-items-start">
+                                        <i class="bi bi-check2-square text-success me-2 mt-1"></i>
+                                        <span><strong>Sellado:</strong> Capa de barniz mate para proteger la pintura.</span>
+                                    </li>
                                 </ul>
+                                
                             </div>
                         </div>
 
-                        <div class="card bg-dark text-white p-4 shadow-sm text-center border-0 overflow-hidden" style="border-radius: 15px;">
-                            <div class="position-absolute top-0 start-0 w-100 h-100 opacity-25" style="background: url('https://www.transparenttextures.com/patterns/carbon-fibre.png');"></div>
-                            <h6 class="fw-bold mb-3 position-relative">PRÓXIMO NIVEL</h6>
-                            <i class="bi bi-tree-fill display-3 text-success mb-3 position-relative"></i>
-                            <p class="small position-relative">¿Tu maqueta se ve vacía? El <strong>Capítulo IX</strong> te enseñará a crear vegetación realista con materiales reciclados.</p>
-                            <a href="CAPITULO9.html" class="btn btn-warning btn-sm fw-bold position-relative">Ver Vegetación</a>
+                        <div class="card bg-dark text-white p-4 shadow-sm text-center border-0" style="border-radius: 15px;">
+                            <h6 class="fw-bold mb-3 text-uppercase" style="letter-spacing: 1px;">Siguiente Nivel</h6>
+                            <i class="bi bi-tree-fill display-3 text-success mb-3"></i>
+                            <p class="small opacity-75">¿Tu estructura está lista? Ahora dale vida. El <strong>Capítulo IX</strong> te enseña a crear vegetación realista.</p>
+                            <a href="CAPITULO9.html" class="btn btn-warning btn-sm fw-bold px-4">Ver Vegetación</a>
                         </div>
                     </div>
                 </div>
 
                 <div class="d-flex justify-content-between mt-5 pt-4 border-top">
                     <a href="CAPITULO7.html" class="btn btn-outline-dark px-4 shadow-sm"><i class="bi bi-arrow-left me-2"></i> Anterior</a>
-                    <div class="text-center text-muted small">Módulo VIII: Construcción Física</div>
+                    <div class="text-center d-none d-md-block text-muted small">
+                        Manual: Maquetas para Principiantes Vol. I
+                    </div>
                     <a href="CAPITULO9.html" class="btn btn-warning px-5 fw-bold shadow">SIGUIENTE: CAP. IX <i class="bi bi-arrow-right ms-2"></i></a>
                 </div>
             </div>
