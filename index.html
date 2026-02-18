@@ -20,7 +20,7 @@
             scroll-behavior: smooth;
         }
 
-        /* Portada */
+        /* Portada con tu imagen MAT.png */
         .book-cover { 
             min-height: 100vh; 
             display: flex; 
@@ -28,15 +28,17 @@
             justify-content: center; 
             flex-direction: column; 
             text-align: center;
-            background: linear-gradient(rgba(26, 37, 47, 0.8), rgba(26, 37, 47, 0.8)), 
-                        url('https://images.unsplash.com/photo-1503387762-592dea58ef23?auto=format&fit=crop&q=80&w=1500');
+            /* Aquí se vincula tu imagen */
+            background: linear-gradient(rgba(26, 37, 47, 0.7), rgba(26, 37, 47, 0.7)), 
+                        url('LIBRO/MAT.png');
             background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
             border-bottom: 5px solid var(--gold);
         }
 
-        .gold-text { color: var(--gold); }
+        .gold-text { color: var(--gold); text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
         
-        /* Secciones de Texto */
         .content-section { 
             background: white; 
             color: #333; 
@@ -45,7 +47,6 @@
 
         .text-container { max-width: 800px; margin: auto; line-height: 1.8; text-align: justify; }
 
-        /* Índice */
         .chapter-grid { 
             display: grid; 
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
@@ -88,11 +89,11 @@
 <body>
 
     <section class="book-cover">
-        <h1 class="display-1 fw-bold mb-0">MAQUETAS PARA PRINCIPIANTES</h1>
+        <h1 class="display-1 fw-bold mb-0 text-white" style="text-shadow: 3px 3px 10px rgba(0,0,0,0.8);">MAQUETAS PARA PRINCIPIANTES</h1>
         <div class="divider"></div>
         <h3 class="gold-text mb-4">Colección Dorada - Vol. I</h3>
-        <p class="lead mb-5">Por <strong>Ignacio López Torres</strong></p>
-        <a href="#indice" class="btn btn-outline-light px-5 py-2 rounded-pill">Abrir Libro</a>
+        <p class="lead mb-5 text-light">Por <strong>Ignacio López Torres</strong></p>
+        <a href="#indice" class="btn btn-warning px-5 py-3 rounded-pill fw-bold shadow">EMPEZAR LECTURA</a>
     </section>
 
     <section class="content-section" style="background-color: var(--soft-white);">
@@ -101,26 +102,21 @@
             <p class="fst-italic text-center">
                 A Dios, a mis padres, Crescenciano y Gaudencia, a mis hermanos; Yesenia, Rafael y Soledad, a mis sobrinos; Daniela Guadalupe, Rafael, Ariadna, Emmanuel, Alejandro, José Antonio, José Armando, Ismael, Victoria y Josué, a mis cuñados; Renata y Francisco.
             </p>
-            <p class="fst-italic text-center">A todos mis amigos, amigas y alumnos que me apoyaron.</p>
+            <p class="fst-italic text-center mt-3">A todos mis amigos, amigas y alumnos que me apoyaron.</p>
         </div>
     </section>
 
     <section class="content-section">
         <div class="text-container">
             <h2 class="section-title">Agradecimientos</h2>
-            <p>Este espacio lo aprovecharé, para expresar mis más sinceros agradecimientos, a quienes hicieron posible la realización de este sueño, un sueño que solo no lo hubiera podido realizar. Después de 5 años y 11 meses, desde la concepción de este libro, hasta su culminación, fue un gran esfuerzo, dedicación y trabajo.</p>
+            <p>Este espacio lo aprovecharé para expresar mis más sinceros agradecimientos a quienes hicieron posible la realización de este sueño. Después de 5 años y 11 meses de trabajo, dedicación y perseverancia, deseo agradecer:</p>
             
-            <p><strong>A DIOS</strong>, nuestro creador, que nos ha permitido escribir este libro, por las palabras que puso en mí y sobre todo la paciencia.</p>
-            
-            <p><strong>A mis padres, Gaudencia y Crescenciano</strong>, gracias por sostener la cuerda en la cual yo caminaba, por formar una columna de consejos y por el apoyo económico. Los quiero con todo mi corazón.</p>
+            <p><strong>A DIOS</strong>, por las palabras que puso en mí y la paciencia para soportar este gran trabajo.</p>
+            <p><strong>A mis padres, Gaudencia y Crescenciano</strong>, por sostener la cuerda en la cual yo caminaba y por su apoyo económico y moral.</p>
+            <p><strong>A mis hermanos</strong>: Yesenia, Rafael y Soledad, por los ánimos, el apoyo económico y las fotografías que ilustran esta obra.</p>
+            <p><strong>A mis sobrinos</strong>: Por su increíble ayuda tomando fotografías y realizando acabados en las maquetas cuando más se necesitaba.</p>
 
-            <p><strong>A mis hermanos</strong>: A Yesenia por el apoyo moral; a Rafael por los desvelos soportados y encargarse de mis responsabilidades; y a Soledad por las fotografías técnicas que dieron vida a este libro.</p>
-
-            <p><strong>A mis sobrinos</strong>: Daniela Guadalupe, G. Rafael, Ariadna C., E. Emmanuel, Alejandro F. (Alex). Estoy realmente sorprendido por el gran trabajo que hicieron con la cámara y los acabados de las maquetas #1 y #4.</p>
-
-            <p>Agradezco profundamente al <strong>Arq. Raúl Hernández</strong> por el prólogo y el apoyo en escalas, al <strong>Arq. Marco Antonio Tapia</strong> por la estructura de capítulos, y al <strong>Ing. Ricardo B. Cervantes</strong> por la organización del temario.</p>
-            
-            <p>Finalmente, <strong>a ti lector</strong>, mi más grande satisfacción es la que te lleves al término de estas páginas.</p>
+            <p>Un agradecimiento especial al <strong>Ing. Ricardo B. Cervantes</strong>, al <strong>Arq. Raúl Hernández</strong> por el prólogo, y a todos los catedráticos del <strong>Tecnológico Nacional de México, Campus Zacatepec</strong>, mi alma mater.</p>
         </div>
     </section>
 
