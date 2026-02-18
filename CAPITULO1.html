@@ -11,32 +11,34 @@
         body { font-family: 'Open Sans', sans-serif; background-color: #f8f9fa; }
         h1, h2 { font-family: 'Montserrat', sans-serif; font-weight: 700; color: #2c3e50; }
         
-        /* Sidebar Estilizada */
         .sidebar { background: #1a1c1e; color: white; min-height: 100vh; padding: 0; position: sticky; top: 0; }
         .sidebar-header { background: #f1c40f; color: #1a1c1e; padding: 20px; font-weight: 800; text-transform: uppercase; }
         .nav-link { color: #adb5bd; transition: 0.3s; border-radius: 5px; margin: 2px 15px; }
         .nav-link:hover { background: rgba(241, 196, 15, 0.1); color: #f1c40f; }
         .nav-link.active { background: #f1c40f; color: #1a1c1e !important; font-weight: bold; }
 
-        /* Contenedores de Imágenes */
-        .img-container { 
-            background: #e9ecef; 
-            border: 2px dashed #dee2e6; 
+        /* Estilo de Imágenes */
+        .img-card { 
+            background: white; 
+            border: 1px solid #dee2e6; 
             border-radius: 10px; 
             margin: 20px 0; 
-            padding: 10px;
-            text-align: center;
-            min-height: 250px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
+            padding: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: 0.3s;
         }
-        .img-placeholder-text { color: #6c757d; font-style: italic; font-size: 0.9rem; }
-        .img-caption { font-size: 0.8rem; color: #6c757d; margin-top: 8px; font-weight: bold; }
+        .img-card:hover { transform: translateY(-5px); }
+        .img-fluid-custom { 
+            width: 100%; 
+            height: auto; 
+            border-radius: 5px; 
+            object-fit: cover;
+        }
+        .img-caption { font-size: 0.85rem; color: #6c757d; margin-top: 10px; font-weight: bold; border-top: 2px solid #f1c40f; pt-2; display: inline-block; }
 
         .interactive-section { border-left: 5px solid #f1c40f; padding-left: 20px; margin: 20px 0; }
         .main-content { padding: 40px; }
+        .gallery-thumb { height: 150px; object-fit: cover; border-radius: 8px; cursor: pointer; }
     </style>
 </head>
 <body>
@@ -69,14 +71,13 @@
             <div class="row">
                 <div class="col-lg-8">
                     <div class="card mb-4 shadow-sm border-0">
-                        <div class="card-header border-0">1.1 Definición y Concepto</div>
+                        <div class="card-header bg-white fw-bold">1.1 Definición y Concepto</div>
                         <div class="card-body bg-white">
                             <p class="card-text">Una maqueta es la representación física a escala de una idea o proyecto arquitectónico. Es el paso tangible entre el plano y la realidad.</p>
                             
-                            <div class="img-container">
-                                
-                                <div class="img-placeholder-text">Insertar aquí imagen de maqueta profesional finalizada</div>
-                                <div class="img-caption">Figura 1.1: Ejemplo de representación volumétrica a escala.</div>
+                            <div class="img-card text-center">
+                                <img src="libro/11.png" alt="Maqueta Profesional" class="img-fluid-custom">
+                                <div class="img-caption">Figura 1.1: Representación volumétrica finalizada.</div>
                             </div>
 
                             <div class="interactive-section">
@@ -99,19 +100,21 @@
                             </h2>
                             <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#elementosMaqueta">
                                 <div class="accordion-body">
-                                    <p>Para construir una maqueta profesional, debemos considerar cuatro grupos de elementos:</p>
+                                    <p>Para construir una maqueta profesional, debemos considerar elementos conceptuales y visuales:</p>
                                     
-                                    <div class="img-container" style="min-height: 180px;">
-                                        
-                                        <div class="img-placeholder-text">Esquema visual de Puntos, Líneas y Planos</div>
-                                        <div class="img-caption">Figura 1.2: Desglose de elementos conceptuales y visuales.</div>
-                                    </div>
-
-                                    <div class="row text-center g-2 mt-2">
-                                        <div class="col-6 col-md-3"><div class="p-3 border rounded bg-light"><strong>Conceptuales</strong><br><small>El origen de la idea</small></div></div>
-                                        <div class="col-6 col-md-3"><div class="p-3 border rounded bg-light"><strong>Visuales</strong><br><small>Forma y Color</small></div></div>
-                                        <div class="col-6 col-md-3"><div class="p-3 border rounded bg-light"><strong>De Relación</strong><br><small>Posición y Espacio</small></div></div>
-                                        <div class="col-6 col-md-3"><div class="p-3 border rounded bg-light"><strong>Prácticos</strong><br><small>Función y Uso</small></div></div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="img-card text-center">
+                                                <img src="libro/110a.png" alt="Conceptos A" class="img-fluid-custom">
+                                                <div class="img-caption">Figura 1.2: Análisis de Puntos y Líneas.</div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="img-card text-center">
+                                                <img src="libro/110b.png" alt="Conceptos B" class="img-fluid-custom">
+                                                <div class="img-caption">Figura 1.3: Planos y Volúmenes.</div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -120,23 +123,48 @@
                 </div>
 
                 <div class="col-lg-4">
-                    <div class="alert alert-info shadow-sm">
+                    <div class="alert alert-info shadow-sm mb-4">
                         <h5 class="fw-bold"><i class="bi bi-info-circle-fill"></i> Nota Técnica</h5>
-                        <p class="small mb-0">Recuerda que la escala es la relación proporcional entre la maqueta y la obra real. Sin escala, no hay arquitectura.</p>
+                        <p class="small mb-0">Sin escala, no hay arquitectura. La precisión define la calidad de la obra.</p>
                     </div>
 
-                    <div class="img-container" style="min-height: 350px; background: white;">
-                        
-                        <div class="img-placeholder-text">Imagen vertical: El maquetista trabajando</div>
-                        <div class="img-caption">Figura 1.3: La precisión en el detalle define la calidad.</div>
+                    <div class="img-card text-center">
+                        <img src="libro/12.png" alt="Proceso" class="img-fluid-custom">
+                        <div class="img-caption">Figura 1.4: Detalle de precisión en el corte.</div>
+                    </div>
+
+                    <div class="img-card text-center">
+                        <img src="libro/111.png" alt="Visualización" class="img-fluid-custom">
+                        <div class="img-caption">Figura 1.5: Perspectiva de usuario.</div>
                     </div>
                 </div>
             </div>
 
+            <div class="row mt-4">
+                <div class="col-12">
+                    <h4 class="fw-bold border-bottom pb-2">Galería de Referencia</h4>
+                </div>
+                <div class="col-md-2 col-4 mb-3"><img src="libro/13.png" class="img-fluid gallery-thumb shadow-sm w-100" alt="Ref"></div>
+                <div class="col-md-2 col-4 mb-3"><img src="libro/14.png" class="img-fluid gallery-thumb shadow-sm w-100" alt="Ref"></div>
+                <div class="col-md-2 col-4 mb-3"><img src="libro/15.png" class="img-fluid gallery-thumb shadow-sm w-100" alt="Ref"></div>
+                <div class="col-md-2 col-4 mb-3"><img src="libro/16.png" class="img-fluid gallery-thumb shadow-sm w-100" alt="Ref"></div>
+                <div class="col-md-2 col-4 mb-3"><img src="libro/17.png" class="img-fluid gallery-thumb shadow-sm w-100" alt="Ref"></div>
+                <div class="col-md-2 col-4 mb-3"><img src="libro/18a.png" class="img-fluid gallery-thumb shadow-sm w-100" alt="Ref"></div>
+                
+                <div class="col-md-2 col-4 mb-3"><img src="libro/18b.png" class="img-fluid gallery-thumb shadow-sm w-100" alt="Ref"></div>
+                <div class="col-md-2 col-4 mb-3"><img src="libro/19a.png" class="img-fluid gallery-thumb shadow-sm w-100" alt="Ref"></div>
+                <div class="col-md-2 col-4 mb-3"><img src="libro/19b.png" class="img-fluid gallery-thumb shadow-sm w-100" alt="Ref"></div>
+                <div class="col-md-2 col-4 mb-3"><img src="libro/19c.png" class="img-fluid gallery-thumb shadow-sm w-100" alt="Ref"></div>
+            </div>
+
             <nav class="mt-5">
                 <ul class="pagination justify-content-center">
-                    <li class="page-item disabled"><a class="page-link shadow-sm" href="#">Anterior</a></li>
-                    <li class="page-item"><a class="page-link shadow-sm fw-bold bg-dark text-white" href="CAPITULO2.html">Siguiente: Tipos de Maquetas <i class="bi bi-arrow-right"></i></a></li>
+                    <li class="page-item disabled"><a class="page-link shadow-sm" href="inde.html">Anterior</a></li>
+                    <li class="page-item">
+                        <a class="page-link shadow-sm fw-bold bg-dark text-white px-4" href="CAPITULO2.html">
+                            Siguiente: Tipos de Maquetas <i class="bi bi-arrow-right ms-2"></i>
+                        </a>
+                    </li>
                 </ul>
             </nav>
         </main>
