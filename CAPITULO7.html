@@ -3,230 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Capítulo VII - El Mundo de las Escalas</title>
+    <title>Capítulo 7: Presupuesto de Obra</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <style>
-        :root {
-            --blueprint-blue: #1a5f7a;
-            --math-gold: #c5a059;
-            --paper-white: #ffffff;
-            --text-dark: #2c3e50;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f4f7f6;
-            color: var(--text-dark);
-        }
-
-        .header-scales {
-            background: linear-gradient(rgba(26, 95, 122, 0.9), rgba(26, 95, 122, 0.9)), url('https://images.unsplash.com/photo-1503387762-592dea58ef23?q=80&w=1000');
-            background-size: cover;
-            color: white;
-            padding: 80px 0;
-            text-align: center;
-            border-bottom: 6px solid var(--math-gold);
-        }
-
-        /* Tarjetas Conceptuales */
-        .concept-card {
-            background: white;
-            border-radius: 15px;
-            padding: 30px;
-            margin-bottom: 30px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            border-top: 5px solid var(--blueprint-blue);
-        }
-
-        /* Estilo para Fórmulas Matemáticas */
-        .formula-box {
-            background: #f8f9fa;
-            border: 2px dashed var(--blueprint-blue);
-            padding: 20px;
-            border-radius: 10px;
-            text-align: center;
-            font-family: 'Courier New', Courier, monospace;
-            font-size: 1.2rem;
-            margin: 20px 0;
-        }
-
-        .fraction {
-            display: inline-block;
-            vertical-align: middle;
-            text-align: center;
-        }
-        .fraction span { display: block; padding: 0 10px; }
-        .fraction span.top { border-bottom: 2px solid var(--text-dark); }
-
-        /* Contenedores de Imagen con Espacio */
-        .img-placeholder {
-            background: #ebebeb;
-            border: 2px solid #ddd;
-            border-radius: 8px;
-            min-height: 200px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 20px 0;
-            color: #888;
-            font-style: italic;
-        }
-
-        .interpretation-box {
-            background-color: #e8f4f8;
-            padding: 15px;
-            border-left: 5px solid var(--blueprint-blue);
-            margin: 15px 0;
-        }
-
-        .scale-type {
-            font-weight: bold;
-            color: var(--blueprint-blue);
-            text-transform: uppercase;
-        }
-
-        .nav-scales {
-            position: sticky;
-            top: 20px;
-        }
+        body { background-color: #eef2f3; font-family: 'Open Sans', sans-serif; }
+        .budget-header { background: #27ae60; color: white; padding: 40px 0; border-radius: 0 0 50px 50px; }
+        .calc-card { border: none; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        .list-group-item { border: none; padding-left: 0; background: transparent; }
+        .price-tag { color: #27ae60; font-weight: bold; font-size: 1.2rem; }
     </style>
 </head>
 <body>
 
-    <header class="header-scales">
-        <div class="container">
-            <h5 class="text-uppercase" style="letter-spacing: 5px;">Capítulo VII</h5>
-            <h1 class="display-4 fw-bold">LAS ESCALAS</h1>
-            <p class="lead">La proporción perfecta: conectando la realidad con el modelo.</p>
+<header class="budget-header text-center mb-5">
+    <div class="container">
+        <h1 class="fw-bold text-uppercase">Capítulo VII: El Presupuesto</h1>
+        <p class="lead">Administración y costos de elaboración.</p>
+    </div>
+</header>
+
+<div class="container">
+    <div class="row g-4">
+        <div class="col-md-7">
+            <div class="card calc-card p-4 h-100">
+                <h4 class="mb-4 text-success border-bottom pb-2">7.1 Análisis de Costos</h4>
+                <p>El costo de una maqueta no solo es el material; es el tiempo, la especialización y el desgaste de herramientas.</p>
+                <ul class="list-group">
+                    <li class="list-group-item"><strong>Gastos Directos:</strong> Pegamentos, cartones, bases, maderas y pintura.</li>
+                    <li class="list-group-item"><strong>Gastos Indirectos:</strong> Energía eléctrica, transporte, papelería y renta del espacio.</li>
+                    <li class="list-group-item"><strong>Mano de Obra:</strong> El valor de tus horas de diseño y montaje.</li>
+                </ul>
+            </div>
         </div>
-    </header>
 
-    <div class="container mt-5">
-        <div class="row">
-            
-            <aside class="col-lg-3">
-                <div class="nav-scales list-group shadow-sm">
-                    <a href="#7.1" class="list-group-item list-group-item-action active">Definición</a>
-                    <a href="#7.3" class="list-group-item list-group-item-action">Tipos de Escalas</a>
-                    <a href="#7.5" class="list-group-item list-group-item-action">Escalas Combinadas</a>
-                    <a href="#7.6" class="list-group-item list-group-item-action">Instrumentos</a>
-                    <a href="#7.8" class="list-group-item list-group-item-action">Acotaciones</a>
+        <div class="col-md-5">
+            <div class="card calc-card bg-white p-4 h-100 border-start border-5 border-success">
+                <h4 class="mb-3">Fórmula sugerida</h4>
+                <div class="p-3 bg-light rounded text-center my-3">
+                    <span class="price-tag">(Materiales × 2) + Horas de Trabajo</span>
                 </div>
-            </aside>
+                <p class="small text-muted">Nota: Este factor puede variar según la complejidad de los detalles arquitectónicos (ventanas, texturas, iluminación).</p>
+            </div>
+        </div>
 
-            <div class="col-lg-9">
-
-                <section id="7.1" class="concept-card">
-                    <h2>7.1 ¿Qué es una Escala?</h2>
-                    <p>Es la relación matemática existente entre las dimensiones reales y las del dibujo; representa la realidad sobre un plano o mapa.</p>
-                    
-                    <div class="img-placeholder">
-                        <img src="/home/ceeci/Imágenes/LIBRO/l110.png" alt="Imagen 7.1" onerror="this.parentElement.innerHTML='[ESPACIO PARA IMAGEN 7.1: FRACCIÓN DECIMAL]'">
-                    </div>
-
-                    <div class="interpretation-box">
-                        <h4>7.2 Interpretación</h4>
-                        <p>Se escriben en forma de fracción: <strong>1:500</strong> significa que <strong>1 cm</strong> en el papel equivale a <strong>500 cm</strong> en la realidad.</p>
-                    </div>
-                </section>
-
-                <section id="7.3" class="concept-card">
-                    <h2>7.3 Tipos de Escalas</h2>
-                    <div class="img-placeholder">
-                        <img src="/home/ceeci/Imágenes/LIBRO/l111.png" alt="Imagen 7.2" onerror="this.parentElement.innerHTML='[ESPACIO PARA IMAGEN 7.2: ESQUEMA DE ESCALAS]'">
-                    </div>
-
-                    <div class="row text-center mt-4">
-                        <div class="col-md-3">
-                            <div class="p-2 border rounded">
-                                <span class="scale-type">Natural</span><br>1:1
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="p-2 border rounded">
-                                <span class="scale-type">Ampliación</span><br>2:1, 10:1
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="p-2 border rounded">
-                                <span class="scale-type">Reducción</span><br>1:50, 1:100
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="p-2 border rounded">
-                                <span class="scale-type">Visual</span><br>Criterio
-                            </div>
-                        </div>
-                    </div>
-
-                    <h4 class="mt-4">7.3.4 Escala Visual</h4>
-                    <p>Es la relación proporcional basada en la observación del objeto real frente a la maqueta (Ej. Maquetas especiales como maquinaria agrícola).</p>
-                    <div class="img-placeholder">
-                        <img src="/home/ceeci/Imágenes/LIBRO/l111_b.png" alt="Imagen 7.4" onerror="this.parentElement.innerHTML='[ESPACIO PARA IMAGEN 7.4: COSECHADORA CAMECO]'">
-                    </div>
-                </section>
-
-                <section id="7.6" class="concept-card">
-                    <h2>7.6 Instrumentos de Medida</h2>
-                    <div class="row align-items-center">
-                        <div class="col-md-7">
-                            <h3>El Escalímetro</h3>
-                            <p>Prisma triangular con seis reglas graduadas. Permite leer medidas directamente sin realizar cálculos complejos.</p>
-                            <ul>
-                                <li>Escalas comunes: 1:20, 1:50, 1:100, 1:125.</li>
-                            </ul>
-                        </div>
-                        <div class="col-md-5">
-                            <div class="img-placeholder">
-                                <img src="/home/ceeci/Imágenes/LIBRO/l113.png" alt="Escalímetro" onerror="this.parentElement.innerHTML='[IMAGEN 7.6: ESCALÍMETRO]'">
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <section id="7.7" class="concept-card" style="background-color: #fff9f0;">
-                    <h2>7.7 Solución a Problemas y Fórmulas</h2>
-                    <p>Cuando surgen milímetros (ej. 0.05mm), se recomienda <strong>redondear</strong>. Estas cifras mínimas no afectan el resultado final de la maqueta.</p>
-                    
-                    <div class="formula-box">
-                        <strong>Fórmula de Conversión:</strong><br><br>
-                        <div class="fraction">
-                            <span class="top">Medida Real</span>
-                            <span>Escala</span>
-                        </div>
-                        = Medida en el Plano / Maqueta
-                    </div>
-                    
-                    <div class="img-placeholder">
-                        <img src="/home/ceeci/Imágenes/LIBRO/l115.png" alt="Imagen 7.9" onerror="this.parentElement.innerHTML='[ESPACIO PARA IMAGEN 7.9: FÓRMULA DETALLADA]'">
-                    </div>
-                </section>
-
-                <section id="7.8" class="concept-card">
-                    <h2>7.8 ¿Qué es una Acotación?</h2>
-                    <p>Es indicar las <strong>unidades de medida</strong> (mm, cm, m, Km) en las que se trabajó el proyecto.</p>
-                    
-                    <div class="bg-dark text-warning p-4 rounded">
-                        <h5>Relación Escala - Acotación</h5>
-                        <p class="mb-0"><strong>Escala:</strong> El número de conversión (ej. 1:30).</p>
-                        <p><strong>Acotación:</strong> La unidad de medida real (ej. Metros).</p>
-                    </div>
-
-                    <div class="img-placeholder">
-                        <img src="/home/ceeci/Imágenes/LIBRO/l116.png" alt="Imagen 7.11" onerror="this.parentElement.innerHTML='[ESPACIO PARA IMAGEN 7.11: CUADRO ESCALA-ACOTACIÓN]'">
-                    </div>
-                </section>
-
-                <div class="d-flex justify-content-between my-5">
-                    <a href="CAPITULO6.html" class="btn btn-outline-secondary btn-lg">← Capítulo VI</a>
-                    <a href="CAPITULO8.html" class="btn btn-primary btn-lg">Capítulo VIII: Levantamiento →</a>
+        <div class="col-12 mt-4">
+            <div class="card calc-card p-4">
+                <h5>7.4 Control de Insumos</h5>
+                <p class="small">Llevar un inventario evita que el proyecto se detenga por falta de pegamento o cuchillas.</p>
+                <div class="row text-center mt-3">
+                    <div class="col-4 col-md-2"><div class="p-2 border rounded">Cúters</div></div>
+                    <div class="col-4 col-md-2"><div class="p-2 border rounded">Lijas</div></div>
+                    <div class="col-4 col-md-2"><div class="p-2 border rounded">Adhesivos</div></div>
+                    <div class="col-4 col-md-2"><div class="p-2 border rounded">Pinturas</div></div>
+                    <div class="col-4 col-md-2"><div class="p-2 border rounded">Bases</div></div>
+                    <div class="col-4 col-md-2"><div class="p-2 border rounded">Vegetación</div></div>
                 </div>
-
             </div>
         </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <div class="text-center mt-5 mb-5">
+        <p class="text-muted">¿Listo para empezar la construcción física?</p>
+        <a href="CAPITULO8.html" class="btn btn-success btn-lg px-5 shadow">IR AL TALLER (CAP. VIII)</a>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
