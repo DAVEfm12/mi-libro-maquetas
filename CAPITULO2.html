@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -13,195 +12,235 @@
             --sidebar-dark: #1a252f;
             --accent-gold: #f1c40f;
             --bg-gray: #f8f9fa;
+            --card-shadow: 0 10px 20px rgba(0,0,0,0.08);
         }
 
         body { font-family: 'Open Sans', sans-serif; background-color: var(--bg-gray); color: #333; }
         h1, h2, h3, .sidebar-header { font-family: 'Montserrat', sans-serif; font-weight: 700; }
 
-        .sidebar { background: var(--sidebar-dark); color: white; min-height: 100vh; position: sticky; top: 0; }
-        .sidebar-header { color: var(--accent-gold); padding: 25px 15px; text-transform: uppercase; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        .sidebar { background: var(--sidebar-dark); color: white; min-height: 100vh; position: sticky; top: 0; z-index: 1000; }
+        .sidebar-header { color: var(--accent-gold); padding: 25px 15px; text-transform: uppercase; letter-spacing: 1px; border-bottom: 1px solid rgba(255,255,255,0.1); }
         .nav-link { color: #95a5a6; padding: 12px 20px; transition: 0.3s; border-left: 4px solid transparent; }
         .nav-link:hover { color: var(--accent-gold); background: rgba(255,255,255,0.05); }
-        .nav-link.active { color: var(--accent-gold); background: rgba(241, 196, 15, 0.1); border-left: 4px solid var(--accent-gold); font-weight: 600; }
+        .nav-link.active { color: var(--accent-gold); background: rgba(241, 196, 15, 0.1); border-left: 4px solid var(--accent-gold); }
 
         .main-content { padding: 40px; }
+        
+        /* Estilos de Imagen y Tarjetas */
+        .type-card { 
+            background: white; border: none; border-radius: 12px; overflow: hidden;
+            box-shadow: var(--card-shadow); transition: 0.4s; height: 100%;
+        }
+        .type-card:hover { transform: translateY(-8px); }
+        
+        .img-container { background: #fff; padding: 10px; position: relative; }
+        .maqueta-img { 
+            width: 100%; height: 220px; object-fit: cover; 
+            border-radius: 6px; border: 1px solid #eee;
+        }
+        .img-label { 
+            font-size: 0.75rem; color: #7f8c8d; margin-top: 8px; 
+            display: block; font-weight: 600; text-transform: uppercase;
+        }
+
         .category-header { 
-            background: #2c3e50; color: white; padding: 15px 25px; 
-            border-radius: 8px; margin-top: 40px; margin-bottom: 25px;
+            background: linear-gradient(90deg, #2c3e50, #34495e); color: white; 
+            padding: 20px 30px; border-radius: 10px; margin: 50px 0 30px 0;
             display: flex; align-items: center; justify-content: space-between;
         }
 
-        /* Estilo de Tarjetas e Imágenes */
-        .type-card { 
-            transition: all 0.3s ease; border: none; 
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            border-bottom: 4px solid var(--accent-gold);
-            background: white; overflow: hidden;
+        .anatomy-box {
+            background: white; border-left: 6px solid var(--accent-gold);
+            padding: 30px; border-radius: 0 10px 10px 0; margin: 30px 0;
+            box-shadow: var(--card-shadow);
         }
-        .type-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
-        
-        .img-container { padding: 10px; background: #fff; }
-        .img-maqueta { width: 100%; height: auto; border-radius: 4px; object-fit: cover; }
-        .img-caption { font-size: 0.75rem; color: #7f8c8d; margin-top: 8px; text-align: center; font-style: italic; }
 
-        .alert-custom { border-left: 5px solid var(--accent-gold); background: white; }
+        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 15px; }
+        .gallery-item img { height: 120px; width: 100%; object-fit: cover; border-radius: 4px; transition: 0.3s; cursor: pointer; }
+        .gallery-item img:hover { filter: brightness(1.1); scale: 1.05; }
     </style>
 </head>
 <body>
 
 <div class="container-fluid">
     <div class="row">
-        <nav class="col-md-3 col-lg-2 d-md-block sidebar collapse shadow">
-            <div class="sidebar-header text-center">Colección Dorada</div>
+        <nav class="col-md-3 col-lg-2 d-md-block sidebar shadow">
+            <div class="sidebar-header text-center">
+                <i class="bi bi-layers-half me-2"></i> Colección Dorada
+            </div>
             <ul class="nav flex-column mt-3">
-                <li class="nav-item mb-2 text-center text-muted small px-3">CONTENIDO VOL. 1</li>
-                <li class="nav-item"><a class="nav-link" href="CAPITULO1.html"><i class="bi bi-bookmark-fill me-2"></i> Cap. I: Introducción</a></li>
-                <li class="nav-item"><a class="nav-link active" href="CAPITULO2.html"><i class="bi bi-grid-fill me-2"></i> Cap. II: Tipos</a></li>
-                <li class="nav-item"><a class="nav-link" href="CAPITULO3.html"><i class="bi bi-map-fill me-2"></i> Cap. III: Planos</a></li>
-                <li class="nav-item"><a class="nav-link" href="CAPITULO4.html"><i class="bi bi-box-seam-fill me-2"></i> Cap. IV: Materiales</a></li>
+                <li class="nav-item"><a class="nav-link" href="CAPITULO1.html"><i class="bi bi-info-circle me-2"></i> Cap. I: Introducción</a></li>
+                <li class="nav-item"><a class="nav-link active" href="CAPITULO2.html"><i class="bi bi-building me-2"></i> Cap. II: Tipos de Maqueta</a></li>
+                <li class="nav-item"><a class="nav-link" href="CAPITULO3.html"><i class="bi bi-map me-2"></i> Cap. III: Planos</a></li>
+                <li class="nav-item"><a class="nav-link" href="CAPITULO4.html"><i class="bi bi-box-seam me-2"></i> Cap. IV: Materiales</a></li>
                 <li class="nav-item"><a class="nav-link" href="CAPITULO5.html"><i class="bi bi-tools me-2"></i> Cap. V: Herramientas</a></li>
-                <li class="nav-item"><a class="nav-link" href="CAPITULO6.html"><i class="bi bi-geometric-capsule me-2"></i> Cap. VI: Geometría</a></li>
+                <li class="nav-item"><a class="nav-link" href="CAPITULO6.html"><i class="bi bi-bounding-box me-2"></i> Cap. VI: Geometría</a></li>
                 <li class="nav-item"><a class="nav-link" href="CAPITULO7.html"><i class="bi bi-cash-stack me-2"></i> Cap. VII: Presupuesto</a></li>
                 <li class="nav-item"><a class="nav-link" href="CAPITULO8.html"><i class="bi bi-hammer me-2"></i> Cap. VIII: Taller</a></li>
-                <li class="nav-item"><a class="nav-link" href="CAPITULO9.html"><i class="bi bi-tree-fill me-2"></i> Cap. IX: Vegetación</a></li>
-                <li class="nav-item"><a class="nav-link" href="CAPITULO10.html"><i class="bi bi-person-walking me-2"></i> Cap. X: Escala Humana</a></li>
-                <li class="nav-item mt-4"><a class="nav-link text-warning" href="index.html"><i class="bi bi-house-door-fill me-2"></i> INICIO</a></li>
+                <li class="nav-item"><a class="nav-link" href="CAPITULO9.html"><i class="bi bi-tree me-2"></i> Cap. IX: Vegetación</a></li>
+                <li class="nav-item"><a class="nav-link" href="CAPITULO10.html"><i class="bi bi-people me-2"></i> Cap. X: Escala Humana</a></li>
+                <li class="nav-item mt-4"><a class="nav-link text-warning" href="index.html"><i class="bi bi-house-door me-2"></i> INICIO</a></li>
             </ul>
         </nav>
 
         <main class="col-md-9 ms-sm-auto col-lg-10 main-content">
-            <h1 class="display-4 fw-bold mb-4">CAPÍTULO II: TIPOS DE MAQUETAS</h1>
-            <p class="lead text-muted mb-5">Exploraremos las diversas formas de representar la arquitectura, desde el análisis del sitio hasta el detalle de los interiores.</p>
+            <header class="mb-5">
+                <h1 class="display-4 fw-bold">CAPÍTULO II: TIPOS DE MAQUETAS</h1>
+                <p class="lead text-muted">La taxonomía de los modelos a escala: desde la conceptualización efímera hasta el realismo técnico extremo.</p>
+            </header>
 
             <div class="category-header">
-                <span>2.1 MAQUETAS DE EDIFICACIÓN Y URBANISMO</span>
+                <span>2.1 CLASIFICACIÓN POR OBJETO Y ESCALA</span>
                 <i class="bi bi-building"></i>
             </div>
 
             <div class="row g-4">
-                <div class="col-md-6">
-                    <div class="card type-card h-100">
-                        <div class="card-body">
-                            <h5 class="fw-bold">2.1.1 Urbanismo y Paisaje</h5>
-                            <p class="small text-muted">Representación del entorno a gran escala.</p>
-                            <div class="row g-2">
-                                <div class="col-6">
-                                    <img src="LIBRO/21a.png" class="img-maqueta" alt="Urbanismo 1">
-                                    <div class="img-caption">Conjunto Urbano</div>
-                                </div>
-                                <div class="col-6">
-                                    <img src="LIBRO/21b.png" class="img-maqueta" alt="Urbanismo 2">
-                                    <div class="img-caption">Topografía</div>
-                                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="type-card">
+                        <div class="img-container">
+                            <div class="row g-1">
+                                <div class="col-6"><img src="LIBRO/21a.png" class="maqueta-img" alt="Urbanismo A"></div>
+                                <div class="col-6"><img src="LIBRO/21b.png" class="maqueta-img" alt="Urbanismo B"></div>
                             </div>
+                            <span class="img-label text-center">Fig 2.1: Modelos Urbanísticos</span>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="fw-bold">2.1.1 Urbanismo</h5>
+                            <p class="small text-muted">Representan grandes áreas de la ciudad. Se centran en la relación entre edificios, vialidades y topografía. Escalas comunes: 1:500 a 1:2500.</p>
                         </div>
                     </div>
                 </div>
 
-                <div class="col-md-6">
-                    <div class="card type-card h-100">
-                        <div class="card-body">
-                            <h5 class="fw-bold">2.1.2 Proyectos de Edificación</h5>
-                            <p class="small text-muted">Modelos detallados de edificios individuales.</p>
-                            <div class="row g-2">
-                                <div class="col-4"><img src="LIBRO/22a.png" class="img-maqueta" alt="Edif 1"></div>
-                                <div class="col-4"><img src="LIBRO/22b.png" class="img-maqueta" alt="Edif 2"></div>
-                                <div class="col-4"><img src="LIBRO/23a.png" class="img-maqueta" alt="Edif 3"></div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="type-card">
+                        <div class="img-container">
+                            <div class="row g-1">
+                                <div class="col-6"><img src="LIBRO/22a.png" class="maqueta-img" alt="Paisajismo A"></div>
+                                <div class="col-6"><img src="LIBRO/22b.png" class="maqueta-img" alt="Paisajismo B"></div>
                             </div>
+                            <span class="img-label text-center">Fig 2.2: Paisajismo y Terreno</span>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="fw-bold">2.1.2 Paisajismo</h5>
+                            <p class="small text-muted">El enfoque es la vegetación y el relieve. Esenciales para entender el impacto ambiental y el diseño de áreas verdes.</p>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="row g-4 mt-2">
-                <div class="col-md-4">
-                    <div class="card type-card h-100">
+                <div class="col-md-6 col-lg-4">
+                    <div class="type-card">
+                        <div class="img-container">
+                            <div class="row g-1">
+                                <div class="col-6"><img src="LIBRO/23a.png" class="maqueta-img" alt="Estructura A"></div>
+                                <div class="col-6"><img src="LIBRO/23b.png" class="maqueta-img" alt="Estructura B"></div>
+                            </div>
+                            <span class="img-label text-center">Fig 2.3: Modelos Estructurales</span>
+                        </div>
                         <div class="card-body">
                             <h5 class="fw-bold">2.1.3 Estructurales</h5>
-                            <img src="LIBRO/23b.png" class="img-maqueta mb-2" alt="Estructura">
-                            <p class="small">Muestran el sistema constructivo y esqueleto del proyecto.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-8">
-                    <div class="card type-card h-100">
-                        <div class="card-body">
-                            <h5 class="fw-bold">2.1.4 Espacios Interiores</h5>
-                            <div class="row g-2">
-                                <div class="col-3"><img src="LIBRO/24a.png" class="img-maqueta" alt="Int 1"></div>
-                                <div class="col-3"><img src="LIBRO/24b.png" class="img-maqueta" alt="Int 2"></div>
-                                <div class="col-3"><img src="LIBRO/24c.png" class="img-maqueta" alt="Int 3"></div>
-                                <div class="col-3"><img src="LIBRO/25a.png" class="img-maqueta" alt="Int 4"></div>
-                            </div>
+                            <p class="small text-muted">Revelan el esqueleto del edificio. Columnas, trabes y sistemas constructivos quedan expuestos para análisis de carga.</p>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="category-header mt-5">
-                <span>2.2 DISEÑO DE OBJETOS Y DETALLES</span>
-                <i class="bi bi-search"></i>
+            <div class="anatomy-box">
+                <div class="row align-items-center">
+                    <div class="col-lg-7">
+                        <h3 class="fw-bold mb-3">La Importancia del Detalle Arquitectónico (2.1.4)</h3>
+                        <p>Las maquetas de edificación no son solo cajas cerradas. Los modelos de <strong>Interiores</strong> y <strong>Cortes Fachada</strong> permiten al cliente "entrar" en el proyecto. Aquí se definen texturas, mobiliario y la entrada de luz natural.</p>
+                        <div class="row mt-3 g-2">
+                            <div class="col-4"><img src="LIBRO/24a.png" class="img-fluid rounded shadow-sm" alt="Detalle 1"></div>
+                            <div class="col-4"><img src="LIBRO/24b.png" class="img-fluid rounded shadow-sm" alt="Detalle 2"></div>
+                            <div class="col-4"><img src="LIBRO/24c.png" class="img-fluid rounded shadow-sm" alt="Detalle 3"></div>
+                        </div>
+                    </div>
+                    <div class="col-lg-5">
+                        <img src="LIBRO/25a.png" class="img-fluid rounded shadow mt-3" alt="Corte Perspectivo">
+                        <p class="small text-center mt-2 text-muted">Fig 2.4: Ejemplo de corte de interiores (Escala 1:20).</p>
+                    </div>
+                </div>
             </div>
 
-            <div class="row g-3">
-                <div class="col-md-3"><img src="LIBRO/25b.png" class="img-maqueta shadow-sm" alt="Detalle 1"></div>
-                <div class="col-md-3"><img src="LIBRO/26a.png" class="img-maqueta shadow-sm" alt="Detalle 2"></div>
-                <div class="col-md-3"><img src="LIBRO/26b.png" class="img-maqueta shadow-sm" alt="Detalle 3"></div>
-                <div class="col-md-3"><img src="LIBRO/26d.png" class="img-maqueta shadow-sm" alt="Detalle 4"></div>
+            <div class="category-header">
+                <span>2.2 CLASIFICACIÓN POR ETAPA DE DISEÑO</span>
+                <i class="bi bi-pencil-ruler"></i>
             </div>
 
-            <div class="category-header mt-5">
-                <span>2.7 MAQUETAS CONCEPTUALES (MODELOS DE ESTUDIO)</span>
-                <i class="bi bi-lightbulb"></i>
-            </div>
             <div class="row g-4">
-                <div class="col-md-6">
-                    <p>Las maquetas de trabajo permiten experimentar con la volumetría de forma rápida y económica.</p>
+                <div class="col-md-7">
+                    <h4 class="fw-bold">Maquetas Conceptuales o de Croquis (2.7)</h4>
+                    <p>Son el primer contacto físico con la idea. Se utilizan materiales de desecho o fáciles de moldear como la <em>espuma de poliestireno</em> o el <em>cartón corrugado</em>. No buscan belleza, buscan <strong>espacialidad</strong>.</p>
                     <div class="row g-2">
-                        <div class="col-6"><img src="LIBRO/27a.png" class="img-maqueta" alt="Conc 1"></div>
-                        <div class="col-6"><img src="LIBRO/27b.png" class="img-maqueta" alt="Conc 2"></div>
+                        <div class="col-6"><img src="LIBRO/26a.png" class="img-fluid rounded border shadow-sm" alt="Conceptual 1"></div>
+                        <div class="col-6"><img src="LIBRO/26b.png" class="img-fluid rounded border shadow-sm" alt="Conceptual 2"></div>
+                        <div class="col-12 mt-2"><img src="LIBRO/26d.png" class="img-fluid rounded border shadow-sm" alt="Conceptual 3" style="max-height: 250px; width: 100%; object-fit: cover;"></div>
                     </div>
                 </div>
-                <div class="col-md-6">
-                    <div class="row g-2">
-                        <div class="col-4"><img src="LIBRO/28a.png" class="img-maqueta" alt="Conc 3"></div>
-                        <div class="col-4"><img src="LIBRO/28b.png" class="img-maqueta" alt="Conc 4"></div>
-                        <div class="col-4"><img src="LIBRO/29.png" class="img-maqueta" alt="Conc 5"></div>
+                <div class="col-md-5">
+                    <div class="card border-0 bg-white p-4 shadow-sm h-100">
+                        <h5 class="fw-bold text-primary">Modelos de Trabajo (2.8)</h5>
+                        <p class="small">Son evoluciones del concepto donde se prueban acabados y colores. Aquí es donde el arquitecto toma decisiones sobre la fachada final.</p>
+                        <img src="LIBRO/27a.png" class="img-fluid rounded mb-2" alt="Trabajo 1">
+                        <img src="LIBRO/27b.png" class="img-fluid rounded" alt="Trabajo 2">
                     </div>
                 </div>
             </div>
 
-            <div class="category-header mt-5">
-                <span>2.10 MODELADO DIGITAL Y TÉCNICAS MIXTAS</span>
-                <i class="bi bi-cpu"></i>
-            </div>
-            <div class="row g-3 mb-5">
-                <div class="col-md-2 col-4"><img src="LIBRO/210a.png" class="img-maqueta" alt="Digital 1"></div>
-                <div class="col-md-2 col-4"><img src="LIBRO/210b.png" class="img-maqueta" alt="Digital 2"></div>
-                <div class="col-md-2 col-4"><img src="LIBRO/211a.png" class="img-maqueta" alt="Digital 3"></div>
-                <div class="col-md-2 col-4"><img src="LIBRO/211b.png" class="img-maqueta" alt="Digital 4"></div>
-                <div class="col-md-2 col-4"><img src="LIBRO/212.png" class="img-maqueta" alt="Digital 5"></div>
-                <div class="col-md-2 col-4"><img src="LIBRO/213a.png" class="img-maqueta" alt="Digital 6"></div>
+            <div class="row mt-5">
+                <div class="col-md-6">
+                    <div class="anatomy-box h-100" style="border-left-color: #3498db;">
+                        <h4 class="fw-bold"><i class="bi bi-lightbulb"></i> Maquetas Dinámicas (2.9)</h4>
+                        <p>Modelos que incorporan partes móviles para simular techos retráctiles o flujos de circulación. La interacción es la clave.</p>
+                        <div class="row g-2">
+                            <div class="col-6"><img src="LIBRO/28a.png" class="img-fluid rounded" alt="Dinámica 1"></div>
+                            <div class="col-6"><img src="LIBRO/28b.png" class="img-fluid rounded" alt="Dinámica 2"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="anatomy-box h-100" style="border-left-color: #2ecc71;">
+                        <h4 class="fw-bold"><i class="bi bi-pc-display"></i> Modelado Virtual y BIM (2.10)</h4>
+                        <p>La digitalización total. Los modelos BIM permiten predecir colisiones estructurales antes de fabricar la maqueta física o el edificio real.</p>
+                        <img src="LIBRO/29.png" class="img-fluid rounded shadow-sm" alt="Digital" style="height: 180px; width: 100%; object-fit: cover;">
+                    </div>
+                </div>
             </div>
 
-            <div class="alert alert-custom shadow-sm p-4 mt-5">
-                <h5 class="fw-bold"><i class="bi bi-images me-2"></i> Galería de Referencia Adicional</h5>
-                <div class="row g-2 mt-3">
-                    <div class="col-md-2 col-4"><img src="LIBRO/213b.png" class="img-maqueta" alt="Ref"></div>
-                    <div class="col-md-2 col-4"><img src="LIBRO/214.png" class="img-maqueta" alt="Ref"></div>
-                    <div class="col-md-2 col-4"><img src="LIBRO/215.png" class="img-maqueta" alt="Ref"></div>
-                    <div class="col-md-2 col-4"><img src="LIBRO/216.png" class="img-maqueta" alt="Ref"></div>
-                    <div class="col-md-2 col-4"><img src="LIBRO/217a.png" class="img-maqueta" alt="Ref"></div>
-                    <div class="col-md-2 col-4"><img src="LIBRO/217b.png" class="img-maqueta" alt="Ref"></div>
-                    <div class="col-md-2 col-4"><img src="LIBRO/218a.png" class="img-maqueta" alt="Ref"></div>
-                    <div class="col-md-2 col-4"><img src="LIBRO/218b.png" class="img-maqueta" alt="Ref"></div>
-                </div>
+            <div class="category-header">
+                <span>CATÁLOGO VISUAL DE VARIANTES</span>
+                <i class="bi bi-images"></i>
+            </div>
+
+            <div class="gallery-grid">
+                <div class="gallery-item"><img src="LIBRO/210a.png" alt="G1"><span class="small d-block text-center">Topográficas</span></div>
+                <div class="gallery-item"><img src="LIBRO/210b.png" alt="G2"><span class="small d-block text-center">Niveles</span></div>
+                <div class="gallery-item"><img src="LIBRO/211a.png" alt="G3"><span class="small d-block text-center">Fachadas</span></div>
+                <div class="gallery-item"><img src="LIBRO/211b.png" alt="G4"><span class="small d-block text-center">Mobiliario</span></div>
+                <div class="gallery-item"><img src="LIBRO/212.png" alt="G5"><span class="small d-block text-center">Detalle 1:5</span></div>
+                <div class="gallery-item"><img src="LIBRO/213a.png" alt="G6"><span class="small d-block text-center">Industrial</span></div>
+                <div class="gallery-item"><img src="LIBRO/213b.png" alt="G7"><span class="small d-block text-center">Efectos</span></div>
+                <div class="gallery-item"><img src="LIBRO/214.png" alt="G8"><span class="small d-block text-center">Ensambles</span></div>
+                <div class="gallery-item"><img src="LIBRO/215.png" alt="G9"><span class="small d-block text-center">Secciones</span></div>
+                <div class="gallery-item"><img src="LIBRO/216.png" alt="G10"><span class="small d-block text-center">Texturas</span></div>
+                <div class="gallery-item"><img src="LIBRO/217a.png" alt="G11"><span class="small d-block text-center">Interiores B</span></div>
+                <div class="gallery-item"><img src="LIBRO/217b.png" alt="G12"><span class="small d-block text-center">Vistas</span></div>
+                <div class="gallery-item"><img src="LIBRO/218a.png" alt="G13"><span class="small d-block text-center">Final A</span></div>
+                <div class="gallery-item"><img src="LIBRO/218b.png" alt="G14"><span class="small d-block text-center">Final B</span></div>
             </div>
 
             <nav class="mt-5 border-top pt-4">
                 <ul class="pagination justify-content-between">
-                    <li class="page-item"><a class="btn btn-outline-dark px-4" href="CAPITULO1.html"><i class="bi bi-arrow-left"></i> Anterior</a></li>
-                    <li class="page-item"><a class="btn btn-dark px-5 fw-bold" href="CAPITULO3.html">Capítulo III: Planos <i class="bi bi-arrow-right text-warning"></i></a></li>
+                    <li class="page-item">
+                        <a class="btn btn-outline-dark px-4 py-2" href="CAPITULO1.html">
+                            <i class="bi bi-arrow-left me-2"></i> Cap. I: Introducción
+                        </a>
+                    </li>
+                    <li class="page-item">
+                        <a class="btn btn-dark px-5 py-2 fw-bold" href="CAPITULO3.html">
+                            Capítulo III: Planos <i class="bi bi-arrow-right ms-2 text-warning"></i>
+                        </a>
+                    </li>
                 </ul>
             </nav>
         </main>
