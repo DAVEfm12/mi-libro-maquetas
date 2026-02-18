@@ -3,260 +3,89 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Capítulo IV - Materiales de Maquetería</title>
+    <title>Capítulo 4: Materiales - Guía Interactiva</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
-        :root {
-            --primary-dark: #2c3e50;
-            --accent-gold: #d4af37;
-            --paper-bg: #fdfaf6;
-            --section-border: #e9ecef;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f4f4f4;
-            color: #333;
-        }
-
-        /* Encabezado Estilo Catálogo */
-        .materials-header {
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1513519245088-0e12902e5a38?q=80&w=1000');
-            background-size: cover;
-            background-position: center;
-            color: white;
-            padding: 70px 0;
-            text-align: center;
-            border-bottom: 6px solid var(--accent-gold);
-        }
-
-        /* Sidebar de Categorías */
-        .category-nav {
-            position: sticky;
-            top: 20px;
-            background: white;
-            border-radius: 10px;
-            padding: 15px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        }
-
-        .category-nav .nav-link {
-            color: var(--primary-dark);
-            border-radius: 5px;
-            margin-bottom: 5px;
-            font-weight: 500;
-        }
-
-        .category-nav .nav-link:hover, .category-nav .nav-link.active {
-            background: var(--accent-gold);
-            color: white;
-        }
-
-        /* Tarjetas de Material */
-        .material-section {
-            background: white;
-            border-radius: 15px;
-            padding: 30px;
-            margin-bottom: 30px;
-            border-left: 6px solid var(--section-border);
-            transition: 0.3s;
-        }
-
-        .material-section:hover {
-            border-left-color: var(--accent-gold);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.05);
-        }
-
-        h2 { color: var(--primary-dark); font-weight: 700; margin-bottom: 20px; text-transform: uppercase; font-size: 1.5rem; }
-        h3 { color: #555; font-size: 1.2rem; margin-top: 20px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
-
-        /* Contenedores de Imagen */
-        .img-box {
-            background: #f8f9fa;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            padding: 10px;
-            margin: 15px 0;
-            text-align: center;
-        }
-        .img-box img { max-width: 100%; height: auto; border-radius: 4px; }
-        .img-caption { font-size: 0.8rem; color: #777; margin-top: 8px; font-style: italic; }
-
-        /* Badges Técnicos */
-        .tech-badge {
-            font-size: 0.75rem;
-            padding: 4px 10px;
-            border-radius: 20px;
-            background: #e1f5fe;
-            color: #01579b;
-            font-weight: bold;
-            display: inline-block;
-            margin-bottom: 10px;
-        }
-
-        .comparison-table { font-size: 0.9rem; }
+        :root { --arch-gold: #f1c40f; --arch-dark: #2c3e50; }
+        body { font-family: 'Open Sans', sans-serif; background-color: #f4f7f6; }
+        .material-card { border: none; border-radius: 15px; overflow: hidden; transition: 0.4s; background: white; }
+        .material-card:hover { transform: scale(1.05); box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
+        .badge-type { background-color: var(--arch-gold); color: var(--arch-dark); font-weight: bold; }
+        .header-section { background: var(--arch-dark); color: white; padding: 60px 0; clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%); }
     </style>
 </head>
 <body>
 
-    <header class="materials-header">
-        <div class="container">
-            <h5 style="letter-spacing: 4px;">CAPÍTULO IV</h5>
-            <h1 class="display-4 fw-bold">CATÁLOGO DE MATERIALES</h1>
-            <p class="lead">Propiedades, usos y aplicaciones técnicas en la construcción de modelos.</p>
-        </div>
-    </header>
+<header class="header-section text-center">
+    <div class="container">
+        <h1 class="display-4 fw-bold">CAPÍTULO IV: MATERIALES</h1>
+        [cite_start]<p class="lead">La esencia física de tu proyecto [cite: 5]</p>
+    </div>
+</header>
 
-    <div class="container mt-5">
-        <div class="row">
-            <aside class="col-lg-3 mb-4">
-                <div class="category-nav">
-                    <h6 class="text-muted text-uppercase mb-3 px-2">Categorías</h6>
-                    <nav class="nav flex-column">
-                        <a class="nav-link" href="#4.1">Papeles y Cartones</a>
-                        <a class="nav-link" href="#4.4">Espumas y Rígidos</a>
-                        <a class="nav-link" href="#4.5">Moldeables</a>
-                        <a class="nav-link" href="#4.6">Maderas</a>
-                        <a class="nav-link" href="#4.7">Vidrios y Acetatos</a>
-                        <a class="nav-link" href="#4.11">Metales</a>
-                        <a class="nav-link" href="#4.14">Pinturas y Adhesivos</a>
-                    </nav>
+<div class="container my-5">
+    <div class="row g-4">
+        <div class="col-md-4">
+            <div class="card material-card h-100 shadow-sm">
+                <div class="card-body">
+                    <span class="badge badge-type mb-2">RECOMENDADO</span>
+                    <h5 class="card-title fw-bold">Papel Ilustración (4.1.1)</h5>
+                    [cite_start]<p class="card-text text-muted">Es el más suave, rígido y recomendado para elaborar maquetas debido a su facilidad de adquisición y precio medio[cite: 5].</p>
                 </div>
-            </aside>
+            </div>
+        </div>
 
-            <div class="col-lg-9">
+        <div class="col-md-4">
+            <div class="card material-card h-100 shadow-sm">
+                <div class="card-body">
+                    <span class="badge badge-type mb-2">VERSÁTIL</span>
+                    <h5 class="card-title fw-bold">Cartulinas (4.2)</h5>
+                    <p class="card-text text-muted">Disponibles en múltiples colores. [cite_start]La negra se usa para techos y usos rígidos, mientras la blanca es ideal para moldes y figuras[cite: 5].</p>
+                </div>
+            </div>
+        </div>
 
-                <section id="4.1" class="material-section">
-                    <h2>4.1 Papeles Técnicos</h2>
-                    <p>La base fundamental de la maquetería tradicional. Se recomienda por su versatilidad y costo.</p>
-                    
-                    <div class="row">
-                        <div class="col-md-4">
-                            <div class="p-3 border rounded text-center mb-3">
-                                <h6>Ilustración</h6>
-                                <span class="tech-badge">Recomendado</span>
-                                <p class="small">Suave, rígido y fácil de conseguir. El equilibrio perfecto calidad-precio.</p>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="p-3 border rounded text-center mb-3">
-                                <h6>Batería</h6>
-                                <span class="tech-badge">Uso Profesional</span>
-                                <p class="small">Variedad en texturas y colores. Ideal para acabados finos.</p>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="p-3 border rounded text-center mb-3">
-                                <h6>Cascarón</h6>
-                                <span class="tech-badge">Económico</span>
-                                <p class="small">Muy rígido, pero frágil al doblez (tiende a quebrarse).</p>
-                            </div>
-                        </div>
-                    </div>
+        <div class="col-md-4">
+            <div class="card material-card h-100 shadow-sm">
+                <div class="card-body">
+                    <span class="badge badge-type mb-2">VOLUMEN</span>
+                    <h5 class="card-title fw-bold">Espuma Rígida (4.4)</h5>
+                    [cite_start]<p class="card-text text-muted">Ideal para recortar volúmenes en maquetas de urbanismo y conceptos especiales de diseño[cite: 5].</p>
+                </div>
+            </div>
+        </div>
 
-                    <div class="img-box">
-                        <img src="/home/ceeci/Imágenes/LIBRO/l69.png" alt="Muestras de Papel">
-                        <div class="img-caption">Imagen 4.1: Cartulinas y papeles comunes en maquetería.</div>
-                    </div>
-                </section>
+        <div class="col-md-6">
+            <div class="card material-card h-100 shadow-sm border-start border-warning border-5">
+                <div class="card-body">
+                    <h5 class="card-title fw-bold"><i class="fas fa-hand-paper me-2"></i>Materiales Moldeables (4.5)</h5>
+                    <p>La <strong>plastilina</strong> y la <strong>arcilla</strong> son totalmente moldeables y reciclables. [cite_start]Se usan para terrenos o correcciones rápidas[cite: 5].</p>
+                    [cite_start]<small class="text-info">Tip profesional: Usa <strong>cola blanca</strong> para endurecer y dar brillo a la plastilina[cite: 6].</small>
+                </div>
+            </div>
+        </div>
 
-                <section id="4.5" class="material-section">
-                    <h2>4.5 Materiales Moldeables</h2>
-                    <p>Ideales para terrenos, detalles orgánicos o correcciones plásticas.</p>
-                    
-                    <h3>4.5.1 Plastilina</h3>
-                    <p>Material maleable e impermeable. Permite lucir piezas detalladas. <br>
-                    <strong>Tip:</strong> Usar <em>Cola Blanca</em> (Secc 4.17) para endurecer y dar brillo final.</p>
-                    
-                    <div class="img-box">
-                        <img src="/home/ceeci/Imágenes/LIBRO/l71.png" alt="Plastilina">
-                        <div class="img-caption">Imagen 4.4: Variedad de plastilinas comerciales.</div>
-                    </div>
-                </section>
-
-                <section id="4.6" class="material-section">
-                    <h2>4.6 Maderas y Tableros</h2>
-                    <p>Elemento sólido obtenido de árboles, esencial para bases y estructuras.</p>
+        <div class="col-md-6">
+            <div class="card material-card h-100 shadow-sm border-start border-dark border-5">
+                <div class="card-body">
+                    <h5 class="card-title fw-bold"><i class="fas fa-vial me-2"></i>Pegamentos (4.16)</h5>
                     <ul>
-                        <li><strong>Madera Maciza:</strong> Preferible en tonos claros para facilitar el pintado.</li>
-                        <li><strong>Aglomerados/MDF:</strong> Formados por virutas y colas; ideales para bases de apoyo estables.</li>
+                        [cite_start]<li><strong>Superglue-3:</strong> Gran resistencia para plásticos y metales[cite: 6].</li>
+                        [cite_start]<li><strong>Pegamento Universal:</strong> Secado rápido y transparente[cite: 6].</li>
+                        [cite_start]<li><strong>Esmalte en Aerosol:</strong> Para acabados brillantes en plastilina[cite: 6].</li>
                     </ul>
-                    <div class="img-box">
-                        <img src="/home/ceeci/Imágenes/LIBRO/l72.png" alt="Muestras de Madera">
-                        <div class="img-caption">Imagen 4.6: Muestras de colores y texturas de madera.</div>
-                    </div>
-                </section>
-
-                <section id="4.11" class="material-section">
-                    <h2>4.11 Metales y Alambres</h2>
-                    <div class="row">
-                        <div class="col-md-7">
-                            <p>Utilizados para reproducir estructuras metálicas, fachadas o efectos especiales de ingeniería.</p>
-                            <ul>
-                                <li><strong>Alambre Quemado:</strong> Flexible y rígido; ideal para armaduras (ej. Torre Eiffel).</li>
-                                <li><strong>Cobre:</strong> Extraordinaria ductilidad; se usa en cercas y detalles que requieren curvas.</li>
-                                <li><strong>Aluminio:</strong> Ligero pero quebradizo si se dobla en exceso; solo para tramos cortos.</li>
-                            </ul>
-                        </div>
-                        <div class="col-md-5">
-                            <div class="img-box">
-                                <img src="/home/ceeci/Imágenes/LIBRO/l75.png" alt="Alambre">
-                                <div class="img-caption">Imagen 4.11: Alambre recocido/quemado.</div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <section id="4.14" class="material-section" style="background-color: #fff9f9;">
-                    <h2>4.16 Adhesivos y Acabados</h2>
-                    <div class="table-responsive">
-                        <table class="table table-sm comparison-table">
-                            <thead>
-                                <tr>
-                                    <th>Tipo</th>
-                                    <th>Aplicación Principal</th>
-                                    <th>Propiedad</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><strong>SuperGlue-3</strong></td>
-                                    <td>Plásticos, metales, cerámica</td>
-                                    <td>Secado en segundos</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Pegamento Universal</strong></td>
-                                    <td>Uso general en papel y madera</td>
-                                    <td>Transparente y flexible</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Cola Blanca</strong></td>
-                                    <td>Sellado de plastilina</td>
-                                    <td>Endurece y da brillo</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Esmalte Aerosol</strong></td>
-                                    <td>Acabado final</td>
-                                    <td>Protección y estética</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="img-box bg-white">
-                        <img src="/home/ceeci/Imágenes/LIBRO/l78.png" alt="Adhesivos">
-                        <div class="img-caption">Imagen 4.19: Esmalte en aerosol transparente.</div>
-                    </div>
-                </section>
-
-                <div class="d-flex justify-content-between my-5">
-                    <a href="CAPITULO3.html" class="btn btn-outline-secondary btn-lg">← Capítulo III</a>
-                    <a href="CAPITULO5.html" class="btn btn-primary btn-lg">Capítulo V: Herramientas →</a>
                 </div>
             </div>
         </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <div class="text-center mt-5">
+        <a href="CAPITULO3.html" class="btn btn-outline-secondary me-2">Anterior</a>
+        <a href="CAPITULO5.html" class="btn btn-warning fw-bold px-5">CAPÍTULO V: HERRAMIENTAS</a>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
