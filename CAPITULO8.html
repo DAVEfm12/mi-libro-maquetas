@@ -3,326 +3,117 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Manual de Maquetería - Fase de Ejecución</title>
+    <title>Capítulo 8: Elaboración de la Maqueta - Taller Práctico</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <style>
-        :root {
-            --architect-blue: #1a5f7a;
-            --detail-gold: #c5a059;
-            --wood-base: #d2b48c;
-            --paper-white: #ffffff;
-            --text-main: #2c3e50;
+        :root { --arch-primary: #2c3e50; --arch-accent: #f1c40f; }
+        body { font-family: 'Open Sans', sans-serif; background-color: #f8f9fa; color: #333; }
+        
+        /* Estilo de Línea de Tiempo para Elaboración */
+        .timeline { border-left: 3px solid var(--arch-accent); position: relative; padding-left: 30px; margin: 20px 0; }
+        .timeline-item { position: relative; margin-bottom: 40px; }
+        .timeline-item::before { 
+            content: ""; position: absolute; left: -38px; top: 5px; 
+            width: 15px; height: 15px; background: var(--arch-primary); 
+            border: 3px solid var(--arch-accent); border-radius: 50%; 
         }
-
-        body {
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            background-color: #f0f2f5;
-            color: var(--text-main);
-            scroll-behavior: smooth;
-        }
-
-        /* Hero Header */
-        .header-execution {
-            background: linear-gradient(rgba(26, 95, 122, 0.85), rgba(26, 95, 122, 0.85)), url('https://images.unsplash.com/photo-1503387762-592dea58ef23?auto=format&fit=crop&q=80&w=1500');
-            background-size: cover;
-            background-position: center;
-            color: white;
-            padding: 60px 0;
-            border-bottom: 8px solid var(--detail-gold);
-        }
-
-        /* Sidebar Navigation */
-        .nav-sidebar {
-            position: sticky;
-            top: 20px;
-            z-index: 100;
-        }
-
-        .list-group-item.active {
-            background-color: var(--architect-blue);
-            border-color: var(--architect-blue);
-        }
-
-        /* Cards */
-        .execution-card {
-            background: white;
-            border-radius: 12px;
-            padding: 35px;
-            margin-bottom: 40px;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
-            border-left: 6px solid var(--architect-blue);
-        }
-
-        /* Formulas & Data */
-        .data-box {
-            background: #f8f9fa;
-            border: 2px dashed #cbd5e0;
-            padding: 20px;
-            border-radius: 8px;
-            margin: 15px 0;
-        }
-
-        .formula-text {
-            font-family: 'Courier New', monospace;
-            font-weight: bold;
-            color: var(--architect-blue);
-        }
-
-        /* Image Placeholders */
-        .img-container {
-            background: #e2e8f0;
-            border-radius: 8px;
-            padding: 10px;
-            text-align: center;
-            margin: 20px 0;
-        }
-
-        .img-container img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 4px;
-        }
-
-        .img-caption {
-            font-size: 0.85rem;
-            color: #64748b;
-            margin-top: 8px;
-            font-style: italic;
-        }
-
-        /* Specific Highlights */
-        .pro-tip {
-            background-color: #fff9e6;
-            border-left: 5px solid #f6ad55;
-            padding: 15px;
-            margin: 20px 0;
-        }
-
-        .btn-architect {
-            background-color: var(--architect-blue);
-            color: white;
-            border: none;
-        }
-
-        .btn-architect:hover {
-            background-color: #14495e;
-            color: white;
-        }
+        
+        .step-card { border: none; border-radius: 10px; transition: 0.3s; background: white; }
+        .step-card:hover { transform: translateX(10px); box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        .bg-workshop { background: linear-gradient(rgba(44, 62, 80, 0.9), rgba(44, 62, 80, 0.9)), url('https://images.unsplash.com/photo-1503387762-592dea58ef23?auto=format&fit=crop&q=80&w=1000'); background-size: cover; color: white; padding: 60px 0; }
+        .instruction-tag { font-size: 0.8rem; font-weight: bold; text-transform: uppercase; color: var(--arch-accent); }
     </style>
 </head>
 <body>
 
-    <header class="header-execution text-center">
-        <div class="container">
-            <h5 class="text-uppercase fw-light" style="letter-spacing: 4px;">Fase Técnica III</h5>
-            <h1 class="display-3 fw-bold">TRAZADO, CORTE Y ENSAMBLE</h1>
-            <p class="lead">Manual procedimental para muros, bardas y acabados profesionales.</p>
-        </div>
-    </header>
+<header class="bg-workshop text-center">
+    <div class="container">
+        <span class="badge bg-warning text-dark mb-2">MÓDULO PRÁCTICO</span>
+        <h1 class="display-4 fw-bold">CAPÍTULO VIII: ELABORACIÓN</h1>
+        <p class="lead">Del plano a la realidad física: Paso a paso en el taller.</p>
+    </div>
+</header>
 
-    <div class="container mt-5">
-        <div class="row">
-            
-            <aside class="col-lg-3">
-                <div class="nav-sidebar">
-                    <div class="list-group shadow-sm">
-                        <a href="#trazado-b" class="list-group-item list-group-item-action active">
-                            <i class="bi bi-pencil-ruler me-2"></i>Trazado Barda B y C
-                        </a>
-                        <a href="#muro-e" class="list-group-item list-group-item-action">
-                            <i class="bi bi-bricks me-2"></i>Muro E y Fachada
-                        </a>
-                        <a href="#procedimiento-corte" class="list-group-item list-group-item-action">
-                            <i class="bi bi-scissors me-2"></i>Técnica de Corte
-                        </a>
-                        <a href="#limado" class="list-group-item list-group-item-action">
-                            <i class="bi bi-tools me-2"></i>Acabado y Limado
-                        </a>
-                        <a href="#ensamble" class="list-group-item list-group-item-action">
-                            <i class="bi bi-box me-2"></i>Ensamble Final
-                        </a>
+<div class="container my-5">
+    <div class="row">
+        <div class="col-lg-8">
+            <h3 class="mb-4"><i class="bi bi-tools me-2"></i>Pasos de Construcción</h3>
+            <div class="timeline">
+                
+                <div class="timeline-item">
+                    <div class="card step-card shadow-sm">
+                        <div class="card-body">
+                            <span class="instruction-tag">Fase 1: Preparación (8.1)</span>
+                            <h5 class="card-title mt-1">Limpieza y Marcado</h5>
+                            <p class="card-text text-muted">Antes de iniciar, se debe limpiar la superficie de trabajo. El primer paso es trazar los planos sobre el material base (papel ilustración o cartón) usando escuadras para asegurar ángulos de 90°.</p>
+                        </div>
                     </div>
                 </div>
-            </aside>
 
-            <div class="col-lg-9">
-
-                <section id="trazado-b" class="execution-card">
-                    <h2 class="mb-4"><i class="bi bi-1-circle-fill me-2"></i> Trazado de Bardas Perimetrales</h2>
-                    
-                    <h3>Barda "B" (Eje E, 1-3)</h3>
-                    <p>En un rectángulo de <strong>39.00 cm x 5.50 cm</strong>, realizamos los siguientes trazos:</p>
-                    <div class="data-box">
-                        <ul>
-                            <li><strong>Lado Derecho:</strong> Medir 6.70 cm (de derecha a izquierda).</li>
-                            <li><strong>Lado Izquierdo:</strong> Medir 11.70 cm (de izquierda a derecha).</li>
-                            <li><strong>Nota:</strong> Los 11.70 cm surgen de (2.50m + 2.00m = 4.50m). Aplicando escala 1:40 -> 11.25 cm. <strong>Aumentamos 4mm por quiebres</strong> = 11.70 cm.</li>
-                        </ul>
-                    </div>
-                    
-                    <h3>Barda "C"</h3>
-                    <p>Longitud total: <strong>23.20 cm</strong>. Desglose de tramos:</p>
-                    <table class="table table-sm table-bordered">
-                        <thead class="table-light">
-                            <tr><th>Tramo</th><th>Medida Real</th><th>Medida 1:40</th></tr>
-                        </thead>
-                        <tbody>
-                            <tr><td>L1 (Patio)</td><td>5.35 m</td><td>13.40 cm</td></tr>
-                            <tr><td>L2 (Suma)</td><td>2.00 m</td><td>5.00 cm</td></tr>
-                            <tr><td>L3 (Muro)</td><td>1.00 m</td><td>2.50 cm</td></tr>
-                            <tr><td>L4 (Puerta)</td><td>0.90 m</td><td>2.30 cm</td></tr>
-                        </tbody>
-                    </table>
-
-                    <div class="img-container">
-                        <img src="https://via.placeholder.com/600x200?text=Detalle+de+Trazado+Barda+C" alt="Detalle Barda C" onerror="this.src='https://placehold.co/600x200/1a5f7a/white?text=[ESPACIO+IMAGEN+1.114:+DETALLE+BARDA+C]'">
-                        <div class="img-caption">Imagen 1.114 Detalle de las medidas de la barda “C”.</div>
-                    </div>
-                </section>
-
-                <section id="muro-e" class="execution-card">
-                    <h2 class="mb-4"><i class="bi bi-2-circle-fill me-2"></i> Muro "E" y Fachada Principal</h2>
-                    <p>Ubicación: Eje C, coordenadas 5-6.</p>
-                    
-                    <div class="pro-tip">
-                        <strong>Procedimiento para Altura:</strong> No se especifica altura exacta en cortes, es arbitraria. Proyectamos aproximadamente 3.00 m reales.
-                        <div class="formula-text mt-2">3.00 m x 100 / 40 = 7.50 cm de altura.</div>
-                    </div>
-
-                    <h3>Muro "D" (C-D, Eje 6)</h3>
-                    <p>Se compone de 4 piezas. Dibujamos un rectángulo de <strong>6.20 cm x 5.50 cm</strong>.</p>
-                    <ul>
-                        <li>Secciones: 0.80 cm (ancho) + 2.30 cm (largo) + 0.80 cm + 2.30 cm.</li>
-                    </ul>
-                </section>
-
-                <section id="procedimiento-corte" class="execution-card">
-                    <h2 class="mb-4"><i class="bi bi-3-circle-fill me-2"></i> Procedimiento de Corte</h2>
-                    
-                    <div class="row">
-                        <div class="col-md-6">
-                            <h5>Herramientas:</h5>
-                            <ul>
-                                <li>Exacto (Cúter) con cuchilla nueva.</li>
-                                <li>Regla de acero o aluminio (Nunca plástico).</li>
-                                <li>Base de madera.</li>
-                            </ul>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="img-container">
-                                
-                                <div class="img-caption">Sujeción correcta del exacto (Imagen 1.137)</div>
+                <div class="timeline-item">
+                    <div class="card step-card shadow-sm">
+                        <div class="card-body">
+                            <span class="instruction-tag">Fase 2: Corte (8.3)</span>
+                            <h5 class="card-title mt-1">Técnica de Corte de Precisión</h5>
+                            <p class="card-text text-muted">Utilice el cúter con una inclinación de 45°. No intente cortar todo el grosor de una sola vez; pase la cuchilla suavemente varias veces.</p>
+                            <div class="alert alert-light border-start border-warning py-2 small">
+                                <strong>Nota del Autor:</strong> Mantenga siempre los dedos alejados de la trayectoria de la regla.
                             </div>
                         </div>
                     </div>
+                </div>
 
-                    <div class="pro-tip">
-                        <h5>Reglas de Oro del Corte:</h5>
-                        <ol>
-                            <li><strong>Pasadas ligeras:</strong> El primer corte es solo para marcar el camino.</li>
-                            <li><strong>Semicortes:</strong> En puertas, cortar 3 lados y el 4to por detrás (bisagra).</li>
-                            <li><strong>Seguridad:</strong> Dedo índice en la punta, pulgar horizontal al costado.</li>
-                        </ol>
-                    </div>
-                </section>
-
-                <section id="limado" class="execution-card">
-                    <h2 class="mb-4"><i class="bi bi-4-circle-fill me-2"></i> Acabado y Limado Profesional</h2>
-                    <p>Para evitar malos acabados y "crestas" en las uniones.</p>
-                    
-                    <div class="row text-center">
-                        <div class="col-md-6">
-                            <div class="p-3 border rounded">
-                                <span class="fw-bold">1. Lima Gruesa</span><br>
-                                Para rebajar bordes toscos.
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="p-3 border rounded">
-                                <span class="fw-bold">2. Lima Fina</span><br>
-                                Para suavizar y detallar.
-                            </div>
+                <div class="timeline-item">
+                    <div class="card step-card shadow-sm">
+                        <div class="card-body">
+                            <span class="instruction-tag">Fase 3: Ensamblaje (8.5)</span>
+                            <h5 class="card-title mt-1">Unión de Elementos</h5>
+                            <p class="card-text text-muted">Aplique pegamento en los bordes. Para muros de 90°, utilice "escuadras de apoyo" temporales para mantener la verticalidad mientras seca el adhesivo.</p>
                         </div>
                     </div>
-
-                    <div class="data-box mt-3">
-                        <p><i class="bi bi-exclamation-triangle-fill me-2"></i> <strong>Importante:</strong> Limar a 45° o 90°. Soplar constantemente los residuos para no tapar la lima ni rayar la pieza.</p>
-                    </div>
-
-                    <div class="img-container">
-                        
-                        <div class="img-caption">Limado de muros internos y externos (Imagen 1.206)</div>
-                    </div>
-                </section>
-
-                <section id="ensamble" class="execution-card">
-                    <h2 class="mb-4"><i class="bi bi-5-circle-fill me-2"></i> Ensamble General de la Maqueta</h2>
-                    
-                    <div class="accordion" id="accordionMethods">
-                        <div class="accordion-item">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#method1">
-                                    Método A: Por Partes (Detallado)
-                                </button>
-                            </h2>
-                            <div id="method1" class="accordion-collapse collapse show">
-                                <div class="accordion-body">
-                                    Ideal para maquetas con muchos quiebres y detalles interiores.
-                                    <ol>
-                                        <li>Ubicar escuadras de apoyo (90°).</li>
-                                        <li>Situar Fachada Principal (Eje 5, A-E).</li>
-                                        <li>Colocar Fachadas Laterales y Posterior.</li>
-                                        <li>Insertar muros internos (Ejes 4, C, 3-4, D).</li>
-                                        <li>Cerrar con Losa y base de tinaco.</li>
-                                    </ol>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#method2">
-                                    Método B: Por Conjunto (Rápido)
-                                </button>
-                            </h2>
-                            <div id="method2" class="accordion-collapse collapse">
-                                <div class="accordion-body">
-                                    Para maquetas de presentación rápida o conceptuales. Se ensamblan las piezas unidas o grupos de fachadas de forma eficiente.
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="img-container mt-4">
-                        
-                        <div class="img-caption">Ensamble total de la maqueta (Imagen 1.226)</div>
-                    </div>
-
-                    <div class="bg-dark text-white p-4 rounded mt-4">
-                        <h4>Recordatorio Final:</h4>
-                        <ul>
-                            <li>Decorar/Pintar muros internos <strong>antes</strong> de pegar definitivamente.</li>
-                            <li>Asegurar escuadras perfectas en esquinas.</li>
-                            <li>No desanimarse si las primeras uniones no son exactas; se corrigen con acabados.</li>
-                        </ul>
-                    </div>
-                </section>
-
-                <div class="d-flex justify-content-between my-5">
-                    <a href="CAPITULO7.html" class="btn btn-architect btn-lg">Anterior:LAS ESCALAS </a>
-                    <a href="CAPITULO9.html" class="btn btn-architect btn-lg">Siguiente: Acabados Finales →</a>
                 </div>
 
             </div>
         </div>
+
+        <div class="col-lg-4">
+            <div class="card border-primary mb-4 shadow">
+                <div class="card-header bg-primary text-white fw-bold">8.7 ACABADOS FINALES</div>
+                <div class="card-body bg-light">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item d-flex align-items-center">
+                            <i class="bi bi-check-circle-fill text-success me-2"></i>
+                            Lijado de bordes ásperos.
+                        </li>
+                        <li class="list-group-item d-flex align-items-center">
+                            <i class="bi bi-check-circle-fill text-success me-2"></i>
+                            Aplicación de texturas (pastos, gravas).
+                        </li>
+                        <li class="list-group-item d-flex align-items-center">
+                            <i class="bi bi-check-circle-fill text-success me-2"></i>
+                            Pintura y sellado de superficies.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="p-4 rounded shadow-sm text-center" style="background-color: #e9ecef;">
+                <h6><strong>¿Necesitas Vegetación?</strong></h6>
+                <p class="small">En el siguiente capítulo aprenderemos a crear árboles y arbustos realistas.</p>
+                <i class="bi bi-tree-fill display-1 text-success"></i>
+            </div>
+        </div>
     </div>
 
-    <footer class="bg-dark text-white py-4 mt-5">
-        <div class="container text-center">
-            <p class="mb-0 small text-uppercase">Manual Técnico de Maquetería Profesional &copy; 2026</p>
+    <div class="row mt-5">
+        <div class="col-12 d-flex justify-content-between">
+            <a href="CAPITULO5.html" class="btn btn-dark px-4"><i class="bi bi-arrow-left"></i> Anterior</a>
+            <a href="CAPITULO9.html" class="btn btn-warning px-5 fw-bold">IR A VEGETACIÓN (CAP. IX) <i class="bi bi-arrow-right"></i></a>
         </div>
-    </footer>
+    </div>
+</div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
