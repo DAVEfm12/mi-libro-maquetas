@@ -3,68 +3,153 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Capítulo 3: Interpretación de Planos</title>
+    <title>Capítulo 3: Interpretación de Planos - Colección Dorada</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
     <style>
-        body { background: #ffffff; color: #333; }
-        .blueprint-section { border: 1px dashed #2c3e50; padding: 20px; border-radius: 10px; background: #f8f9fa; }
-        .blueprint-icon { font-size: 2.5rem; color: #2c3e50; }
-        .step-number { background: #2c3e50; color: #f1c40f; width: 40px; height: 40px; display: inline-flex; align-items: center; justify-content: center; border-radius: 50%; font-weight: bold; margin-right: 10px; }
+        :root {
+            --sidebar-dark: #1a252f;
+            --accent-gold: #f1c40f;
+            --blueprint-blue: #2c3e50;
+        }
+
+        body { font-family: 'Open Sans', sans-serif; background-color: #fcfcfc; color: #333; }
+        h1, h2, h3, .sidebar-header { font-family: 'Montserrat', sans-serif; font-weight: 700; }
+
+        /* Sidebar Persistente */
+        .sidebar { background: var(--sidebar-dark); color: white; min-height: 100vh; position: sticky; top: 0; }
+        .sidebar-header { color: var(--accent-gold); padding: 25px 15px; text-transform: uppercase; letter-spacing: 1px; border-bottom: 1px solid rgba(255,255,255,0.1); font-size: 0.9rem; }
+        .nav-link { color: #95a5a6; padding: 12px 20px; transition: 0.3s; border-left: 4px solid transparent; font-size: 0.9rem; }
+        .nav-link:hover { color: var(--accent-gold); background: rgba(255,255,255,0.05); }
+        .nav-link.active { color: var(--accent-gold); background: rgba(241, 196, 15, 0.1); border-left: 4px solid var(--accent-gold); font-weight: 600; }
+
+        /* Secciones Técnicas */
+        .blueprint-section { border: 1px dashed var(--blueprint-blue); padding: 30px; border-radius: 12px; background: #ffffff; position: relative; overflow: hidden; }
+        .step-number { background: var(--blueprint-blue); color: var(--accent-gold); width: 45px; height: 45px; display: inline-flex; align-items: center; justify-content: center; border-radius: 50%; font-weight: bold; margin-bottom: 15px; font-family: 'Montserrat'; }
+        
+        /* Contenedores de Imágenes */
+        .img-placeholder {
+            background: #eef2f7; border: 2px dashed #cbd5e0; border-radius: 8px;
+            margin: 20px 0; min-height: 220px; display: flex;
+            align-items: center; justify-content: center; flex-direction: column;
+            color: #718096; font-size: 0.85rem; text-align: center; padding: 20px;
+        }
+        .img-caption { font-size: 0.75rem; font-weight: bold; color: var(--blueprint-blue); margin-top: 10px; text-transform: uppercase; }
+
+        .main-content { padding: 50px; }
+        .badge-tech { background: var(--accent-gold); color: #000; padding: 5px 15px; border-radius: 20px; font-size: 0.7rem; font-weight: bold; }
     </style>
 </head>
 <body>
 
-<div class="container py-5">
-    <header class="text-center mb-5">
-        <h1 class="fw-bold display-4">CAPÍTULO III: INTERPRETACIÓN DE PLANOS</h1>
-        <p class="text-uppercase text-warning fw-bold">El Lenguaje de la Maqueta</p>
-    </header>
-
-    <div class="row mb-5">
-        <div class="col-lg-8 mx-auto">
-            <p class="lead">Antes de cortar el primer material, debemos "leer" la obra. La maqueta es el complemento perfecto que subordina al dibujo para evitar errores de interpretación[cite: 5, 12].</p>
-        </div>
-    </div>
-
-    <div class="row g-4">
-        <div class="col-md-6">
-            <div class="blueprint-section h-100 shadow-sm">
-                <h4><span class="step-number">01</span> Plantas Arquitectónicas (3.1)</h4>
-                <p>Es la base fundamental. Representa la distribución horizontal del terreno y los muros internos. Es donde "nace" la maqueta.</p>
-                <ul class="small">
-                    <li>Muestra el garaje, patios y fachadas[cite: 13].</li>
-                    <li>Define las coordenadas para ubicar cada muro[cite: 16].</li>
-                </ul>
+<div class="container-fluid">
+    <div class="row">
+        <nav class="col-md-3 col-lg-2 d-md-block sidebar shadow">
+            <div class="sidebar-header text-center">
+                <i class="bi bi-vector-pen me-2"></i> Colección Dorada
             </div>
-        </div>
+            <ul class="nav flex-column mt-3">
+                <li class="nav-item"><a class="nav-link" href="CAPITULO1.html"><i class="bi bi-bookmark-fill me-2"></i> Cap. I: Introducción</a></li>
+                <li class="nav-item"><a class="nav-link" href="CAPITULO2.html"><i class="bi bi-building me-2"></i> Cap. II: Tipos de Maqueta</a></li>
+                <li class="nav-item"><a class="nav-link active" href="CAPITULO3.html"><i class="bi bi-map-fill me-2"></i> Cap. III: Interpretación de Planos</a></li>
+                <li class="nav-item"><a class="nav-link" href="CAPITULO4.html"><i class="bi bi-box-seam-fill me-2"></i> Cap. IV: Materiales</a></li>
+                <li class="nav-item"><a class="nav-link" href="CAPITULO5.html"><i class="bi bi-tools me-2"></i> Cap. V: Herramientas</a></li>
+                <li class="nav-item"><a class="nav-link" href="CAPITULO6.html"><i class="bi bi-bounding-box me-2"></i> Cap. VI: Geometría</a></li>
+                <li class="nav-item"><a class="nav-link" href="CAPITULO7.html"><i class="bi bi-cash-stack me-2"></i> Cap. VII: Presupuesto</a></li>
+                <li class="nav-item"><a class="nav-link" href="CAPITULO8.html"><i class="bi bi-hammer me-2"></i> Cap. VIII: Taller</a></li>
+                <li class="nav-item"><a class="nav-link" href="CAPITULO9.html"><i class="bi bi-tree-fill me-2"></i> Cap. IX: Vegetación</a></li>
+                <li class="nav-item"><a class="nav-link" href="CAPITULO10.html"><i class="bi bi-person-walking me-2"></i> Cap. X: Escala Humana</a></li>
+                <li class="nav-item mt-4"><a class="nav-link text-warning" href="index.html"><i class="bi bi-house-door-fill me-2"></i> VOLVER AL INICIO</a></li>
+            </ul>
+        </nav>
 
-        <div class="col-md-6">
-            <div class="blueprint-section h-100 shadow-sm">
-                <h4><span class="step-number">02</span> Fachadas y Alzados (3.2 / 3.4)</h4>
-                <p>Nos dan la altura y el diseño exterior de la obra.</p>
-                <div class="btn-group w-100 mt-2">
-                    <button class="btn btn-outline-dark btn-sm">Principal</button>
-                    <button class="btn btn-outline-dark btn-sm">Posterior</button>
-                    <button class="btn btn-outline-dark btn-sm">Laterales</button>
+        <main class="col-md-9 ms-sm-auto col-lg-10 main-content">
+            <header class="mb-5 border-bottom pb-4">
+                <span class="badge-tech text-uppercase">Módulo de Lectura Técnica</span>
+                <h1 class="display-4 fw-bold mt-2">CAPÍTULO III: INTERPRETACIÓN DE PLANOS</h1>
+                <p class="lead text-muted">El plano es la partitura y el maquetista es el intérprete. Sin una lectura correcta, la maqueta carece de rigor técnico.</p>
+            </header>
+
+            <div class="row">
+                <div class="col-lg-8">
+                    <p class="mb-5">Antes de realizar el primer corte, el autor <strong>Ignacio López Torres</strong> enfatiza que la maqueta debe subordinar al dibujo para evitar errores. A continuación, los tres pilares de la lectura técnica:</p>
+
+                    <div class="blueprint-section shadow-sm mb-5">
+                        <div class="step-number">01</div>
+                        <h3 class="fw-bold">Plantas Arquitectónicas (3.1)</h3>
+                        <p>Representan el corte horizontal del edificio. Es aquí donde definimos la base de la maqueta, ubicando muros, accesos, garajes y áreas verdes.</p>
+                        
+                        <div class="img-placeholder">
+                            <i class="bi bi-image fs-1 mb-2"></i>
+                            <span>Sugerencia: Imagen de un plano de planta arquitectónica con cotas (medidas) visibles.</span>
+                            <div class="img-caption">Figura 3.1: Plano de distribución horizontal.</div>
+                        </div>
+                        
+                        <div class="alert alert-light border-start border-warning border-4 mt-3">
+                            <small><strong>Tip Técnico:</strong> Utiliza la planta para marcar las coordenadas exactas de tus muros sobre la base de cartón.</small>
+                        </div>
+                    </div>
+
+                    <div class="blueprint-section shadow-sm mb-5">
+                        <div class="step-number">02</div>
+                        <h3 class="fw-bold">Fachadas y Alzados (3.2)</h3>
+                        <p>Son las vistas exteriores. Nos indican las <strong>alturas totales</strong>, niveles de ventanas y el diseño de la piel del edificio. Se dividen en:</p>
+                        
+                        <div class="row mt-3 g-2 text-center">
+                            <div class="col-3"><div class="p-2 border rounded small bg-light">Principal</div></div>
+                            <div class="col-3"><div class="p-2 border rounded small bg-light">Posterior</div></div>
+                            <div class="col-3"><div class="p-2 border rounded small bg-light">Lateral Izq.</div></div>
+                            <div class="col-3"><div class="p-2 border rounded small bg-light">Lateral Der.</div></div>
+                        </div>
+
+                        <div class="img-placeholder mt-4">
+                            <i class="bi bi-image fs-1 mb-2"></i>
+                            <span>Sugerencia: Imagen de alzado frontal de una casa mostrando niveles de piso y techo.</span>
+                            <div class="img-caption">Figura 3.2: Alzado técnico para cálculo de alturas.</div>
+                        </div>
+                    </div>
+
+                    <div class="blueprint-section shadow-sm mb-5">
+                        <div class="step-number">03</div>
+                        <h3 class="fw-bold">Secciones y Vistas (3.3)</h3>
+                        <p>Cortes imaginarios verticales que permiten ver el "alma" de la estructura. Indispensables para maquetas estructurales donde se deben mostrar vigas, columnas o escaleras internas.</p>
+                        
+                        <div class="img-placeholder">
+                            <i class="bi bi-image fs-1 mb-2"></i>
+                            <span>Sugerencia: Imagen de un corte longitudinal que muestre el interior de un edificio.</span>
+                            <div class="img-caption">Figura 3.3: Sección transversal para detalle interno.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="card border-0 bg-dark text-white p-4 shadow mb-4">
+                        <h5 class="text-warning"><i class="bi bi-lightbulb"></i> La importancia del Lenguaje</h5>
+                        <hr class="border-secondary">
+                        <p class="small">Ignacio López Torres menciona que la maqueta es el complemento perfecto que permite detectar errores en el plano antes de llegar a la obra.</p>
+                    </div>
+
+                    <div class="img-placeholder" style="min-height: 400px; background: white; border: 1px solid #dee2e6;">
+                        <i class="bi bi-layers fs-1 mb-2 text-muted"></i>
+                        <span>Imagen vertical sugerida: Un maquetista midiendo un plano con un escalímetro sobre su mesa de trabajo.</span>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div class="col-md-12">
-            <div class="blueprint-section shadow-sm mt-4" style="border-left: 8px solid #2c3e50;">
-                <h4><span class="step-number">03</span> Secciones y Vistas (3.3)</h4>
-                <p>Cortes imaginarios que nos permiten ver el interior de la estructura, como vigas o columnas en maquetas detalladas[cite: 89, 7].</p>
-            </div>
-        </div>
-    </div>
-
-    <div class="mt-5 p-4 bg-light rounded text-center">
-        <h5>Próximo Paso: Selección de Materiales</h5>
-        <p>¿Papel ilustración o Cartón batería? Lo descubriremos en el Capítulo 4.</p>
-        <div class="d-flex justify-content-between">
-            <a href="CAPITULO2.html" class="btn btn-secondary">← Volver</a>
-            <a href="CAPITULO4.html" class="btn btn-warning px-5 fw-bold">IR AL CAPÍTULO IV</a>
-        </div>
+            <footer class="mt-5 border-top pt-4">
+                <div class="d-flex justify-content-between align-items-center">
+                    <a href="CAPITULO2.html" class="btn btn-outline-dark px-4"><i class="bi bi-arrow-left me-2"></i> Volver al Cap. II</a>
+                    <div class="text-center">
+                        <p class="mb-0 small text-muted">Progreso del Volumen I</p>
+                        <div class="progress mt-1" style="width: 150px; height: 8px;">
+                            <div class="progress-bar bg-warning" style="width: 30%"></div>
+                        </div>
+                    </div>
+                    <a href="CAPITULO4.html" class="btn btn-warning fw-bold px-4">Capítulo IV: Materiales <i class="bi bi-arrow-right ms-2"></i></a>
+                </div>
+            </footer>
+        </main>
     </div>
 </div>
 
