@@ -3,48 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Capítulo 8: Elaboración - Colección Dorada</title>
+    <title>Capítulo 9: Paisajismo - Colección Dorada</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
     <style>
         :root { 
-            --arch-primary: #2c3e50; 
+            --arch-primary: #1e3a34; /* Verde bosque profundo */
             --arch-accent: #f1c40f; 
-            --arch-dark: #1a252f;
+            --arch-dark: #0f1a18;
+            --nature-light: #ecf3f0;
         }
         
-        body { font-family: 'Open Sans', sans-serif; background-color: #f8f9fa; color: #333; }
+        body { font-family: 'Segoe UI', sans-serif; background-color: var(--nature-light); color: #333; }
         
-        /* Sidebar Unificado */
+        /* Sidebar Estilo Naturaleza */
         .sidebar { background: var(--arch-dark); color: white; min-height: 100vh; position: sticky; top: 0; z-index: 1000; }
-        .sidebar-header { color: var(--arch-accent); padding: 25px 15px; text-transform: uppercase; font-weight: 700; border-bottom: 1px solid rgba(255,255,255,0.1); font-size: 0.9rem; }
+        .sidebar-header { color: var(--arch-accent); padding: 25px 15px; text-transform: uppercase; font-weight: 700; border-bottom: 1px solid rgba(255,255,255,0.1); }
         .nav-link { color: #95a5a6; padding: 12px 20px; transition: 0.3s; border-left: 4px solid transparent; }
         .nav-link:hover { color: var(--arch-accent); background: rgba(255,255,255,0.05); }
-        .nav-link.active { color: var(--arch-accent); background: rgba(241, 196, 15, 0.1); border-left: 4px solid var(--arch-accent); font-weight: 600; }
+        .nav-link.active { color: var(--arch-accent); background: rgba(241, 196, 15, 0.1); border-left: 4px solid var(--arch-accent); }
 
-        /* Estilo de Línea de Tiempo */
-        .timeline { border-left: 3px solid var(--arch-accent); position: relative; padding-left: 30px; }
-        .timeline-item { position: relative; margin-bottom: 40px; }
-        .timeline-item::before { 
-            content: ""; position: absolute; left: -38px; top: 5px; 
-            width: 15px; height: 15px; background: var(--arch-primary); 
-            border: 3px solid var(--arch-accent); border-radius: 50%; 
-        }
-        
-        .step-card { border: none; border-radius: 12px; transition: 0.3s; background: white; border-bottom: 3px solid transparent; }
-        .step-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.08); border-bottom: 3px solid var(--arch-accent); }
-        
-        .bg-workshop { 
-            background: linear-gradient(rgba(44, 62, 80, 0.85), rgba(44, 62, 80, 0.85)), url('https://images.unsplash.com/photo-1503387762-592dea58ef23?auto=format&fit=crop&q=80&w=1000'); 
-            background-size: cover; color: white; padding: 50px 0; border-radius: 0 0 30px 30px;
+        /* Hero Paisajismo */
+        .bg-nature { 
+            background: linear-gradient(rgba(30, 58, 52, 0.8), rgba(30, 58, 52, 0.8)), url('https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&q=80&w=1200'); 
+            background-size: cover; color: white; padding: 70px 0; border-radius: 0 0 40px 40px;
         }
 
-        .img-container {
-            margin: 15px 0;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        }
+        .nature-card { border: none; border-radius: 15px; background: white; transition: 0.3s; height: 100%; }
+        .nature-card:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
+        
+        .botanical-badge { background: var(--arch-primary); color: var(--arch-accent); font-weight: bold; border-radius: 5px; padding: 5px 10px; font-size: 0.8rem; }
     </style>
 </head>
 <body>
@@ -53,117 +41,96 @@
     <div class="row">
         <nav class="col-md-3 col-lg-2 d-md-block sidebar shadow">
             <div class="sidebar-header text-center">
-                <i class="bi bi-hammer me-2"></i> Colección Dorada
+                <i class="bi bi-tree me-2"></i> Colección Dorada
             </div>
             <ul class="nav flex-column mt-3">
-                <li class="nav-item"><a class="nav-link" href="CAPITULO1.html"><i class="bi bi-bookmark-fill me-2"></i> Cap. I: Introducción</a></li>
-                <li class="nav-item"><a class="nav-link" href="CAPITULO2.html"><i class="bi bi-building me-2"></i> Cap. II: Tipos</a></li>
-                <li class="nav-item"><a class="nav-link" href="CAPITULO3.html"><i class="bi bi-map-fill me-2"></i> Cap. III: Planos</a></li>
-                <li class="nav-item"><a class="nav-link" href="CAPITULO4.html"><i class="bi bi-box-seam-fill me-2"></i> Cap. IV: Materiales</a></li>
-                <li class="nav-item"><a class="nav-link" href="CAPITULO5.html"><i class="bi bi-tools me-2"></i> Cap. V: Herramientas</a></li>
-                <li class="nav-item"><a class="nav-link" href="CAPITULO6.html"><i class="bi bi-bounding-box me-2"></i> Cap. VI: Geometría</a></li>
-                <li class="nav-item"><a class="nav-link" href="CAPITULO7.html"><i class="bi bi-cash-stack me-2"></i> Cap. VII: Presupuesto</a></li>
-                <li class="nav-item"><a class="nav-link active" href="CAPITULO8.html"><i class="bi bi-hammer me-2"></i> Cap. VIII: Taller</a></li>
-                <li class="nav-item"><a class="nav-link" href="CAPITULO9.html"><i class="bi bi-tree-fill me-2"></i> Cap. IX: Vegetación</a></li>
+                <li class="nav-item"><a class="nav-link" href="CAPITULO8.html"><i class="bi bi-hammer me-2"></i> Cap. VIII: Taller</a></li>
+                <li class="nav-item"><a class="nav-link active" href="CAPITULO9.html"><i class="bi bi-tree-fill me-2"></i> Cap. IX: Vegetación</a></li>
                 <li class="nav-item"><a class="nav-link" href="CAPITULO10.html"><i class="bi bi-person-walking me-2"></i> Cap. X: Escala Humana</a></li>
             </ul>
         </nav>
 
         <main class="col-md-9 ms-sm-auto col-lg-10 p-0">
-            <header class="bg-workshop text-center shadow">
+            <header class="bg-nature text-center shadow">
                 <div class="container">
-                    <span class="badge bg-warning text-dark mb-2 px-3">MÓDULO PRÁCTICO</span>
-                    <h1 class="display-5 fw-bold text-uppercase">Capítulo VIII: Elaboración</h1>
-                    <p class="lead opacity-90">La transformación de los planos en volúmenes arquitectónicos.</p>
+                    <span class="badge bg-success mb-2 px-3">MÓDULO AMBIENTAL</span>
+                    <h1 class="display-4 fw-bold">Capítulo IX: Vegetación y Paisaje</h1>
+                    <p class="lead opacity-90">Dando vida y contexto al entorno arquitectónico.</p>
                 </div>
             </header>
 
             <div class="container my-5 px-4">
-                <div class="row">
-                    <div class="col-lg-8">
-                        <h3 class="mb-4 fw-bold"><i class="bi bi-list-columns-reverse me-2 text-primary"></i>Secuencia Técnica de Trabajo</h3>
-                        
-                        <div class="timeline">
-                            <div class="timeline-item">
-                                <div class="card step-card shadow-sm">
-                                    <div class="card-body">
-                                        <div class="d-flex justify-content-between align-items-start">
-                                            <h5 class="fw-bold">8.1 Preparación y Trazado</h5>
-                                            <span class="badge rounded-pill bg-light text-dark border">Paso 01</span>
-                                        </div>
-                                        <p class="small text-muted">Limpia tu área de trabajo con alcohol para evitar manchas en el papel ilustración. Traza los muros usando un lápiz 2H de punta fina para no manchar el material.</p>
-                                        <div class="img-container">
-                                            
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                <div class="row g-4">
+                    <div class="col-md-12 mb-4">
+                        <h3 class="fw-bold border-bottom pb-2"><i class="bi bi-flower1 me-2 text-success"></i>Tipologías de Vegetación</h3>
+                        <p class="text-muted">La vegetación debe responder a la escala y el estilo de la maqueta.</p>
+                    </div>
 
-                            <div class="timeline-item">
-                                <div class="card step-card shadow-sm">
-                                    <div class="card-body">
-                                        <div class="d-flex justify-content-between align-items-start">
-                                            <h5 class="fw-bold">8.3 El Arte del Corte Preciso</h5>
-                                            <span class="badge rounded-pill bg-light text-dark border">Paso 02</span>
-                                        </div>
-                                        <p class="small text-muted">Inclina el cúter a 45°. Realiza tres pasadas: la primera marca la ruta, la segunda corta la fibra y la tercera desprende la pieza.</p>
-                                        <div class="img-container">
-                                            
-                                        </div>
-                                        <div class="p-2 bg-warning bg-opacity-10 border-start border-warning rounded-end mt-2">
-                                            <small><i class="bi bi-shield-exclamation text-warning me-1"></i> <strong>Seguridad:</strong> "Mantén siempre los dedos detrás de la regla metálica", advierte López Torres.</small>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="timeline-item">
-                                <div class="card step-card shadow-sm">
-                                    <div class="card-body">
-                                        <div class="d-flex justify-content-between align-items-start">
-                                            <h5 class="fw-bold">8.5 Ensamblaje y Escuadrado</h5>
-                                            <span class="badge rounded-pill bg-light text-dark border">Paso 03</span>
-                                        </div>
-                                        <p class="small text-muted">Usa pegamento universal en capa delgada. Emplea bloques de madera o escuadras de soporte para asegurar que los muros queden perfectamente verticales.</p>
-                                        <div class="img-container">
-                                            
-                                        </div>
-                                    </div>
-                                </div>
+                    <div class="col-md-4">
+                        <div class="card nature-card shadow-sm">
+                            <div class="card-body">
+                                <span class="botanical-badge mb-3 d-inline-block">SINTÉTICO</span>
+                                <h5 class="fw-bold">Árboles Esquemáticos</h5>
+                                <p class="small text-muted">Ideales para maquetas monocromáticas o de estudio. Se usan esferas de madera, alambre tensado o piezas de cartón entrelazadas.</p>
+                                
                             </div>
                         </div>
                     </div>
 
-                    <div class="col-lg-4">
-                        <div class="card border-primary mb-4 shadow-sm">
-                            <div class="card-header bg-primary text-white fw-bold py-3">
-                                <i class="bi bi-stars me-2"></i>8.7 ACABADOS FINALES
-                            </div>
-                            <div class="card-body bg-white text-center">
-                                <ul class="list-group list-group-flush small text-start">
-                                    <li class="list-group-item"><i class="bi bi-dot text-primary fs-4"></i> <strong>Lijado:</strong> Elimina las rebabas de cartón en las esquinas.</li>
-                                    <li class="list-group-item"><i class="bi bi-dot text-primary fs-4"></i> <strong>Sellado:</strong> Protege los bordes expuestos del papel.</li>
-                                    <li class="list-group-item"><i class="bi bi-dot text-primary fs-4"></i> <strong>Texturizado:</strong> Aplicación de pintura mate o aerosoles.</li>
-                                </ul>
-                                <div class="img-container mt-3">
-                                    
-                                </div>
+                    <div class="col-md-4">
+                        <div class="card nature-card shadow-sm">
+                            <div class="card-body">
+                                <span class="botanical-badge mb-3 d-inline-block">REALISTA</span>
+                                <h5 class="fw-bold">Árboles de Textura</h5>
+                                <p class="small text-muted">Utilizan alambre de cobre para el tronco y esponja triturada (flock) o musgo preservado para el follaje.</p>
+                                
                             </div>
                         </div>
+                    </div>
 
-                        <div class="card bg-dark text-white p-4 shadow-sm text-center border-0 overflow-hidden" style="border-radius: 15px;">
-                            <h6 class="fw-bold mb-3">PRÓXIMO NIVEL</h6>
-                            <i class="bi bi-tree-fill display-3 text-success mb-3"></i>
-                            <p class="small">¿Tu maqueta se ve vacía? El <strong>Capítulo IX</strong> te enseñará a crear vegetación realista con materiales reciclados.</p>
-                            <a href="CAPITULO9.html" class="btn btn-warning btn-sm fw-bold">Ver Vegetación</a>
+                    <div class="col-md-4">
+                        <div class="card nature-card shadow-sm">
+                            <div class="card-body">
+                                <span class="botanical-badge mb-3 d-inline-block">TERRENO</span>
+                                <h5 class="fw-bold">Pastos y Suelos</h5>
+                                <p class="small text-muted">Aplicación de aserrín teñido, arena fina o polvos electrostáticos para simular diferentes texturas de suelo.</p>
+                                
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-8 mt-5">
+                        <div class="p-4 bg-white rounded-4 shadow-sm">
+                            <h4 class="fw-bold mb-4">Proceso de Fabricación: El Árbol de Alambre</h4>
+                            <ol class="small text-secondary">
+                                <li class="mb-3"><strong>Estructura:</strong> Corta 10 hilos de alambre de cobre, trénzalos para formar el tronco y separa las puntas para crear las ramas primarias y raíces.</li>
+                                <li class="mb-3"><strong>Imprimación:</strong> Cubre el alambre con una mezcla de pegamento blanco y aserrín fino para dar textura de corteza. Pinta de color ocre o gris oscuro.</li>
+                                <li class="mb-3"><strong>Follaje:</strong> Aplica adhesivo en spray en las puntas de las ramas y sumérgelas en "flock" (esponja triturada teñida).</li>
+                            </ol>
+                            <div class="alert alert-info border-0 bg-light-subtle">
+                                <small><i class="bi bi-info-circle-fill me-2"></i><strong>Tip de Experto:</strong> Nunca uses verde puro de fábrica. Mezcla diferentes tonos de verde y café para obtener un aspecto orgánico y natural.</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 mt-5">
+                        <div class="card bg-primary text-white border-0 rounded-4">
+                            <div class="card-body p-4">
+                                <h5 class="fw-bold mb-3"><i class="bi bi-box-seam me-2"></i>Materiales "Low Cost"</h5>
+                                <ul class="list-unstyled small">
+                                    <li class="mb-2"><i class="bi bi-check2-circle me-2 text-warning"></i><strong>Estropajo (Luffa):</strong> Excelente para arbustos densos.</li>
+                                    <li class="mb-2"><i class="bi bi-check2-circle me-2 text-warning"></i><strong>Pimentón/Orégano:</strong> Para simular hojas secas en el suelo.</li>
+                                    <li class="mb-2"><i class="bi bi-check2-circle me-2 text-warning"></i><strong>Alambre de amarre:</strong> Estructuras flexibles.</li>
+                                    <li class="mb-2"><i class="bi bi-check2-circle me-2 text-warning"></i><strong>Aserrín:</strong> La base del pasto económico.</li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 <div class="d-flex justify-content-between mt-5 pt-4 border-top">
-                    <a href="CAPITULO7.html" class="btn btn-outline-dark px-4 shadow-sm"><i class="bi bi-arrow-left me-2"></i> Anterior</a>
-                    <div class="text-center text-muted small">Módulo VIII: Construcción Física</div>
-                    <a href="CAPITULO9.html" class="btn btn-warning px-5 fw-bold shadow">SIGUIENTE: CAP. IX <i class="bi bi-arrow-right ms-2"></i></a>
+                    <a href="CAPITULO 8.html" class="btn btn-outline-dark px-4 shadow-sm"><i class="bi bi-arrow-left me-2"></i> Anterior</a>
+                    <a href="CAPITULO10.html" class="btn btn-warning px-5 fw-bold shadow">SIGUIENTE: CAP. X <i class="bi bi-arrow-right ms-2"></i></a>
                 </div>
             </div>
         </main>
