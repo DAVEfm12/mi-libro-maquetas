@@ -5,34 +5,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Capítulo 4: Materiales - Colección Dorada</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
     <style>
-        :root { --arch-gold: #f1c40f; --arch-dark: #1a252f; --bg-light: #f4f7f6; }
-        body { font-family: 'Open Sans', sans-serif; background-color: var(--bg-light); }
-        
-        /* Sidebar Estilo Unificado */
-        .sidebar { background: var(--arch-dark); color: white; min-height: 100vh; position: sticky; top: 0; }
-        .sidebar-header { color: var(--arch-gold); padding: 25px 15px; text-transform: uppercase; font-weight: 700; border-bottom: 1px solid rgba(255,255,255,0.1); font-size: 0.9rem; }
-        .nav-link { color: #95a5a6; padding: 12px 20px; transition: 0.3s; border-left: 4px solid transparent; }
-        .nav-link:hover { color: var(--arch-gold); background: rgba(255,255,255,0.05); }
-        .nav-link.active { color: var(--arch-gold); background: rgba(241, 196, 15, 0.1); border-left: 4px solid var(--arch-gold); font-weight: 600; }
-
-        /* Estilo de Tarjetas de Materiales */
-        .material-card { border: none; border-radius: 15px; overflow: hidden; transition: 0.4s; background: white; height: 100%; }
-        .material-card:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
-        .badge-type { background-color: var(--arch-gold); color: var(--arch-dark); font-weight: bold; padding: 5px 12px; border-radius: 20px; font-size: 0.7rem; }
-        
-        /* Contenedores de Imágenes */
-        .img-placeholder {
-            background: #ebeef0; border: 2px dashed #cbd5e0; border-radius: 8px;
-            margin: 15px 0; min-height: 150px; display: flex;
-            align-items: center; justify-content: center; flex-direction: column;
-            color: #718096; font-size: 0.8rem; text-align: center; padding: 10px;
+        :root {
+            --sidebar-dark: #1a252f;
+            --accent-gold: #f1c40f;
+            --material-grey: #ecf0f1;
+            --text-dark: #2c3e50;
         }
 
-        .header-section { background: var(--arch-dark); color: white; padding: 40px 0; border-radius: 0 0 50px 0; margin-bottom: 30px; }
-        .main-content { padding: 0 30px 50px 30px; }
+        body { font-family: 'Open Sans', sans-serif; background-color: #f8f9fa; color: var(--text-dark); }
+        h1, h2, h3, .sidebar-header { font-family: 'Montserrat', sans-serif; font-weight: 700; }
+
+        /* Sidebar */
+        .sidebar { background: var(--sidebar-dark); color: white; min-height: 100vh; position: sticky; top: 0; }
+        .sidebar-header { color: var(--accent-gold); padding: 25px 15px; text-transform: uppercase; letter-spacing: 1px; border-bottom: 1px solid rgba(255,255,255,0.1); font-size: 0.9rem; }
+        .nav-link { color: #95a5a6; padding: 12px 20px; transition: 0.3s; border-left: 4px solid transparent; }
+        .nav-link:hover { color: var(--accent-gold); background: rgba(255,255,255,0.05); }
+        .nav-link.active { color: var(--accent-gold); background: rgba(241, 196, 15, 0.1); border-left: 4px solid var(--accent-gold); font-weight: 600; }
+
+        /* Secciones de Materiales */
+        .material-card { background: white; border-radius: 12px; border: none; transition: transform 0.3s; height: 100%; }
+        .material-card:hover { transform: translateY(-5px); }
+        .material-header { background: var(--sidebar-dark); color: var(--accent-gold); padding: 15px; border-radius: 12px 12px 0 0; }
+        
+        .img-placeholder-material {
+            background: #e9ecef; border: 2px dashed #dee2e6; border-radius: 8px;
+            min-height: 200px; display: flex; align-items: center; justify-content: center;
+            flex-direction: column; color: #adb5bd; margin: 15px 0; overflow: hidden;
+        }
+        .img-placeholder-material img { width: 100%; height: 100%; object-fit: cover; }
+
+        .badge-use { background: #e67e22; color: white; font-size: 0.7rem; padding: 4px 8px; border-radius: 4px; text-transform: uppercase; }
+        
+        .main-content { padding: 50px; }
+        .section-divider { border-left: 5px solid var(--accent-gold); padding-left: 20px; margin: 40px 0 25px 0; }
     </style>
 </head>
 <body>
@@ -44,116 +52,166 @@
                 <i class="bi bi-box-seam me-2"></i> Colección Dorada
             </div>
             <ul class="nav flex-column mt-3">
-                <li class="nav-item"><a class="nav-link" href="CAPITULO1.html"><i class="bi bi-bookmark-fill me-2"></i> Cap. I: Introducción</a></li>
-                <li class="nav-item"><a class="nav-link" href="CAPITULO2.html"><i class="bi bi-building me-2"></i> Cap. II: Tipos</a></li>
                 <li class="nav-item"><a class="nav-link" href="CAPITULO3.html"><i class="bi bi-map-fill me-2"></i> Cap. III: Planos</a></li>
                 <li class="nav-item"><a class="nav-link active" href="CAPITULO4.html"><i class="bi bi-box-seam-fill me-2"></i> Cap. IV: Materiales</a></li>
                 <li class="nav-item"><a class="nav-link" href="CAPITULO5.html"><i class="bi bi-tools me-2"></i> Cap. V: Herramientas</a></li>
-                <li class="nav-item"><a class="nav-link" href="CAPITULO6.html"><i class="bi bi-bounding-box me-2"></i> Cap. VI: Geometría</a></li>
-                <li class="nav-item"><a class="nav-link" href="CAPITULO7.html"><i class="bi bi-cash-stack me-2"></i> Cap. VII: Presupuesto</a></li>
-                <li class="nav-item"><a class="nav-link" href="CAPITULO8.html"><i class="bi bi-hammer me-2"></i> Cap. VIII: Taller</a></li>
-                <li class="nav-item"><a class="nav-link" href="CAPITULO9.html"><i class="bi bi-tree-fill me-2"></i> Cap. IX: Vegetación</a></li>
-                <li class="nav-item"><a class="nav-link" href="CAPITULO10.html"><i class="bi bi-person-walking me-2"></i> Cap. X: Escala Humana</a></li>
             </ul>
         </nav>
 
         <main class="col-md-9 ms-sm-auto col-lg-10 main-content">
-            <header class="header-section text-center shadow-sm">
-                <div class="container">
-                    <h1 class="display-5 fw-bold">CAPÍTULO IV: MATERIALES</h1>
-                    <p class="lead opacity-75">La esencia física y táctil de tu proyecto arquitectónico.</p>
-                </div>
+            <header class="mb-5 border-bottom pb-4">
+                <span class="badge bg-warning text-dark text-uppercase fw-bold">Fase de Suministros</span>
+                <h1 class="display-4 fw-bold mt-2">CAPÍTULO IV: MATERIALES</h1>
+                <p class="lead text-muted">La elección del material define la textura, el peso visual y la durabilidad de la obra a escala.</p>
             </header>
 
-            <div class="row g-4">
-                <div class="col-md-4">
-                    <div class="card material-card shadow-sm">
-                        <div class="card-body">
-                            <span class="badge badge-type mb-2">RECOMENDADO</span>
-                            <h5 class="card-title fw-bold">Papel Ilustración (4.1.1)</h5>
-                            <div class="img-placeholder">
-                                <i class="bi bi-layers fs-2"></i>
-                                <span>Imagen de pliegos de papel ilustración</span>
+            <section id="papel">
+                <div class="section-divider">
+                    <h2 class="fw-bold">4.1 Papel: Ilustración, Cascarón y Batería</h2>
+                </div>
+                <div class="row g-4">
+                    <div class="col-md-4">
+                        <div class="card material-card shadow-sm">
+                            <div class="p-3">
+                                <span class="badge-use">Recomendado</span>
+                                <h4 class="fw-bold mt-2">Papel Ilustración</h4>
+                                <p class="small text-muted">El más suave y rígido. Ideal para muros lisos y acabados premium. Fácil de conseguir y de precio medio.</p>
                             </div>
-                            <p class="card-text text-muted small">Es el material más equilibrado: suave para el acabado, rígido para la estructura y económico.</p>
                         </div>
                     </div>
-                </div>
-
-                <div class="col-md-4">
-                    <div class="card material-card shadow-sm">
-                        <div class="card-body">
-                            <span class="badge badge-type mb-2">VERSÁTIL</span>
-                            <h5 class="card-title fw-bold">Cartulinas (4.2)</h5>
-                            <div class="img-placeholder">
-                                <i class="bi bi-palette fs-2"></i>
-                                <span>Imagen de muestrario de cartulinas de colores</span>
+                    <div class="col-md-4">
+                        <div class="card material-card shadow-sm border-warning">
+                            <div class="p-3">
+                                <span class="badge-use">Económico</span>
+                                <h4 class="fw-bold mt-2">Papel Cascarón</h4>
+                                <p class="small text-muted">Textura rugosa característica. Muy rígido pero con tendencia a quebrarse si no se corta con precisión.</p>
                             </div>
-                            <p class="card-text text-muted small">La negra es ideal para techos; la blanca para moldes y figuras geométricas base.</p>
                         </div>
                     </div>
-                </div>
-
-                <div class="col-md-4">
-                    <div class="card material-card shadow-sm">
-                        <div class="card-body">
-                            <span class="badge badge-type mb-2">VOLUMEN</span>
-                            <h5 class="card-title fw-bold">Espuma Rígida (4.4)</h5>
-                            <div class="img-placeholder">
-                                <i class="bi bi-box fs-2"></i>
-                                <span>Imagen de bloque de espuma o foam board</span>
-                            </div>
-                            <p class="card-text text-muted small">Fundamental para maquetas de urbanismo y representación de masas de edificios.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-6">
-                    <div class="card material-card shadow-sm border-start border-warning border-5">
-                        <div class="card-body">
-                            <h5 class="card-title fw-bold"><i class="fas fa-hand-paper me-2 text-warning"></i>Materiales Moldeables (4.5)</h5>
-                            <p class="small">La <strong>plastilina</strong> y la <strong>arcilla</strong> permiten correcciones rápidas y creación de terrenos orgánicos.</p>
-                            <div class="img-placeholder" style="min-height: 100px;">
-                                <span>Imagen de modelado en arcilla o plastilina</span>
-                            </div>
-                            <div class="p-2 bg-light rounded border border-warning">
-                                <small class="text-dark"><i class="bi bi-lightbulb-fill text-warning"></i> <strong>Tip:</strong> Aplica cola blanca sobre la plastilina para endurecerla y darle brillo.</small>
+                    <div class="col-md-4">
+                        <div class="card material-card shadow-sm">
+                            <div class="p-3">
+                                <span class="badge-use">Técnico</span>
+                                <h4 class="fw-bold mt-2">Papel Batería</h4>
+                                <p class="small text-muted">Similar al ilustración pero con variaciones en color y textura porosa. Favorito para maquetas de estudio.</p>
                             </div>
                         </div>
                     </div>
                 </div>
+            </section>
 
-                <div class="col-md-6">
-                    <div class="card material-card shadow-sm border-start border-dark border-5">
-                        <div class="card-body">
-                            <h5 class="card-title fw-bold"><i class="fas fa-vial me-2"></i>Pegamentos y Adhesivos (4.16)</h5>
-                            <div class="row">
-                                <div class="col-6">
-                                    <ul class="small ps-3">
-                                        <li><strong>Superglue-3:</strong> Plásticos y metales.</li>
-                                        <li><strong>Pegamento Universal:</strong> Secado rápido.</li>
-                                    </ul>
-                                </div>
-                                <div class="col-6">
-                                    <ul class="small ps-3">
-                                        <li><strong>Esmalte Aerosol:</strong> Acabados finales.</li>
-                                        <li><strong>Cola Blanca:</strong> Multiusos.</li>
-                                    </ul>
-                                </div>
+            <section class="mt-5">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="section-divider">
+                            <h3 class="fw-bold">4.2 Cartulina</h3>
+                        </div>
+                        <p>Puente entre el papel y el cartón (aprox. 70x50cm). La <strong>negra</strong> es vital para techos y la <strong>blanca</strong> para moldes de precisión.</p>
+                        <div class="img-placeholder-material">
+                            
+                            <div class="small p-2 text-center text-dark">Imagen 4.1: Variedad de cartulinas comerciales.</div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="section-divider">
+                            <h3 class="fw-bold">4.3 Cartón</h3>
+                        </div>
+                        <p>Elemento sólido de capas superpuestas. Disponible en perfiles técnicos B, C, E y F según su corrugado interno.</p>
+                        <div class="img-placeholder-material">
+                            
+                            <div class="small p-2 text-center text-dark">Imagen 4.2: Secciones de cartón corrugado.</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="mt-5 bg-white p-4 rounded shadow-sm">
+                <div class="section-divider">
+                    <h2 class="fw-bold">4.5 Materiales Moldeables</h2>
+                </div>
+                <div class="row align-items-center">
+                    <div class="col-md-7">
+                        <h4>4.5.1 Plastilina y Arcilla</h4>
+                        <p>La plastilina es esencial para detalles orgánicos debido a su maleabilidad. La arcilla (o barro) se utiliza para topografías y terrenos realistas.</p>
+                        <ul class="list-unstyled">
+                            <li><i class="bi bi-check-circle-fill text-warning me-2"></i><strong>Plastilina:</strong> Impermeable y de colores variados.</li>
+                            <li><i class="bi bi-check-circle-fill text-warning me-2"></i><strong>Arcilla:</strong> Base mineral (tierra), disponible en tonos rojizos y negros.</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="img-placeholder-material">
+                            
+                            <div class="small p-2 text-center text-dark">Imagen 4.4 y 4.5: Muestras de modelado.</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="mt-5">
+                <div class="section-divider">
+                    <h2 class="fw-bold">4.6 Madera</h2>
+                </div>
+                <div class="row g-3">
+                    <div class="col-md-3">
+                        <div class="p-3 border rounded text-center">
+                            <img src="https://via.placeholder.com/100x100?text=Haya" class="img-fluid rounded mb-2">
+                            <div class="fw-bold small">Madera de Haya</div>
+                        </div>
+                    </div>
+                    <div class="col-md-9">
+                        <p>Material noble por excelencia. Se clasifica en:</p>
+                        <table class="table table-sm table-hover">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th>Tipo</th>
+                                    <th>Uso Principal</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>Madera Maciza</td><td>Estructuras visibles y carpintería fina.</td></tr>
+                                <tr><td>Tableros Aglomerados</td><td>Bases de desplante de gran formato.</td></tr>
+                                <tr><td>Tableros de Resina</td><td>Mezcla sintética para alta resistencia.</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <section class="mt-5 mb-5">
+                <div class="section-divider">
+                    <h2 class="fw-bold">4.11 Metales y Alambres</h2>
+                </div>
+                <div class="row g-4">
+                    <div class="col-md-6">
+                        <div class="card h-100 border-0 shadow-sm bg-light">
+                            <div class="card-body">
+                                <h5 class="fw-bold"><i class="bi bi-reception-4 me-2"></i>Alambre Quemado</h5>
+                                <p class="small">Flexible pero rígido. El estándar para armaduras estructurales (como la Torre Eiffel a escala).</p>
+                                
                             </div>
-                            <div class="img-placeholder" style="min-height: 100px;">
-                                <span>Imagen de diferentes tipos de pegamentos</span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card h-100 border-0 shadow-sm bg-light">
+                            <div class="card-body">
+                                <h5 class="fw-bold text-danger"><i class="bi bi-lightning-charge me-2"></i>Cobre y Aluminio</h5>
+                                <p class="small">El cobre destaca por su ductilidad (cercas y rejas). El aluminio es ligero pero quebradizo al amarre.</p>
+                                
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </section>
 
-            <div class="d-flex justify-content-between align-items-center mt-5 pt-4 border-top">
-                <a href="CAPITULO3.html" class="btn btn-outline-dark px-4"><i class="bi bi-arrow-left"></i> Anterior</a>
-                <div class="text-center text-muted small">Página 4 de 10</div>
-                <a href="CAPITULO5.html" class="btn btn-warning fw-bold px-5 shadow-sm">Siguiente: HERRAMIENTAS <i class="bi bi-arrow-right"></i></a>
-            </div>
+            <footer class="mt-5 border-top pt-4 mb-5">
+                <div class="d-flex justify-content-between align-items-center">
+                    <a href="CAPITULO3.html" class="btn btn-outline-dark px-4"><i class="bi bi-arrow-left me-2"></i> Anterior: Planos</a>
+                    <div class="text-center d-none d-md-block">
+                        <p class="mb-0 small text-muted">Capítulo IV: Colección Dorada</p>
+                    </div>
+                    <a href="CAPITULO5.html" class="btn btn-warning fw-bold px-4">Capítulo V: Herramientas <i class="bi bi-arrow-right ms-2"></i></a>
+                </div>
+            </footer>
         </main>
     </div>
 </div>
