@@ -12,39 +12,36 @@
             --sidebar-dark: #1a252f;
             --accent-gold: #f1c40f;
             --blueprint-blue: #2c3e50;
-            --light-bg: #f8f9fa;
+            --light-bg: #fcfcfc;
         }
 
-        body { font-family: 'Open Sans', sans-serif; background-color: #fcfcfc; color: #333; }
+        body { font-family: 'Open Sans', sans-serif; background-color: var(--light-bg); color: #333; }
         h1, h2, h3, .sidebar-header { font-family: 'Montserrat', sans-serif; font-weight: 700; }
 
-        /* Sidebar */
-        .sidebar { background: var(--sidebar-dark); color: white; min-height: 100vh; position: sticky; top: 0; z-index: 100; }
+        /* Sidebar Estilo Global */
+        .sidebar { background: var(--sidebar-dark); color: white; min-height: 100vh; position: sticky; top: 0; }
         .sidebar-header { color: var(--accent-gold); padding: 25px 15px; text-transform: uppercase; letter-spacing: 1px; border-bottom: 1px solid rgba(255,255,255,0.1); font-size: 0.9rem; }
         .nav-link { color: #95a5a6; padding: 12px 20px; transition: 0.3s; border-left: 4px solid transparent; font-size: 0.85rem; }
         .nav-link:hover { color: var(--accent-gold); background: rgba(255,255,255,0.05); }
         .nav-link.active { color: var(--accent-gold); background: rgba(241, 196, 15, 0.1); border-left: 4px solid var(--accent-gold); font-weight: 600; }
 
-        /* Contenido de Planos */
+        /* Componentes de Contenido */
+        .main-content { padding: 40px; }
         .blueprint-section { border: 1px dashed var(--blueprint-blue); padding: 30px; border-radius: 12px; background: #ffffff; position: relative; margin-bottom: 40px; transition: 0.3s; }
-        .blueprint-section:hover { border-style: solid; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        .blueprint-section:hover { border-style: solid; box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
         
-        .step-number { background: var(--blueprint-blue); color: var(--accent-gold); width: 45px; height: 45px; display: inline-flex; align-items: center; justify-content: center; border-radius: 50%; font-weight: bold; margin-bottom: 15px; border: 2px solid var(--accent-gold); }
+        .step-number { background: var(--blueprint-blue); color: var(--accent-gold); width: 45px; height: 45px; display: inline-flex; align-items: center; justify-content: center; border-radius: 50%; font-weight: bold; margin-bottom: 15px; }
         
-        .img-box { border-radius: 8px; overflow: hidden; margin: 20px 0; border: 1px solid #ddd; background: #fff; box-shadow: 0 4px 6px rgba(0,0,0,0.02); }
+        .img-box { border-radius: 8px; overflow: hidden; margin: 20px 0; border: 1px solid #ddd; background: #fff; }
         .img-box img { width: 100%; height: auto; display: block; transition: transform 0.5s; }
         .img-box:hover img { transform: scale(1.02); }
         .img-caption { font-size: 0.75rem; font-weight: bold; color: var(--blueprint-blue); padding: 10px; text-align: center; text-transform: uppercase; background: #f8f9fa; border-top: 1px solid #ddd; }
 
-        .main-content { padding: 40px; }
-        .badge-tech { background: var(--accent-gold); color: #000; padding: 5px 15px; border-radius: 20px; font-size: 0.7rem; font-weight: bold; letter-spacing: 1px; }
+        .badge-tech { background: var(--accent-gold); color: #000; padding: 5px 15px; border-radius: 20px; font-size: 0.7rem; font-weight: bold; }
         
         .tech-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin-top: 20px; }
-        .tech-item { border: 1px solid #eee; border-radius: 8px; overflow: hidden; background: #fff; transition: 0.3s; }
-        .tech-item:hover { transform: translateY(-5px); box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        .tech-item { border: 1px solid #eee; border-radius: 8px; overflow: hidden; background: #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
         .tech-item img { width: 100%; height: 120px; object-fit: cover; }
-
-        .glossary-card { background: #f1f4f7; border-radius: 10px; padding: 20px; border-left: 5px solid var(--blueprint-blue); }
     </style>
 </head>
 <body>
@@ -66,7 +63,7 @@
                 <li class="nav-item"><a class="nav-link" href="CAPITULO8.html"><i class="bi bi-hammer me-2"></i> Cap. VIII: Taller</a></li>
                 <li class="nav-item"><a class="nav-link" href="CAPITULO9.html"><i class="bi bi-tree-fill me-2"></i> Cap. IX: Vegetación</a></li>
                 <li class="nav-item"><a class="nav-link" href="CAPITULO10.html"><i class="bi bi-person-walking me-2"></i> Cap. X: Escala Humana</a></li>
-                <li class="nav-item mt-4"><a class="nav-link text-warning" href="index.html"><i class="bi bi-house-door-fill me-2"></i> VOLVER AL INICIO</a></li>
+                <li class="nav-item mt-4"><a class="nav-link text-warning" href="index.html"><i class="bi bi-house-door-fill me-2"></i> INICIO</a></li>
             </ul>
         </nav>
 
@@ -74,136 +71,119 @@
             <header class="mb-5 border-bottom pb-4">
                 <span class="badge-tech text-uppercase">Módulo de Lectura Técnica</span>
                 <h1 class="display-4 fw-bold mt-2">CAPÍTULO III</h1>
-                <h2 class="text-muted h3">La Ciencia de la Interpretación de Planos</h2>
-                <p class="lead text-muted mt-3">El plano arquitectónico no es solo un dibujo; es un documento legal y técnico que contiene el ADN de la obra. En modelismo, aprender a leer "entre líneas" es la diferencia entre una escultura y una maqueta técnica profesional.</p>
+                <h2 class="text-muted">Interpretación de Planos</h2>
+                <p class="lead text-muted mt-3">El plano es la partitura y el maquetista es el intérprete. Sin una lectura correcta, el modelo pierde su valor como documento técnico.</p>
             </header>
 
             <div class="row">
                 <div class="col-lg-8">
-                    <p class="mb-4">Como bien establece <strong>Ignacio López Torres</strong>, la maqueta es la traducción tridimensional del lenguaje gráfico. Para lograr esta metamorfosis, el maquetista debe dominar tres proyecciones fundamentales que actúan como las coordenadas X, Y y Z de la realidad construida.</p>
+                    <p class="mb-4">Para el maquetista profesional, el dibujo técnico no es una sugerencia, sino una orden. <strong>Ignacio López Torres</strong> sostiene que la precisión de una maqueta depende de la capacidad del autor para decodificar la información bidimensional y proyectarla al espacio tridimensional.</p>
 
-                    <div class="blueprint-section shadow-sm" id="plantas">
+                    <div class="blueprint-section shadow-sm">
                         <div class="step-number">01</div>
                         <h3 class="fw-bold">Plantas Arquitectónicas (3.1)</h3>
-                        <p>La planta es una <strong>sección horizontal</strong> imaginaria realizada a 1.20 metros sobre el nivel del piso terminado ($N.P.T.$). En ella, el maquetista identifica:</p>
-                        <ul class="small text-muted">
-                            <li>Espesores de muros de carga y divisorios.</li>
-                            <li>Ubicación exacta de columnas y elementos estructurales.</li>
-                            <li>Sentido de apertura de vanos (puertas y ventanas).</li>
-                        </ul>
+                        <p>La planta es un corte horizontal (usualmente a 1.20m de altura) que nos permite entender la distribución espacial, el espesor de los muros y la ubicación de los vanos.</p>
                         
                         
-
+                        
                         <div class="img-box">
-                            <img src="LIBRO/31.png" alt="Planta Arquitectónica">
-                            <div class="img-caption">Figura 3.1: Plano de distribución horizontal y zonificación técnica.</div>
+                            <img src="LIBRO/31" alt="Planta Arquitectónica">
+                            <div class="img-caption">Figura 3.1: Plano de distribución horizontal y zonificación.</div>
                         </div>
                         
                         <div class="alert alert-light border-start border-warning border-4 mt-3">
-                            <i class="bi bi-exclamation-triangle-fill text-warning me-2"></i>
-                            <small><strong>Tip Crítico:</strong> Antes de cortar la base, verifica las <strong>cotas acumuladas</strong>. Los errores milimétricos en el dibujo pueden sumar centímetros de error en la maqueta real.</small>
+                            <small><strong>Tip de Verificación:</strong> Antes de cortar la base de tu maqueta, suma las cotas parciales para asegurar que coincidan con la cota total del plano.</small>
                         </div>
                     </div>
 
-                    <div class="blueprint-section shadow-sm" id="fachadas">
+                    <div class="blueprint-section shadow-sm">
                         <div class="step-number">02</div>
                         <h3 class="fw-bold">Fachadas y Alzados (3.2)</h3>
-                        <p>Los alzados son proyecciones ortogonales laterales. Son vitales para determinar la <strong>materialidad exterior</strong> y la proporción rítmica de los llenos y vacíos.</p>
+                        <p>Los alzados son proyecciones ortogonales que definen la "piel" del edificio. Son vitales para calcular la altura de los cortes en materiales como el cartón ilustración o el estireno.</p>
                         
                         <div class="row g-3">
                             <div class="col-md-6">
                                 <div class="img-box mt-0">
-                                    <img src="LIBRO/32.png" alt="Alzado Frontal">
-                                    <p class="p-2 small text-center mb-0">Elevación Norte</p>
+                                    <img src="LIBRO/32" alt="Fachada Principal">
+                                    <div class="img-caption">Fig 3.2: Elevación Frontal.</div>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="img-box mt-0">
-                                    <img src="LIBRO/33.png" alt="Alzado Lateral">
-                                    <p class="p-2 small text-center mb-0">Elevación Este</p>
+                                    <img src="LIBRO/33.png" alt="Fachada Lateral">
+                                    <div class="img-caption">Fig 3.3: Elevación Lateral.</div>
                                 </div>
                             </div>
                         </div>
-                        <div class="img-caption">Figura 3.2 y 3.3: Referencias de niveles para el cálculo de alturas de entrepiso y cerramientos.</div>
                     </div>
 
-                    <div class="blueprint-section shadow-sm" id="secciones">
+                    <div class="blueprint-section shadow-sm">
                         <div class="step-number">03</div>
-                        <h3 class="fw-bold">Secciones Transversales y Longitudinales (3.3)</h3>
-                        <p>Las secciones revelan lo que la fachada oculta: la complejidad interna, escaleras, dobles alturas y el sistema de techumbres.</p>
+                        <h3 class="fw-bold">Cortes y Secciones (3.3)</h3>
+                        <p>Revelan la estructura interna. En maquetas de sección, estos planos dictan dónde debemos "partir" el modelo para mostrar escaleras, dobles alturas y niveles de entrepiso.</p>
                         
                         
-
+                        
                         <div class="img-box">
                             <img src="LIBRO/34.png" alt="Sección Longitudinal">
+                            <div class="img-caption">Figura 3.4: Corte longitudinal para análisis de alturas internas.</div>
                         </div>
 
-                        <h5 class="mt-4 fw-bold"><i class="bi bi-zoom-in me-2"></i>Análisis de Detalles Constructivos (3.7)</h5>
-                        <p class="small text-muted">Cada unión representada en un plano de detalle dicta cómo deben encontrarse dos materiales en la maqueta (p.ej. vidrio vs. aluminio).</p>
+                        <h5 class="mt-4 fw-bold"><i class="bi bi-search me-2"></i>3.7 Catálogo de Detalles Constructivos</h5>
+                        <p class="small text-muted">La interpretación de uniones, tipos de carpintería y remates de azotea se extrae de esta serie de detalles:</p>
                         <div class="tech-grid">
-                            <div class="tech-item"><img src="LIBRO/37a.png" alt="Detalle A"></div>
-                            <div class="tech-item"><img src="LIBRO/37b.png" alt="Detalle B"></div>
-                            <div class="tech-item"><img src="LIBRO/37c.png" alt="Detalle C"></div>
-                            <div class="tech-item"><img src="LIBRO/37d.png" alt="Detalle D"></div>
-                            <div class="tech-item"><img src="LIBRO/37e.png" alt="Detalle E"></div>
-                            <div class="tech-item"><img src="LIBRO/37f.png" alt="Detalle F"></div>
+                            <div class="tech-item"><img src="LIBRO/37a" alt="Unión de Muro"></div>
+                            <div class="tech-item"><img src="LIBRO/37b.png" alt="Detalle de Ventana"></div>
+                            <div class="tech-item"><img src="LIBRO/37c" alt="Anclaje"></div>
+                            <div class="tech-item"><img src="LIBRO/37d" alt="Cimentación"></div>
+                            <div class="tech-item"><img src="LIBRO/37e.png" alt="Pretil"></div>
+                            <div class="tech-item"><img src="LIBRO/37f.png" alt="Acabado"></div>
                         </div>
-                        <div class="img-caption">Figura 3.7: Desglose de encuentros de materiales y especificaciones técnicas.</div>
+                        <div class="img-caption">Figura 3.7: Despiece técnico para acabados de alta precisión.</div>
                     </div>
                 </div>
 
                 <div class="col-lg-4">
-                    <div class="sticky-top" style="top: 20px;">
-                        <div class="card border-0 bg-dark text-white p-4 shadow mb-4">
-                            <h5 class="text-warning"><i class="bi bi-rulers me-2"></i>El Escalímetro: Tu Brújula</h5>
-                            <hr class="border-secondary">
-                            <div class="img-box bg-white">
-                                <img src="LIBRO/38.png" alt="Uso del escalímetro profesional">
-                            </div>
-                            <p class="small">El escalímetro permite leer directamente en escalas como $1:20$, $1:50$ o $1:100$ sin hacer cálculos matemáticos manuales, reduciendo el margen de error humano al mínimo.</p>
-                            <div class="bg-secondary bg-opacity-25 p-2 rounded">
-                                <code class="text-warning small">Fórmula de Escala:<br>E = Papel / Realidad</code>
-                            </div>
+                    <div class="card border-0 bg-dark text-white p-4 shadow mb-4">
+                        <h5 class="text-warning"><i class="bi bi-rulers me-2"></i>El Escalímetro (3.8)</h5>
+                        <hr class="border-secondary">
+                        <div class="img-box bg-white">
+                            <img src="LIBRO/38.png" alt="Uso del escalímetro">
                         </div>
+                        <p class="small">Instrumento de sección triangular cuya función es trasladar medidas reales a un tamaño manejable. <strong>Regla de oro:</strong> Nunca uses el escalímetro como regla para cortar con cúter; arruinarás su precisión.</p>
+                    </div>
 
-                        <div class="img-box">
-                            <img src="LIBRO/35.png" alt="Interpretación de cotas">
-                            <div class="img-caption">Fig 3.5: Jerarquía de Cotas (Parciales, Ejes y Totales).</div>
-                        </div>
+                    <div class="img-box shadow-sm">
+                        <img src="LIBRO/35" alt="Lectura de Cotas">
+                        <div class="img-caption">Fig 3.5: Jerarquía de cotas y ejes.</div>
+                    </div>
 
-                        <div class="glossary-card shadow-sm mb-4">
-                            <h6 class="fw-bold"><i class="bi bi-book me-2"></i>Glosario de Simbología</h6>
-                            <ul class="list-unstyled small mb-0">
-                                <li class="mb-2"><strong>N.P.T:</strong> Nivel de Piso Terminado.</li>
-                                <li class="mb-2"><strong>N.S.B:</strong> Nivel Superior de Banqueta.</li>
-                                <li class="mb-2"><strong>Cota:</strong> Medida numérica expresada en metros.</li>
-                                <li><strong>Ejes:</strong> Líneas guía que definen el centro de la estructura.</li>
-                            </ul>
-                        </div>
-
-                        <div class="img-box">
-                            <img src="LIBRO/36.png" alt="De Plano a Volumen">
-                            <div class="img-caption">Fig 3.6: Proceso de extrusión: Del dibujo 2D al volumen 3D.</div>
-                        </div>
+                    <div class="img-box shadow-sm">
+                        <img src="LIBRO/36.png" alt="Volumen Final">
+                        <div class="img-caption">Fig 3.6: Resultado de la interpretación: El volumen real.</div>
+                    </div>
+                    
+                    <div class="p-3 border rounded bg-white">
+                        <h6><i class="bi bi-check-circle-fill text-success me-2"></i>Lista de Revisión</h6>
+                        <ul class="list-unstyled small mb-0">
+                            <li><i class="bi bi-dot"></i> Orientación (Norte)</li>
+                            <li><i class="bi bi-dot"></i> Niveles de Piso Terminado (N.P.T.)</li>
+                            <li><i class="bi bi-dot"></i> Escala Gráfica vs. Numérica</li>
+                        </ul>
                     </div>
                 </div>
             </div>
 
             <footer class="mt-5 border-top pt-4">
                 <div class="d-flex justify-content-between align-items-center">
-                    <a href="CAPITULO2.html" class="btn btn-outline-dark px-4 shadow-sm">
-                        <i class="bi bi-arrow-left me-2"></i> Volver al Cap. II
-                    </a>
+                    <a href="CAPITULO2.html" class="btn btn-outline-dark px-4"><i class="bi bi-arrow-left me-2"></i> Anterior</a>
                     <div class="text-center d-none d-md-block">
-                        <p class="mb-0 small text-muted fw-bold text-uppercase">Fase de Planeación Técnica</p>
-                        <div class="progress mt-1" style="width: 200px; height: 10px; border-radius: 5px;">
-                            <div class="progress-bar progress-bar-striped progress-bar-animated bg-warning" style="width: 30%"></div>
+                        <p class="mb-0 small text-muted">Progreso del Manual</p>
+                        <div class="progress mt-1" style="width: 200px; height: 8px;">
+                            <div class="progress-bar bg-warning" style="width: 30%"></div>
                         </div>
-                        <small class="text-muted">30% del Volumen I completado</small>
                     </div>
-                    <a href="CAPITULO4.html" class="btn btn-warning fw-bold px-4 shadow">
-                        Capítulo IV: Materiales <i class="bi bi-arrow-right ms-2"></i>
-                    </a>
+                    <a href="CAPITULO4.html" class="btn btn-warning fw-bold px-4">Siguiente: Materiales <i class="bi bi-arrow-right ms-2"></i></a>
                 </div>
             </footer>
         </main>
