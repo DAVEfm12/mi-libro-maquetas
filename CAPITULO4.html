@@ -14,34 +14,27 @@
             --tech-blue: #34495e;
             --light-bg: #f8f9fa;
         }
-
         body { font-family: 'Open Sans', sans-serif; background-color: #ffffff; color: #333; }
         h1, h2, h3, h4, .sidebar-header { font-family: 'Montserrat', sans-serif; font-weight: 700; }
-
-        /* Sidebar Estilo */
         .sidebar { background: var(--sidebar-dark); color: white; min-height: 100vh; position: sticky; top: 0; }
         .sidebar-header { color: var(--accent-gold); padding: 25px 15px; text-transform: uppercase; letter-spacing: 1px; border-bottom: 1px solid rgba(255,255,255,0.1); font-size: 0.9rem; }
         .nav-link { color: #95a5a6; padding: 12px 20px; transition: 0.3s; border-left: 4px solid transparent; font-size: 0.85rem; }
         .nav-link:hover { color: var(--accent-gold); background: rgba(255,255,255,0.05); }
         .nav-link.active { color: var(--accent-gold); background: rgba(241, 196, 15, 0.1); border-left: 4px solid var(--accent-gold); font-weight: 600; }
-
-        /* Contenido */
         .main-content { padding: 40px; }
-        .material-card { border: 1px solid #e0e0e0; border-radius: 12px; transition: transform 0.3s; background: white; height: 100%; }
+        
+        /* Estilos de Imagen */
+        .img-material { width: 100%; height: 200px; object-fit: cover; border-bottom: 1px solid #eee; }
+        .material-card { border: 1px solid #e0e0e0; border-radius: 12px; transition: transform 0.3s; background: white; height: 100%; overflow: hidden; }
         .material-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
         
-        .img-placeholder {
-            background: #eef2f7; border-bottom: 1px solid #eee;
-            min-height: 200px; display: flex; align-items: center; justify-content: center;
-            flex-direction: column; color: #718096; text-align: center; padding: 15px;
-        }
-        
         .section-divider { border-left: 5px solid var(--accent-gold); padding-left: 15px; margin: 40px 0 20px 0; color: var(--tech-blue); }
-        .badge-cat { background: var(--tech-blue); color: white; font-size: 0.7rem; text-transform: uppercase; padding: 4px 10px; border-radius: 4px; }
-        
-        /* Progress Bar */
         .progress-container { position: fixed; top: 0; right: 0; width: 83.33%; height: 5px; background: transparent; z-index: 1000; }
         .progress-bar { height: 5px; background: var(--accent-gold); width: 40%; }
+        
+        .engargolado-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 15px; }
+        .engargolado-item { text-align: center; font-size: 0.75rem; font-weight: bold; }
+        .engargolado-item img { width: 100%; border-radius: 8px; border: 1px solid #ddd; }
     </style>
 </head>
 <body>
@@ -68,7 +61,7 @@
 
         <main class="col-md-9 ms-sm-auto col-lg-10 main-content">
             <div class="progress-container"><div class="progress-bar"></div></div>
-
+            
             <header class="mb-5">
                 <span class="badge bg-warning text-dark mb-2">VOLUMEN I</span>
                 <h1 class="display-3 fw-bold">CAPÍTULO IV</h1>
@@ -77,210 +70,130 @@
             </header>
 
             <section id="papel" class="mb-5">
-                <h3 class="section-divider">4.1 El Papel: Base de la Estructura</h3>
-                <p class="lead">Hojas fabricadas con sustancias vegetales molidas, fundamentales para la expresión técnica inicial.</p>
-                
-                <div class="row g-4 mt-2">
-                    <div class="col-md-4">
-                        <div class="material-card shadow-sm">
-                            <div class="img-placeholder">
-                                <i class="bi bi-file-earmark-text fs-1 mb-2"></i>
-                                <span>Imagen 4.1.1: Papel Ilustración</span>
-                            </div>
-                            <div class="p-3">
-                                <span class="badge-cat">Recomendado</span>
-                                <h5 class="mt-2">Ilustración</h5>
-                                <p class="small text-muted">Suave, rígido y fácil de conseguir. El estándar para maquetas profesionales por su relación calidad-precio.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="material-card shadow-sm">
-                            <div class="img-placeholder">
-                                <i class="bi bi-layers fs-1 mb-2"></i>
-                                <span>Imagen 4.1.2: Papel Batería</span>
-                            </div>
-                            <div class="p-3">
-                                <span class="badge-cat">Texturizado</span>
-                                <h5 class="mt-2">Batería</h5>
-                                <p class="small text-muted">Característico por su color hueso y textura porosa. Se profundizará en su uso en el Volumen II.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="material-card shadow-sm">
-                            <div class="img-placeholder">
-                                <i class="bi bi-grid-3x3 fs-1 mb-2"></i>
-                                <span>Imagen 4.1.3: Papel Cascarón</span>
-                            </div>
-                            <div class="p-3">
-                                <span class="badge-cat">Económico</span>
-                                <h5 class="mt-2">Cascarón</h5>
-                                <p class="small text-muted">El más accesible pero quebradizo. Requiere cortes precisos para evitar que se doble indeseadamente.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section id="cartulina" class="mb-5 bg-light p-4 rounded-4">
-                <div class="row align-items-center">
-                    <div class="col-md-6">
-                        <h3 class="section-divider">4.2 Cartulina</h3>
-                        <p>Puente entre el papel y el cartón (70.00 x 50.00 cm). Material versátil por su gama cromática.</p>
-                        <ul class="list-group list-group-flush bg-transparent">
-                            <li class="list-group-item bg-transparent"><i class="bi bi-check2-circle text-dark me-2"></i><strong>Negra:</strong> Techos y elementos de rigidez visual.</li>
-                            <li class="list-group-item bg-transparent"><i class="bi bi-check2-circle text-dark me-2"></i><strong>Blanca:</strong> Moldes, recortes y figuras base.</li>
-                            <li class="list-group-item bg-transparent"><i class="bi bi-check2-circle text-dark me-2"></i><strong>Fosforescente:</strong> Señalética y anuncios.</li>
-                        </ul>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="img-placeholder border rounded shadow-sm">
-                            <i class="bi bi-palette fs-1 mb-2"></i>
-                            <span>Imagen 4.1: Muestrario de Cartulinas</span>
-                            <small class="d-block mt-2">Cortesía de Papelería "Rocío"</small>
+                <h3 class="section-divider">4.1 - 4.3 Papel, Cartón y Cartulina</h3>
+                <div class="row g-4">
+                    <div class="col-md-8">
+                        <p class="lead">Hojas y planchas fundamentales para la estructura. Desde el papel ilustración hasta las planchas de cartón corrugado.</p>
+                        <div class="card p-3 bg-light">
+                            <img src="LIBRO/Materia.png" class="img-fluid rounded shadow-sm" alt="Muestrario de Papeles">
+                            <p class="small text-center mt-2 mb-0">Imagen 4.1: Variedad de soportes celulósicos para maquetas.</p>
                         </div>
                     </div>
                 </div>
             </section>
 
             <section class="mb-5">
+                <h3 class="section-divider">4.7 - 4.9 Transparencias y Plásticos</h3>
                 <div class="row g-4">
-                    <div class="col-md-7">
-                        <h3 class="section-divider">4.3 Cartón y Espuma Rígida</h3>
-                        <p>El <strong>cartón</strong> (Imagen 4.2) se distingue por su núcleo corrugado o color gris reciclado. La <strong>espuma rígida</strong> (Imagen 4.3) es vital para urbanismo y maquetas de concepto debido a su capacidad de representar volúmenes rápidos.</p>
-                        
+                    <div class="col-md-4">
+                        <div class="material-card shadow-sm">
+                            <img src="LIBRO/VIDRIO.png" class="img-material" alt="Vidrio">
+                            <div class="p-3">
+                                <h5>Vidrio Mineral</h5>
+                                <p class="small text-muted">Duro y de corte complejo con diamante. Espesores habituales de 1.8mm a 4mm.</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-md-5">
-                        <div class="card border-warning">
-                            <div class="card-body">
-                                <h5 class="card-title text-warning fw-bold">4.5 Moldeables</h5>
-                                <p class="card-text small">Yeso de alabastro, arcilla y plastilina. Materiales reciclables para terrenos y detalles orgánicos.</p>
-                                <div class="img-placeholder" style="min-height: 150px;">
-                                    <i class="bi bi-hand-index-thumb fs-2 mb-2"></i>
-                                    <span>Imagen 4.4 & 4.5: Plastilina y Arcilla</span>
-                                </div>
+                    <div class="col-md-4">
+                        <div class="material-card shadow-sm">
+                            <img src="LIBRO/ACETATO.png" class="img-material" alt="Acetato">
+                            <div class="p-3">
+                                <h5>Acetato</h5>
+                                <p class="small text-muted">Láminas delgadas ideales para representar cristales en ventanas y muebles.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="material-card shadow-sm">
+                            <img src="LIBRO/Metacrilato.png" class="img-material" alt="Metacrilato">
+                            <div class="p-3">
+                                <h5>Metacrilato (PMMA)</h5>
+                                <p class="small text-muted">Termoplástico de alta resistencia y transparencia. 10 a 20 veces más resistente que el vidrio.</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <section id="madera" class="mb-5">
-                <h3 class="section-divider">4.6 La Madera: Rigidez Orgánica</h3>
-                <p>Elemento sólido obtenido de árboles, ideal para desplantes estructurales y carpintería fina.</p>
-                
-                <div class="table-responsive">
-                    <table class="table table-hover align-middle border">
-                        <thead class="table-dark">
-                            <tr>
-                                <th>Tipo de Madera</th>
-                                <th>Imagen Referencia</th>
-                                <th>Características / Uso</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Madera Maciza</td>
-                                <td class="text-center"><i class="bi bi-tree"></i></td>
-                                <td>Maderas claras preferibles para pintar fachadas.</td>
-                            </tr>
-                            <tr>
-                                <td>Aglomerados/Resina</td>
-                                <td class="text-center"><i class="bi bi-moisture"></i></td>
-                                <td>Mezcla de virutas y colas sintéticas para bases rígidas.</td>
-                            </tr>
-                            <tr>
-                                <td>Haya (Muestrario)</td>
-                                <td>
-                                    <div class="d-flex gap-1 justify-content-center">
-                                        <div style="width:20px;height:20px;background:#8e8e8e"></div>
-                                        <div style="width:20px;height:20px;background:#1a1a1a"></div>
-                                        <div style="width:20px;height:20px;background:#a52a2a"></div>
-                                    </div>
-                                </td>
-                                <td>Imagen 4.6: Muestras de colores (Gris, Negro, Rojo, Marfil).</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                
-            </section>
-
             <section class="mb-5">
-                <div class="row g-4">
-                    <div class="col-md-6">
-                        <h3 class="section-divider">4.7 - 4.8 Transparencias</h3>
-                        <div class="p-3 border rounded">
-                            <h6><i class="bi bi-aspect-ratio me-2"></i>Acetato vs Vidrio</h6>
-                            <p class="small">El <strong>vidrio mineral</strong> es poco usado por su dificultad de corte (requiere diamante). El <strong>acetato</strong> (Imagen 4.8) es el rey de la herrería y ventanería por su ligereza.</p>
-                        </div>
+                <h3 class="section-divider">4.10 Pastas para Engargolado</h3>
+                <p>Materiales con texturas diversas (estriado, relieve, holograma) utilizados para acabados de herrería y carpintería.</p>
+                <div class="engargolado-grid">
+                    <div class="engargolado-item">
+                        <img src="LIBRO/ENGARGOLADOa.png" alt="Delgado">
+                        <span class="d-block mt-1">Delgado</span>
                     </div>
-                    <div class="col-md-6">
-                        <h3 class="section-divider">4.9 Metacrilato (PMMA)</h3>
-                        <p class="small">20 veces más resistente que el cristal y mucho más ligero. Ideal para maquetas de alta gama.</p>
-                        <div class="img-placeholder" style="min-height: 100px;">
-                            <span>Imagen 4.9: Planchas de Metacrilato</span>
-                        </div>
+                    <div class="engargolado-item">
+                        <img src="LIBRO/ENGARGOLADOb.png" alt="Estriado">
+                        <span class="d-block mt-1">Estriado</span>
+                    </div>
+                    <div class="engargolado-item">
+                        <img src="LIBRO/ENGARGOLADOc.png" alt="Relieve">
+                        <span class="d-block mt-1">Relieve</span>
+                    </div>
+                    <div class="engargolado-item">
+                        <img src="LIBRO/ENGARGOLADOd.png" alt="Holograma">
+                        <span class="d-block mt-1">Holograma</span>
                     </div>
                 </div>
             </section>
 
             <section id="metales" class="mb-5 bg-dark text-white p-4 rounded-4">
-                <h3 class="text-warning border-start border-warning border-4 ps-3 mb-4">4.11 Metales y Estructuras</h3>
+                <h3 class="text-warning border-start border-warning border-4 ps-3 mb-4">4.11 - 4.13 Metales y Mallas</h3>
                 <div class="row g-4">
-                    <div class="col-md-4 text-center border-end border-secondary">
-                        <i class="bi bi-reception-4 fs-1 text-secondary"></i>
-                        <h5 class="mt-2">Alambre Quemado</h5>
-                        <p class="small text-secondary">Flexible y rígido. Estructuras tipo Torre Eiffel y armaduras de concreto.</p>
+                    <div class="col-md-3">
+                        <div class="text-center">
+                            <img src="LIBRO/Alambre.png" class="img-fluid rounded mb-2" alt="Alambre Quemado">
+                            <h6>Alambre Quemado</h6>
+                        </div>
                     </div>
-                    <div class="col-md-4 text-center border-end border-secondary">
-                        <i class="bi bi-cpu fs-1 text-warning"></i>
-                        <h5 class="mt-2 text-warning">Cobre</h5>
-                        <p class="small text-secondary">Conductividad y belleza. Para piezas especiales y cercas de reja (Imagen 4.12).</p>
+                    <div class="col-md-3">
+                        <div class="text-center">
+                            <img src="LIBRO/Cobre.png" class="img-fluid rounded mb-2" alt="Cobre">
+                            <h6 class="text-warning">Cobre</h6>
+                        </div>
                     </div>
-                    <div class="col-md-4 text-center">
-                        <i class="bi bi-gpu-card fs-1 text-info"></i>
-                        <h5 class="mt-2 text-info">Aluminio</h5>
-                        <p class="small text-secondary">Ligero pero quebradizo. Uso en tramos cortos y maquetas especiales (Imagen 4.13).</p>
+                    <div class="col-md-3">
+                        <div class="text-center">
+                            <img src="LIBRO/Alambre de aluminio.png" class="img-fluid rounded mb-2" alt="Aluminio">
+                            <h6 class="text-info">Aluminio</h6>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="text-center">
+                            <img src="LIBRO/Lámina metálica.png" class="img-fluid rounded mb-2" alt="Lámina">
+                            <h6>Lámina Metálica</h6>
+                        </div>
                     </div>
                 </div>
-                
+                <div class="mt-4 p-3 bg-secondary rounded text-center">
+                    <img src="LIBRO/malla.png" style="max-height: 120px;" class="mb-2" alt="Malla">
+                    <p class="mb-0 small"><strong>Malla de Filtro:</strong> Proveniente de purificadores de motores, ideal para texturas industriales.</p>
+                </div>
             </section>
 
             <section class="mb-5">
-                <h3 class="section-divider">Acabados Finales y Unión</h3>
-                <div class="row g-3">
-                    <div class="col-md-3">
-                        <div class="p-3 border rounded text-center">
-                            <i class="bi bi-brush fs-2"></i>
-                            <h6 class="mt-2">4.14 Pinturas</h6>
-                            <p class="x-small">Témperas y acuarelas (Img 4.16 - 4.17).</p>
+                <h3 class="section-divider">4.14 - 4.18 Acabados y Pinturas</h3>
+                <div class="row g-4">
+                    <div class="col-md-4">
+                        <div class="material-card shadow-sm p-3 text-center">
+                            <img src="LIBRO/Pintura de dedos.png" class="img-fluid rounded mb-2" style="height:120px;" alt="Pinturas">
+                            <h6>Pinturas y Témperas</h6>
                         </div>
                     </div>
-                    <div class="col-md-3">
-                        <div class="p-3 border rounded text-center">
-                            <i class="bi bi-droplet-half fs-2"></i>
-                            <h6 class="mt-2">4.17 Cola Blanca</h6>
-                            <p class="x-small">Endurece y da brillo a la plastilina.</p>
+                    <div class="col-md-4">
+                        <div class="material-card shadow-sm p-3 text-center">
+                            <img src="LIBRO/Acuarelas.png" class="img-fluid rounded mb-2" style="height:120px;" alt="Acuarelas">
+                            <h6>Acuarelas</h6>
                         </div>
                     </div>
-                    <div class="col-md-3">
-                        <div class="p-3 border rounded text-center">
-                            <i class="bi bi-wind fs-2 text-primary"></i>
-                            <h6 class="mt-2">4.18 Aerosol</h6>
-                            <p class="x-small">Esmalte transparente para protección.</p>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="p-3 border rounded text-center bg-light">
-                            <i class="bi bi-lightning-charge fs-2 text-danger"></i>
-                            <h6 class="mt-2">4.16 Pegamentos</h6>
-                            <p class="x-small">Superglue-3 y barras adhesivas.</p>
+                    <div class="col-md-4">
+                        <div class="material-card shadow-sm p-3 text-center">
+                            <img src="LIBRO/aerosol.png" class="img-fluid rounded mb-2" style="height:120px;" alt="Aerosol">
+                            <h6>Esmalte en Aerosol</h6>
                         </div>
                     </div>
                 </div>
-                
             </section>
 
             <footer class="mt-5 pt-4 border-top">
