@@ -3,174 +3,168 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Capítulo 1: Introducción a las Maquetas - Guía Interactiva</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <title>Capítulo 1: El Mundo de las Maquetas</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
-        body { font-family: 'Open Sans', sans-serif; background-color: #f8f9fa; }
-        h1, h2 { font-family: 'Montserrat', sans-serif; font-weight: 700; color: #2c3e50; }
+        :root {
+            --primary: #2c3e50;
+            --secondary: #34495e;
+            --accent: #e67e22;
+            --light: #ecf0f1;
+            --success: #27ae60;
+        }
+
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; display: flex; background: var(--light); }
         
-        .sidebar { background: #1a1c1e; color: white; min-height: 100vh; padding: 0; position: sticky; top: 0; }
-        .sidebar-header { background: #f1c40f; color: #1a1c1e; padding: 20px; font-weight: 800; text-transform: uppercase; }
-        .nav-link { color: #adb5bd; transition: 0.3s; border-radius: 5px; margin: 2px 15px; }
-        .nav-link:hover { background: rgba(241, 196, 15, 0.1); color: #f1c40f; }
-        .nav-link.active { background: #f1c40f; color: #1a1c1e !important; font-weight: bold; }
+        /* Navegación Lateral */
+        nav { width: 250px; height: 100vh; background: var(--primary); color: white; position: fixed; padding-top: 20px; }
+        nav h2 { text-align: center; font-size: 1.2rem; border-bottom: 1px solid var(--secondary); padding-bottom: 15px; }
+        nav a { display: block; padding: 15px; color: white; text-decoration: none; transition: 0.3s; border-left: 4px solid transparent; }
+        nav a:hover { background: var(--secondary); border-left: 4px solid var(--accent); }
 
-        /* Estilo de Imágenes */
-        .img-card { 
-            background: white; 
-            border: 1px solid #dee2e6; 
-            border-radius: 10px; 
-            margin: 20px 0; 
-            padding: 15px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            transition: 0.3s;
-        }
-        .img-card:hover { transform: translateY(-5px); }
-        .img-fluid-custom { 
-            width: 100%; 
-            height: auto; 
-            border-radius: 5px; 
-            object-fit: cover;
-        }
-        .img-caption { font-size: 0.85rem; color: #6c757d; margin-top: 10px; font-weight: bold; border-top: 2px solid #f1c40f; pt-2; display: inline-block; }
+        /* Contenido Principal */
+        main { margin-left: 250px; padding: 40px; width: 100%; max-width: 900px; }
+        section { display: none; animation: fadeIn 0.5s; }
+        section.active { display: block; }
 
-        .interactive-section { border-left: 5px solid #f1c40f; padding-left: 20px; margin: 20px 0; }
-        .main-content { padding: 40px; }
-        .gallery-thumb { height: 150px; object-fit: cover; border-radius: 8px; cursor: pointer; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        .card { background: white; padding: 25px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-bottom: 20px; }
+        h1 { color: var(--primary); }
+        
+        /* Herramientas de Personalización: Calculadora */
+        .tool-box { background: var(--secondary); color: white; padding: 20px; border-radius: 10px; }
+        input { padding: 8px; border-radius: 4px; border: none; width: 100px; margin: 10px 0; }
+
+        /* Gamificación */
+        .quiz-box { border: 2px dashed var(--accent); padding: 20px; text-align: center; }
+        .btn { background: var(--accent); color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; }
+        .btn:hover { opacity: 0.8; }
+
+        /* Acordeón */
+        .accordion { background: #eee; cursor: pointer; padding: 15px; width: 100%; text-align: left; border: none; outline: none; transition: 0.4s; margin-top: 5px; font-weight: bold; }
+        .panel { padding: 0 18px; display: none; background-color: white; overflow: hidden; border-left: 3px solid var(--accent); }
     </style>
 </head>
 <body>
 
-<div class="container-fluid">
-    <div class="row">
-        <nav class="col-md-3 col-lg-2 d-md-block sidebar collapse shadow">
-            <div class="sidebar-header text-center">Colección Dorada</div>
-            <ul class="nav flex-column mt-3">
-                <li class="nav-item mb-2 text-center text-muted small px-3">CONTENIDO VOL. 1</li>
-                <li class="nav-item"><a class="nav-link active" href="CAPITULO1.html"><i class="bi bi-bookmark-fill me-2"></i> Cap. I: Introducción</a></li>
-                <li class="nav-item"><a class="nav-link" href="CAPITULO2.html"><i class="bi bi-grid-fill me-2"></i> Cap. II: Tipos</a></li>
-                <li class="nav-item"><a class="nav-link" href="CAPITULO3.html"><i class="bi bi-map-fill me-2"></i> Cap. III: Planos</a></li>
-                <li class="nav-item"><a class="nav-link" href="CAPITULO4.html"><i class="bi bi-box-seam-fill me-2"></i> Cap. IV: Materiales</a></li>
-                <li class="nav-item"><a class="nav-link" href="CAPITULO5.html"><i class="bi bi-tools me-2"></i> Cap. V: Herramientas</a></li>
-                <li class="nav-item"><a class="nav-link" href="CAPITULO6.html"><i class="bi bi-geometric-capsule me-2"></i> Cap. VI: Geometría</a></li>
-                <li class="nav-item"><a class="nav-link" href="CAPITULO7.html"><i class="bi bi-cash-stack me-2"></i> Cap. VII: Presupuesto</a></li>
-                <li class="nav-item"><a class="nav-link" href="CAPITULO8.html"><i class="bi bi-hammer me-2"></i> Cap. VIII: Taller</a></li>
-                <li class="nav-item"><a class="nav-link" href="CAPITULO9.html"><i class="bi bi-tree-fill me-2"></i> Cap. IX: Vegetación</a></li>
-                <li class="nav-item"><a class="nav-link" href="CAPITULO10.html"><i class="bi bi-person-walking me-2"></i> Cap. X: Escala Humana</a></li>
-                <li class="nav-item mt-4"><a class="nav-link text-warning" href="index.html"><i class="bi bi-house-door-fill me-2"></i> INICIO</a></li>
+<nav>
+    <h2>INTRODUCCIÓN</h2>
+    <a href="#" onclick="showSection('inicio')"><i class="fas fa-home"></i> 1.1 ¿Qué es?</a>
+    <a href="#" onclick="showSection('elementos')"><i class="fas fa-cubes"></i> 1.3 Elementos</a>
+    <a href="#" onclick="showSection('herramientas')"><i class="fas fa-tools"></i> 1.8 Herramienta</a>
+    <a href="#" onclick="showSection('cuidados')"><i class="fas fa-shield-alt"></i> 1.7 Cuidados</a>
+    <a href="#" onclick="showSection('juego')"><i class="fas fa-gamepad"></i> Autoevaluación</a>
+</nav>
+
+<main>
+    <section id="inicio" class="active">
+        <h1>1.1 ¿Qué es una Maqueta?</h1>
+        <div class="card">
+            <p>Es la representación tridimensional, a escala, de una obra compleja. <strong>A diferencia de los planos</strong>, la maqueta nos ofrece una visión espacial intuitiva.</p>
+            <p><em>"Su utilización desvela problemas constructivos que solo con los planos no se habrían visto."</em></p>
+        </div>
+        
+    </section>
+
+    <section id="elementos">
+        <h1>1.3 Elementos que la Componen</h1>
+        <p>Haz clic en cada categoría para explorar su definición técnica:</p>
+        
+        <button class="accordion">1.3.1 Conceptuales (Ideas)</button>
+        <div class="panel">
+            <p>Elementos no visibles: ideas y conceptos. Dependen de la necesidad del diseñador.</p>
+        </div>
+
+        <button class="accordion">1.3.2 Visuales</button>
+        <div class="panel">
+            <p>Forma, medida, color y textura. Ayudan al ser humano a comprender mejor al observar directamente.</p>
+        </div>
+
+        <button class="accordion">1.3.3 De Relación</button>
+        <div class="panel">
+            <p>Gobierna la ubicación e interrelación: dirección, posición, espacio y gravedad.</p>
+        </div>
+    </section>
+
+    <section id="herramientas">
+        <h1>1.8 La Maqueta como Herramienta</h1>
+        <div class="card">
+            <h3>Calculadora de Escala (Herramienta de Trabajo)</h3>
+            <p>Usa esta herramienta para planificar tu maqueta rápidamente:</p>
+            <div class="tool-box">
+                <label>Medida Real (metros):</label><br>
+                <input type="number" id="medidaReal" placeholder="Ej: 10" oninput="calcular()"> <br>
+                <label>Escala 1 :</label><br>
+                <input type="number" id="escala" placeholder="Ej: 50" oninput="calcular()">
+                <p id="resultado">Resultado: 0 cm</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="cuidados">
+        <h1>1.7 Cuidados Fundamentales</h1>
+        <div class="card">
+            <ul>
+                <li><i class="fas fa-wind"></i> Libre del polvo</li>
+                <li><i class="fas fa-tint"></i> Libre de humedad</li>
+                <li><i class="fas fa-sun"></i> Evitar rayos solares directos</li>
+                <li><i class="fas fa-child"></i> Fuera del alcance de niños</li>
             </ul>
-        </nav>
+        </div>
+        
+    </section>
 
-        <main class="col-md-9 ms-sm-auto col-lg-10 main-content">
-            <div class="d-flex justify-content-between align-items-center pb-2 mb-4 border-bottom">
-                <h1 class="h2">CAPÍTULO I: INTRODUCCIÓN A LAS MAQUETAS</h1>
-            </div>
+    <section id="juego">
+        <h1>Desafío: El Guardián de la Maqueta</h1>
+        <div class="card quiz-box">
+            <p id="pregunta">¿Cuál es el principal enemigo de una maqueta terminada si no se protege?</p>
+            <button class="btn" onclick="check(false)">El pegamento</button>
+            <button class="btn" onclick="check(true)">El polvo y humedad</button>
+            <p id="feedback"></p>
+        </div>
+    </section>
+</main>
 
-            <div class="row">
-                <div class="col-lg-8">
-                    <div class="card mb-4 shadow-sm border-0">
-                        <div class="card-header bg-white fw-bold">1.1 Definición y Concepto</div>
-                        <div class="card-body bg-white">
-                            <p class="card-text">Una maqueta es la representación física a escala de una idea o proyecto arquitectónico. Es el paso tangible entre el plano y la realidad.</p>
-                            
-                            <div class="img-card text-center">
-                                <img src="LIBRO/11.png" alt="Maqueta Profesional" class="img-fluid-custom">
-                                <div class="img-caption">Figura 1.1: Representación volumétrica finalizada.</div>
-                            </div>
+<script>
+    // Navegación de secciones
+    function showSection(id) {
+        document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
+        document.getElementById(id).classList.add('active');
+    }
 
-                            <div class="interactive-section">
-                                <h6><strong>Objetivos del Maquetista:</strong></h6>
-                                <ul>
-                                    <li>Visualizar espacios de manera total desde una vista aérea.</li>
-                                    <li>Detectar errores de diseño antes de la construcción real.</li>
-                                    <li>Comunicar ideas de forma tridimensional a clientes o profesores.</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
+    // Acordeón
+    var acc = document.getElementsByClassName("accordion");
+    for (var i = 0; i < acc.length; i++) {
+        acc[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var panel = this.nextElementSibling;
+            panel.style.display = (panel.style.display === "block") ? "none" : "block";
+        });
+    }
 
-                    <div class="accordion mb-4 shadow-sm" id="elementosMaqueta">
-                        <div class="accordion-item">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
-                                    1.3 Elementos que la componen
-                                </button>
-                            </h2>
-                            <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#elementosMaqueta">
-                                <div class="accordion-body">
-                                    <p>Para construir una maqueta profesional, debemos considerar elementos conceptuales y visuales:</p>
-                                    
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="img-card text-center">
-                                                <img src="LIBRO/110a.png" alt="Conceptos A" class="img-fluid-custom">
-                                                <div class="img-caption">Figura 1.2: Análisis de Puntos y Líneas.</div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="img-card text-center">
-                                                <img src="LIBRO/110b.png" alt="Conceptos B" class="img-fluid-custom">
-                                                <div class="img-caption">Figura 1.3: Planos y Volúmenes.</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+    // Calculadora
+    function calcular() {
+        let real = document.getElementById('medidaReal').value;
+        let esc = document.getElementById('escala').value;
+        if(real && esc) {
+            let res = (real / esc) * 100;
+            document.getElementById('resultado').innerText = "Medida en Maqueta: " + res.toFixed(2) + " cm";
+        }
+    }
 
-                <div class="col-lg-4">
-                    <div class="alert alert-info shadow-sm mb-4">
-                        <h5 class="fw-bold"><i class="bi bi-info-circle-fill"></i> Nota Técnica</h5>
-                        <p class="small mb-0">Sin escala, no hay arquitectura. La precisión define la calidad de la obra.</p>
-                    </div>
+    // Minijuego
+    function check(isCorrect) {
+        let f = document.getElementById('feedback');
+        if(isCorrect) {
+            f.innerHTML = "✅ ¡Correcto! El mantenimiento es clave.";
+            f.style.color = "green";
+        } else {
+            f.innerHTML = "❌ Intenta de nuevo. Revisa la sección 1.7.";
+            f.style.color = "red";
+        }
+    }
+</script>
 
-                    <div class="img-card text-center">
-                        <img src="LIBRO/12.png" alt="Proceso" class="img-fluid-custom">
-                        <div class="img-caption">Figura 1.4: Detalle de precisión en el corte.</div>
-                    </div>
-
-                    <div class="img-card text-center">
-                        <img src="LIBRO/111.png" alt="Visualización" class="img-fluid-custom">
-                        <div class="img-caption">Figura 1.5: Perspectiva de usuario.</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row mt-4">
-                <div class="col-12">
-                    <h4 class="fw-bold border-bottom pb-2">Galería de Referencia</h4>
-                </div>
-                <div class="col-md-2 col-4 mb-3"><img src="LIBRO/13.png" class="img-fluid gallery-thumb shadow-sm w-100" alt="Ref"></div>
-                <div class="col-md-2 col-4 mb-3"><img src="LIBRO/14.png" class="img-fluid gallery-thumb shadow-sm w-100" alt="Ref"></div>
-                <div class="col-md-2 col-4 mb-3"><img src="LIBRO/15.png" class="img-fluid gallery-thumb shadow-sm w-100" alt="Ref"></div>
-                <div class="col-md-2 col-4 mb-3"><img src="LIBRO/16.png" class="img-fluid gallery-thumb shadow-sm w-100" alt="Ref"></div>
-                <div class="col-md-2 col-4 mb-3"><img src="LIBRO/17.png" class="img-fluid gallery-thumb shadow-sm w-100" alt="Ref"></div>
-                <div class="col-md-2 col-4 mb-3"><img src="LIBRO/18a.png" class="img-fluid gallery-thumb shadow-sm w-100" alt="Ref"></div>
-                
-                <div class="col-md-2 col-4 mb-3"><img src="LIBRO/18b.png" class="img-fluid gallery-thumb shadow-sm w-100" alt="Ref"></div>
-                <div class="col-md-2 col-4 mb-3"><img src="LIBRO/19a.png" class="img-fluid gallery-thumb shadow-sm w-100" alt="Ref"></div>
-                <div class="col-md-2 col-4 mb-3"><img src="LIBRO/19b.png" class="img-fluid gallery-thumb shadow-sm w-100" alt="Ref"></div>
-                <div class="col-md-2 col-4 mb-3"><img src="LIBRO/19c.png" class="img-fluid gallery-thumb shadow-sm w-100" alt="Ref"></div>
-            </div>
-
-            <nav class="mt-5">
-                <ul class="pagination justify-content-center">
-                    <li class="page-item"><a class="page-link shadow-sm" href="index.html">Anterior</a></li>
-                    <li class="page-item">
-                        <a class="page-link shadow-sm fw-bold bg-dark text-white px-4" href="CAPITULO2.html">
-                            Siguiente: Tipos de Maquetas <i class="bi bi-arrow-right ms-2"></i>
-                        </a>
-                    </li>
-                </ul>
-            </nav>
-        </main>
-    </div>
-</div>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
