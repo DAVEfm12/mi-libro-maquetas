@@ -3,286 +3,230 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ILT | Experiencia 3D Maquetería Profesional</title>
+    <title>ILT Campus Virtual | Experiencia Inmersiva</title>
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
 
     <style>
         :root {
-            --gold: #C5A021; --gold-bright: #FFD700; --dark: #0A0A0B;
-            --glass: rgba(255, 255, 255, 0.03); --border: rgba(197, 160, 33, 0.2);
+            --primary: #C5A021; --accent: #FFD700; --bg: #050505;
+            --glass: rgba(20, 20, 20, 0.85); --border: rgba(197, 160, 33, 0.3);
         }
 
-        body, html { 
-            margin: 0; padding: 0; width: 100%; height: 100%; 
-            background-color: var(--dark); color: white;
-            font-family: 'Inter', sans-serif; overflow: hidden;
-        }
+        body, html { margin: 0; padding: 0; height: 100%; font-family: 'Inter', sans-serif; background: var(--bg); color: #e0e0e0; overflow: hidden; }
 
-        /* --- BACKGROUND 3D CANVAS --- */
-        #canvas-container {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            z-index: 0; pointer-events: none;
-        }
+        /* --- BACKGROUND 3D --- */
+        #canvas-bg { position: fixed; top: 0; left: 0; z-index: -1; }
 
-        /* --- INTERFAZ FUTURISTA --- */
-        #ui-layer {
-            position: relative; z-index: 10; width: 100%; height: 100%;
-            display: grid; grid-template-columns: 350px 1fr;
-            background: radial-gradient(circle at 50% 50%, transparent 0%, rgba(0,0,0,0.8) 100%);
-        }
+        /* --- LAYOUT --- */
+        #app-container { display: grid; grid-template-columns: 350px 1fr; height: 100vh; }
 
-        /* --- SIDEBAR INTERACTIVO --- */
-        nav {
-            background: rgba(10, 10, 11, 0.8);
-            backdrop-filter: blur(20px);
-            border-right: 1px solid var(--border);
-            display: flex; flex-direction: column;
-            padding: 40px 0; transform: translateX(-100%);
+        /* --- SIDEBAR DINÁMICO --- */
+        aside { 
+            background: var(--glass); border-right: 1px solid var(--border);
+            display: flex; flex-direction: column; backdrop-filter: blur(15px);
+            z-index: 10;
         }
-
-        .nav-header { padding: 0 30px 40px; }
-        .nav-header h2 { font-family: 'Cinzel'; color: var(--gold); letter-spacing: 4px; font-size: 1.1rem; margin: 0; }
-
-        .menu-list { list-style: none; padding: 0; margin: 0; flex-grow: 1; }
-        .menu-item {
-            padding: 20px 30px; cursor: pointer; border-left: 0px solid var(--gold);
-            transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-            color: #666; font-weight: 300; font-size: 0.9rem;
-            display: flex; align-items: center; gap: 15px;
-        }
-        .menu-item:hover { color: var(--gold); background: rgba(197, 160, 33, 0.05); padding-left: 40px; }
-        .menu-item.active { 
-            color: white; border-left: 4px solid var(--gold); 
-            background: linear-gradient(90deg, rgba(197, 160, 33, 0.15), transparent);
-            font-weight: 700;
-        }
-
-        /* --- VISUALIZADOR DE CONTENIDO --- */
-        main {
-            padding: 60px; display: flex; align-items: center; justify-content: flex-start;
-            perspective: 1000px;
-        }
-
-        .content-card {
-            max-width: 700px; opacity: 0; transform: rotateY(10deg) translateZ(-100px);
-            display: none; pointer-events: all;
-        }
-        .content-card.active { display: block; }
-
-        .chapter-num { font-family: 'Cinzel'; color: var(--gold); font-size: 0.9rem; letter-spacing: 5px; }
-        h1 { font-family: 'Cinzel'; font-size: 4rem; margin: 10px 0; line-height: 1; text-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        .header { padding: 40px 30px; border-bottom: 1px solid var(--border); }
+        .header h1 { font-family: 'Cinzel'; color: var(--primary); font-size: 1.4rem; letter-spacing: 3px; margin: 0; }
         
-        .lesson-text {
-            font-size: 1.1rem; line-height: 1.8; color: #BBB;
-            background: var(--glass); padding: 30px; border-radius: 4px;
-            border: 1px solid var(--border); backdrop-filter: blur(10px);
-            margin-top: 30px; position: relative;
+        .nav-scroll { flex: 1; overflow-y: auto; padding: 20px 0; }
+        .nav-item { 
+            padding: 15px 30px; cursor: pointer; transition: 0.4s; font-size: 0.85rem;
+            border-left: 3px solid transparent; color: #888; display: flex; align-items: center; gap: 15px;
         }
-        .lesson-text::before {
-            content: ''; position: absolute; top: -1px; left: -1px; width: 50px; height: 50px;
-            border-top: 2px solid var(--gold); border-left: 2px solid var(--gold);
-        }
+        .nav-item:hover { background: rgba(197, 160, 33, 0.1); color: var(--primary); }
+        .nav-item.active { border-left-color: var(--primary); color: white; background: rgba(197, 160, 33, 0.15); font-weight: 700; }
 
-        /* --- BOTONES Y ACCIONES --- */
-        .btn-action {
-            margin-top: 40px; background: transparent; border: 1px solid var(--gold);
-            color: var(--gold); padding: 15px 40px; font-family: 'Cinzel';
-            cursor: pointer; transition: 0.3s; letter-spacing: 2px;
-            position: relative; overflow: hidden;
-        }
-        .btn-action:hover { background: var(--gold); color: black; box-shadow: 0 0 30px var(--gold); }
+        /* --- MAIN CONTENT AREA --- */
+        main { overflow-y: auto; position: relative; padding: 60px; scroll-behavior: smooth; }
+        .content-wrap { max-width: 900px; margin: 0 auto; }
 
-        /* --- INTRO SCREEN --- */
-        #intro {
-            position: fixed; inset: 0; z-index: 1000; background: var(--dark);
+        .section-card { display: none; opacity: 0; transform: translateY(30px); }
+        .section-card.active { display: block; opacity: 1; transform: translateY(0); transition: all 0.8s cubic-bezier(0.2, 1, 0.3, 1); }
+
+        /* --- ESTILOS DE TEXTO TÉCNICO --- */
+        .chapter-title { font-family: 'Cinzel'; font-size: 3.5rem; line-height: 1; margin: 20px 0; color: white; }
+        .highlight { color: var(--primary); }
+        .lesson-box { background: rgba(255,255,255,0.03); border: 1px solid var(--border); padding: 40px; border-radius: 8px; line-height: 1.8; font-size: 1.1rem; }
+
+        /* --- MULTIMEDIA Y ENLACES --- */
+        .media-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 30px 0; }
+        .video-placeholder { 
+            background: #111; border: 1px solid #333; height: 250px; border-radius: 12px;
             display: flex; flex-direction: column; justify-content: center; align-items: center;
+            position: relative; overflow: hidden; cursor: pointer;
         }
-        .loader-ring {
-            width: 200px; height: 200px; border: 2px solid #222; border-radius: 50%;
-            position: relative; display: flex; justify-content: center; align-items: center;
-        }
-        .loader-ring::after {
-            content: ''; position: absolute; width: 100%; height: 100%;
-            border: 2px solid var(--gold); border-top-color: transparent;
-            border-radius: 50%; animation: spin 2s linear infinite;
-        }
-        @keyframes spin { to { transform: rotate(360deg); } }
+        .video-placeholder:hover { border-color: var(--primary); }
+        .video-placeholder span { font-size: 0.7rem; color: var(--primary); letter-spacing: 2px; margin-top: 10px; }
 
-        /* --- TECH SPECS OVERLAY --- */
-        .tech-specs {
-            position: absolute; bottom: 40px; right: 40px; text-align: right;
-            font-size: 0.7rem; color: #444; font-family: monospace;
+        .link-card { 
+            background: rgba(197, 160, 33, 0.1); padding: 15px 20px; border-radius: 6px; 
+            border: 1px solid var(--border); display: block; text-decoration: none; color: white;
+            font-size: 0.9rem; transition: 0.3s;
         }
+        .link-card:hover { background: var(--primary); color: black; }
+
+        .resource-tag { background: #222; padding: 4px 10px; border-radius: 4px; font-size: 0.7rem; color: var(--primary); font-weight: 800; }
     </style>
 </head>
 <body>
 
-    <div id="intro">
-        <div class="loader-ring">
-            <h2 style="font-family:'Cinzel'; color:var(--gold); margin:0;">ILT</h2>
-        </div>
-        <p style="margin-top:30px; letter-spacing: 10px; font-size: 0.8rem; color: #555;">SYSTEM BOOTING</p>
-        <button class="btn-action" style="margin-top:20px;" onclick="initExperience()">INICIAR SISTEMA</button>
-    </div>
+    <canvas id="canvas-bg"></canvas>
 
-    <div id="canvas-container"></div>
-
-    <div id="ui-layer">
-        <nav id="sidebar">
-            <div class="nav-header">
-                <h2>COLECCIÓN DORADA</h2>
-                <small style="color:#444">MANUAL TÉCNICO V.1</small>
+    <div id="app-container">
+        <aside>
+            <div class="header">
+                <h1>COLECCIÓN DORADA</h1>
+                <small style="color:#555">SISTEMA ACADÉMICO V.1</small>
             </div>
-            <ul class="menu-list">
-                <li class="menu-item active" onclick="navigate(0)"><span>01</span> EL DON</li>
-                <li class="menu-item" onclick="navigate(1)"><span>02</span> FINES TÉCNICOS</li>
-                <li class="menu-item" onclick="navigate(2)"><span>03</span> ESCALAS</li>
-                <li class="menu-item" onclick="navigate(3)"><span>04</span> PLANIMETRÍA</li>
-                <li class="menu-item" onclick="navigate(4)"><span>05</span> MATERIALES</li>
-                <li class="menu-item" onclick="navigate(5)"><span>06</span> EL CORTE</li>
-                <li class="menu-item" onclick="navigate(6)"><span>07</span> TEXTURIZADO</li>
-                <li class="menu-item" onclick="navigate(7)"><span>08</span> VEGETACIÓN</li>
-            </ul>
-            <div style="padding: 30px; font-size: 0.7rem; color: #333;">
-                © 2024 IGNACIO LÓPEZ TORRES<br>INGENIERÍA VISUAL APLICADA
+            <div class="nav-scroll" id="menu">
+                <div class="nav-item active" onclick="show(0)">00. EL DON DEL CREADOR</div>
+                <div class="nav-item" onclick="show(1)">01. INTRODUCCIÓN Y FINES</div>
+                <div class="nav-item" onclick="show(2)">02. TIPOLOGÍA TÉCNICA</div>
+                <div class="nav-item" onclick="show(3)">03. INTERPRETACIÓN DE PLANOS</div>
+                <div class="nav-item" onclick="show(4)">04. BIBLIOTECA DE MATERIALES</div>
+                <div class="nav-item" onclick="show(5)">05. ARSENAL DE HERRAMIENTAS</div>
+                <div class="nav-item" onclick="show(6)">06. TÉCNICAS DE CORTE</div>
+                <div class="nav-item" onclick="show(7)">07. ESCALAS Y ACOTACIÓN</div>
+                <div class="nav-item" onclick="show(8)">08. ELABORACIÓN: GUÍA 1</div>
+                <div class="nav-item" onclick="show(9)">09. ACABADOS Y TEXTURAS</div>
             </div>
-        </nav>
+        </aside>
 
-        <main>
-            <div class="content-card active" id="cap0">
-                <span class="chapter-num">MÓDULO 00</span>
-                <h1>EL DON DEL<br><span style="color:var(--gold)">CREADOR</span></h1>
-                <div class="lesson-text">
-                    La maquetería trasciende la simple manualidad. Según López Torres, es la materialización de un don que permite "ver la realidad antes de que exista". Esta sección explora la psicología del maquetista y su responsabilidad espacial.
-                </div>
-                <button class="btn-action">EXPLORAR FILOSOFÍA</button>
-            </div>
-
-            <div class="content-card" id="cap1">
-                <span class="chapter-num">MÓDULO 01</span>
-                <h1>FINES DE LA<br><span style="color:var(--gold)">MAQUETA</span></h1>
-                <div class="lesson-text">
-                    ¿Para qué construimos? El manual define dos ejes:
-                    <br>• <b>Didáctico:</b> Transmitir la escala humana.
-                    <br>• <b>Técnico:</b> Auditar el diseño arquitectónico en 3D para evitar errores de obra.
-                </div>
+        <main id="main-content">
+            <div class="content-wrap">
                 
-            </div>
+                <section class="section-card active">
+                    <span class="resource-tag">FILOSOFÍA DEL AUTOR</span>
+                    <h1 class="chapter-title">EL <span class="highlight">DON</span> DE CREAR</h1>
+                    <div class="lesson-box">
+                        <p>Ignacio López Torres establece que la maquetería no es una tarea mecánica, sino una aportación especial al mundo[cite: 84]. "Cuando conoces tu don y lo pones en práctica, te sientes libre y feliz"[cite: 84]. Esta obra busca que transformes materiales comunes en visiones espaciales.</p>
+                        <div class="media-grid">
+                            <div class="video-placeholder">
+                                <div style="width:50px; height:50px; background:var(--primary); clip-path: polygon(20% 0%, 20% 100%, 100% 50%);"></div>
+                                <span>INTRODUCCIÓN AL CURSO</span>
+                            </div>
+                            <div style="padding:20px; border-left: 2px solid var(--primary);">
+                                <h4 style="margin:0 0 10px 0;">RECURSOS DEL AUTOR:</h4>
+                                <a href="http://www.colecciondorada.com" class="link-card" target="_blank">🌐 Portal Colección Dorada </a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
 
-            <div class="content-card" id="cap2">
-                <span class="chapter-num">MÓDULO 02</span>
-                <h1>CIENCIA DE LAS<br><span style="color:var(--gold)">ESCALAS</span></h1>
-                <div class="lesson-text">
-                    El dominio de la proporción. El autor desglosa las escalas maestras:
-                    <br>• 1:500 para planificación urbana.
-                    <br>• 1:100 para volumetría general.
-                    <br>• 1:20 para detalles constructivos e interiorismo.
-                </div>
-                
-            </div>
+                <section class="section-card">
+                    <span class="resource-tag">CAPÍTULO I</span>
+                    <h1 class="chapter-title">FINES DE LA <span class="highlight">MAQUETA</span></h1>
+                    <div class="lesson-box">
+                        <p>La maqueta es una herramienta superior al dibujo para la comunicación[cite: 8, 10]. Según el manual, sus fines son:</p>
+                        <ul>
+                            <li><b>Fin Didáctico:</b> Enseñar la tridimensionalidad[cite: 2, 4].</li>
+                            <li><b>Fin Técnico:</b> Comprobar soluciones constructivas como vigas, columnas y zapatas[cite: 5].</li>
+                        </ul>
+                                                <a href="http://www.arqhys.com" class="link-card" target="_blank">🔗 Consulta Técnica: Estructuras Arquitectónicas </a>
+                    </div>
+                </section>
 
-            <div class="content-card" id="cap5">
-                <span class="chapter-num">MÓDULO 05</span>
-                <h1>LA CIENCIA DEL<br><span style="color:var(--gold)">CORTE QUIRÚRGICO</span></h1>
-                <div class="lesson-text">
-                    La técnica de las "Tres Pasadas": 
-                    <br>1. <b>Marcaje:</b> Definir la ruta sin presión.
-                    <br>2. <b>Profundidad:</b> Atravesar el núcleo del material.
-                    <br>3. <b>Separación:</b> Corte limpio final. Nunca use fuerza, use filo.
-                </div>
-                
+                <section class="section-card">
+                    <span class="resource-tag">CAPÍTULO VI</span>
+                    <h1 class="chapter-title">TÉCNICAS DE <span class="highlight">CORTE</span></h1>
+                    <div class="lesson-box">
+                        <p>El autor enfatiza el uso exclusivo de reglas de <b>acero o aluminio</b> para evitar accidentes y cortes imprecisos.</p>
+                        <div class="media-grid">
+                            <div class="video-placeholder"><span>DEMO: MÉTODO DE LAS 3 PASADAS</span></div>
+                            <div class="video-placeholder"><span>ERROR COMÚN: EL PAPEL DESPEGADO [cite: 13]</span></div>
+                        </div>
+                        <p><b>Nota Crítica:</b> Si el papel se desprende al cortar, es señal de que la punta del exacto está chata o sin filo[cite: 13]. Nunca arranques el papel; córtalo con cuidado[cite: 13].</p>
+                    </div>
+                </section>
+
+                <section class="section-card">
+                    <span class="resource-tag">CAPÍTULO VIII</span>
+                    <h1 class="chapter-title">GUÍA DE <span class="highlight">ENSAMBLE</span></h1>
+                    <div class="lesson-box">
+                        <p>El proceso de armado se divide en dos metodologías maestras[cite: 11, 15]:</p>
+                        <div class="media-grid">
+                            <div style="background:rgba(255,255,255,0.05); padding:20px; border-radius:8px;">
+                                <h3 style="color:var(--primary)">1. Por Partes</h3>
+                                <p>Recomendado por su exactitud. Permite ensamblar pieza por pieza con apoyo de escuadras de plastilina y pegamento.</p>
+                            </div>
+                            <div style="background:rgba(255,255,255,0.05); padding:20px; border-radius:8px;">
+                                <h3 style="color:var(--primary)">2. Por Conjunto</h3>
+                                <p>Ideal para maquetas de presentación rápida o semidetalladas donde prima la vista externa.</p>
+                            </div>
+                        </div>
+                                            </div>
+                </section>
+
+                <section class="section-card">
+                    <span class="resource-tag">CAPÍTULO X</span>
+                    <h1 class="chapter-title">VEGETACIÓN Y <span class="highlight">CATÁLOGOS</span></h1>
+                    <div class="lesson-box">
+                        <p>El mantenimiento es vital: sacudir, soplar y exponer al aire la vegetación para que el polvo no la deteriore.</p>
+                        <h4 style="color:var(--primary)">ENLACES DE SUMINISTROS:</h4>
+                        <div style="display:flex; flex-direction:column; gap:10px;">
+                            <a href="http://www.mardezmaquetas.com" class="link-card" target="_blank">🌳 Catálogo de Ambientación: Mardez Maquetas </a>
+                            <a href="http://www.maquetas-profesionales.blogspot.com" class="link-card" target="_blank">📸 Galería de Referencia: Maquetas Profesionales </a>
+                        </div>
+                    </div>
+                </section>
+
             </div>
         </main>
     </div>
 
-    <div class="tech-specs">
-        RENDER ENGINE: THREE.JS R128<br>
-        UI CORE: GSAP INTERACTIVE<br>
-        DATA SOURCE: ILT MANUAL VOL. 1
-    </div>
-
     <script>
-        let scene, camera, renderer, crystal;
-
+        // --- MOTOR 3D DE FONDO ---
+        let scene, camera, renderer, points;
         function init3D() {
             scene = new THREE.Scene();
             camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-            renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+            renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('canvas-bg'), antialias: true, alpha: true });
             renderer.setSize(window.innerWidth, window.innerHeight);
-            document.getElementById('canvas-container').appendChild(renderer.domElement);
 
-            // Crear un objeto geométrico abstracto (Representa la "Maqueta Ideal")
-            const geometry = new THREE.IcosahedronGeometry(2, 0);
-            const material = new THREE.MeshPhongMaterial({
-                color: 0xC5A021,
-                wireframe: true,
-                transparent: true,
-                opacity: 0.3
-            });
-            crystal = new THREE.Mesh(geometry, material);
-            scene.add(crystal);
+            const geometry = new THREE.BufferGeometry();
+            const vertices = [];
+            for (let i = 0; i < 5000; i++) {
+                vertices.push(THREE.MathUtils.randFloatSpread(2000), THREE.MathUtils.randFloatSpread(2000), THREE.MathUtils.randFloatSpread(2000));
+            }
+            geometry.setAttribute('position', new THREE.Float32BufferAttribute(vertices, 3));
+            const material = new THREE.PointsMaterial({ color: 0xC5A021, size: 2 });
+            points = new THREE.Points(geometry, material);
+            scene.add(points);
 
-            const light = new THREE.PointLight(0xffffff, 1, 100);
-            light.position.set(10, 10, 10);
-            scene.add(light);
-            scene.add(new THREE.AmbientLight(0x404040));
-
-            camera.position.z = 5;
+            camera.position.z = 1000;
             animate();
         }
 
         function animate() {
             requestAnimationFrame(animate);
-            crystal.rotation.y += 0.005;
-            crystal.rotation.x += 0.002;
+            points.rotation.y += 0.001;
             renderer.render(scene, camera);
         }
 
-        function initExperience() {
-            gsap.to("#intro", { opacity: 0, duration: 1, onComplete: () => {
-                document.getElementById('intro').style.display = 'none';
-                init3D();
+        // --- NAVEGACIÓN INTERACTIVA ---
+        function show(index) {
+            const sections = document.querySelectorAll('.section-card');
+            const items = document.querySelectorAll('.nav-item');
+            
+            // Animación de salida GSAP
+            const current = document.querySelector('.section-card.active');
+            gsap.to(current, { opacity: 0, y: -20, duration: 0.4, onComplete: () => {
+                sections.forEach(s => s.classList.remove('active'));
+                items.forEach(i => i.classList.remove('active'));
                 
-                // Animación de entrada de la UI
-                gsap.to("#sidebar", { x: 0, duration: 1, ease: "expo.out" });
-                gsap.to(".content-card.active", { 
-                    opacity: 1, rotateY: 0, translateZ: 0, 
-                    duration: 1.5, ease: "expo.out", delay: 0.5 
-                });
+                const target = sections[index] || sections[0];
+                target.classList.add('active');
+                items[index].classList.add('active');
+                
+                // Animación de entrada GSAP
+                gsap.fromTo(target, { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.8, ease: "expo.out" });
             }});
-        }
 
-        function navigate(index) {
-            // Actualizar menú
-            document.querySelectorAll('.menu-item').forEach((item, i) => {
-                item.classList.toggle('active', i === index);
-            });
-
-            // Animación de salida de contenido
-            const current = document.querySelector('.content-card.active');
-            const target = document.querySelectorAll('.content-card')[index] || document.getElementById('cap0');
-
-            gsap.to(current, { 
-                opacity: 0, rotateY: -20, translateZ: -200, 
-                duration: 0.5, onComplete: () => {
-                    current.classList.remove('active');
-                    target.classList.add('active');
-                    
-                    // Animación de entrada del nuevo contenido
-                    gsap.fromTo(target, 
-                        { opacity: 0, rotateY: 20, translateZ: -200 },
-                        { opacity: 1, rotateY: 0, translateZ: 0, duration: 1, ease: "expo.out" }
-                    );
-                }
-            });
-
-            // Reacción del objeto 3D
-            gsap.to(crystal.rotation, { z: crystal.rotation.z + Math.PI, duration: 2, ease: "elastic.out(1, 0.3)" });
-            gsap.to(crystal.scale, { x: 1.5, y: 1.5, z: 1.5, duration: 0.2, yoyo: true, repeat: 1 });
+            document.getElementById('main-content').scrollTop = 0;
         }
 
         window.addEventListener('resize', () => {
@@ -290,6 +234,8 @@
             camera.updateProjectionMatrix();
             renderer.setSize(window.innerWidth, window.innerHeight);
         });
+
+        init3D();
     </script>
 </body>
 </html>
