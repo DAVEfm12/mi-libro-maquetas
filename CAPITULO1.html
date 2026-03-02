@@ -3,240 +3,293 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ILT Gold Edition | Inmersión 3D</title>
+    <title>ILT | Experiencia 3D Maquetería Profesional</title>
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Inter:wght@300;400;700&family=Playfair+Display:ital,wght@1,900&display=swap" rel="stylesheet">
-    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
+
     <style>
         :root {
-            --gold: #C5A021; --gold-bright: #FFD700; --dark: #0A0B0D;
-            --glass: rgba(255, 255, 255, 0.03); --glass-border: rgba(255, 255, 255, 0.1);
+            --gold: #C5A021; --gold-bright: #FFD700; --dark: #0A0A0B;
+            --glass: rgba(255, 255, 255, 0.03); --border: rgba(197, 160, 33, 0.2);
         }
 
-        body, html { margin: 0; padding: 0; height: 100%; background: var(--dark); color: white; font-family: 'Inter', sans-serif; overflow: hidden; }
-
-        /* --- BACKGROUND 3D --- */
-        #canvas-container { position: fixed; top: 0; left: 0; z-index: -1; width: 100%; height: 100%; }
-
-        /* --- GATEWAY INTERACTIVO --- */
-        #gate { 
-            position: fixed; inset: 0; z-index: 1000; display: flex; justify-content: center; 
-            align-items: center; background: radial-gradient(circle at center, #1a1c20 0%, #000 100%);
+        body, html { 
+            margin: 0; padding: 0; width: 100%; height: 100%; 
+            background-color: var(--dark); color: white;
+            font-family: 'Inter', sans-serif; overflow: hidden;
         }
-        .gate-portal { text-align: center; perspective: 1000px; }
-        .floating-logo { 
-            font-family: 'Cinzel'; font-size: 5rem; color: var(--gold); 
-            text-shadow: 0 0 30px rgba(197, 160, 33, 0.5); transform-style: preserve-3d;
-            animation: float 4s ease-in-out infinite;
-        }
-        @keyframes float { 0%, 100% { transform: translateY(0) rotateX(10deg); } 50% { transform: translateY(-20px) rotateX(-10deg); } }
 
-        .btn-enter { 
-            margin-top: 50px; padding: 20px 60px; background: transparent; border: 2px solid var(--gold);
-            color: var(--gold); font-weight: bold; letter-spacing: 5px; cursor: pointer;
-            transition: all 0.4s; position: relative; overflow: hidden;
+        /* --- BACKGROUND 3D CANVAS --- */
+        #canvas-container {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            z-index: 0; pointer-events: none;
         }
-        .btn-enter:hover { background: var(--gold); color: black; box-shadow: 0 0 50px var(--gold); }
 
-        /* --- INTERFAZ PRINCIPAL --- */
-        #app { display: none; height: 100vh; grid-template-columns: 350px 1fr; opacity: 0; }
-
-        aside { 
-            background: rgba(0,0,0,0.8); backdrop-filter: blur(20px); border-right: 1px solid var(--glass-border);
-            display: flex; flex-direction: column; z-index: 10;
+        /* --- INTERFAZ FUTURISTA --- */
+        #ui-layer {
+            position: relative; z-index: 10; width: 100%; height: 100%;
+            display: grid; grid-template-columns: 350px 1fr;
+            background: radial-gradient(circle at 50% 50%, transparent 0%, rgba(0,0,0,0.8) 100%);
         }
-        .nav-header { padding: 40px 30px; border-bottom: 1px solid var(--glass-border); }
-        .nav-header h2 { font-family: 'Cinzel'; font-size: 1.2rem; color: var(--gold); margin: 0; }
 
-        .menu-scroll { overflow-y: auto; flex-grow: 1; padding: 20px 0; }
-        .menu-item { 
-            padding: 20px 30px; cursor: pointer; transition: 0.3s; display: flex; align-items: center;
-            border-left: 0 solid var(--gold); font-size: 0.8rem; letter-spacing: 1px; color: #888;
+        /* --- SIDEBAR INTERACTIVO --- */
+        nav {
+            background: rgba(10, 10, 11, 0.8);
+            backdrop-filter: blur(20px);
+            border-right: 1px solid var(--border);
+            display: flex; flex-direction: column;
+            padding: 40px 0; transform: translateX(-100%);
         }
-        .menu-item:hover { background: var(--glass); color: white; padding-left: 40px; }
-        .menu-item.active { background: rgba(197, 160, 33, 0.1); color: var(--gold); border-left: 5px solid var(--gold); font-weight: bold; }
+
+        .nav-header { padding: 0 30px 40px; }
+        .nav-header h2 { font-family: 'Cinzel'; color: var(--gold); letter-spacing: 4px; font-size: 1.1rem; margin: 0; }
+
+        .menu-list { list-style: none; padding: 0; margin: 0; flex-grow: 1; }
+        .menu-item {
+            padding: 20px 30px; cursor: pointer; border-left: 0px solid var(--gold);
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+            color: #666; font-weight: 300; font-size: 0.9rem;
+            display: flex; align-items: center; gap: 15px;
+        }
+        .menu-item:hover { color: var(--gold); background: rgba(197, 160, 33, 0.05); padding-left: 40px; }
+        .menu-item.active { 
+            color: white; border-left: 4px solid var(--gold); 
+            background: linear-gradient(90deg, rgba(197, 160, 33, 0.15), transparent);
+            font-weight: 700;
+        }
 
         /* --- VISUALIZADOR DE CONTENIDO --- */
-        main { position: relative; overflow-y: auto; perspective: 2000px; }
-        .content-container { max-width: 900px; margin: 100px auto; padding: 0 50px; transform-style: preserve-3d; }
-
-        .chapter-view { display: none; }
-        .chapter-view.active { display: block; }
-
-        .title-3d { font-family: 'Playfair Display', serif; font-size: 5rem; margin-bottom: 30px; line-height: 1; }
-        .gold-line { width: 100px; height: 4px; background: var(--gold); margin-bottom: 40px; }
-
-        .info-card { 
-            background: var(--glass); border: 1px solid var(--glass-border); border-radius: 20px;
-            padding: 50px; backdrop-filter: blur(10px); line-height: 1.8; font-size: 1.1rem;
-            transform: translateZ(50px); box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+        main {
+            padding: 60px; display: flex; align-items: center; justify-content: flex-start;
+            perspective: 1000px;
         }
 
-        .tech-specs { 
-            display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 40px; 
+        .content-card {
+            max-width: 700px; opacity: 0; transform: rotateY(10deg) translateZ(-100px);
+            display: none; pointer-events: all;
         }
-        .spec-item { 
-            background: rgba(255,255,255,0.02); padding: 30px; border-radius: 15px;
-            border-bottom: 2px solid transparent; transition: 0.3s;
+        .content-card.active { display: block; }
+
+        .chapter-num { font-family: 'Cinzel'; color: var(--gold); font-size: 0.9rem; letter-spacing: 5px; }
+        h1 { font-family: 'Cinzel'; font-size: 4rem; margin: 10px 0; line-height: 1; text-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        
+        .lesson-text {
+            font-size: 1.1rem; line-height: 1.8; color: #BBB;
+            background: var(--glass); padding: 30px; border-radius: 4px;
+            border: 1px solid var(--border); backdrop-filter: blur(10px);
+            margin-top: 30px; position: relative;
         }
-        .spec-item:hover { border-bottom-color: var(--gold); background: rgba(197, 160, 33, 0.05); transform: translateY(-10px); }
-        .spec-item b { color: var(--gold); display: block; margin-bottom: 10px; font-size: 1.2rem; }
+        .lesson-text::before {
+            content: ''; position: absolute; top: -1px; left: -1px; width: 50px; height: 50px;
+            border-top: 2px solid var(--gold); border-left: 2px solid var(--gold);
+        }
 
-        /* --- UI ELEMENTS --- */
-        .progress-fixed { position: fixed; top: 0; left: 350px; right: 0; height: 5px; background: #111; z-index: 100; }
-        .progress-bar { height: 100%; background: var(--gold); width: 0%; transition: 0.4s; }
+        /* --- BOTONES Y ACCIONES --- */
+        .btn-action {
+            margin-top: 40px; background: transparent; border: 1px solid var(--gold);
+            color: var(--gold); padding: 15px 40px; font-family: 'Cinzel';
+            cursor: pointer; transition: 0.3s; letter-spacing: 2px;
+            position: relative; overflow: hidden;
+        }
+        .btn-action:hover { background: var(--gold); color: black; box-shadow: 0 0 30px var(--gold); }
 
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: transparent; }
-        ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 10px; }
+        /* --- INTRO SCREEN --- */
+        #intro {
+            position: fixed; inset: 0; z-index: 1000; background: var(--dark);
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+        }
+        .loader-ring {
+            width: 200px; height: 200px; border: 2px solid #222; border-radius: 50%;
+            position: relative; display: flex; justify-content: center; align-items: center;
+        }
+        .loader-ring::after {
+            content: ''; position: absolute; width: 100%; height: 100%;
+            border: 2px solid var(--gold); border-top-color: transparent;
+            border-radius: 50%; animation: spin 2s linear infinite;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+
+        /* --- TECH SPECS OVERLAY --- */
+        .tech-specs {
+            position: absolute; bottom: 40px; right: 40px; text-align: right;
+            font-size: 0.7rem; color: #444; font-family: monospace;
+        }
     </style>
 </head>
 <body>
 
-    <div id="canvas-container"></div>
-
-    <div id="gate">
-        <div class="gate-portal">
-            <div class="floating-logo">COLECCIÓN<br>DORADA</div>
-            <p style="letter-spacing: 10px; color: #888; margin-top: 20px;">MAQUETERÍA PROFESIONAL VOL. I</p>
-            <button class="btn-enter" onclick="launch()">INICIAR INMERSIÓN</button>
+    <div id="intro">
+        <div class="loader-ring">
+            <h2 style="font-family:'Cinzel'; color:var(--gold); margin:0;">ILT</h2>
         </div>
+        <p style="margin-top:30px; letter-spacing: 10px; font-size: 0.8rem; color: #555;">SYSTEM BOOTING</p>
+        <button class="btn-action" style="margin-top:20px;" onclick="initExperience()">INICIAR SISTEMA</button>
     </div>
 
-    <div id="app">
-        <div class="progress-fixed"><div class="progress-bar" id="bar"></div></div>
-        
-        <aside>
-            <div class="nav-header">
-                <h2>CAMPUS VIRTUAL</h2>
-                <small style="color:var(--gold)">MÉTODO LÓPEZ TORRES</small>
-            </div>
-            <div class="menu-scroll" id="menu">
-                </div>
-        </aside>
+    <div id="canvas-container"></div>
 
-        <main id="scroll-area">
-            <div class="content-container" id="content-mount">
+    <div id="ui-layer">
+        <nav id="sidebar">
+            <div class="nav-header">
+                <h2>COLECCIÓN DORADA</h2>
+                <small style="color:#444">MANUAL TÉCNICO V.1</small>
+            </div>
+            <ul class="menu-list">
+                <li class="menu-item active" onclick="navigate(0)"><span>01</span> EL DON</li>
+                <li class="menu-item" onclick="navigate(1)"><span>02</span> FINES TÉCNICOS</li>
+                <li class="menu-item" onclick="navigate(2)"><span>03</span> ESCALAS</li>
+                <li class="menu-item" onclick="navigate(3)"><span>04</span> PLANIMETRÍA</li>
+                <li class="menu-item" onclick="navigate(4)"><span>05</span> MATERIALES</li>
+                <li class="menu-item" onclick="navigate(5)"><span>06</span> EL CORTE</li>
+                <li class="menu-item" onclick="navigate(6)"><span>07</span> TEXTURIZADO</li>
+                <li class="menu-item" onclick="navigate(7)"><span>08</span> VEGETACIÓN</li>
+            </ul>
+            <div style="padding: 30px; font-size: 0.7rem; color: #333;">
+                © 2024 IGNACIO LÓPEZ TORRES<br>INGENIERÍA VISUAL APLICADA
+            </div>
+        </nav>
+
+        <main>
+            <div class="content-card active" id="cap0">
+                <span class="chapter-num">MÓDULO 00</span>
+                <h1>EL DON DEL<br><span style="color:var(--gold)">CREADOR</span></h1>
+                <div class="lesson-text">
+                    La maquetería trasciende la simple manualidad. Según López Torres, es la materialización de un don que permite "ver la realidad antes de que exista". Esta sección explora la psicología del maquetista y su responsabilidad espacial.
                 </div>
+                <button class="btn-action">EXPLORAR FILOSOFÍA</button>
+            </div>
+
+            <div class="content-card" id="cap1">
+                <span class="chapter-num">MÓDULO 01</span>
+                <h1>FINES DE LA<br><span style="color:var(--gold)">MAQUETA</span></h1>
+                <div class="lesson-text">
+                    ¿Para qué construimos? El manual define dos ejes:
+                    <br>• <b>Didáctico:</b> Transmitir la escala humana.
+                    <br>• <b>Técnico:</b> Auditar el diseño arquitectónico en 3D para evitar errores de obra.
+                </div>
+                
+            </div>
+
+            <div class="content-card" id="cap2">
+                <span class="chapter-num">MÓDULO 02</span>
+                <h1>CIENCIA DE LAS<br><span style="color:var(--gold)">ESCALAS</span></h1>
+                <div class="lesson-text">
+                    El dominio de la proporción. El autor desglosa las escalas maestras:
+                    <br>• 1:500 para planificación urbana.
+                    <br>• 1:100 para volumetría general.
+                    <br>• 1:20 para detalles constructivos e interiorismo.
+                </div>
+                
+            </div>
+
+            <div class="content-card" id="cap5">
+                <span class="chapter-num">MÓDULO 05</span>
+                <h1>LA CIENCIA DEL<br><span style="color:var(--gold)">CORTE QUIRÚRGICO</span></h1>
+                <div class="lesson-text">
+                    La técnica de las "Tres Pasadas": 
+                    <br>1. <b>Marcaje:</b> Definir la ruta sin presión.
+                    <br>2. <b>Profundidad:</b> Atravesar el núcleo del material.
+                    <br>3. <b>Separación:</b> Corte limpio final. Nunca use fuerza, use filo.
+                </div>
+                
+            </div>
         </main>
     </div>
 
-    <script>
-        const data = [
-            { cap: "0", title: "El Don", desc: "La maquetería es la capacidad de materializar lo invisible. Según Ignacio, es un don que permite al creador sentirse libre y feliz a través de su aportación al mundo.", specs: ["Propósito: Crear", "Sentimiento: Libertad"] },
-            { cap: "1", title: "Fines", desc: "La maqueta sirve como herramienta didáctica para explicar volúmenes y como medio técnico para detectar errores de diseño en 3D antes de la obra real.", specs: ["Uso Didáctico", "Uso Técnico"] },
-            { cap: "2", title: "Escalas", desc: "Dominio de la proporción. Desde el 1:500 para urbanismo hasta el 1:20 para detalles de mobiliario interior.", specs: ["Urbanismo", "Edificación", "Interiores"] },
-            { cap: "3", title: "Planos", desc: "Interpretación profunda de plantas, cortes y fachadas. El escalímetro no es una regla, es un traductor de realidades.", specs: ["Lectura 2D", "Proyección 3D"] },
-            { cap: "4", title: "Taller", desc: "Organización del espacio de trabajo. Iluminación cenital, ventilación y ergonomía para jornadas de alta precisión.", specs: ["Ergonomía", "Iluminación"] },
-            { cap: "5", title: "Materiales", desc: "El alma de la maqueta: Cartón batería para estructura, balsa para calidez, acetato para transparencia y pegamentos especializados.", specs: ["Soportes", "Adhesivos"] },
-            { cap: "6", title: "El Corte", desc: "La técnica de las 'Tres Pasadas': Marcaje superficial, corte de profundidad y separación limpia. Sin fuerza, con filo.", specs: ["Precisión", "Seguridad"] },
-            { cap: "7", title: "Ensamble", desc: "Métodos de unión a 45 grados y empalmes invisibles. La limpieza en la unión define la calidad profesional.", specs: ["Estructura", "Limpieza"] },
-            { cap: "8", title: "Texturas", desc: "Simulación de concreto, ladrillo y pavimentos mediante técnicas de pintura, punzonado y abrasión.", specs: ["Realismo", "Acabados"] },
-            { cap: "9", title: "Paisaje", desc: "Humanización del proyecto. Creación de vegetación con alambre y esponja, y escalas humanas para dar proporción.", specs: ["Ambientación", "Escala Humana"] },
-            { cap: "10", title: "El Autor", desc: "Ignacio López Torres: Maestro maquetista con más de 1000 obras expuestas. Su vida es testimonio de la pasión por el detalle.", specs: ["Trayectoria", "Legado"] }
-        ];
+    <div class="tech-specs">
+        RENDER ENGINE: THREE.JS R128<br>
+        UI CORE: GSAP INTERACTIVE<br>
+        DATA SOURCE: ILT MANUAL VOL. 1
+    </div>
 
-        // --- MOTOR 3D (Three.js) ---
-        let scene, camera, renderer, points;
+    <script>
+        let scene, camera, renderer, crystal;
 
         function init3D() {
             scene = new THREE.Scene();
-            camera = new THREE.Camera();
             camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
             renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
             renderer.setSize(window.innerWidth, window.innerHeight);
             document.getElementById('canvas-container').appendChild(renderer.domElement);
 
-            const geometry = new THREE.BufferGeometry();
-            const vertices = [];
-            for (let i = 0; i < 5000; i++) {
-                vertices.push(THREE.MathUtils.randFloatSpread(2000), THREE.MathUtils.randFloatSpread(2000), THREE.MathUtils.randFloatSpread(2000));
-            }
-            geometry.setAttribute('position', new THREE.Float32BufferAttribute(vertices, 3));
-            const material = new THREE.PointsMaterial({ color: 0xC5A021, size: 2 });
-            points = new THREE.Points(geometry, material);
-            scene.add(points);
-            camera.position.z = 500;
+            // Crear un objeto geométrico abstracto (Representa la "Maqueta Ideal")
+            const geometry = new THREE.IcosahedronGeometry(2, 0);
+            const material = new THREE.MeshPhongMaterial({
+                color: 0xC5A021,
+                wireframe: true,
+                transparent: true,
+                opacity: 0.3
+            });
+            crystal = new THREE.Mesh(geometry, material);
+            scene.add(crystal);
+
+            const light = new THREE.PointLight(0xffffff, 1, 100);
+            light.position.set(10, 10, 10);
+            scene.add(light);
+            scene.add(new THREE.AmbientLight(0x404040));
+
+            camera.position.z = 5;
+            animate();
         }
 
-        function animate3D() {
-            requestAnimationFrame(animate3D);
-            points.rotation.y += 0.001;
-            points.rotation.x += 0.0005;
+        function animate() {
+            requestAnimationFrame(animate);
+            crystal.rotation.y += 0.005;
+            crystal.rotation.x += 0.002;
             renderer.render(scene, camera);
         }
 
-        // --- LÓGICA DE INTERFACE ---
-        function launch() {
-            gsap.to("#gate", { duration: 1, opacity: 0, onComplete: () => {
-                document.getElementById('gate').style.display = 'none';
-                document.getElementById('app').style.display = 'grid';
-                gsap.to("#app", { duration: 1, opacity: 1 });
-                renderMenu();
-                loadChapter(0);
-            }});
-        }
-
-        function renderMenu() {
-            const menu = document.getElementById('menu');
-            data.forEach((item, i) => {
-                const div = document.createElement('div');
-                div.className = `menu-item ${i === 0 ? 'active' : ''}`;
-                div.innerHTML = `<span style="margin-right:15px; opacity:0.5">${item.cap}</span> ${item.title.toUpperCase()}`;
-                div.onclick = () => loadChapter(i);
-                menu.appendChild(div);
-            });
-        }
-
-        function loadChapter(index) {
-            // Actualizar UI
-            document.querySelectorAll('.menu-item').forEach((m, i) => {
-                m.classList.toggle('active', i === index);
-            });
-            document.getElementById('bar').style.width = `${((index+1)/data.length)*100}%`;
-
-            const mount = document.getElementById('content-mount');
-            const item = data[index];
-
-            // Animación de salida y entrada con GSAP
-            gsap.to(mount, { duration: 0.4, opacity: 0, y: -20, onComplete: () => {
-                mount.innerHTML = `
-                    <div class="chapter-view active">
-                        <span style="color:var(--gold); font-weight:bold; letter-spacing:3px">CAPÍTULO ${item.cap}</span>
-                        <h1 class="title-3d">${item.title}</h1>
-                        <div class="gold-line"></div>
-                        <div class="info-card">
-                            <p>${item.desc}</p>
-                            
-                            <div class="tech-specs">
-                                ${item.specs.map(s => `<div class="spec-item"><b>Ficha Técnica</b> ${s}</div>`).join('')}
-                            </div>
-                        </div>
-                    </div>
-                `;
-                gsap.to(mount, { duration: 0.6, opacity: 1, y: 0, ease: "power2.out" });
+        function initExperience() {
+            gsap.to("#intro", { opacity: 0, duration: 1, onComplete: () => {
+                document.getElementById('intro').style.display = 'none';
+                init3D();
                 
-                // Efecto Parallax en el contenido
-                document.onmousemove = (e) => {
-                    let x = (window.innerWidth / 2 - e.pageX) / 30;
-                    let y = (window.innerHeight / 2 - e.pageY) / 30;
-                    gsap.to(".info-card", { rotationY: x, rotationX: -y, duration: 1 });
-                };
+                // Animación de entrada de la UI
+                gsap.to("#sidebar", { x: 0, duration: 1, ease: "expo.out" });
+                gsap.to(".content-card.active", { 
+                    opacity: 1, rotateY: 0, translateZ: 0, 
+                    duration: 1.5, ease: "expo.out", delay: 0.5 
+                });
             }});
         }
 
-        window.onload = () => {
-            init3D();
-            animate3D();
-        };
+        function navigate(index) {
+            // Actualizar menú
+            document.querySelectorAll('.menu-item').forEach((item, i) => {
+                item.classList.toggle('active', i === index);
+            });
 
-        window.onresize = () => {
+            // Animación de salida de contenido
+            const current = document.querySelector('.content-card.active');
+            const target = document.querySelectorAll('.content-card')[index] || document.getElementById('cap0');
+
+            gsap.to(current, { 
+                opacity: 0, rotateY: -20, translateZ: -200, 
+                duration: 0.5, onComplete: () => {
+                    current.classList.remove('active');
+                    target.classList.add('active');
+                    
+                    // Animación de entrada del nuevo contenido
+                    gsap.fromTo(target, 
+                        { opacity: 0, rotateY: 20, translateZ: -200 },
+                        { opacity: 1, rotateY: 0, translateZ: 0, duration: 1, ease: "expo.out" }
+                    );
+                }
+            });
+
+            // Reacción del objeto 3D
+            gsap.to(crystal.rotation, { z: crystal.rotation.z + Math.PI, duration: 2, ease: "elastic.out(1, 0.3)" });
+            gsap.to(crystal.scale, { x: 1.5, y: 1.5, z: 1.5, duration: 0.2, yoyo: true, repeat: 1 });
+        }
+
+        window.addEventListener('resize', () => {
             camera.aspect = window.innerWidth / window.innerHeight;
             camera.updateProjectionMatrix();
             renderer.setSize(window.innerWidth, window.innerHeight);
-        };
+        });
     </script>
 </body>
 </html>
