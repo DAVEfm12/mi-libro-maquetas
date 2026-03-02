@@ -3,96 +3,86 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Capítulo 1: Introducción a las Maquetas - Interactivo</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <title>Capítulo 1: Introducción a las Maquetas | Workshop Interactivo</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #2c3e50;
-            --secondary: #34495e;
-            --accent: #d35400;
+            --primary: #1a2a3a;
+            --primary-light: #2c3e50;
+            --accent: #e67e22;
             --success: #27ae60;
-            --danger: #e74c3c;
-            --light: #f8f9fa;
-            --white: #ffffff;
-            --shadow: 0 4px 6px rgba(0,0,0,0.1);
+            --danger: #c0392b;
+            --bg-body: #f4f7f6;
+            --bg-card: #ffffff;
+            --text-main: #2c3e50;
+            --text-light: #7f8c8d;
+            --shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
 
         body {
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            font-family: 'Inter', sans-serif;
             line-height: 1.6;
             margin: 0;
-            background-color: #eef2f3;
-            color: var(--primary);
+            background-color: var(--bg-body);
+            color: var(--text-main);
         }
 
         header {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
             color: white;
             padding: 3rem 1rem;
             text-align: center;
             box-shadow: var(--shadow);
         }
 
-        header h1 { margin: 0; font-size: 2.2rem; letter-spacing: 1px; }
-        header p { opacity: 0.9; font-weight: 300; margin-top: 10px; }
-
         .container {
-            max-width: 900px;
-            margin: -30px auto 40px;
-            padding: 0 20px;
+            max-width: 1000px;
+            margin: 20px auto;
+            padding: 20px;
         }
 
         /* Navegación */
         .nav-tabs {
             display: flex;
-            gap: 5px;
-            background: var(--white);
-            padding: 10px;
-            border-radius: 15px 15px 0 0;
-            box-shadow: var(--shadow);
+            gap: 10px;
+            margin-bottom: 25px;
             overflow-x: auto;
+            padding: 5px;
             scrollbar-width: none;
         }
-
-        .nav-tabs::-webkit-scrollbar { display: none; }
 
         .tab-btn {
             padding: 12px 25px;
             border: none;
-            background: transparent;
+            background: #e0e0e0;
             cursor: pointer;
-            border-radius: 10px;
+            border-radius: 50px;
             white-space: nowrap;
-            transition: all 0.3s ease;
+            transition: 0.3s;
             font-weight: 600;
-            color: var(--secondary);
+            color: var(--primary);
         }
-
-        .tab-btn:hover { background: #f0f0f0; }
 
         .tab-btn.active {
             background: var(--accent);
             color: white;
+            box-shadow: 0 4px 10px rgba(230, 126, 34, 0.3);
         }
 
-        /* Contenido */
+        /* Capas de Contenido */
         .content-layer {
             display: none;
-            background: var(--white);
+            background: var(--bg-card);
             padding: 40px;
-            border-radius: 0 0 15px 15px;
+            border-radius: 15px;
             box-shadow: var(--shadow);
-            animation: slideUp 0.4s ease-out;
+            animation: fadeIn 0.5s ease;
         }
 
         .content-layer.active { display: block; }
 
-        @keyframes slideUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        h2 { border-left: 5px solid var(--accent); padding-left: 15px; margin-bottom: 25px; color: var(--primary); }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
         /* Acordeón */
         .accordion-item {
@@ -100,41 +90,42 @@
             margin-bottom: 12px;
             border-radius: 8px;
             overflow: hidden;
-            transition: all 0.3s;
         }
 
         .accordion-header {
-            background: #fdfdfd;
+            background: #f8fafc;
             padding: 18px;
             cursor: pointer;
-            font-weight: 600;
+            font-weight: 700;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            transition: background 0.2s;
         }
 
-        .accordion-header:hover { background: #f8f9fa; }
+        .accordion-header:hover { background: #f1f5f9; }
 
         .accordion-body {
             padding: 20px;
             display: none;
-            background: #fff;
-            border-top: 1px solid #eee;
-            color: #555;
+            border-top: 1px solid #edf2f7;
+            background: white;
         }
 
-        .accordion-body img {
-            display: block;
-            max-width: 100%;
-            height: auto;
-            margin: 15px 0;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        /* Enlaces y Fuentes */
+        .source-link {
+            display: inline-block;
+            margin-top: 10px;
+            font-size: 0.85rem;
+            color: #3498db;
+            text-decoration: none;
         }
 
-        /* Calculadora */
+        .source-link:hover { text-decoration: underline; }
+
+        /* Herramienta Calculadora */
         .tool-box {
-            background: var(--secondary);
+            background: var(--primary);
             color: white;
             padding: 25px;
             border-radius: 12px;
@@ -145,96 +136,79 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 15px;
-            margin-bottom: 15px;
+            margin-top: 15px;
         }
 
-        .tool-box input {
+        input {
             width: 100%;
-            padding: 12px;
-            border-radius: 6px;
+            padding: 10px;
+            border-radius: 5px;
             border: none;
-            box-sizing: border-box;
             font-size: 1rem;
         }
 
         /* Gamificación */
         .quiz-container {
-            background: #fffef0;
-            border: 2px dashed #f1c40f;
-            padding: 30px;
-            border-radius: 15px;
+            background: #fff9f0;
+            border: 2px dashed var(--accent);
+            padding: 25px;
+            border-radius: 12px;
             text-align: center;
         }
 
-        .btn-quiz {
-            background: var(--white);
-            border: 2px solid var(--accent);
-            color: var(--accent);
-            padding: 10px 20px;
-            margin: 5px;
+        .btn-check {
+            background: var(--success);
+            color: white;
+            padding: 12px 25px;
+            border: none;
             border-radius: 8px;
             cursor: pointer;
-            font-weight: bold;
-            transition: 0.3s;
+            margin-top: 15px;
         }
 
-        .btn-quiz:hover {
-            background: var(--accent);
-            color: white;
+        .img-container {
+            text-align: center;
+            margin: 20px 0;
+            background: #fdfdfd;
+            padding: 10px;
+            border: 1px solid #eee;
         }
 
-        .feedback { margin-top: 15px; font-weight: bold; min-height: 24px; }
+        .img-container img { max-width: 100%; height: auto; border-radius: 5px; }
 
-        /* Comparativa */
-        .grid-comp {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-            margin-top: 20px;
-        }
+        .img-caption { font-size: 0.85rem; color: #7f8c8d; margin-top: 8px; font-style: italic; }
 
-        .card { padding: 20px; border-radius: 12px; }
-        .card.pro { background: #eafaf1; border: 1px solid #d4efdf; }
-        .card.con { background: #fef5f5; border: 1px solid #fadbd8; }
-
-        ul { padding-left: 20px; }
-        li { margin-bottom: 10px; }
-
-        @media (max-width: 600px) {
-            .tool-grid { grid-template-columns: 1fr; }
-            .content-layer { padding: 20px; }
-        }
     </style>
 </head>
 <body>
 
 <header>
-    <h1>CAPÍTULO I</h1>
-    <p>INTRODUCCIÓN A LAS MAQUETAS</p>
+    <h1>CAPÍTULO I: INTRODUCCIÓN A LAS MAQUETAS</h1>
+    <p>Representación tridimensional y técnica de precisión</p>
 </header>
 
 <div class="container">
     <nav class="nav-tabs">
-        <button class="tab-btn active" onclick="showLayer(event, 'conceptos')">1.1 Definición</button>
-        <button class="tab-btn" onclick="showLayer(event, 'elementos')">1.3 Elementos</button>
-        <button class="tab-btn" onclick="showLayer(event, 'ventajas')">1.5 Análisis</button>
-        <button class="tab-btn" onclick="showLayer(event, 'taller')">1.7 Seguridad</button>
+        <button class="tab-btn active" onclick="showLayer('conceptos')">1.1 Definición</button>
+        <button class="tab-btn" onclick="showLayer('elementos')">1.3 Elementos</button>
+        <button class="tab-btn" onclick="showLayer('ventajas')">1.5 Análisis</button>
+        <button class="tab-btn" onclick="showLayer('taller')">1.7 Cuidados</button>
     </nav>
 
     <div id="conceptos" class="content-layer active">
         <h2>¿Qué es una Maqueta?</h2>
-        <p>Es la <strong>representación tridimensional a escala</strong> de una obra compleja. Mientras que los planos ofrecen una visión bidimensional técnica, la maqueta permite visualizar la obra en el espacio de forma intuitiva.</p>
+        <p>Es la representación tridimensional, a escala, de una obra compleja. Mientras que los <strong>planos</strong> son representaciones bidimensionales que a veces suministran información insuficiente, la maqueta desvela problemas constructivos que no son evidentes a simple vista.</p>
         
-        <blockquote>
-            "La maqueta desvela problemas constructivos que solo con los planos no se habrían visto."
-        </blockquote>
+        <div class="img-container">
+            <img src="LIBRO/11.png" alt="Ejemplo de Maqueta">
+            <div class="img-caption">"En los planos la visión espacial no es intuitiva; en las maquetas sí."</div>
+        </div>
 
         <div class="tool-box">
-            <h3><i class="fas fa-calculator"></i> Convertidor de Escala</h3>
-            <p>Calcula la medida de tus piezas rápidamente:</p>
+            <h3><i class="fas fa-calculator"></i> Convertidor de Escala Técnico</h3>
             <div class="tool-grid">
                 <div>
-                    <label>Medida Real (m):</label>
+                    <label>Medida Real (metros):</label>
                     <input type="number" id="realSize" placeholder="Ej: 10" oninput="calculateScale()">
                 </div>
                 <div>
@@ -242,150 +216,156 @@
                     <input type="number" id="scaleValue" placeholder="Ej: 50" oninput="calculateScale()">
                 </div>
             </div>
-            <p id="scaleResult" style="font-size: 1.3rem; color: #f1c40f; font-weight: bold; text-align: center; margin-top: 10px;"></p>
+            <p id="scaleResult" style="font-size: 1.3rem; color: #f1c40f; font-weight: bold; margin-top: 15px;"></p>
         </div>
     </div>
 
     <div id="elementos" class="content-layer">
-        <h2>Elementos de la Maqueta</h2>
-        <p>Explora los componentes fundamentales que dan vida a un diseño tridimensional:</p>
+        <h2>Elementos que componen una maqueta</h2>
+        <p>Selecciona una categoría para ver su descripción técnica y fuente:</p>
 
         <div class="accordion-item">
-            <div class="accordion-header" onclick="toggleAccordion(this)">
-                <span>1.3.1 CONCEPTUALES (Ideas)</span>
-                <i class="fas fa-chevron-down"></i>
-            </div>
+            <div class="accordion-header" onclick="toggleAccordion(this)">1.3.1 CONCEPTUALES (Ideas) <i class="fas fa-plus"></i></div>
             <div class="accordion-body">
-                Representan lo invisible: la intención del diseñador, conceptos y esquemas que nacen de los planos de arquitectura.
+                Son los elementos que no son visibles, como ideas y conceptos de lo que se pretende construir. Dependen de los planos de arquitectura y la necesidad del diseñador.
+                <br>
+                <a href="http://www.aeet.org/ecosistemas" target="_blank" class="source-link"><i class="fas fa-external-link-alt"></i> Fuente: aeet.org/ecosistemas (2006)</a>
             </div>
         </div>
 
         <div class="accordion-item">
-            <div class="accordion-header" onclick="toggleAccordion(this)">
-                <span>1.3.2 VISUALES</span>
-                <i class="fas fa-chevron-down"></i>
-            </div>
+            <div class="accordion-header" onclick="toggleAccordion(this)">1.3.2 VISUALES <i class="fas fa-plus"></i></div>
             <div class="accordion-body">
-                Son los elementos tangibles: forma, medida, color y textura. Ayudan al ser humano a comprender mejor la realidad al observarla directamente.
-                <img src="LIBRO/14.png" alt="Maqueta de detalles">
-                <small>Fuente: maquetas-profesionales.blogspot</small>
+                Son los elementos realmente visibles (forma, medida, color, textura). El ser humano comprende mejor los objetos cuando los observa directamente.
+                <div class="img-container">
+                    <img src="LIBRO/14.png" alt="Maqueta de detalles">
+                    <div class="img-caption">Imagen 1.4: Maqueta de detalles.</div>
+                    <a href="http://www.maquetas-profesionales.blogspot.com" target="_blank" class="source-link">Fuente: maquetas-profesionales.blogspot.com</a>
+                </div>
             </div>
         </div>
 
         <div class="accordion-item">
-            <div class="accordion-header" onclick="toggleAccordion(this)">
-                <span>1.3.3 DE RELACIÓN</span>
-                <i class="fas fa-chevron-down"></i>
-            </div>
+            <div class="accordion-header" onclick="toggleAccordion(this)">1.3.3 DE RELACIÓN <i class="fas fa-plus"></i></div>
             <div class="accordion-body">
-                Se refieren a la ubicación, posición y dirección. Es la interacción entre el diseño y el espacio circundante (gravedad y sentido espacial).
-                <img src="LIBRO/15.png" alt="Espacios interiores">
+                Se basan en la ubicación e interrelación de formas: dirección, posición, espacio y gravedad (Relación diseño-espacio).
+                <div class="img-container">
+                    <img src="LIBRO/15.png" alt="Maqueta de espacios interiores">
+                    <div class="img-caption">Imagen 1.5: Maqueta de espacios interiores.</div>
+                    <a href="http://www.maquetas-profesionales.blogspot.com" target="_blank" class="source-link">Fuente: maquetas-profesionales.blogspot.com</a>
+                </div>
             </div>
         </div>
 
         <div class="accordion-item">
-            <div class="accordion-header" onclick="toggleAccordion(this)">
-                <span>1.3.4 PRÁCTICOS</span>
-                <i class="fas fa-chevron-down"></i>
-            </div>
+            <div class="accordion-header" onclick="toggleAccordion(this)">1.3.4 PRÁCTICOS <i class="fas fa-plus"></i></div>
             <div class="accordion-body">
-                Representan la función y finalidad de la maqueta. Aquí destaca el talento y la creatividad del maquetista para proyectar el uso final de la obra.
-                <img src="LIBRO/16.png" alt="Creatividad en maquetas">
+                Subyacen al contenido del diseño. Representan el significado de la función y el talento creativo del maquetista.
+                <div class="img-container">
+                    <img src="LIBRO/16.png" alt="Maqueta funcional">
+                    <div class="img-caption">Imagen 1.6: Representación de finalidad y uso.</div>
+                    <a href="http://www.maquetas-profesionales.blogspot.com" target="_blank" class="source-link">Fuente: maquetas-profesionales.blogspot.com</a>
+                </div>
             </div>
         </div>
     </div>
 
     <div id="ventajas" class="content-layer">
         <h2>Análisis Comparativo</h2>
-        <div class="grid-comp">
-            <div class="card pro">
-                <h3 style="color: var(--success);"><i class="fas fa-plus-circle"></i> Ventajas</h3>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
+            <div style="background: #e8f5e9; padding: 20px; border-radius: 10px; border-left: 5px solid var(--success);">
+                <h3 style="color: var(--success);"><i class="fas fa-thumbs-up"></i> Ventajas</h3>
                 <ul>
-                    <li>Excelente instrumento para analizar volúmenes.</li>
-                    <li>Sustituye al dibujo en etapas iniciales de diseño.</li>
-                    <li>Es el sistema de comunicación más eficiente con el cliente.</li>
+                    <li>Sustituye al dibujo en etapa inicial.</li>
+                    <li>Instrumento de diseño para analizar volúmenes.</li>
+                    <li>Sistema de comunicación eficiente (según Frank Lloyd Wright).</li>
                 </ul>
             </div>
-            <div class="card con">
-                <h3 style="color: var(--danger);"><i class="fas fa-minus-circle"></i> Desventajas</h3>
+            <div style="background: #ffebee; padding: 20px; border-radius: 10px; border-left: 5px solid var(--danger);">
+                <h3 style="color: var(--danger);"><i class="fas fa-exclamation-circle"></i> Desventajas</h3>
                 <ul>
-                    <li>Elaboración lenta y laboriosa.</li>
-                    <li>Materiales pueden ser costosos o difíciles de conseguir.</li>
-                    <li>Sensibilidad extrema al polvo y la humedad.</li>
+                    <li>Elaboración sumamente laboriosa.</li>
+                    <li>Materiales caros o difíciles de hallar en el mercado.</li>
+                    <li>Requieren mantenimiento constante contra el polvo.</li>
                 </ul>
             </div>
         </div>
     </div>
 
     <div id="taller" class="content-layer">
-        <h2>Cuidado y Gamificación</h2>
+        <h2>Centro de Cuidados y Gamificación</h2>
         <div class="quiz-container">
-            <h3><i class="fas fa-medal" style="color:#f1c40f"></i> Mini-Reto</h3>
-            <p id="quiz-question">¿Cuál es el enemigo principal de una maqueta terminada?</p>
-            <button class="btn-quiz" onclick="checkAnswer(false)">Luz LED</button>
-            <button class="btn-quiz" onclick="checkAnswer(true)">Humedad y Polvo</button>
-            <button class="btn-quiz" onclick="checkAnswer(false)">El tipo de papel</button>
-            <div id="quiz-feedback" class="feedback"></div>
+            <h3><i class="fas fa-vial"></i> Mini-Reto: El Guardián de la Obra</h3>
+            <p>¿Cuál de estos es un enemigo crítico de la maqueta según el texto?</p>
+            <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 15px;">
+                <button class="tab-btn" onclick="checkAnswer(false, this)">A) Exceso de luz LED</button>
+                <button class="tab-btn" onclick="checkAnswer(true, this)">B) Humedad y Polvo</button>
+                <button class="tab-btn" onclick="checkAnswer(false, this)">C) El color del pegamento</button>
+            </div>
+            <div id="quiz-feedback" style="margin-top: 15px; font-weight: bold;"></div>
         </div>
 
-        <h3 style="margin-top:40px;">Protocolo de Protección (Sección 1.7)</h3>
-        <div class="grid-comp">
-            <p><i class="fas fa-sun" style="color: #e67e22;"></i> Evitar rayos solares directos (deforman materiales).</p>
-            <p><i class="fas fa-child" style="color: #3498db;"></i> Mantener fuera del alcance de niños o mascotas.</p>
-            <p><i class="fas fa-box-open" style="color: #95a5a6;"></i> Usar vitrinas o cubiertas para evitar el mantenimiento constante.</p>
-        </div>
+        <h3 style="margin-top:30px;">Protocolo de Seguridad (Sección 1.7)</h3>
+        <ul style="list-style: none; padding: 0;">
+            <li style="margin-bottom: 10px;"><i class="fas fa-check-circle" style="color: var(--success);"></i> Mantener libre de rayos solares directos.</li>
+            <li style="margin-bottom: 10px;"><i class="fas fa-check-circle" style="color: var(--success);"></i> Fuera del alcance de los niños.</li>
+            <li style="margin-bottom: 10px;"><i class="fas fa-check-circle" style="color: var(--success);"></i> Cuidado extremo en el traslado y manipulación.</li>
+        </ul>
     </div>
 </div>
 
 <script>
-    // Navegación fluida
-    function showLayer(event, id) {
+    function showLayer(id) {
         document.querySelectorAll('.content-layer').forEach(layer => layer.classList.remove('active'));
         document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
-        
         document.getElementById(id).classList.add('active');
         event.currentTarget.classList.add('active');
     }
 
-    // Acordeón mejorado
     function toggleAccordion(header) {
         const body = header.nextElementSibling;
         const icon = header.querySelector('i');
         const isOpen = body.style.display === "block";
-
-        // Cerrar otros acordeones (opcional, para limpieza)
+        
+        // Cerrar otros
         document.querySelectorAll('.accordion-body').forEach(b => b.style.display = "none");
-        document.querySelectorAll('.accordion-header i').forEach(i => i.className = 'fas fa-chevron-down');
+        document.querySelectorAll('.accordion-header i').forEach(i => i.classList.replace('fa-minus', 'fa-plus'));
 
         if (!isOpen) {
             body.style.display = "block";
-            icon.className = 'fas fa-chevron-up';
+            icon.classList.replace('fa-plus', 'fa-minus');
         }
     }
 
-    // Lógica de Escalas
     function calculateScale() {
         const real = document.getElementById('realSize').value;
         const scale = document.getElementById('scaleValue').value;
         const resultArea = document.getElementById('scaleResult');
 
-        if (real > 0 && scale > 0) {
+        if (real && scale && scale > 0) {
             const resultCm = (real / scale) * 100;
-            resultArea.innerHTML = `<i class="fas fa-ruler-combined"></i> Longitud: ${resultCm.toFixed(2)} cm`;
+            resultArea.innerHTML = `<i class="fas fa-ruler"></i> Medida en maqueta: ${resultCm.toFixed(2)} cm`;
         } else {
             resultArea.innerHTML = "";
         }
     }
 
-    // Gamificación
-    function checkAnswer(isCorrect) {
+    function checkAnswer(isCorrect, btn) {
         const feedback = document.getElementById('quiz-feedback');
         if (isCorrect) {
-            feedback.innerHTML = "¡Excelente! ✨ La humedad y el polvo son los factores que más degradan los materiales.";
+            feedback.innerHTML = "¡Correcto! La humedad y el polvo son los principales factores de riesgo.";
             feedback.style.color = "var(--success)";
+            btn.style.background = "var(--success)";
+            btn.style.color = "white";
         } else {
-            feedback.innerHTML = "Casi... revisa los factores climáticos en la sección 1.7.";
+            feedback.innerHTML = "Inténtalo de nuevo. Revisa la sección 1.7.";
             feedback.style.color = "var(--danger)";
+            btn.style.background = "var(--danger)";
+            btn.style.color = "white";
+            setTimeout(() => {
+                btn.style.background = "#e0e0e0";
+                btn.style.color = "var(--primary)";
+            }, 1000);
         }
     }
 </script>
