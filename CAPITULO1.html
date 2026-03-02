@@ -16,177 +16,181 @@
 
         body, html { margin: 0; padding: 0; height: 100%; font-family: 'Montserrat', sans-serif; background: var(--negro); color: white; overflow: hidden; }
 
-        /* --- 1. PANTALLA DE PRESENTACIÓN (SPLASH) --- */
+        /* --- 1. PANTALLA DE PRESENTACIÓN --- */
         #splash {
             position: fixed; width: 100%; height: 100%; background: radial-gradient(circle, #2c2c2c, #000);
             display: flex; flex-direction: column; justify-content: center; align-items: center; z-index: 1000;
+            transition: opacity 0.6s ease;
         }
         .cover-box { border: 4px solid var(--oro); padding: 50px; text-align: center; background: rgba(0,0,0,0.6); box-shadow: 0 0 50px rgba(212, 175, 55, 0.3); }
         .btn-start { margin-top: 30px; padding: 15px 45px; background: var(--oro); border: none; font-weight: bold; cursor: pointer; text-transform: uppercase; letter-spacing: 2px; border-radius: 5px; }
-        .btn-start:hover { background: #fff; transform: scale(1.05); }
 
         /* --- 2. ESTRUCTURA PRINCIPAL --- */
         #ebook-app { display: none; height: 100vh; grid-template-columns: 320px 1fr; }
 
-        /* Navegación Izquierda */
-        nav { background: var(--gris-panel); border-right: 3px solid var(--oro); overflow-y: auto; display: flex; flex-direction: column; }
+        nav { background: var(--gris-panel); border-right: 3px solid var(--oro); overflow-y: auto; }
         .nav-header { padding: 25px; text-align: center; border-bottom: 1px solid #333; background: #111; }
-        .nav-item { padding: 18px 25px; cursor: pointer; border-bottom: 1px solid #222; font-size: 0.85rem; color: #999; display: flex; align-items: center; }
+        .nav-item { padding: 15px 25px; cursor: pointer; border-bottom: 1px solid #222; font-size: 0.8rem; color: #999; transition: 0.3s; }
         .nav-item:hover, .nav-item.active { background: #222; color: var(--oro); border-left: 6px solid var(--oro); }
 
-        /* Visor de Contenido */
-        main { background: var(--crema-papel); color: #333; overflow-y: auto; padding: 60px; scroll-behavior: smooth; position: relative; }
-        .chapter { display: none; max-width: 850px; margin: auto; animation: slideUp 0.7s ease; }
+        main { background: var(--crema-papel); color: #333; overflow-y: auto; padding: 60px; scroll-behavior: smooth; }
+        .chapter { display: none; max-width: 900px; margin: auto; animation: fadeIn 0.8s ease; }
         .chapter.active { display: block; }
-        @keyframes slideUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
-        /* Elementos del Texto */
-        h1 { font-family: 'Playfair Display', serif; font-size: 3rem; color: #111; margin-bottom: 10px; border-bottom: 2px solid var(--oro); display: inline-block; }
-        .subtitle { display: block; font-weight: bold; color: var(--oro); text-transform: uppercase; margin-bottom: 30px; letter-spacing: 2px; }
-        p { line-height: 1.9; font-size: 1.15rem; text-align: justify; margin-bottom: 25px; }
-
-        /* INTERACTIVIDAD: VIDEOS, AUDIOS Y LINKS */
-        .video-container { 
-            position: relative; padding-bottom: 56.25%; height: 0; margin: 40px 0; 
-            border: 8px solid white; box-shadow: 0 15px 35px rgba(0,0,0,0.2); border-radius: 4px; overflow: hidden;
-        }
-        .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
-
-        .audio-bar { background: #eee; padding: 20px; border-radius: 50px; display: flex; align-items: center; gap: 15px; margin: 25px 0; border: 1px solid #ddd; }
+        h1 { font-family: 'Playfair Display', serif; font-size: 2.5rem; color: #111; margin-bottom: 5px; }
+        .subtitle { display: block; font-weight: bold; color: var(--oro); text-transform: uppercase; margin-bottom: 20px; letter-spacing: 1px; }
+        p { line-height: 1.8; font-size: 1.1rem; text-align: justify; margin-bottom: 20px; }
         
-        .source-link { 
-            background: #fff; border: 1px solid #ddd; padding: 15px; border-radius: 8px; font-size: 0.9rem;
-            display: flex; justify-content: space-between; align-items: center; margin-top: -15px; margin-bottom: 40px;
-        }
-        .source-link a { color: var(--azul-link); text-decoration: none; font-weight: bold; }
-
-        /* ACTIVIDADES */
-        .activity-zone { background: #fffbe6; border: 2px dashed var(--oro); padding: 35px; border-radius: 15px; margin: 50px 0; }
-        .activity-zone h3 { margin-top: 0; color: #856404; }
-        .task-list { list-style: none; padding: 0; }
-        .task-list li { margin-bottom: 15px; display: flex; align-items: center; gap: 12px; font-size: 1.1rem; }
-        input[type="checkbox"] { width: 20px; height: 20px; accent-color: var(--oro); cursor: pointer; }
-
+        .info-box { background: #eee; border-left: 5px solid var(--oro); padding: 20px; margin: 20px 0; font-style: italic; }
+        .grid-tech { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 20px 0; }
+        .tech-card { background: white; padding: 15px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); border: 1px solid #ddd; }
+        
+        .video-container { position: relative; padding-bottom: 56.25%; height: 0; margin: 30px 0; border: 5px solid #fff; box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+        .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+        
+        .activity-zone { background: #fffbe6; border: 2px dashed var(--oro); padding: 25px; border-radius: 10px; margin: 30px 0; }
     </style>
 </head>
 <body>
 
     <div id="splash">
         <div class="cover-box">
-            <h1 style="color: var(--oro); margin: 0; font-size: 3.5rem;">COLECCIÓN DORADA</h1>
-            <p style="color: white; letter-spacing: 5px; font-weight: 300;">MAQUETAS PARA PRINCIPIANTES VOL. 1</p>
-            <p style="color: #aaa; font-style: italic;">Por Ignacio López Torres</p>
-            <button class="btn-start" onclick="launchEbook()">COMENZAR EXPERIENCIA</button>
+            <h1 style="color: var(--oro); margin: 0; font-size: 3rem;">COLECCIÓN DORADA</h1>
+            <p style="color: white; letter-spacing: 4px;">MAQUETAS PARA PRINCIPIANTES VOL. 1</p>
+            <p style="color: #aaa; font-style: italic;">Ignacio López Torres</p>
+            <button class="btn-start" onclick="launchEbook()">INGRESAR AL TALLER</button>
         </div>
     </div>
 
     <div id="ebook-app">
         <nav id="sidebar">
-            <div class="nav-header"><h3 style="color: var(--oro); margin:0;">CONTENIDO</h3></div>
-            <div class="nav-item active" onclick="navTo(0)">INTRODUCCIÓN</div>
-            <div class="nav-item" onclick="navTo(1)">1. LA MAQUETA Y SUS FINES</div>
-            <div class="nav-item" onclick="navTo(2)">2. TIPOS DE MAQUETAS</div>
-            <div class="nav-item" onclick="navTo(3)">3. PLANOS Y ESCALAS</div>
-            <div class="nav-item" onclick="navTo(4)">4. EL TALLER</div>
-            <div class="nav-item" onclick="navTo(5)">5. MATERIALES DE BAJO COSTO</div>
-            <div class="nav-item" onclick="navTo(6)">6. TÉCNICAS DE CORTE</div>
-            <div class="nav-item" onclick="navTo(7)">7. SISTEMAS DE ARMADO</div>
-            <div class="nav-item" onclick="navTo(8)">8. ACABADOS Y TEXTURAS</div>
-            <div class="nav-item" onclick="navTo(9)">9. VEGETACIÓN ARTESANAL</div>
-            <div class="nav-item" onclick="navTo(10)">10. FOTOGRAFÍA FINAL</div>
+            <div class="nav-header"><h3 style="color: var(--oro); margin:0;">CONTENIDO TÉCNICO</h3></div>
+            <div class="nav-item active" onclick="navTo(0)">INTRODUCCIÓN Y OBJETIVOS</div>
+            <div class="nav-item" onclick="navTo(1)">CAP I: ¿QUÉ ES UNA MAQUETA?</div>
+            <div class="nav-item" onclick="navTo(2)">CAP II: TIPOS DE MAQUETAS</div>
+            <div class="nav-item" onclick="navTo(3)">CAP III: PLANOS Y FACHADAS</div>
+            <div class="nav-item" onclick="navTo(4)">CAP IV: CATÁLOGO DE MATERIALES</div>
+            <div class="nav-item" onclick="navTo(5)">CAP V: HERRAMIENTAS Y EL TALLER</div>
+            <div class="nav-item" onclick="navTo(6)">CAP VI: TÉCNICAS DE CORTE</div>
+            <div class="nav-item" onclick="navTo(7)">CAP VII: SISTEMAS DE ARMADO</div>
+            <div class="nav-item" onclick="navTo(8)">CAP VIII: PROCESO DE ELABORACIÓN</div>
+            <div class="nav-item" onclick="navTo(9)">CAP IX: ACABADOS Y TEXTURAS</div>
+            <div class="nav-item" onclick="navTo(10)">CAP X: VEGETACIÓN ARTESANAL</div>
         </nav>
 
         <main id="content-viewer">
-            
             <section class="chapter active">
-                <span class="subtitle">Bienvenida del Autor</span>
-                <h1>El Arte de la Escala</h1>
-                <div class="audio-bar">
-                    <span>🔊 <strong>Escuchar Prólogo:</strong></span>
-                    <audio controls><source src="LIBRO/PROLOGO.mp3" type="audio/mpeg"></audio>
+                <span class="subtitle">Prólogo y Propósito</span>
+                <h1>El Arte de Crear a Escala</h1>
+                <p>Este libro nace tras 5 años y 11 meses de esfuerzo[cite: 2]. El objetivo primordial es dar a conocer técnicas, materiales y herramientas para elaborar maquetas arquitectónicas a un <strong>bajo costo</strong>[cite: 3].</p>
+                <div class="info-box">
+                    "Cuando conoces tu don y lo pones en práctica, das lo mejor de ti mismo y te sientes libre y feliz" — Ignacio López Torres[cite: 1].
                 </div>
-                <p>Bienvenido al Volumen 1 de la Colección Dorada. Como dice Ignacio López Torres: "Cuando conoces tu don y lo pones en práctica, das lo mejor de ti mismo". Este libro no es solo texto, es una guía para construir tus sueños a escala.</p>
+                <p>A pesar de los avances tecnológicos como el modelado 3D virtual, la maqueta física sigue siendo una herramienta indispensable en aeronáutica, industria automotriz y arquitectura para verificar espacios y funcionamiento real[cite: 3].</p>
+            </section>
+
+            <section class="chapter">
+                <span class="subtitle">Capítulo I</span>
+                <h1>Fundamentos de la Maqueta</h1>
+                <p>Una maqueta es la representación técnica de una obra o construcción a escala[cite: 9]. Se compone de elementos:</p>
+                <ul>
+                    <li><strong>Conceptuales:</strong> Basados en la idea inicial[cite: 2].</li>
+                    <li><strong>Visuales:</strong> Lo que percibimos estéticamente[cite: 2].</li>
+                    <li><strong>Prácticos:</strong> Su utilidad funcional[cite: 2].</li>
+                </ul>
                 <div class="video-container">
-                    <iframe src="https://www.youtube.com/embed/SOf-h-oX5Y8" frameborder="0" allowfullscreen></iframe>
-                </div>
-                <div class="source-link">
-                    <span>Referencia del Autor: <em>www.ucatolica.edu.co</em></span>
-                    <a href="https://www.ucatolica.edu.co" target="_blank">IR AL PORTAL</a>
+                    <iframe src="https://www.youtube.com/embed/SOf-h-oX5Y8" frameborder="0"></iframe>
                 </div>
             </section>
 
             <section class="chapter">
-                <span class="subtitle">Unidad Técnica</span>
+                <span class="subtitle">Capítulo II</span>
+                <h1>Tipología de Modelos</h1>
+                <p>Dependiendo de la necesidad del proyecto, existen diversos tipos de maquetas[cite: 2]:</p>
+                <div class="grid-tech">
+                    <div class="tech-card">
+                        <strong>Urbanismo y Edificios:</strong> Escalas comunes 1:500 o 1:200 para mostrar conjuntos[cite: 4].
+                    </div>
+                    <div class="tech-card">
+                        <strong>De Estructuras:</strong> Para explicar los elementos que integran una construcción[cite: 4].
+                    </div>
+                    <div class="tech-card">
+                        <strong>Especiales:</strong> Incluyen maquetas dinámicas, virtuales o de secciones desmontables[cite: 2].
+                    </div>
+                    <div class="tech-card">
+                        <strong>De Trabajo:</strong> Modelos rápidos para estudio de volúmenes y luz[cite: 2].
+                    </div>
+                </div>
+            </section>
+
+            <section class="chapter">
+                <span class="subtitle">Capítulo III</span>
                 <h1>Interpretación de Planos</h1>
-                <p>La base de toda maqueta es el plano. Sin una correcta lectura de la escala (1:50, 1:100), el modelo carecerá de realismo y proporción técnica.</p>
-                
-                
-
-[Image of architectural scale ruler on blueprints]
-
-
-                <div class="video-container">
-                    <iframe src="https://www.youtube.com/embed/6_63eTzF-S8" frameborder="0" allowfullscreen></iframe>
-                </div>
-                <div class="source-link">
-                    <span>Fuente citada en imagen: <em>lsi.ugr.es/docencia/ar/dao</em></span>
-                    <a href="http://lsi.ugr.es" target="_blank">VER DETALLES TÉCNICOS</a>
-                </div>
+                <p>El plano es la base técnica. Para construir una maqueta debemos interpretar[cite: 5]:</p>
+                <ul>
+                    <li><strong>Plantas Arquitectónicas:</strong> Distribución espacial vista desde arriba.</li>
+                    <li><strong>Fachadas:</strong> Vistas principales, posteriores y laterales[cite: 5].</li>
+                    <li><strong>Plano de Conjunto:</strong> Reúne todos los esquemas en una escala menor para ubicación general[cite: 5].</li>
+                </ul>
                 <div class="activity-zone">
-                    <h3>📝 Actividad: Lectura de Escalas</h3>
-                    <ul class="task-list">
-                        <li><input type="checkbox"> Identificar la escala en un plano de planta.</li>
-                        <li><input type="checkbox"> Usar el escalímetro para medir un muro real.</li>
-                        <li><input type="checkbox"> Dibujar un boceto a escala 1:20 de tu habitación.</li>
-                    </ul>
+                    <h3>📏 Cálculo de Muros</h3>
+                    <p>Ejemplo técnico: Si un muro mide 3.00m reales, a escala 1:40 la fórmula es: (3.00 x 100) / 40 = 7.50 cm en el papel[cite: 15].</p>
                 </div>
             </section>
 
             <section class="chapter">
-                <span class="subtitle">Unidad Práctica</span>
+                <span class="subtitle">Capítulo IV</span>
+                <h1>Materiales Sugeridos</h1>
+                <p>No se requieren materiales costosos. El autor enfatiza el uso de elementos accesibles[cite: 2, 3]:</p>
+                <div class="grid-tech">
+                    <div class="tech-card"><strong>Papeles:</strong> Ilustración, cascarón, batería y cartulina[cite: 2].</div>
+                    <div class="tech-card"><strong>Moldeables:</strong> Plastilina y arcilla[cite: 2].</div>
+                    <div class="tech-card"><strong>Metales:</strong> Alambre de cobre, aluminio y mallas de filtro[cite: 2].</div>
+                    <div class="tech-card"><strong>Reciclados:</strong> Acetatos, trozos de lámina y objetos de la naturaleza[cite: 2].</div>
+                </div>
+            </section>
+
+            <section class="chapter">
+                <span class="subtitle">Capítulo VI</span>
                 <h1>Técnicas de Corte Preciso</h1>
-                <p>El autor recomienda siempre el uso de la regla metálica. El secreto para un corte profesional en cartón pluma es realizar tres pasadas suaves en lugar de una fuerte.</p>
-                
-                
-
+                <p>Para lograr un acabado profesional, sigue estas reglas de oro del autor[cite: 10, 11]:</p>
+                <ol>
+                    <li>Ubicar siempre la regla metálica en el perímetro de la pieza[cite: 16].</li>
+                    <li>Realizar cortes suaves y constantes. Para ventanas, cortar primero la parte interna[cite: 16].</li>
+                    <li>Utilizar <strong>semicortes</strong> cuando se necesite doblar una pieza sin separarla[cite: 17].</li>
+                    <li><strong>Lijado:</strong> Usar lija gruesa para quitar rebabas y finalizar con lija fina para suavizar[cite: 18].</li>
+                </ol>
                 <div class="video-container">
-                    <iframe src="https://www.youtube.com/embed/7Y8T3Lp-B1o" frameborder="0" allowfullscreen></iframe>
-                </div>
-                <div class="source-link">
-                    <span>Fuente de portal electrónico: <em>www.arqhys.com</em></span>
-                    <a href="http://www.arqhys.com" target="_blank">VER MATERIALES</a>
+                    <iframe src="https://www.youtube.com/embed/7Y8T3Lp-B1o" frameborder="0"></iframe>
                 </div>
             </section>
 
             <section class="chapter">
-                <span class="subtitle">Unidad de Acabados</span>
+                <span class="subtitle">Capítulo X</span>
                 <h1>Vegetación y Paisajismo</h1>
-                <p>No necesitas comprar árboles costosos. Con ramas secas, esponja teñida y aserrín, puedes crear un entorno realista que realce tu arquitectura.</p>
-                
-                
-
-                <div class="video-container">
-                    <iframe src="https://www.youtube.com/embed/W-p08BvSAnI" frameborder="0" allowfullscreen></iframe>
+                <p>La vegetación no es solo adorno; ayuda a dar escala y contexto al proyecto[cite: 3].</p>
+                <div class="tech-card">
+                    <strong>Pasto y Árboles Artesanales:</strong> Se pueden crear usando esponja triturada teñida, aserrín o ramas secas recolectadas de la naturaleza[cite: 3].
                 </div>
                 <div class="activity-zone">
-                    <h3>🌱 Actividad: El Árbol Artesanal</h3>
-                    <p>Sigue los pasos del video para fabricar tu primer árbol usando materiales reciclados.</p>
-                    <ul class="task-list">
-                        <li><input type="checkbox"> Recolectar ramas pequeñas y secas.</li>
-                        <li><input type="checkbox"> Triturar y teñir esponja de color verde.</li>
-                        <li><input type="checkbox"> Fijar el follaje con pegamento en spray o silicón.</li>
+                    <h3>🌱 Actividad: El Árbol Maestro</h3>
+                    <ul>
+                        <li>Selecciona una rama seca que parezca un tronco a escala.</li>
+                        <li>Aplica pegamento en las puntas.</li>
+                        <li>Esparce la esponja verde triturada para simular el follaje[cite: 3].</li>
                     </ul>
                 </div>
             </section>
-
         </main>
     </div>
 
     <script>
         function launchEbook() {
-            document.getElementById('splash').style.opacity = '0';
+            const splash = document.getElementById('splash');
+            splash.style.opacity = '0';
             setTimeout(() => {
-                document.getElementById('splash').style.display = 'none';
+                splash.style.display = 'none';
                 document.getElementById('ebook-app').style.display = 'grid';
             }, 600);
         }
@@ -203,20 +207,8 @@
             if (chapters[index]) {
                 chapters[index].classList.add('active');
             } else {
-                // Generador dinámico para capítulos que no hemos redactado aún
-                const titles = ["Intro", "Conceptos", "Tipología", "Planos", "Taller", "Materiales", "Corte", "Armado", "Acabados", "Vegetación", "Foto"];
-                const viewer = document.getElementById('content-viewer');
-                const placeholder = `
-                    <section class="chapter active">
-                        <span class="subtitle">Capítulo ${index}</span>
-                        <h1>${titles[index]}</h1>
-                        <p>Contenido técnico completo del Volumen 1. En esta sección se aplican las lecciones del PDF original sobre la construcción detallada.</p>
-                        <div class="video-container">
-                            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
-                        </div>
-                    </section>`;
-                chapters.forEach(c => c.classList.remove('active'));
-                viewer.innerHTML += placeholder;
+                // Si no existe la sección estática, podrías generar contenido dinámico aquí
+                alert("Sección en construcción técnica.");
             }
             document.getElementById('content-viewer').scrollTop = 0;
         }
