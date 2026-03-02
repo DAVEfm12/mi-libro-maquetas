@@ -3,244 +3,252 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Educación Dorada | Certificación en Maquetería Profesional</title>
+    <title>Campus Colección Dorada | Maquetería Profesional</title>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Inter:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #C5A021;
-            --primary-light: #D4AF37;
-            --accent: #2980b9;
-            --bg-dark: #0F1113;
-            --sidebar-bg: #161A1D;
-            --card-bg: #FFFFFF;
-            --text-main: #2C3E50;
-            --text-muted: #7F8C8D;
-            --success: #27AE60;
+            --primary: #C5A021; --primary-light: #D4AF37; --accent: #2980b9;
+            --bg-dark: #0F1113; --sidebar-bg: #161A1D; --card-bg: #FFFFFF;
+            --text-main: #2C3E50; --text-muted: #7F8C8D; --success: #27AE60;
             --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         * { box-sizing: border-box; }
-        body, html { 
-            margin: 0; padding: 0; height: 100%; 
-            font-family: 'Inter', sans-serif; 
-            background-color: #F4F7F6; color: var(--text-main);
-            overflow: hidden;
-        }
+        body, html { margin: 0; padding: 0; height: 100%; font-family: 'Inter', sans-serif; background-color: #F4F7F6; color: var(--text-main); overflow: hidden; }
 
-        /* --- DASHBOARD LAYOUT --- */
-        #platform-root { display: none; height: 100vh; grid-template-columns: 300px 1fr; opacity: 0; transition: opacity 1s; }
+        /* --- DASHBOARD STRUCTURE --- */
+        #platform-root { display: none; height: 100vh; grid-template-columns: 320px 1fr; opacity: 0; transition: opacity 1s; }
 
-        /* --- SIDEBAR ACADÉMICO --- */
-        aside { 
-            background: var(--sidebar-bg); color: white; 
-            display: flex; flex-direction: column; overflow-y: auto;
-            border-right: 1px solid rgba(255,255,255,0.05);
-        }
+        /* --- SIDEBAR --- */
+        aside { background: var(--sidebar-bg); color: white; display: flex; flex-direction: column; overflow-y: auto; border-right: 1px solid rgba(255,255,255,0.05); }
         .user-profile { padding: 30px 20px; text-align: center; background: #111416; }
-        .user-avatar { width: 60px; height: 60px; border-radius: 50%; border: 2px solid var(--primary); margin-bottom: 10px; }
-        .progress-container { padding: 0 20px; margin-top: 10px; }
+        .user-avatar { width: 70px; height: 70px; border-radius: 50%; border: 2px solid var(--primary); padding: 3px; margin-bottom: 10px; }
+        .progress-container { padding: 15px 20px; }
         .progress-bar { height: 6px; background: #333; border-radius: 3px; overflow: hidden; }
-        .progress-fill { height: 100%; background: var(--primary); width: 10%; transition: width 1s; }
+        .progress-fill { height: 100%; background: var(--primary); width: 0%; transition: width 0.8s; }
 
         .module-list { list-style: none; padding: 0; margin: 0; }
         .module-item { 
-            padding: 15px 25px; border-bottom: 1px solid rgba(255,255,255,0.03); 
+            padding: 16px 25px; border-bottom: 1px solid rgba(255,255,255,0.03); 
             cursor: pointer; transition: var(--transition); display: flex; align-items: center; gap: 12px;
             font-size: 0.85rem; color: #BDC3C7;
         }
         .module-item:hover { background: rgba(197, 160, 33, 0.1); color: var(--primary-light); }
         .module-item.active { background: var(--primary); color: #000; font-weight: 700; }
-        .module-item.completed::after { content: '✓'; margin-left: auto; color: var(--success); }
 
-        /* --- AREA DE TRABAJO --- */
-        main { overflow-y: auto; padding: 0; position: relative; scroll-behavior: smooth; }
-        
+        /* --- CONTENT AREA --- */
+        main { overflow-y: auto; position: relative; scroll-behavior: smooth; background: #F9FBFA; }
         .header-bar { 
-            background: white; padding: 15px 40px; display: flex; 
-            justify-content: space-between; align-items: center;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05); sticky: top; top: 0; z-index: 100;
+            background: white; padding: 15px 40px; display: flex; justify-content: space-between; 
+            align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 100;
         }
+        .content-area { max-width: 950px; margin: 40px auto; padding: 0 30px; padding-bottom: 100px; }
 
-        .content-area { max-width: 1000px; margin: 40px auto; padding: 0 40px; }
-
-        /* --- COMPONENTES EDUCATIVOS --- */
-        .lesson-card { display: none; animation: fadeIn 0.5s ease; }
+        /* --- LESSON CARDS --- */
+        .lesson-card { display: none; animation: fadeIn 0.6s ease; }
         .lesson-card.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
 
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .hero-title { font-family: 'Playfair Display', serif; font-size: 2.8rem; margin: 10px 0; color: #1A1A1A; line-height: 1.2; }
+        .badge { background: var(--primary); color: black; padding: 5px 14px; border-radius: 4px; font-size: 0.75rem; font-weight: 800; text-transform: uppercase; }
 
-        .hero-title { font-family: 'Playfair Display', serif; font-size: 2.5rem; margin-bottom: 10px; color: #1A1A1A; }
-        .badge { background: var(--primary); color: black; padding: 4px 12px; border-radius: 4px; font-size: 0.7rem; font-weight: 800; text-transform: uppercase; margin-bottom: 15px; display: inline-block; }
+        .learning-material { background: white; padding: 45px; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.04); margin-top: 25px; line-height: 1.8; }
+        .instructor-note { background: #FFF9E6; border-left: 6px solid var(--primary); padding: 25px; margin: 30px 0; font-style: italic; border-radius: 0 8px 8px 0; }
 
-        .learning-material { 
-            background: white; padding: 40px; border-radius: 12px; 
-            box-shadow: 0 4px 20px rgba(0,0,0,0.03); margin-top: 20px;
+        /* --- VISUALS --- */
+        .img-placeholder { 
+            width: 100%; background: #eee; border-radius: 12px; margin: 35px 0; overflow: hidden; border: 1px solid #ddd;
+            display: flex; flex-direction: column;
         }
+        .img-placeholder img { width: 100%; height: auto; display: block; transition: transform 0.5s; }
+        .img-placeholder:hover img { transform: scale(1.02); }
+        .img-caption { padding: 15px 20px; background: #f8f9fa; border-top: 1px solid #eee; font-size: 0.9rem; display: flex; justify-content: space-between; }
+        .img-caption a { color: var(--accent); text-decoration: none; font-weight: 600; }
 
-        .instructor-note { 
-            background: #FFF9E6; border-left: 5px solid var(--primary); 
-            padding: 20px; margin: 30px 0; font-style: italic; color: #5D4037;
-        }
+        .video-box { aspect-ratio: 16/9; background: #000; border-radius: 12px; overflow: hidden; margin: 35px 0; box-shadow: 0 15px 35px rgba(0,0,0,0.15); }
 
-        /* --- RECURSOS TÉCNICOS --- */
-        .technical-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 30px 0; }
-        .tech-item { background: #f8f9fa; padding: 20px; border-radius: 8px; border: 1px solid #eee; }
-        
-        .video-player { 
-            width: 100%; aspect-ratio: 16/9; background: #000; border-radius: 12px; 
-            overflow: hidden; margin: 30px 0; box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-        }
+        .technical-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin: 35px 0; }
+        .tech-item { background: #F8F9FA; padding: 25px; border-radius: 12px; border: 1px solid #E9ECEF; transition: 0.3s; }
+        .tech-item:hover { border-color: var(--primary); transform: translateY(-5px); }
 
-        /* --- EXÁMENES INTERACTIVOS --- */
-        .quiz-zone { background: #ECF0F1; padding: 30px; border-radius: 12px; margin-top: 50px; }
-        .btn-check { 
-            background: var(--primary); border: none; padding: 12px 30px; 
-            border-radius: 6px; cursor: pointer; font-weight: bold; margin-top: 20px; 
-        }
+        .quiz-zone { background: #EEF2F3; padding: 40px; border-radius: 16px; margin-top: 60px; border: 2px dashed #CBD5E0; }
+        .btn-check { background: var(--primary); color: black; border: none; padding: 14px 35px; border-radius: 8px; cursor: pointer; font-weight: 700; margin-top: 20px; transition: 0.3s; }
+        .btn-check:hover { background: var(--primary-light); box-shadow: 0 5px 15px rgba(197, 160, 33, 0.3); }
 
-        /* --- PORTADA INICIAL --- */
-        #welcome-screen {
-            position: fixed; inset: 0; z-index: 2000; background: var(--bg-dark);
-            display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;
-        }
-        .portal-card { 
-            border: 1px solid rgba(197, 160, 33, 0.3); padding: 60px; border-radius: 20px;
-            background: radial-gradient(circle at top right, #1a1e21, #0a0a0a);
-        }
-        .btn-launch { 
-            background: var(--primary); color: black; padding: 20px 60px; font-weight: 800;
-            text-transform: uppercase; border: none; border-radius: 50px; cursor: pointer; 
-            margin-top: 40px; letter-spacing: 2px; transition: var(--transition);
-        }
-        .btn-launch:hover { transform: scale(1.05); box-shadow: 0 0 30px var(--primary); }
+        /* --- WELCOME SCREEN --- */
+        #welcome-screen { position: fixed; inset: 0; z-index: 2000; background: var(--bg-dark); display: flex; justify-content: center; align-items: center; text-align: center; transition: 1s ease; }
+        .portal-card { border: 1px solid rgba(197, 160, 33, 0.2); padding: 70px; border-radius: 30px; background: radial-gradient(circle at top, #1c2024, #080808); box-shadow: 0 0 100px rgba(0,0,0,1); }
+        .btn-launch { background: var(--primary); color: black; padding: 22px 70px; font-weight: 800; text-transform: uppercase; border: none; border-radius: 50px; cursor: pointer; margin-top: 40px; letter-spacing: 3px; transition: 0.4s; }
+        .btn-launch:hover { transform: translateY(-5px); box-shadow: 0 10px 40px var(--primary); }
+
+        @media (max-width: 1100px) { #platform-root { grid-template-columns: 1fr; } aside { display: none; } }
     </style>
 </head>
 <body>
 
     <div id="welcome-screen">
         <div class="portal-card">
-            <img src="https://via.placeholder.com/100/C5A021/FFF?text=ILT" style="border-radius: 50%; margin-bottom: 20px;">
-            <h1 style="color: white; font-family: 'Cinzel'; margin: 0;">COLECCIÓN DORADA</h1>
-            <p style="color: var(--primary); letter-spacing: 5px; font-weight: 300;">PLATAFORMA DE APRENDIZAJE TÉCNICO</p>
-            <div style="color: #666; max-width: 400px; margin: 20px auto;">Accede al Volumen I del manual de Ignacio López Torres para dominar el arte de la escala.</div>
-            <button class="btn-launch" onclick="launchPlatform()">INGRESAR AL CURSO</button>
+            <h1 style="color: white; font-family: 'Cinzel'; font-size: 3.5rem; margin: 0;">COLECCIÓN DORADA</h1>
+            <p style="color: var(--primary); letter-spacing: 7px; font-weight: 300; margin-bottom: 30px;">CERTIFICACIÓN ACADÉMICA VOL. 1</p>
+            <div style="color: #888; max-width: 500px; margin: 0 auto; line-height: 1.6;">Bienvenido a la plataforma interactiva del manual técnico de <b>Ignacio López Torres</b>. Domine la teoría, elaboración y acabados de la maquetería profesional.</div>
+            <button class="btn-launch" onclick="launchPlatform()">INGRESAR AL CAMPUS</button>
         </div>
     </div>
 
     <div id="platform-root">
         <aside>
             <div class="user-profile">
-                <div style="font-family: 'Cinzel'; color: var(--primary); font-size: 1.2rem; margin-bottom: 20px;">CAMPUS VIRTUAL</div>
-                <img src="https://www.w3schools.com/howto/img_avatar.png" class="user-avatar">
-                <div style="font-size: 0.9rem; font-weight: 700;">Estudiante de Maquetería</div>
+                <div style="font-family: 'Cinzel'; color: var(--primary); font-size: 1.1rem; margin-bottom: 25px; letter-spacing: 2px;">PANEL DEL ALUMNO</div>
+                <img src="https://i.pravatar.cc/150?u=arch" class="user-avatar">
+                <div style="font-size: 0.95rem; font-weight: 700;">ASPIRANTE A MAQUETISTA</div>
                 <div class="progress-container">
-                    <div style="display: flex; justify-content: space-between; font-size: 0.7rem; margin-bottom: 5px;">
-                        <span>PROGRESO</span>
-                        <span id="prog-txt">10%</span>
+                    <div style="display: flex; justify-content: space-between; font-size: 0.75rem; margin-bottom: 8px;">
+                        <span style="color: #aaa;">PROGRESO DEL CURSO</span>
+                        <span id="prog-txt" style="color: var(--primary);">0%</span>
                     </div>
                     <div class="progress-bar"><div class="progress-fill" id="prog-bar"></div></div>
                 </div>
             </div>
 
             <ul class="module-list">
-                <li class="module-item active" onclick="loadLesson(0)">MOD 0. Prólogo e Inspiración</li>
-                <li class="module-item" onclick="loadLesson(1)">MOD 1. Fines de la Maqueta</li>
-                <li class="module-item" onclick="go(2)">MOD 2. Tipología y Clasificación</li>
-                <li class="module-item" onclick="go(3)">MOD 3. Lectura de Planos</li>
-                <li class="module-item" onclick="go(4)">MOD 4. Catálogo de Materiales</li>
-                <li class="module-item" onclick="go(5)">MOD 5. Organización del Taller</li>
-                <li class="module-item" onclick="go(6)">MOD 6. Técnicas de Corte (Exacto)</li>
-                <li class="module-item" onclick="go(7)">MOD 7. Sistemas de Armado</li>
-                <li class="module-item" onclick="go(8)">MOD 8. Texturizado de Fachadas</li>
-                <li class="module-item" onclick="go(9)">MOD 9. Paisajismo y Vegetación</li>
-                <li class="module-item" onclick="go(10)">MOD 10. Portafolio Final</li>
+                <li class="module-item active" onclick="go(0)">0. PRÓLOGO: EL DON</li>
+                <li class="module-item" onclick="go(1)">1. FINES DE LA MAQUETA</li>
+                <li class="module-item" onclick="go(2)">2. TIPOLOGÍA Y TÉCNICA</li>
+                <li class="module-item" onclick="go(3)">3. LECTURA DE PLANOS</li>
+                <li class="module-item" onclick="go(4)">4. TALLER Y ORGANIZACIÓN</li>
+                <li class="module-item" onclick="go(5)">5. MATERIALES Y COSTOS</li>
+                <li class="module-item" onclick="go(6)">6. CIENCIA DEL CORTE</li>
+                <li class="module-item" onclick="go(7)">7. MÉTODOS DE ENSAMBLE</li>
+                <li class="module-item" onclick="go(8)">8. TEXTURAS Y ACABADOS</li>
+                <li class="module-item" onclick="go(9)">9. VEGETACIÓN Y PAISAJE</li>
+                <li class="module-item" onclick="go(10)">10. FOTOGRAFÍA Y PORTAFOLIO</li>
             </ul>
         </aside>
 
         <main>
             <div class="header-bar">
-                <div style="color: var(--text-muted); font-weight: 600;">E-Book Interactivo: Volumen I</div>
-                <div style="display: flex; gap: 20px;">
-                    <span style="color: var(--accent); cursor: pointer;">🔍 Glosario Técnico</span>
-                    <span style="color: var(--success); cursor: pointer;">📄 Descargar PDF</span>
+                <div style="color: var(--text-muted); font-size: 0.9rem;">Curso: <b>Maquetas para Principiantes Vol. 1</b></div>
+                <div style="display: flex; gap: 25px; font-size: 0.85rem; font-weight: 600;">
+                    <span style="color: var(--accent); cursor: pointer;">📘 GLOSARIO</span>
+                    <span style="color: var(--success); cursor: pointer;">📥 DESCARGAR MATERIAL</span>
                 </div>
             </div>
 
-            <div class="content-area">
+            <div class="content-area" id="main-content">
                 
                 <article class="lesson-card active">
                     <span class="badge">Introducción</span>
-                    <h1 class="hero-title">El Don de la Creación</h1>
+                    <h1 class="hero-title">El Don y la Aportación</h1>
                     <div class="instructor-note">
-                        "Cuando conoces tu don y lo pones en práctica, das lo mejor de ti mismo y te sientes libre y feliz. Es tu aportación especial al mundo". — Ignacio López Torres.
+                        "Cuando conoces tu don y lo pones en práctica, das lo mejor de ti mismo y te sientes libre y feliz". — I. López Torres
                     </div>
                     <div class="learning-material">
-                        <p>Este curso técnico está diseñado para transformar materiales simples en representaciones espaciales de alto nivel. Aquí aprenderás que una maqueta no es un juguete, sino una <strong>herramienta de comprobación arquitectónica</strong>.</p>
-                        <div class="video-player">
+                        <p>Este volumen no es solo un manual técnico; es una guía para que el alumno descubra su capacidad creativa. La maquetería permite ver la realidad antes de que exista.</p>
+                        <div class="img-placeholder">
+                            <img src="https://images.unsplash.com/photo-1503387762-592dee582a7b?auto=format&fit=crop&w=1200" alt="Maqueta Pro">
+                            <div class="img-caption"><span>Visualización de la espacialidad en arquitectura.</span><a href="#">Ver detalles</a></div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="lesson-card">
+                    <span class="badge">Unidad 1</span>
+                    <h1 class="hero-title">Fines de la Maqueta</h1>
+                    <div class="learning-material">
+                        <p>La maqueta es una representación física a escala. Sus fines son:</p>
+                        <div class="technical-grid">
+                            <div class="tech-item"><b>1. Comprobación:</b> Detectar errores de diseño en 3D.</div>
+                            <div class="tech-item"><b>2. Didáctica:</b> Facilitar la comprensión del proyecto al cliente.</div>
+                        </div>
+                        <div class="video-box">
                             <iframe width="100%" height="100%" src="https://www.youtube.com/embed/SOf-h-oX5Y8" frameborder="0" allowfullscreen></iframe>
                         </div>
                     </div>
                 </article>
 
                 <article class="lesson-card">
-                    <span class="badge">Fundamentos</span>
-                    <h1 class="hero-title">La Maqueta y sus Fines</h1>
+                    <span class="badge">Unidad 2</span>
+                    <h1 class="hero-title">Tipologías Técnicas</h1>
                     <div class="learning-material">
-                        <p>La maqueta es la representación tridimensional a escala de una obra compleja. Sus fines principales según el autor son:</p>
-                        <div class="technical-grid">
-                            <div class="tech-item">
-                                <strong>1. Representación Objetiva:</strong> Visualizar el volumen real antes de invertir en la obra física.
-                            </div>
-                            <div class="tech-item">
-                                <strong>2. Medio Didáctico:</strong> Facilitar la enseñanza en arquitectura, ingeniería y diseño.
-                            </div>
+                        <p>Clasificación según el objetivo del proyecto:</p>
+                        <ul>
+                            <li><b>Urbanísticas:</b> Conjuntos de edificios y topografía (1:500).</li>
+                            <li><b>Edificación:</b> Detalles de fachadas y volúmenes (1:100, 1:50).</li>
+                            <li><b>Interiores:</b> Mobiliario y distribución interna (1:20).</li>
+                        </ul>
+                        <div class="img-placeholder">
+                            <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=1200" alt="Tipos de maquetas">
+                            <div class="img-caption"><span>Comparativa de escalas y niveles de detalle.</span></div>
                         </div>
-                        <img src="https://images.unsplash.com/photo-1503387762-592dee582a7b?auto=format&fit=crop&w=1200" style="width:100%; border-radius:8px; margin-top:20px;">
                     </div>
                 </article>
 
                 <article class="lesson-card">
-                    <span class="badge">Habilidad Práctica</span>
-                    <h1 class="hero-title">Técnicas de Corte Maestro</h1>
+                    <span class="badge">Habilidad</span>
+                    <h1 class="hero-title">Lectura de Planos</h1>
                     <div class="learning-material">
-                        <p>El corte es el corazón de la maquetería profesional. El manual especifica el uso del "mártir" o base protectora para no dañar el taller.</p>
-                        <ul style="line-height: 2;">
-                            <li><strong>Corte por pasadas:</strong> Nunca intentes cortar material grueso de un solo golpe.</li>
-                            <li><strong>Regla Metálica:</strong> Indispensable para guiar el exacto sin desviaciones.</li>
-                            <li><strong>Ángulo de ataque:</strong> Mantener la cuchilla a 45 grados para cortes limpios en cartón batería.</li>
-                        </ul>
-                        <div class="video-player">
-                            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/7Y8T3Lp-B1o" frameborder="0" allowfullscreen></iframe>
+                        <p>Sin la correcta interpretación de plantas y fachadas, la maqueta carecerá de precisión. El uso del escalímetro es obligatorio.</p>
+                        <div class="technical-grid">
+                            <div class="tech-item"><b>Planta de Conjunto:</b> Ubicación y orientación.</div>
+                            <div class="tech-item"><b>Fachadas:</b> Alturas y materiales exteriores.</div>
                         </div>
-                    </div>
-
-                    <div class="quiz-zone">
-                        <h3>🧠 Evaluación del Módulo</h3>
-                        <p>¿Qué sucede si el papel se desprende o se rasga durante el corte?</p>
-                        <label><input type="radio" name="q1"> Se aplicó mucha fuerza.</label><br>
-                        <label><input type="radio" name="q1"> La cuchilla está chata (sin filo).</label><br>
-                        <label><input type="radio" name="q1"> El material es de mala calidad.</label>
-                        <br>
-                        <button class="btn-check" onclick="checkAnswer()">VERIFICAR RESPUESTA</button>
+                        [Image: Diagrama de lectura de un plano arquitectónico con escalímetro]
                     </div>
                 </article>
 
-                </div>
+                <article class="lesson-card">
+                    <span class="badge">Práctica</span>
+                    <h1 class="hero-title">Ciencia del Corte Maestro</h1>
+                    <div class="learning-material">
+                        <p>El corte es el alma del acabado profesional. Ignacio recomienda:</p>
+                        <ul>
+                            <li>Uso de <b>Regla Metálica</b> para evitar cortes accidentales.</li>
+                            <li>El <b>Mártir</b> (Base de corte) para proteger la mesa.</li>
+                            <li>Cuchilla a 45° para cartón batería.</li>
+                        </ul>
+                        <div class="video-box">
+                            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/7Y8T3Lp-B1o" frameborder="0" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                    <div class="quiz-zone">
+                        <h3>🧠 Desafío de Módulo</h3>
+                        <p>¿Cuál es la regla de oro para cortar materiales gruesos?</p>
+                        <label><input type="radio" name="q1"> Presionar muy fuerte una sola vez.</label><br>
+                        <label><input type="radio" name="q1"> Realizar varias pasadas suaves con filo nuevo.</label><br>
+                        <button class="btn-check" onclick="check()">VALIDAR RESPUESTA</button>
+                    </div>
+                </article>
+
+                <article class="lesson-card">
+                    <span class="badge">Estética</span>
+                    <h1 class="hero-title">Vegetación y Paisaje</h1>
+                    <div class="learning-material">
+                        <p>Cómo humanizar la maqueta. Ignacio López Torres enseña a crear árboles con ramas secas y esponja triturada.</p>
+                        [Image: Paso a paso para crear árboles a escala]
+                        <div class="technical-grid">
+                            <div class="tech-item"><b>Follaje:</b> Uso de aserrín teñido o musgo sintético.</div>
+                            <div class="tech-item"><b>Terreno:</b> Texturizado con arena fina y pegamento blanco.</div>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
         </main>
     </div>
 
     <script>
         function launchPlatform() {
-            document.getElementById('welcome-screen').style.transform = 'translateY(-100%)';
-            document.getElementById('welcome-screen').style.transition = '0.8s ease-in';
-            const root = document.getElementById('platform-root');
-            root.style.display = 'grid';
-            setTimeout(() => { root.style.opacity = '1'; }, 100);
+            const welcome = document.getElementById('welcome-screen');
+            welcome.style.opacity = '0';
+            setTimeout(() => {
+                welcome.style.display = 'none';
+                const root = document.getElementById('platform-root');
+                root.style.display = 'grid';
+                setTimeout(() => root.style.opacity = '1', 100);
+            }, 1000);
         }
 
-        let currentProg = 10;
-
-        function loadLesson(index) {
+        function go(index) {
             const lessons = document.querySelectorAll('.lesson-card');
             const items = document.querySelectorAll('.module-item');
             
@@ -250,26 +258,22 @@
             if(lessons[index]) {
                 lessons[index].classList.add('active');
             } else {
-                // Placeholder para módulos no redactados
-                alert("Módulo en preparación técnica por la editorial.");
+                alert("Contenido técnico en proceso de carga: Capítulo " + (index + 1));
             }
-            
+
             items[index].classList.add('active');
             
-            // Simular progreso
-            currentProg = Math.min(100, (index + 1) * 10);
-            document.getElementById('prog-bar').style.width = currentProg + '%';
-            document.getElementById('prog-txt').innerText = currentProg + '%';
+            // Actualizar Progreso
+            let prog = Math.round(((index + 1) / items.length) * 100);
+            document.getElementById('prog-bar').style.width = prog + '%';
+            document.getElementById('prog-txt').innerText = prog + '%';
             
             document.querySelector('main').scrollTop = 0;
         }
 
-        function checkAnswer() {
-            alert("¡Correcto! Una cuchilla sin filo es la causa principal de rasgaduras en el cartón pluma.");
+        function check() {
+            alert("¡Excelente! La paciencia y las pasadas suaves garantizan un borde perfecto.");
         }
-
-        // Alias para navegación rápida
-        function go(i) { loadLesson(i); }
     </script>
 </body>
 </html>
