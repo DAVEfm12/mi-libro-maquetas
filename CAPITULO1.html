@@ -7,108 +7,157 @@
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
     <style>
         :root {
-            --primary: #C5A021; --accent: #FFD700; --bg: #050505;
-            --glass: rgba(15, 15, 15, 0.95); --border: rgba(197, 160, 33, 0.4);
-            --text-muted: #a0a0a0;
+            --primary: #1a5f7a; /* Azul Educativo */
+            --secondary: #00a8cc; 
+            --accent: #ebf4f6;
+            --bg: #f4f7f9;
+            --text-dark: #2c3e50;
+            --text-light: #ffffff;
+            --text-muted: #7f8c8d;
+            --sidebar-bg: #ffffff;
+            --card-bg: #ffffff;
+            --border: #dcdde1;
         }
 
-        body, html { margin: 0; padding: 0; height: 100%; font-family: 'Inter', sans-serif; background: var(--bg); color: #e0e0e0; overflow: hidden; }
+        * { box-sizing: border-box; }
 
-        #canvas-bg { position: fixed; top: 0; left: 0; z-index: -1; }
+        body, html { 
+            margin: 0; padding: 0; height: 100%; 
+            font-family: 'Inter', sans-serif; 
+            background: var(--bg); color: var(--text-dark); 
+            overflow: hidden; 
+        }
 
-        #app-container { display: grid; grid-template-columns: 380px 1fr; height: 100vh; }
+        #canvas-bg { position: fixed; top: 0; left: 0; z-index: -1; opacity: 0.5; }
+
+        /* --- LAYOUT RESPONSIVO --- */
+        #app-container { 
+            display: grid; 
+            grid-template-columns: 320px 1fr; 
+            height: 100vh; 
+            transition: all 0.3s ease;
+        }
 
         /* --- SIDEBAR --- */
         aside { 
-            background: var(--glass); border-right: 1px solid var(--border);
-            display: flex; flex-direction: column; backdrop-filter: blur(20px); z-index: 10;
+            background: var(--sidebar-bg); 
+            border-right: 1px solid var(--border);
+            display: flex; flex-direction: column; 
+            z-index: 100;
+            box-shadow: 2px 0 10px rgba(0,0,0,0.05);
         }
-        .header { padding: 40px 30px; border-bottom: 1px solid var(--border); background: linear-gradient(to bottom, rgba(197,160,33,0.05), transparent); }
-        .header h1 { font-family: 'Cinzel'; color: var(--primary); font-size: 1.3rem; letter-spacing: 4px; margin: 0; text-shadow: 0 0 15px rgba(197,160,33,0.3); }
-        .header small { color: var(--text-muted); font-weight: 600; font-size: 0.7rem; letter-spacing: 1px; }
 
-        .nav-scroll { flex: 1; overflow-y: auto; padding: 20px 0; scrollbar-width: thin; scrollbar-color: var(--primary) transparent; }
+        .header { padding: 30px; border-bottom: 1px solid var(--border); background: var(--primary); color: white; }
+        .header h1 { font-family: 'Cinzel'; font-size: 1.1rem; letter-spacing: 2px; margin: 0; }
+        .header small { opacity: 0.8; font-weight: 400; font-size: 0.65rem; letter-spacing: 1px; }
+
+        .nav-scroll { flex: 1; overflow-y: auto; padding: 10px 0; }
         .nav-item { 
-            padding: 16px 30px; cursor: pointer; transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1); font-size: 0.75rem;
-            border-left: 4px solid transparent; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1.5px;
+            padding: 14px 25px; cursor: pointer; transition: 0.3s; font-size: 0.8rem;
+            border-left: 4px solid transparent; color: var(--text-muted); font-weight: 600;
             display: flex; align-items: center; justify-content: space-between;
         }
-        .nav-item:hover { background: rgba(197, 160, 33, 0.1); color: var(--primary); padding-left: 35px; }
-        .nav-item.active { border-left-color: var(--primary); color: white; background: rgba(197, 160, 33, 0.15); font-weight: 800; box-shadow: inset 5px 0 15px rgba(0,0,0,0.5); }
+        .nav-item:hover { background: var(--accent); color: var(--primary); }
+        .nav-item.active { border-left-color: var(--secondary); color: var(--primary); background: var(--accent); }
 
-        /* --- MAIN --- */
-        main { overflow-y: auto; padding: 80px 60px; scroll-behavior: smooth; background: radial-gradient(circle at 50% 0%, rgba(197, 160, 33, 0.08), transparent 70%); }
-        .content-wrap { max-width: 1000px; margin: 0 auto; }
+        /* --- MAIN CONTENT --- */
+        main { overflow-y: auto; padding: 40px 20px; scroll-behavior: smooth; }
+        .content-wrap { max-width: 900px; margin: 0 auto; }
 
         .section-card { display: none; opacity: 0; }
         .section-card.active { display: block; opacity: 1; }
 
-        .chapter-badge { display: inline-block; background: var(--primary); color: black; padding: 5px 15px; font-weight: 900; font-size: 0.7rem; letter-spacing: 2px; border-radius: 2px; margin-bottom: 15px; }
-        .chapter-title { font-family: 'Cinzel'; font-size: 3.5rem; line-height: 1; margin: 10px 0 40px 0; color: white; border-left: 8px solid var(--primary); padding-left: 25px; }
+        .chapter-badge { 
+            display: inline-block; background: var(--secondary); color: white; 
+            padding: 4px 12px; font-weight: 700; font-size: 0.65rem; 
+            letter-spacing: 1px; border-radius: 4px; margin-bottom: 10px; 
+        }
+        .chapter-title { 
+            font-family: 'Inter'; font-weight: 800; font-size: 2.5rem; 
+            line-height: 1.1; margin: 0 0 30px 0; color: var(--primary); 
+        }
         
-        .lesson-box { background: rgba(255,255,255,0.03); border: 1px solid var(--border); padding: 50px; border-radius: 8px; line-height: 1.9; font-size: 1.05rem; position: relative; overflow: hidden; }
-        .lesson-box::after { content: ''; position: absolute; top: 0; right: 0; width: 100px; height: 100px; background: linear-gradient(45deg, transparent, rgba(197,160,33,0.1)); }
+        .lesson-box { 
+            background: var(--card-bg); border: 1px solid var(--border); 
+            padding: 40px; border-radius: 12px; line-height: 1.7; 
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+        }
 
-        h3 { color: var(--primary); font-family: 'Cinzel'; margin-top: 45px; font-size: 1.6rem; letter-spacing: 2px; display: flex; align-items: center; gap: 15px; }
-        h3::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+        h3 { color: var(--secondary); margin-top: 35px; font-size: 1.4rem; border-bottom: 2px solid var(--accent); padding-bottom: 10px; }
         
-        .sub-index { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; margin: 30px 0; }
-        .sub-card { background: rgba(0,0,0,0.3); border: 1px solid #333; padding: 20px; border-radius: 5px; transition: 0.3s; }
-        .sub-card:hover { border-color: var(--primary); background: rgba(197,160,33,0.05); }
-        .sub-card b { color: var(--primary); display: block; margin-bottom: 8px; font-size: 0.9rem; text-transform: uppercase; }
-        .sub-card span { font-size: 0.85rem; color: #ccc; }
+        .sub-index { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; margin: 25px 0; }
+        .sub-card { background: var(--accent); padding: 20px; border-radius: 8px; border: 1px solid transparent; }
+        .sub-card b { color: var(--primary); display: block; margin-bottom: 5px; font-size: 0.9rem; }
+        .sub-card span { font-size: 0.85rem; color: var(--text-dark); opacity: 0.8; }
 
         .image-placeholder { 
-            width: 100%; height: 400px; background: #111; border: 1px solid #222; margin: 30px 0; 
-            display: flex; flex-direction: column; align-items: center; justify-content: center; color: var(--primary);
-            position: relative; border-radius: 10px;
+            width: 100%; background: #fdfdfd; border: 2px dashed var(--border); 
+            margin: 25px 0; padding: 20px; text-align: center; border-radius: 8px;
         }
-        .image-placeholder i { font-size: 0.7rem; color: #555; position: absolute; bottom: 15px; }
+        .image-placeholder img { max-width: 100%; height: auto; border-radius: 4px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
 
-        .link-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 40px; }
+        .link-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 30px; }
         .btn-link { 
-            padding: 18px; border: 1px solid var(--border); color: white; text-decoration: none; 
-            text-align: center; font-weight: 700; transition: 0.4s; background: rgba(197,160,33,0.1);
-            display: flex; flex-direction: column; align-items: center; gap: 5px;
+            padding: 15px; border: 1px solid var(--primary); color: var(--primary); 
+            text-decoration: none; text-align: center; font-weight: 700; border-radius: 6px;
+            transition: 0.3s; font-size: 0.85rem;
         }
-        .btn-link:hover { background: var(--primary); color: black; transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.5); }
-        .btn-link span { font-size: 0.6rem; letter-spacing: 1px; opacity: 0.8; }
+        .btn-link:hover { background: var(--primary); color: white; }
 
-        .pro-tip { border-left: 4px solid #00ffcc; background: rgba(0,255,204,0.05); padding: 20px; margin: 25px 0; border-radius: 0 5px 5px 0; font-size: 0.95rem; }
+        /* --- MOBILE NAV --- */
+        .mobile-header { display: none; background: var(--primary); color: white; padding: 15px 20px; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 1000; }
+        .menu-toggle { cursor: pointer; font-size: 1.5rem; }
 
-        ul.tech-list { list-style: none; padding: 0; }
-        ul.tech-list li { padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.05); display: flex; align-items: flex-start; gap: 10px; }
-        ul.tech-list li::before { content: '◈'; color: var(--primary); }
+        /* --- RESPONSIVE BREAKPOINTS --- */
+        @media (max-width: 1024px) {
+            #app-container { grid-template-columns: 280px 1fr; }
+            .chapter-title { font-size: 2rem; }
+        }
 
-        ::-webkit-scrollbar { width: 6px; }
-        ::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 10px; }
+        @media (max-width: 768px) {
+            #app-container { grid-template-columns: 1fr; }
+            aside { 
+                position: fixed; left: -100%; width: 280px; height: 100%; 
+                transition: 0.4s;
+            }
+            aside.open { left: 0; }
+            .mobile-header { display: flex; }
+            main { padding: 30px 15px; }
+            .lesson-box { padding: 25px; }
+            .chapter-title { font-size: 1.8rem; }
+        }
     </style>
 </head>
 <body>
 
+    <div class="mobile-header">
+        <span>SISTEMA ILT</span>
+        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    </div>
+
     <canvas id="canvas-bg"></canvas>
 
     <div id="app-container">
-        <aside>
+        <aside id="sidebar">
             <div class="header">
                 <h1>SISTEMA ILT</h1>
-                <small>ACADEMIA VIRTUAL DE MAQUETERÍA</small>
+                <small>CAMPUS VIRTUAL EDUCATIVO</small>
             </div>
-            <div class="nav-scroll" id="menu">
-                <div class="nav-item active" onclick="show(0)">01. Introducción y Fines <span>01</span></div>
+            <div class="nav-scroll">
+                <div class="nav-item active" onclick="show(0)">01. Introducción <span>01</span></div>
                 <div class="nav-item" onclick="show(1)">02. Tipología Técnica <span>02</span></div>
-                <div class="nav-item" onclick="show(2)">03. Interpretación de Planos <span>03</span></div>
-                <div class="nav-item" onclick="show(3)">04. Biblioteca de Materiales <span>04</span></div>
-                <div class="nav-item" onclick="show(4)">05. Arsenal de Herramientas <span>05</span></div>
+                <div class="nav-item" onclick="show(2)">03. Interpretación <span>03</span></div>
+                <div class="nav-item" onclick="show(3)">04. Materiales <span>04</span></div>
+                <div class="nav-item" onclick="show(4)">05. Herramientas <span>05</span></div>
                 <div class="nav-item" onclick="show(5)">06. Técnicas de Corte <span>06</span></div>
-                <div class="nav-item" onclick="show(6)">07. Escalas y Acotación <span>07</span></div>
+                <div class="nav-item" onclick="show(6)">07. Escalas <span>07</span></div>
                 <div class="nav-item" onclick="show(7)">08. Guía de Elaboración <span>08</span></div>
-                <div class="nav-item" onclick="show(8)">09. Acabados y Texturas <span>09</span></div>
-                <div class="nav-item" onclick="show(9)">10. Paisajismo y Vegetación <span>10</span></div>
+                <div class="nav-item" onclick="show(8)">09. Acabados <span>09</span></div>
+                <div class="nav-item" onclick="show(9)">10. Paisajismo <span>10</span></div>
             </div>
         </aside>
 
@@ -116,162 +165,86 @@
             <div class="content-wrap">
                 
                 <section class="section-card active">
-                    <span class="chapter-badge">MODULO PRIMERO</span>
-                    <h1 class="chapter-title">EL ARTE DE LA <span style="color:var(--primary)">MAQUETA</span></h1>
+                    <span class="chapter-badge">TEMA 01</span>
+                    <h1 class="chapter-title">EL ARTE DE LA MAQUETA</h1>
                     <div class="lesson-box">
-                        <p>Ignacio López Torres define la maquetería como el lenguaje tridimensional supremo de la arquitectura. En este capítulo exploramos el concepto fundamental y la utilidad práctica de estos modelos.</p>
+                        <p>La maquetería es el lenguaje tridimensional supremo de la arquitectura. Permite convertir ideas abstractas en realidades tangibles y espaciales.</p>
                         
                         <div class="sub-index">
-                            <div class="sub-card"><b>1.1 ¿Qué es una maqueta?</b><span>Representación física a escala que permite la visualización espacial total.</span></div>
-                            <div class="sub-card"><b>1.2 Objetivos Centrales</b><span>Verificación de volúmenes y corrección de errores antes de la construcción real.</span></div>
-                            <div class="sub-card"><b>1.4 Finalidad</b><span>Didáctica (enseñar), Técnica (comprobar estructuras) y Comercial (venta).</span></div>
-                            <div class="sub-card"><b>1.9 Herramienta de Diseño</b><span>Elemento activo para el estudio de sombras, vientos y relación con el entorno.</span></div>
+                            <div class="sub-card"><b>1.1 Definición</b><span>Representación física a escala para visualización total.</span></div>
+                            <div class="sub-card"><b>1.2 Objetivos</b><span>Verificación volumétrica y detección de errores.</span></div>
                         </div>
 
-                        <h3>Elementos de la Composición</h3>
-                        <ul class="tech-list">
-                            <li><b>Conceptuales:</b> El punto, la línea y el plano como generadores de forma.</li>
-                            <li><b>Visuales:</b> Color, textura y peso visual que definen la estética.</li>
-                            <li><b>De Relación:</b> Posición, dirección y espacio entre volúmenes.</li>
-                            <li><b>Prácticos:</b> Representación de la función real del edificio.</li>
+                        <h3>Fundamentos de Composición</h3>
+                        <p>Cada maqueta se compone de elementos que definen su calidad visual y técnica:</p>
+                        <ul style="color: var(--text-dark);">
+                            <li><b>Conceptuales:</b> Líneas y planos de diseño.</li>
+                            <li><b>Visuales:</b> Color y texturas aplicadas.</li>
+                            <li><b>Prácticos:</b> Representación fiel de la función del edificio.</li>
                         </ul>
 
-                        <div class="pro-tip">
-                            <strong>Nota del Autor:</strong> "La maqueta es una herramienta superior al dibujo para la comunicación. Transmite la tridimensionalidad de forma inmediata".
-                        </div>
-
                         <div class="link-grid">
-                            <a href="http://www.colecciondorada.com" class="btn-link" target="_blank">PORTAL COLECCIÓN DORADA<span>Recursos Exclusivos</span></a>
-                            <a href="http://www.arqhys.com" class="btn-link" target="_blank">ESTRUCTURAS ARQUITECTÓNICAS<span>Consulta Técnica</span></a>
+                            <a href="http://www.colecciondorada.com" class="btn-link" target="_blank">Portal Colección Dorada</a>
+                            <a href="http://www.arqhys.com" class="btn-link" target="_blank">Consultas Técnicas</a>
                         </div>
                     </div>
                 </section>
 
                 <section class="section-card">
-                    <span class="chapter-badge">MODULO SEGUNDO</span>
-                    <h1 class="chapter-title">TIPOLOGÍA Y <span style="color:var(--primary)">MODELOS</span></h1>
+                    <span class="chapter-badge">TEMA 02</span>
+                    <h1 class="chapter-title">TIPOLOGÍA TÉCNICA</h1>
                     <div class="lesson-box">
-                        <p>La clasificación de las maquetas responde a la necesidad técnica de cada etapa del proyecto arquitectónico.</p>
+                        <p>Existen diversos tipos de maquetas según la necesidad del arquitecto y la etapa del proyecto.</p>
                         
                         <div class="image-placeholder">
-                            <img src="LIBRO/14.PNG"></img>
-                            [Imagen 1.4 Maqueta de detalles]
-                            <i>Fuente: http://www.maquetas-profesionales.blogspot.com</i>
-                        </div>
-
-                        <h3>Clasificación por Función</h3>
-                        <ul class="tech-list">
-                            <li><b>De Urbanismo:</b> Escalas 1:500 a 1:1000. Muestran conjuntos habitacionales y vialidad.</li>
-                            <li><b>De Edificación:</b> El enfoque principal en la vivienda o edificios públicos.</li>
-                            <li><b>De Estructuras:</b> Muestran el "esqueleto" (vigas, columnas y zapatas).</li>
-                            <li><b>De Espacios Interiores:</b> Detallan mobiliario, acabados de piso y decoración.</li>
-                        </ul>
-
-                        <h3>Clasificación por Detalle</h3>
-                        <div class="sub-index">
-                            <div class="sub-card"><b>2.2 Volumétricas</b><span>Masas puras sin ventanas ni acabados, solo estudio de sombras.</span></div>
-                            <div class="sub-card"><b>2.3 Detalladas</b><span>Alta fidelidad, colores reales, vegetación y mobiliario escala.</span></div>
-                            <div class="sub-card"><b>2.15 Seccionadas</b><span>Modelos con cortes transversales para ver el funcionamiento interno.</span></div>
-                            <div class="sub-card"><b>2.16 Desmontables</b><span>Permiten retirar techos y entrepisos nivel por nivel.</span></div>
-                        </div>
-
-                        <div class="btn-link" style="margin-top:20px; width:auto;">
-                            <a href="http://www.maquetas-profesionales.blogspot.com" style="color:inherit; text-decoration:none;">CONSULTAR GALERÍA DE REFERENCIA PROFESIONAL</a>
-                        </div>
-                    </div>
-                </section>
-
-                <section class="section-card">
-                    <span class="chapter-badge">MODULO CUARTO</span>
-                    <h1 class="chapter-title">BIBLIOTECA DE <span style="color:var(--primary)">MATERIALES</span></h1>
-                    <div class="lesson-box">
-                        <p>El dominio de los materiales permite al maquetista simular cualquier textura real, desde el concreto hasta el cristal.</p>
-
-                        <h3>Papeles y Cartones</h3>
-                        <ul class="tech-list">
-                            <li><b>Cartón Batería:</b> El preferido por su dureza y facilidad para el lijado.</li>
-                            <li><b>Papel Ilustración / Cascarón:</b> Ideales para fachadas lisas y aplicación de pintura.</li>
-                            <li><b>Espuma Rígida:</b> Utilizada para topografía y maquetas volumétricas rápidas.</li>
-                        </ul>
-
-                        <h3>Metales y Plásticos</h3>
-                        <div class="sub-index">
-                            <div class="sub-card"><b>4.7 Vidrio y Acetato</b><span>Para ventanería y fachadas integrales (curtain walls).</span></div>
-                            <div class="sub-card"><b>4.11 Metales</b><span>Uso de alambre de cobre, aluminio y mallas de filtro para estructuras.</span></div>
-                            <div class="sub-card"><b>4.15 Objetos Encontrados</b><span>Materiales de la naturaleza e industria adaptados para ambientación.</span></div>
-                        </div>
-
-                        <div class="pro-tip">
-                            <strong>Advertencia:</strong> El uso de pegamentos inapropiados puede derretir materiales como el poliestireno o manchar los acetatos transparentes.
-                        </div>
-
-                        <div class="image-placeholder" style="height:250px;">
-                            [Muestrario Técnico de Texturas: Malla, Madera y Acrílicos]
-                        </div>
-                    </div>
-                </section>
-
-                <section class="section-card">
-                    <span class="chapter-badge">MODULO SEXTO</span>
-                    <h1 class="chapter-title">TÉCNICAS DE <span style="color:var(--primary)">CORTE MANUAL</span></h1>
-                    <div class="lesson-box">
-                        <p>La precisión de una maqueta reside en la limpieza de sus uniones. El corte manual es la técnica más importante a dominar.</p>
-
-                        <h3>Metodología del Corte Maestro</h3>
-                        <ol style="color:#ccc;">
-                            <li style="margin-bottom:20px;"><b>Verificación de la Hoja:</b> Siempre usar puntas nuevas. Una hoja chata desgarra el cartón.</li>
-                            <li style="margin-bottom:20px;"><b>Apoyo Firme:</b> Uso exclusivo de reglas de **acero o aluminio**. Las reglas de plástico se cortan y causan accidentes.</li>
-                            <li style="margin-bottom:20px;"><b>Las Tres Pasadas:</b> 
-                                <br>1. *Corte de guía* (muy suave).
-                                <br>2. *Corte de profundidad* (presión media).
-                                <br>3. *Corte de separación* (liberación de la pieza).
-                            </li>
-                        </ol>
-
-                        <div class="pro-tip" style="border-left-color: #ff3366; background: rgba(255,51,102,0.05);">
-                            <strong>Error Común [Cita: 13]:</strong> Nunca arranques el papel si no se cortó bien; esto genera el "papel despegado". Repasa el corte con el exacto suavemente.
-                        </div>
-
-                        <h3>Cortes Especiales</h3>
-                        <ul class="tech-list">
-                            <li><b>Corte a 45°:</b> Para uniones en esquina donde no se vea el grosor del material.</li>
-                            <li><b>Corte de Círculos:</b> Uso del compás de corte para perforaciones exactas.</li>
-                            <li><b>Serrucho y Segueta:</b> Para materiales rígidos como maderas finas o metales.</li>
-                        </ul>
-                    </div>
-                </section>
-
-                <section class="section-card">
-                    <span class="chapter-badge">MODULO DÉCIMO</span>
-                    <h1 class="chapter-title">VEGETACIÓN Y <span style="color:var(--primary)">PAISAJISMO</span></h1>
-                    <div class="lesson-box">
-                        <p>El paisajismo no es decoración; es el contexto que da escala humana al edificio. Una mala vegetación arruina una buena arquitectura.</p>
-
-                        <div class="image-placeholder">
-                            [Ejemplo de Paisajismo: Pasto de Aserrín y Árboles de Espuma]
-                            <i>Fuente: http://www.mardezmaquetas.com</i>
+                            <img src="LIBRO/14.PNG" alt="Maqueta de Detalles">
+                            <p style="font-size: 0.8rem; color: #7f8c8d; margin-top: 10px;">Imagen 1.4: Maqueta de detalles profesionales.</p>
                         </div>
 
                         <div class="sub-index">
-                            <div class="sub-card"><b>10.5 Elaboración Artesanal</b><span>Creación de árboles con alambre y pastos con aserrín teñido.</span></div>
-                            <div class="sub-card"><b>10.8 Cuidados Críticos</b><span>La vegetación es lo más frágil. Evitar luz directa del sol y humedad.</span></div>
-                            <div class="sub-card"><b>10.9 Mantenimiento</b><span>Uso de pincel suave para sacudir y aire comprimido para el polvo.</span></div>
+                            <div class="sub-card"><b>2.2 Volumétricas</b><span>Estudio de masas y sombras básicas.</span></div>
+                            <div class="sub-card"><b>2.15 Seccionadas</b><span>Muestran el interior mediante cortes.</span></div>
                         </div>
-
-                        <h3>Recursos de Ambientación</h3>
-                        <div class="link-grid">
-                            <a href="http://www.mardezmaquetas.com" class="btn-link" target="_blank">MARDEZ MAQUETAS<span>Catálogo de Vegetación Profesional</span></a>
-                            <a href="http://www.maquetas-profesionales.blogspot.com" class="btn-link" target="_blank">BLOG DE REFERENCIA<span>Galería de Acabados</span></a>
+                        
+                        <div class="btn-link" style="margin-top:20px; display: block;">
+                            <a href="http://www.maquetas-profesionales.blogspot.com" style="color:inherit; text-decoration:none;">Ver Blog de Referencias</a>
                         </div>
                     </div>
                 </section>
 
-            </div>
+                </div>
         </main>
     </div>
 
     <script>
-        // --- MOTOR 3D ---
+        // --- NAVEGACIÓN Y RESPONSIVIDAD ---
+        function show(index) {
+            const sections = document.querySelectorAll('.section-card');
+            const items = document.querySelectorAll('.nav-item');
+            const sidebar = document.getElementById('sidebar');
+            
+            // Cerrar menú en móvil al seleccionar
+            sidebar.classList.remove('open');
+
+            const current = document.querySelector('.section-card.active');
+            gsap.to(current, { opacity: 0, y: -10, duration: 0.3, onComplete: () => {
+                sections.forEach(s => s.classList.remove('active'));
+                items.forEach(i => i.classList.remove('active'));
+                
+                sections[index].classList.add('active');
+                items[index].classList.add('active');
+                
+                gsap.fromTo(sections[index], { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.5 });
+            }});
+
+            document.getElementById('main-content').scrollTop = 0;
+        }
+
+        function toggleMenu() {
+            document.getElementById('sidebar').classList.toggle('open');
+        }
+
+        // --- BACKGROUND ANIMATION (SUTIL) ---
         let scene, camera, renderer, points;
         function init3D() {
             scene = new THREE.Scene();
@@ -281,43 +254,22 @@
 
             const geometry = new THREE.BufferGeometry();
             const vertices = [];
-            for (let i = 0; i < 6000; i++) {
+            for (let i = 0; i < 3000; i++) {
                 vertices.push(THREE.MathUtils.randFloatSpread(2000), THREE.MathUtils.randFloatSpread(2000), THREE.MathUtils.randFloatSpread(2000));
             }
             geometry.setAttribute('position', new THREE.Float32BufferAttribute(vertices, 3));
-            const material = new THREE.PointsMaterial({ color: 0xC5A021, size: 2, transparent: true, opacity: 0.6 });
+            const material = new THREE.PointsMaterial({ color: 0x1a5f7a, size: 3, transparent: true, opacity: 0.3 });
             points = new THREE.Points(geometry, material);
             scene.add(points);
 
-            camera.position.z = 900;
+            camera.position.z = 800;
             animate();
         }
 
         function animate() {
             requestAnimationFrame(animate);
-            points.rotation.y += 0.0006;
-            points.rotation.x += 0.0003;
+            points.rotation.y += 0.0005;
             renderer.render(scene, camera);
-        }
-
-        // --- NAVEGACIÓN ---
-        function show(index) {
-            const sections = document.querySelectorAll('.section-card');
-            const items = document.querySelectorAll('.nav-item');
-            
-            const current = document.querySelector('.section-card.active');
-            gsap.to(current, { opacity: 0, scale: 0.98, y: -20, duration: 0.4, ease: "power2.in", onComplete: () => {
-                sections.forEach(s => s.classList.remove('active'));
-                items.forEach(i => i.classList.remove('active'));
-                
-                const target = sections[index] || sections[0];
-                target.classList.add('active');
-                items[index].classList.add('active');
-                
-                gsap.fromTo(target, { opacity: 0, scale: 1.05, y: 30 }, { opacity: 1, scale: 1, y: 0, duration: 0.8, ease: "expo.out" });
-            }});
-
-            document.getElementById('main-content').scrollTop = 0;
         }
 
         window.addEventListener('resize', () => {
