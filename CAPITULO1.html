@@ -3,165 +3,283 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Capítulo 1: El Mundo de las Maquetas</title>
+    <title>Capítulo 1: Introducción a las Maquetas - Interactivo</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         :root {
             --primary: #2c3e50;
             --secondary: #34495e;
             --accent: #e67e22;
-            --light: #ecf0f1;
             --success: #27ae60;
+            --danger: #c0392b;
+            --light: #ecf0f1;
         }
 
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; display: flex; background: var(--light); }
-        
-        /* Navegación Lateral */
-        nav { width: 250px; height: 100vh; background: var(--primary); color: white; position: fixed; padding-top: 20px; }
-        nav h2 { text-align: center; font-size: 1.2rem; border-bottom: 1px solid var(--secondary); padding-bottom: 15px; }
-        nav a { display: block; padding: 15px; color: white; text-decoration: none; transition: 0.3s; border-left: 4px solid transparent; }
-        nav a:hover { background: var(--secondary); border-left: 4px solid var(--accent); }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            background-color: #f4f7f6;
+            color: var(--primary);
+        }
 
-        /* Contenido Principal */
-        main { margin-left: 250px; padding: 40px; width: 100%; max-width: 900px; }
-        section { display: none; animation: fadeIn 0.5s; }
-        section.active { display: block; }
+        header {
+            background: var(--primary);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
 
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .container {
+            max-width: 1000px;
+            margin: 20px auto;
+            padding: 20px;
+        }
 
-        .card { background: white; padding: 25px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-bottom: 20px; }
-        h1 { color: var(--primary); }
-        
-        /* Herramientas de Personalización: Calculadora */
-        .tool-box { background: var(--secondary); color: white; padding: 20px; border-radius: 10px; }
-        input { padding: 8px; border-radius: 4px; border: none; width: 100px; margin: 10px 0; }
+        /* Capas de Navegación */
+        .nav-tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            overflow-x: auto;
+            padding-bottom: 10px;
+        }
+
+        .tab-btn {
+            padding: 12px 20px;
+            border: none;
+            background: #ddd;
+            cursor: pointer;
+            border-radius: 5px;
+            white-space: nowrap;
+            transition: 0.3s;
+            font-weight: bold;
+        }
+
+        .tab-btn.active {
+            background: var(--accent);
+            color: white;
+        }
+
+        .content-layer {
+            display: none;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+            animation: fadeIn 0.5s;
+        }
+
+        .content-layer.active { display: block; }
+
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+        /* Elementos Interactivos: Acordeón */
+        .accordion-item {
+            border: 1px solid #ddd;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+
+        .accordion-header {
+            background: var(--light);
+            padding: 15px;
+            cursor: pointer;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .accordion-body {
+            padding: 15px;
+            display: none;
+            border-top: 1px solid #ddd;
+        }
+
+        /* Herramienta de Personalización: Calculadora */
+        .tool-box {
+            background: var(--secondary);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        .tool-box input {
+            padding: 10px;
+            margin: 5px;
+            border-radius: 5px;
+            border: none;
+        }
 
         /* Gamificación */
-        .quiz-box { border: 2px dashed var(--accent); padding: 20px; text-align: center; }
-        .btn { background: var(--accent); color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; }
-        .btn:hover { opacity: 0.8; }
+        .quiz-container {
+            background: #fffbe6;
+            border: 2px dashed var(--accent);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
 
-        /* Acordeón */
-        .accordion { background: #eee; cursor: pointer; padding: 15px; width: 100%; text-align: left; border: none; outline: none; transition: 0.4s; margin-top: 5px; font-weight: bold; }
-        .panel { padding: 0 18px; display: none; background-color: white; overflow: hidden; border-left: 3px solid var(--accent); }
+        .btn-check {
+            background: var(--success);
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .feedback { margin-top: 15px; font-weight: bold; }
     </style>
 </head>
 <body>
 
-<nav>
-    <h2>INTRODUCCIÓN</h2>
-    <a href="#" onclick="showSection('inicio')"><i class="fas fa-home"></i> 1.1 ¿Qué es?</a>
-    <a href="#" onclick="showSection('elementos')"><i class="fas fa-cubes"></i> 1.3 Elementos</a>
-    <a href="#" onclick="showSection('herramientas')"><i class="fas fa-tools"></i> 1.8 Herramienta</a>
-    <a href="#" onclick="showSection('cuidados')"><i class="fas fa-shield-alt"></i> 1.7 Cuidados</a>
-    <a href="#" onclick="showSection('juego')"><i class="fas fa-gamepad"></i> Autoevaluación</a>
-</nav>
+<header>
+    <h1>CAPÍTULO I: INTRODUCCIÓN A LAS MAQUETAS</h1>
+    <p>Explora la representación tridimensional y su importancia técnica</p>
+</header>
 
-<main>
-    <section id="inicio" class="active">
-        <h1>1.1 ¿Qué es una Maqueta?</h1>
-        <div class="card">
-            <p>Es la representación tridimensional, a escala, de una obra compleja. <strong>A diferencia de los planos</strong>, la maqueta nos ofrece una visión espacial intuitiva.</p>
-            <p><em>"Su utilización desvela problemas constructivos que solo con los planos no se habrían visto."</em></p>
+<div class="container">
+    <div class="nav-tabs">
+        <button class="tab-btn active" onclick="showLayer('conceptos')">1.1 Definición</button>
+        <button class="tab-btn" onclick="showLayer('elementos')">1.3 Elementos</button>
+        <button class="tab-btn" onclick="showLayer('ventajas')">1.5 Ventajas/Desventajas</button>
+        <button class="tab-btn" onclick="showLayer('taller')">1.7 Cuidados y Herramientas</button>
+    </div>
+
+    <div id="conceptos" class="content-layer active">
+        <h2>¿Qué es una Maqueta?</h2>
+        <p>Es la representación tridimensional, a escala, de una obra compleja. En los planos, la visión espacial no es intuitiva, en las maquetas sí.</p>
+        <div style="text-align:center; padding: 20px; background: #f9f9f9;">
+            <i class="fas fa-cube fa-4x" style="color: var(--accent);"></i>
+            <p><em>"La maqueta desvela problemas constructivos que solo con los planos no se habrían visto."</em></p>
         </div>
         
-    </section>
+        <div class="tool-box">
+            <h3><i class="fas fa-calculator"></i> Herramienta: Convertidor de Escala</h3>
+            <p>Calcula cuánto debe medir tu pieza en la maqueta:</p>
+            <label>Medida Real (metros):</label>
+            <input type="number" id="realSize" placeholder="Ej: 10" oninput="calculateScale()">
+            <label>Escala 1 :</label>
+            <input type="number" id="scaleValue" placeholder="Ej: 50" oninput="calculateScale()">
+            <p id="scaleResult" style="font-size: 1.2rem; color: #f1c40f; font-weight: bold;"></p>
+        </div>
+    </div>
 
-    <section id="elementos">
-        <h1>1.3 Elementos que la Componen</h1>
-        <p>Haz clic en cada categoría para explorar su definición técnica:</p>
-        
-        <button class="accordion">1.3.1 Conceptuales (Ideas)</button>
-        <div class="panel">
-            <p>Elementos no visibles: ideas y conceptos. Dependen de la necesidad del diseñador.</p>
+    <div id="elementos" class="content-layer">
+        <h2>Elementos que componen una maqueta</h2>
+        <p>Haz clic en cada categoría para explorar su definición:</p>
+
+        <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleAccordion(this)">1.3.1 CONCEPTUALES (Ideas) <i class="fas fa-plus"></i></div>
+            <div class="accordion-body">Elementos no visibles: ideas y conceptos de algo que se pretende construir. Dependen de la necesidad del diseñador.</div>
         </div>
 
-        <button class="accordion">1.3.2 Visuales</button>
-        <div class="panel">
-            <p>Forma, medida, color y textura. Ayudan al ser humano a comprender mejor al observar directamente.</p>
+        <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleAccordion(this)">1.3.2 VISUALES <i class="fas fa-plus"></i></div>
+            <div class="accordion-body">Forma, medida, diseño, color y textura. Ayudan al ser humano a comprender mejor al observar directamente.</div>
         </div>
 
-        <button class="accordion">1.3.3 De Relación</button>
-        <div class="panel">
-            <p>Gobierna la ubicación e interrelación: dirección, posición, espacio y gravedad.</p>
+        <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleAccordion(this)">1.3.3 DE RELACIÓN <i class="fas fa-plus"></i></div>
+            <div class="accordion-body">Gobierna la ubicación e interrelación de formas: dirección, posición, espacio y gravedad.</div>
         </div>
-    </section>
 
-    <section id="herramientas">
-        <h1>1.8 La Maqueta como Herramienta</h1>
-        <div class="card">
-            <h3>Calculadora de Escala (Herramienta de Trabajo)</h3>
-            <p>Usa esta herramienta para planificar tu maqueta rápidamente:</p>
-            <div class="tool-box">
-                <label>Medida Real (metros):</label><br>
-                <input type="number" id="medidaReal" placeholder="Ej: 10" oninput="calcular()"> <br>
-                <label>Escala 1 :</label><br>
-                <input type="number" id="escala" placeholder="Ej: 50" oninput="calcular()">
-                <p id="resultado">Resultado: 0 cm</p>
+        <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleAccordion(this)">1.3.4 PRÁCTICOS <i class="fas fa-plus"></i></div>
+            <div class="accordion-body">Representa el significado de la función y la finalidad. Proyectan el talento y creatividad del maquetista.</div>
+        </div>
+    </div>
+
+    <div id="ventajas" class="content-layer">
+        <h2>Análisis Comparativo</h2>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+            <div style="background: #e8f5e9; padding: 15px; border-radius: 10px;">
+                <h3 style="color: var(--success);"><i class="fas fa-check-circle"></i> Ventajas</h3>
+                <ul>
+                    <li>Sustituye al dibujo en etapa inicial.</li>
+                    <li>Instrumento de diseño para analizar volúmenes.</li>
+                    <li>Sistema de comunicación eficiente (Wright).</li>
+                </ul>
+            </div>
+            <div style="background: #ffebee; padding: 15px; border-radius: 10px;">
+                <h3 style="color: var(--danger);"><i class="fas fa-exclamation-triangle"></i> Desventajas</h3>
+                <ul>
+                    <li>Elaboración laboriosa.</li>
+                    <li>Materiales caros o difíciles de hallar.</li>
+                    <li>Requieren mantenimiento constante (polvo).</li>
+                </ul>
             </div>
         </div>
-    </section>
+    </div>
 
-    <section id="cuidados">
-        <h1>1.7 Cuidados Fundamentales</h1>
-        <div class="card">
-            <ul>
-                <li><i class="fas fa-wind"></i> Libre del polvo</li>
-                <li><i class="fas fa-tint"></i> Libre de humedad</li>
-                <li><i class="fas fa-sun"></i> Evitar rayos solares directos</li>
-                <li><i class="fas fa-child"></i> Fuera del alcance de niños</li>
-            </ul>
+    <div id="taller" class="content-layer">
+        <h2>Centro de Cuidados y Gamificación</h2>
+        <div class="quiz-container">
+            <h3><i class="fas fa-gamepad"></i> Mini-Reto: El Guardián de la Obra</h3>
+            <p id="quiz-question">¿Cuál de estos es un enemigo crítico de la maqueta según el texto?</p>
+            <button class="tab-btn" onclick="checkAnswer(false)">A) Exceso de luz LED</button>
+            <button class="tab-btn" onclick="checkAnswer(true)">B) Humedad y Polvo</button>
+            <button class="tab-btn" onclick="checkAnswer(false)">C) El color del pegamento</button>
+            <div id="quiz-feedback" class="feedback"></div>
         </div>
-        
-    </section>
 
-    <section id="juego">
-        <h1>Desafío: El Guardián de la Maqueta</h1>
-        <div class="card quiz-box">
-            <p id="pregunta">¿Cuál es el principal enemigo de una maqueta terminada si no se protege?</p>
-            <button class="btn" onclick="check(false)">El pegamento</button>
-            <button class="btn" onclick="check(true)">El polvo y humedad</button>
-            <p id="feedback"></p>
-        </div>
-    </section>
-</main>
+        <h3 style="margin-top:30px;">Protocolo de Seguridad (Sección 1.7)</h3>
+        <ul style="list-style: none; padding: 0;">
+            <li><i class="fas fa-shield-alt" style="color: var(--success);"></i> Libre de rayos solares directos.</li>
+            <li><i class="fas fa-shield-alt" style="color: var(--success);"></i> Fuera del alcance de los niños.</li>
+            <li><i class="fas fa-shield-alt" style="color: var(--success);"></i> Cuidado extremo en el traslado.</li>
+        </ul>
+    </div>
+</div>
 
 <script>
-    // Navegación de secciones
-    function showSection(id) {
-        document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
+    // Navegación de Capas
+    function showLayer(id) {
+        document.querySelectorAll('.content-layer').forEach(layer => layer.classList.remove('active'));
+        document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
         document.getElementById(id).classList.add('active');
+        event.currentTarget.classList.add('active');
     }
 
     // Acordeón
-    var acc = document.getElementsByClassName("accordion");
-    for (var i = 0; i < acc.length; i++) {
-        acc[i].addEventListener("click", function() {
-            this.classList.toggle("active");
-            var panel = this.nextElementSibling;
-            panel.style.display = (panel.style.display === "block") ? "none" : "block";
-        });
-    }
-
-    // Calculadora
-    function calcular() {
-        let real = document.getElementById('medidaReal').value;
-        let esc = document.getElementById('escala').value;
-        if(real && esc) {
-            let res = (real / esc) * 100;
-            document.getElementById('resultado').innerText = "Medida en Maqueta: " + res.toFixed(2) + " cm";
+    function toggleAccordion(header) {
+        const body = header.nextElementSibling;
+        const icon = header.querySelector('i');
+        if (body.style.display === "block") {
+            body.style.display = "none";
+            icon.classList.replace('fa-minus', 'fa-plus');
+        } else {
+            body.style.display = "block";
+            icon.classList.replace('fa-plus', 'fa-minus');
         }
     }
 
-    // Minijuego
-    function check(isCorrect) {
-        let f = document.getElementById('feedback');
-        if(isCorrect) {
-            f.innerHTML = "✅ ¡Correcto! El mantenimiento es clave.";
-            f.style.color = "green";
+    // Calculadora de Escalas (Lógica matemática)
+    function calculateScale() {
+        const real = document.getElementById('realSize').value;
+        const scale = document.getElementById('scaleValue').value;
+        const resultArea = document.getElementById('scaleResult');
+
+        if (real && scale && scale > 0) {
+            const resultCm = (real / scale) * 100;
+            resultArea.innerHTML = `Medida en maqueta: ${resultCm.toFixed(2)} cm`;
         } else {
-            f.innerHTML = "❌ Intenta de nuevo. Revisa la sección 1.7.";
-            f.style.color = "red";
+            resultArea.innerHTML = "";
+        }
+    }
+
+    // Gamificación
+    function checkAnswer(isCorrect) {
+        const feedback = document.getElementById('quiz-feedback');
+        if (isCorrect) {
+            feedback.innerHTML = "¡Correcto! La humedad y el polvo son los principales factores de riesgo.";
+            feedback.style.color = "var(--success)";
+        } else {
+            feedback.innerHTML = "Inténtalo de nuevo. Revisa la sección 1.7 de cuidados.";
+            feedback.style.color = "var(--danger)";
         }
     }
 </script>
