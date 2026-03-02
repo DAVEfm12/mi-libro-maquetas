@@ -42,7 +42,7 @@
             padding: 20px;
         }
 
-        /* Navegación */
+        /* Navegación Estilo Pastilla */
         .nav-tabs {
             display: flex;
             gap: 10px;
@@ -52,6 +52,8 @@
             scrollbar-width: none;
         }
 
+        .nav-tabs::-webkit-scrollbar { display: none; }
+
         .tab-btn {
             padding: 12px 25px;
             border: none;
@@ -59,9 +61,12 @@
             cursor: pointer;
             border-radius: 50px;
             white-space: nowrap;
-            transition: 0.3s;
+            transition: all 0.3s ease;
             font-weight: 600;
             color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
 
         .tab-btn.active {
@@ -82,7 +87,12 @@
 
         .content-layer.active { display: block; }
 
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeIn { 
+            from { opacity: 0; transform: translateY(10px); } 
+            to { opacity: 1; transform: translateY(0); } 
+        }
+
+        h2 { color: var(--primary); border-bottom: 2px solid var(--accent); padding-bottom: 10px; margin-top: 0; }
 
         /* Acordeón */
         .accordion-item {
@@ -90,6 +100,7 @@
             margin-bottom: 12px;
             border-radius: 8px;
             overflow: hidden;
+            transition: 0.3s;
         }
 
         .accordion-header {
@@ -100,7 +111,6 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            transition: background 0.2s;
         }
 
         .accordion-header:hover { background: #f1f5f9; }
@@ -114,11 +124,14 @@
 
         /* Enlaces y Fuentes */
         .source-link {
-            display: inline-block;
-            margin-top: 10px;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            margin-top: 15px;
             font-size: 0.85rem;
             color: #3498db;
             text-decoration: none;
+            font-weight: 600;
         }
 
         .source-link:hover { text-decoration: underline; }
@@ -127,85 +140,94 @@
         .tool-box {
             background: var(--primary);
             color: white;
-            padding: 25px;
+            padding: 30px;
             border-radius: 12px;
             margin-top: 30px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
         }
 
         .tool-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-            margin-top: 15px;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
         }
 
-        input {
+        .tool-box label { display: block; margin-bottom: 8px; font-size: 0.9rem; opacity: 0.9; }
+
+        .tool-box input {
             width: 100%;
-            padding: 10px;
-            border-radius: 5px;
-            border: none;
-            font-size: 1rem;
-        }
-
-        /* Gamificación */
-        .quiz-container {
-            background: #fff9f0;
-            border: 2px dashed var(--accent);
-            padding: 25px;
-            border-radius: 12px;
-            text-align: center;
-        }
-
-        .btn-check {
-            background: var(--success);
-            color: white;
-            padding: 12px 25px;
-            border: none;
+            padding: 12px;
             border-radius: 8px;
-            cursor: pointer;
-            margin-top: 15px;
+            border: 1px solid rgba(255,255,255,0.2);
+            background: rgba(255,255,255,0.1);
+            color: white;
+            font-size: 1rem;
+            box-sizing: border-box;
         }
 
+        /* Imágenes */
         .img-container {
             text-align: center;
-            margin: 20px 0;
+            margin: 25px 0;
             background: #fdfdfd;
-            padding: 10px;
+            padding: 15px;
+            border-radius: 10px;
             border: 1px solid #eee;
         }
 
-        .img-container img { max-width: 100%; height: auto; border-radius: 5px; }
+        .img-container img { 
+            max-width: 100%; 
+            height: auto; 
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
 
-        .img-caption { font-size: 0.85rem; color: #7f8c8d; margin-top: 8px; font-style: italic; }
+        .img-caption { font-size: 0.85rem; color: #7f8c8d; margin-top: 10px; font-style: italic; }
 
+        /* Mini Reto */
+        .quiz-container {
+            background: #fff9f0;
+            border: 2px dashed var(--accent);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        @media (max-width: 600px) {
+            .content-layer { padding: 20px; }
+            .tab-btn { padding: 10px 15px; font-size: 0.8rem; }
+        }
     </style>
 </head>
 <body>
 
 <header>
     <h1>CAPÍTULO I: INTRODUCCIÓN A LAS MAQUETAS</h1>
-    <p>Representación tridimensional y técnica de precisión</p>
+    <p>La importancia de la visión espacial en la arquitectura técnica</p>
 </header>
 
 <div class="container">
     <nav class="nav-tabs">
-        <button class="tab-btn active" onclick="showLayer('conceptos')">1.1 Definición</button>
-        <button class="tab-btn" onclick="showLayer('elementos')">1.3 Elementos</button>
-        <button class="tab-btn" onclick="showLayer('ventajas')">1.5 Análisis</button>
-        <button class="tab-btn" onclick="showLayer('taller')">1.7 Cuidados</button>
+        <button class="tab-btn active" onclick="showLayer('conceptos')"><i class="fas fa-book"></i> 1.1 Definición</button>
+        <button class="tab-btn" onclick="showLayer('elementos')"><i class="fas fa-layer-group"></i> 1.3 Elementos</button>
+        <button class="tab-btn" onclick="showLayer('ventajas')"><i class="fas fa-chart-bar"></i> 1.5 Análisis</button>
+        <button class="tab-btn" onclick="showLayer('taller')"><i class="fas fa-shield-alt"></i> 1.7 Cuidados</button>
     </nav>
 
     <div id="conceptos" class="content-layer active">
         <h2>¿Qué es una Maqueta?</h2>
-        <p>Es la representación tridimensional, a escala, de una obra compleja. Mientras que los <strong>planos</strong> son representaciones bidimensionales que a veces suministran información insuficiente, la maqueta desvela problemas constructivos que no son evidentes a simple vista.</p>
+        <p>Es la representación tridimensional, a escala, de una obra compleja. En general, para la construcción de edificios, plantas industriales, barcos, aviones o piezas específicas, se utilizan planos.</p>
+        <p>Los planos son representaciones en dos dimensiones, pero en muchos casos la información que suministran es insuficiente. La maqueta <strong>desvela problemas constructivos</strong> que solo con los planos no se habrían visto. En los planos, la visión espacial no es intuitiva, en las maquetas sí.</p>
         
         <div class="img-container">
-            <img src="LIBRO/11.png" alt="Ejemplo de Maqueta">
-            <div class="img-caption">"En los planos la visión espacial no es intuitiva; en las maquetas sí."</div>
+            <img src="LIBRO/11.png" alt="Concepto de Maqueta" onerror="this.src='https://via.placeholder.com/600x300?text=Imagen+Definición+Maqueta'">
+            <div class="img-caption">"La visión espacial intuitiva es la mayor ventaja de la representación 3D."</div>
         </div>
 
         <div class="tool-box">
-            <h3><i class="fas fa-calculator"></i> Convertidor de Escala Técnico</h3>
+            <h3><i class="fas fa-calculator"></i> Calculadora de Escala para Taller</h3>
+            <p>Calcula la medida exacta que debe tener tu pieza en la maqueta:</p>
             <div class="tool-grid">
                 <div>
                     <label>Medida Real (metros):</label>
@@ -216,20 +238,18 @@
                     <input type="number" id="scaleValue" placeholder="Ej: 50" oninput="calculateScale()">
                 </div>
             </div>
-            <p id="scaleResult" style="font-size: 1.3rem; color: #f1c40f; font-weight: bold; margin-top: 15px;"></p>
+            <p id="scaleResult" style="font-size: 1.4rem; color: #f1c40f; font-weight: bold; margin-top: 20px; text-align: center;"></p>
         </div>
     </div>
 
     <div id="elementos" class="content-layer">
         <h2>Elementos que componen una maqueta</h2>
-        <p>Selecciona una categoría para ver su descripción técnica y fuente:</p>
+        <p>Explora las categorías fundamentales del diseño tridimensional:</p>
 
         <div class="accordion-item">
             <div class="accordion-header" onclick="toggleAccordion(this)">1.3.1 CONCEPTUALES (Ideas) <i class="fas fa-plus"></i></div>
             <div class="accordion-body">
-            <img src="LIBRO/13.png" alt="Maqueta de detalles">
-                Son los elementos que no son visibles, como ideas y conceptos de lo que se pretende construir. Dependen de los planos de arquitectura y la necesidad del diseñador.
-                <br>
+                <p>Son los elementos que no son visibles, como por ejemplo: ideas y conceptos de algo que se pretende construir. Dependen principalmente de los planos y de la necesidad del diseñador.</p>
                 <a href="http://www.aeet.org/ecosistemas" target="_blank" class="source-link"><i class="fas fa-external-link-alt"></i> Fuente: aeet.org/ecosistemas (2006)</a>
             </div>
         </div>
@@ -237,98 +257,107 @@
         <div class="accordion-item">
             <div class="accordion-header" onclick="toggleAccordion(this)">1.3.2 VISUALES <i class="fas fa-plus"></i></div>
             <div class="accordion-body">
-                Son los elementos realmente visibles (forma, medida, color, textura). El ser humano comprende mejor los objetos cuando los observa directamente.
+                <p>Son los elementos realmente visibles. Ayudan al ser humano a comprender mejor las cosas al observarlas directamente. Ejemplos: forma, medida, diseño, color y textura.</p>
                 <div class="img-container">
-                    <img src="LIBRO/14.png" alt="Maqueta de detalles">
-                    <div class="img-caption">Imagen 1.4: Maqueta de detalles.</div>
-                    <a href="http://www.maquetas-profesionales.blogspot.com" target="_blank" class="source-link">Fuente: maquetas-profesionales.blogspot.com</a>
+                    <img src="LIBRO/14.png" alt="Maqueta de detalles" onerror="this.src='https://via.placeholder.com/500x250?text=Imagen+Visuales'">
+                    <div class="img-caption">Imagen 1.4: Representación de detalles y texturas.</div>
                 </div>
+                <a href="http://www.maquetas-profesionales.blogspot.com" target="_blank" class="source-link"><i class="fas fa-external-link-alt"></i> Fuente: maquetas-profesionales.blogspot.com</a>
             </div>
         </div>
 
         <div class="accordion-item">
             <div class="accordion-header" onclick="toggleAccordion(this)">1.3.3 DE RELACIÓN <i class="fas fa-plus"></i></div>
             <div class="accordion-body">
-                Se basan en la ubicación e interrelación de formas: dirección, posición, espacio y gravedad (Relación diseño-espacio).
+                <p>Gobiernan la ubicación e interrelación de formas. Se perciben como dirección y posición, o se sienten como espacio y gravedad (relación diseño-espacio).</p>
                 <div class="img-container">
-                    <img src="LIBRO/15.png" alt="Maqueta de espacios interiores">
+                    <img src="LIBRO/15.png" alt="Maqueta de espacios" onerror="this.src='https://via.placeholder.com/500x250?text=Imagen+Espacios'">
                     <div class="img-caption">Imagen 1.5: Maqueta de espacios interiores.</div>
-                    <a href="http://www.maquetas-profesionales.blogspot.com" target="_blank" class="source-link">Fuente: maquetas-profesionales.blogspot.com</a>
                 </div>
+                <a href="http://www.maquetas-profesionales.blogspot.com" target="_blank" class="source-link"><i class="fas fa-external-link-alt"></i> Fuente: maquetas-profesionales.blogspot.com</a>
             </div>
         </div>
 
         <div class="accordion-item">
             <div class="accordion-header" onclick="toggleAccordion(this)">1.3.4 PRÁCTICOS <i class="fas fa-plus"></i></div>
             <div class="accordion-body">
-                Subyacen al contenido del diseño. Representan el significado de la función y el talento creativo del maquetista.
+                <p>Representan el significado de la función; cuál es la finalidad y uso de la maqueta. Se refieren al talento y creatividad que el artista proyecta en la elaboración.</p>
                 <div class="img-container">
-                    <img src="LIBRO/16.png" alt="Maqueta funcional">
-                    <div class="img-caption">Imagen 1.6: Representación de finalidad y uso.</div>
-                    <a href="http://www.maquetas-profesionales.blogspot.com" target="_blank" class="source-link">Fuente: maquetas-profesionales.blogspot.com</a>
+                    <img src="LIBRO/16.png" alt="Finalidad de la maqueta" onerror="this.src='https://via.placeholder.com/500x250?text=Imagen+Prácticos'">
+                    <div class="img-caption">Imagen 1.6: Talento aplicado a la función.</div>
                 </div>
+                <a href="http://www.maquetas-profesionales.blogspot.com" target="_blank" class="source-link"><i class="fas fa-external-link-alt"></i> Fuente: maquetas-profesionales.blogspot.com</a>
             </div>
         </div>
     </div>
 
     <div id="ventajas" class="content-layer">
-        <h2>Análisis Comparativo</h2>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
-            <div style="background: #e8f5e9; padding: 20px; border-radius: 10px; border-left: 5px solid var(--success);">
-                <h3 style="color: var(--success);"><i class="fas fa-thumbs-up"></i> Ventajas</h3>
-                <ul>
-                    <li>Sustituye al dibujo en etapa inicial.</li>
-                    <li>Instrumento de diseño para analizar volúmenes.</li>
-                    <li>Sistema de comunicación eficiente (según Frank Lloyd Wright).</li>
+        <h2>Ventajas y Desventajas</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 20px;">
+            <div style="background: #f0fdf4; border: 1px solid #bbf7d0; padding: 25px; border-radius: 12px;">
+                <h3 style="color: var(--success); margin-top:0;"><i class="fas fa-check-circle"></i> Ventajas</h3>
+                <ul style="padding-left: 20px;">
+                    <li>Sustituye al dibujo en etapas iniciales.</li>
+                    <li>Es un instrumento de diseño para analizar volúmenes.</li>
+                    <li>Es un sistema de comunicación eficiente (como indicaba Wright).</li>
                 </ul>
             </div>
-            <div style="background: #ffebee; padding: 20px; border-radius: 10px; border-left: 5px solid var(--danger);">
-                <h3 style="color: var(--danger);"><i class="fas fa-exclamation-circle"></i> Desventajas</h3>
-                <ul>
-                    <li>Elaboración sumamente laboriosa.</li>
-                    <li>Materiales caros o difíciles de hallar en el mercado.</li>
-                    <li>Requieren mantenimiento constante contra el polvo.</li>
+            <div style="background: #fef2f2; border: 1px solid #fecaca; padding: 25px; border-radius: 12px;">
+                <h3 style="color: var(--danger); margin-top:0;"><i class="fas fa-times-circle"></i> Desventajas</h3>
+                <ul style="padding-left: 20px;">
+                    <li>Su elaboración es sumamente laboriosa.</li>
+                    <li>Los materiales pueden ser caros o difíciles de hallar.</li>
+                    <li>Requieren mantenimiento constante contra enemigos como el polvo.</li>
                 </ul>
             </div>
         </div>
     </div>
 
     <div id="taller" class="content-layer">
-        <h2>Centro de Cuidados y Gamificación</h2>
+        <h2>Protocolo del Maquetista</h2>
         <div class="quiz-container">
-            <h3><i class="fas fa-vial"></i> Mini-Reto: El Guardián de la Obra</h3>
-            <p>¿Cuál de estos es un enemigo crítico de la maqueta según el texto?</p>
+            <h3><i class="fas fa-gamepad"></i> Mini-Reto de Seguridad</h3>
+            <p>¿Cuál es el enemigo principal de una maqueta según lo estudiado?</p>
             <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 15px;">
-                <button class="tab-btn" onclick="checkAnswer(false, this)">A) Exceso de luz LED</button>
+                <button class="tab-btn" onclick="checkAnswer(false, this)">A) El pegamento blanco</button>
                 <button class="tab-btn" onclick="checkAnswer(true, this)">B) Humedad y Polvo</button>
-                <button class="tab-btn" onclick="checkAnswer(false, this)">C) El color del pegamento</button>
+                <button class="tab-btn" onclick="checkAnswer(false, this)">C) La falta de planos</button>
             </div>
-            <div id="quiz-feedback" style="margin-top: 15px; font-weight: bold;"></div>
+            <div id="quiz-feedback" style="margin-top: 15px; font-weight: bold; min-height: 24px;"></div>
         </div>
 
-        <h3 style="margin-top:30px;">Protocolo de Seguridad (Sección 1.7)</h3>
-        <ul style="list-style: none; padding: 0;">
-            <li style="margin-bottom: 10px;"><i class="fas fa-check-circle" style="color: var(--success);"></i> Mantener libre de rayos solares directos.</li>
-            <li style="margin-bottom: 10px;"><i class="fas fa-check-circle" style="color: var(--success);"></i> Fuera del alcance de los niños.</li>
-            <li style="margin-bottom: 10px;"><i class="fas fa-check-circle" style="color: var(--success);"></i> Cuidado extremo en el traslado y manipulación.</li>
-        </ul>
+        <h3 style="margin-top:40px;"><i class="fas fa-shield-virus"></i> Normas de Conservación (1.7)</h3>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px;">
+            <div style="background: #f8fafc; padding: 15px; border-radius: 8px; border-left: 4px solid var(--accent);">
+                Mantener libre de rayos solares directos para evitar decoloración.
+            </div>
+            <div style="background: #f8fafc; padding: 15px; border-radius: 8px; border-left: 4px solid var(--accent);">
+                Guardar fuera del alcance de los niños para evitar accidentes.
+            </div>
+            <div style="background: #f8fafc; padding: 15px; border-radius: 8px; border-left: 4px solid var(--accent);">
+                Tener cuidado extremo durante el traslado y manipulación.
+            </div>
+        </div>
     </div>
 </div>
 
 <script>
+    // Navegación
     function showLayer(id) {
         document.querySelectorAll('.content-layer').forEach(layer => layer.classList.remove('active'));
         document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+        
         document.getElementById(id).classList.add('active');
         event.currentTarget.classList.add('active');
     }
 
+    // Acordeón
     function toggleAccordion(header) {
         const body = header.nextElementSibling;
         const icon = header.querySelector('i');
         const isOpen = body.style.display === "block";
         
-        // Cerrar otros
+        // Cerrar todos antes de abrir el seleccionado
         document.querySelectorAll('.accordion-body').forEach(b => b.style.display = "none");
         document.querySelectorAll('.accordion-header i').forEach(i => i.classList.replace('fa-minus', 'fa-plus'));
 
@@ -338,6 +367,7 @@
         }
     }
 
+    // Calculadora
     function calculateScale() {
         const real = document.getElementById('realSize').value;
         const scale = document.getElementById('scaleValue').value;
@@ -345,21 +375,22 @@
 
         if (real && scale && scale > 0) {
             const resultCm = (real / scale) * 100;
-            resultArea.innerHTML = `<i class="fas fa-ruler"></i> Medida en maqueta: ${resultCm.toFixed(2)} cm`;
+            resultArea.innerHTML = `<i class="fas fa-ruler-combined"></i> Medida en maqueta: ${resultCm.toFixed(2)} cm`;
         } else {
             resultArea.innerHTML = "";
         }
     }
 
+    // Gamificación
     function checkAnswer(isCorrect, btn) {
         const feedback = document.getElementById('quiz-feedback');
         if (isCorrect) {
-            feedback.innerHTML = "¡Correcto! La humedad y el polvo son los principales factores de riesgo.";
+            feedback.innerHTML = "✅ ¡Correcto! La humedad y el polvo son factores críticos de riesgo.";
             feedback.style.color = "var(--success)";
             btn.style.background = "var(--success)";
             btn.style.color = "white";
         } else {
-            feedback.innerHTML = "Inténtalo de nuevo. Revisa la sección 1.7.";
+            feedback.innerHTML = "❌ Inténtalo de nuevo. Revisa los cuidados del taller.";
             feedback.style.color = "var(--danger)";
             btn.style.background = "var(--danger)";
             btn.style.color = "white";
