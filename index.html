@@ -3,145 +3,129 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Maquetas para Principiantes - Colección Dorada</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <title>Libro Interactivo: Maquetas para Principiantes</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
     <style>
-        :root {
-            --gold: #d4af37;
-            --dark-blue: #1a252f;
-            --soft-white: #f4f7f6;
+        body {
+            background: linear-gradient(135deg, #e3f2fd, #f1f8e9);
         }
 
-        body { 
-            background: var(--dark-blue); 
-            color: white; 
-            font-family: 'Garamond', serif; 
-            scroll-behavior: smooth;
+        .hero-section {
+            background-color: #0d47a1;
+            color: white;
+            padding: 60px 20px;
         }
 
-        /* Portada con tu imagen MAT.png */
-        .book-cover { 
-            min-height: 100vh; 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            flex-direction: column; 
-            text-align: center;
-            /* Aquí se vincula tu imagen */
-            background: linear-gradient(rgba(26, 37, 47, 0.7), rgba(26, 37, 47, 0.7)), 
-                        url('LIBRO/MAT.png');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            border-bottom: 5px solid var(--gold);
-        }
-
-        .gold-text { color: var(--gold); text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
-        
-        .content-section { 
-            background: white; 
-            color: #333; 
-            padding: 80px 20px; 
-        }
-
-        .text-container { max-width: 800px; margin: auto; line-height: 1.8; text-align: justify; }
-
-        .chapter-grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
-            gap: 15px; 
-            padding: 40px 0; 
-        }
-
-        .btn-chapter { 
-            background: var(--dark-blue); 
-            color: var(--gold); 
-            padding: 15px; 
-            border: 1px solid var(--gold);
-            border-radius: 8px; 
-            text-decoration: none; 
-            font-weight: bold; 
-            transition: 0.3s; 
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .btn-chapter:hover { 
-            background: var(--gold); 
-            color: var(--dark-blue); 
-            transform: translateY(-3px); 
-        }
-
-        h2.section-title {
-            text-align: center;
-            color: var(--dark-blue);
-            margin-bottom: 40px;
+        .hero-section h1 {
             font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 2px;
         }
 
-        .divider { width: 100px; height: 3px; background: var(--gold); margin: 20px auto; }
+        .portada-img {
+            max-width: 300px;
+            border-radius: 15px;
+            box-shadow: 0px 10px 25px rgba(0,0,0,0.3);
+        }
+
+        .intro-section {
+            background-color: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0px 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .chapter-link {
+            text-decoration: none;
+            font-weight: bold;
+            color: #1565c0;
+        }
+
+        .chapter-link:hover {
+            color: #2e7d32;
+        }
+
+        footer {
+            background-color: #0d47a1;
+            color: white;
+            padding: 20px;
+        }
     </style>
 </head>
 <body>
 
-    <section class="book-cover">
-        <h1 class="display-1 fw-bold mb-0 text-white" style="text-shadow: 3px 3px 10px rgba(0,0,0,0.8);">MAQUETAS PARA PRINCIPIANTES</h1>
-        <div class="divider"></div>
-        <h3 class="gold-text mb-4">Colección Dorada - Vol. I</h3>
-        <p class="lead mb-5 text-light">Por <strong>Ignacio López Torres</strong></p>
-        <a href="#indice" class="btn btn-warning px-5 py-3 rounded-pill fw-bold shadow">EMPEZAR LECTURA</a>
-    </section>
-
-    <section class="content-section" style="background-color: var(--soft-white);">
-        <div class="text-container">
-            <h2 class="section-title">Dedicatoria</h2>
-            <p class="fst-italic text-center">
-                A Dios, a mis padres, Crescenciano y Gaudencia, a mis hermanos; Yesenia, Rafael y Soledad, a mis sobrinos; Daniela Guadalupe, Rafael, Ariadna, Emmanuel, Alejandro, José Antonio, José Armando, Ismael, Victoria y Josué, a mis cuñados; Renata y Francisco.
-            </p>
-            <p class="fst-italic text-center mt-3">A todos mis amigos, amigas y alumnos que me apoyaron.</p>
-        </div>
-    </section>
-
-    <section class="content-section">
-        <div class="text-container">
-            <h2 class="section-title">Agradecimientos</h2>
-            <p>Este espacio lo aprovecharé para expresar mis más sinceros agradecimientos a quienes hicieron posible la realización de este sueño. Después de 5 años y 11 meses de trabajo, dedicación y perseverancia, deseo agradecer:</p>
-            
-            <p><strong>A DIOS</strong>, por las palabras que puso en mí y la paciencia para soportar este gran trabajo.</p>
-            <p><strong>A mis padres, Gaudencia y Crescenciano</strong>, por sostener la cuerda en la cual yo caminaba y por su apoyo económico y moral.</p>
-            <p><strong>A mis hermanos</strong>: Yesenia, Rafael y Soledad, por los ánimos, el apoyo económico y las fotografías que ilustran esta obra.</p>
-            <p><strong>A mis sobrinos</strong>: Por su increíble ayuda tomando fotografías y realizando acabados en las maquetas cuando más se necesitaba.</p>
-
-            <p>Un agradecimiento especial al <strong>Ing. Ricardo B. Cervantes</strong>, al <strong>Arq. Raúl Hernández</strong> por el prólogo, y a todos los catedráticos del <strong>Tecnológico Nacional de México, Campus Zacatepec</strong>, mi alma mater.</p>
-        </div>
-    </section>
-
-    <section id="indice" class="content-section" style="background-color: var(--soft-white); border-top: 1px solid #ddd;">
+    <!-- PORTADA -->
+    <section class="hero-section text-center">
         <div class="container">
-            <h2 class="section-title">Índice de Contenido</h2>
-            <div class="chapter-grid">
-                <a href="CAPITULO1.html" class="btn-chapter"><span>CAP I: Introducción</span> <i class="bi bi-chevron-right"></i></a>
-                <a href="CAPITULO2.html" class="btn-chapter"><span>CAP II: Tipos de Maqueta</span> <i class="bi bi-chevron-right"></i></a>
-                <a href="CAPITULO3.html" class="btn-chapter"><span>CAP III: Planometría</span> <i class="bi bi-chevron-right"></i></a>
-                <a href="CAPITULO4.html" class="btn-chapter"><span>CAP IV: Materiales</span> <i class="bi bi-chevron-right"></i></a>
-                <a href="CAPITULO5.html" class="btn-chapter"><span>CAP V: Herramental</span> <i class="bi bi-chevron-right"></i></a>
-                <a href="CAPITULO6.html" class="btn-chapter"><span>CAP VI: Geometría Aplicada</span> <i class="bi bi-chevron-right"></i></a>
-                <a href="CAPITULO7.html" class="btn-chapter"><span>CAP VII: Escalas y Costos</span> <i class="bi bi-chevron-right"></i></a>
-                <a href="CAPITULO8.html" class="btn-chapter"><span>CAP VIII: Elaboración</span> <i class="bi bi-chevron-right"></i></a>
-                <a href="CAPITULO9.html" class="btn-chapter"><span>CAP IX: Vegetación</span> <i class="bi bi-chevron-right"></i></a>
-                <a href="CAPITULO10.html" class="btn-chapter"><span>CAP X: Escala Humana</span> <i class="bi bi-chevron-right"></i></a>
+            <h1>MAQUETAS PARA PRINCIPIANTES</h1>
+            <h4>Volumen I</h4>
+            <p class="mt-3">Libro Interactivo Educativo</p>
+
+            <!-- Imagen portada -->
+            <img src="LIBRO/Portada.png" alt="Portada del libro" class="portada-img mt-4">
+
+            <div class="mt-4">
+                <a href="#introduccion" class="btn btn-light btn-lg">Comenzar Lectura</a>
             </div>
         </div>
     </section>
 
-    <footer class="text-center py-4 bg-dark text-white-50">
-        <small>&copy; 2026 Colección Dorada - Ignacio López Torres</small>
+    <!-- INTRODUCCIÓN -->
+    <section id="introduccion" class="container my-5">
+        <div class="intro-section">
+
+            <h2 class="text-center mb-4 text-primary"><b>INTRODUCCIÓN</b></h2>
+
+            <p><b>El desarrollo del libro se compone de 10 capítulos fundamentales</b> que guían al lector desde los conceptos básicos hasta la elaboración completa de una maqueta arquitectónica.</p>
+
+            <hr>
+
+            <h4 class="text-success">📘 TEMARIO</h4>
+
+            <p><b>Capítulo 1:</b> <a href="CAP1.html" class="chapter-link">Introducción a las maquetas</a><br>
+            Se explica detalladamente qué es una maqueta, cuál es su objetivo, los elementos que la componen, su finalidad, así como sus ventajas y desventajas.</p>
+
+            <p><b>Capítulo 2:</b> <a href="CAP2.html" class="chapter-link">Tipos de maquetas</a><br>
+            Se estudian los diferentes tipos de maquetas: de edificación, urbanismo, edificios, estructuras, comerciales, espacios interiores, volumétricas, detalladas, semidetalladas, técnicas, conceptuales y dinámicas.</p>
+
+            <p><b>Capítulo 3:</b> <a href="CAP3.html" class="chapter-link">Interpretación de planos arquitectónicos</a><br>
+            Se aprende a leer y comprender planos arquitectónicos, base fundamental para poder elaborar una maqueta correctamente.</p>
+
+            <p><b>Capítulo 4:</b> <a href="CAP4.html" class="chapter-link">Materiales</a><br>
+            Se describen los materiales utilizados en la elaboración de maquetas, organizados según su tipo y características.</p>
+
+            <p><b>Capítulo 5:</b> <a href="CAP5.html" class="chapter-link">Herramientas necesarias</a><br>
+            Se presentan las herramientas básicas y especializadas para medir, marcar y trabajar.</p>
+
+            <p><b>Capítulo 6:</b> <a href="CAP6.html" class="chapter-link">Técnicas de corte manual</a><br>
+            Se enseñan técnicas básicas para el corte manual de piezas y normas importantes de seguridad.</p>
+
+            <p><b>Capítulo 7:</b> <a href="CAP7.html" class="chapter-link">Escalas y acotaciones</a><br>
+            Se explica qué es una escala, los tipos de escalas y cómo aplicarlas correctamente.</p>
+
+            <p><b>Capítulo 8:</b> <a href="CAP8.html" class="chapter-link">Elaboración de maquetas</a><br>
+            Se desarrolla el proceso práctico de construcción mediante ejercicios progresivos.</p>
+
+            <p><b>Capítulo 9:</b> <a href="CAP9.html" class="chapter-link">Acabados internos y externos</a><br>
+            Se estudian los diferentes tipos de acabados reales aplicados a maquetas.</p>
+
+            <p><b>Capítulo 10:</b> <a href="CAP10.html" class="chapter-link">Vegetación o paisajismo</a><br>
+            Se explica qué es la vegetación en maquetas y cómo utilizarla correctamente.</p>
+
+            <hr>
+
+            <p class="text-center"><b>Estos 10 capítulos conforman una guía completa</b> que permite al lector adquirir conocimientos teóricos y prácticos para elaborar maquetas de manera profesional y estructurada.</p>
+
+        </div>
+    </section>
+
+    <footer class="text-center">
+        © 2026 Libro Interactivo - Maquetas para Principiantes
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>
